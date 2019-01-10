@@ -15,6 +15,7 @@ sorry
 oryt :D
 
 
+<<<<<<< HEAD
 okay na ! :)
 
 okay :D 
@@ -32,3 +33,7 @@ sige pooooooooo
 
 ang sakit nito sa ulo haha
 sige po, okay na yung github, mya ulit haha
+=======
+
+Testing new code/text at 9:10am Jan/10/2019 - Carlo
+>>>>>>> 4c2fb1964dd696fb71bb1ab0f47e4b9c3703272e
