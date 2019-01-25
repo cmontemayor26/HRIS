@@ -6,62 +6,114 @@
 
 @RenderPage("Navigation.cshtml")
 
-<head>
-    
-</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dashboard').css({ 'background-color': '#37474F' });
+    });
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
 
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Absence', 'Late'],
+            ['Jan', 1, 3],
+            ['Feb', 2, 5],
+            ['Mar', 3, 0],
+            ['Apr', 4, 2],
+            ['May', 3, 0],
+            ['June', 3, 0],
+            ['July', 3, 6],
+            ['Aug', 3, 1],
+            ['Sep', 3, 3],
+            ['Oct', 3, 5],
+            ['Nov', 3, 0],
+            ['Dec', 3, 1]
+        ]);
+
+        var options = {
+            title: 'Average Attendance',
+            legend: { position: 'right' }
+        };
+        options.chartArea = { left: '2%' };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+    }
+</script>
 <div class="container">
-    <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-        <thead class="thead-dark">
-            <tr>
-                <th>Date</th>
-                <th>Present</th>
-                <th>Absent</th>
-                <th>Late</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">January 21, 2019</th>
-                <td>50</td>
-                <td>10</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <th scope="row">January 22, 2019</th>
-                <td>26</td>
-                <td>13</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <th scope="row">January 23, 2019</th>
-                <td>98</td>
-                <td>10</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <th scope="row">January 24, 2019</th>
-                <td>85</td>
-                <td>6</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <th scope="row">January 25, 2019</th>
-                <td>63</td>
-                <td>14</td>
-                <td>2</td>
-            </tr>
 
-        </tbody>
-    </table>
+    <div class='row'>
+        <div class='md-col-4'>
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="card" style="width: 600px;left: 0;margin-right: 10px;">
+        <div class="card-body">
+            <h4 class="card-title">Monthly</h4>
+            <div id="curve_chart" style="left: 0;width: 570px; height: 262px"></div>
+        </div>
+    </div>
+    <div class="card" style="height: 315px;width: 500px;left: 0;">
+        <div class="card-body">
+            <h4 class="card-title">Daily</h4>
+            <table id="dtBasicExample" class="table table-hover" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Date</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Late</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">January 21, 2019</th>
+                        <td>50</td>
+                        <td>10</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">January 22, 2019</th>
+                        <td>26</td>
+                        <td>13</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">January 23, 2019</th>
+                        <td>98</td>
+                        <td>10</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">January 24, 2019</th>
+                        <td>85</td>
+                        <td>6</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">January 25, 2019</th>
+                        <td>63</td>
+                        <td>14</td>
+                        <td>2</td>
+                    </tr>
 
-        <table class="table table-sm-responsive"><!-- ... --></table>
-        <table class="table table-md-responsive"><!-- ... --></table>
-        <table class="table table-lg-responsive"><!-- ... --></table>
-        <table class="table table-xl-responsive"><!-- ... --></table>
+                </tbody>
+            </table>
 
-</div>
+            <table class="table table-sm-responsive"><!-- ... --></table>
+            <table class="table table-md-responsive"><!-- ... --></table>
+            <table class="table table-lg-responsive"><!-- ... --></table>
+            <table class="table table-xl-responsive"><!-- ... --></table>
+
+        </div>
+        </div>
+    </div>
 
 
 
-@RenderPage("Footer.cshtml")
+    @RenderPage("Footer.cshtml")

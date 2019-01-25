@@ -248,43 +248,7 @@ i.fa {
 	opacity: .6 !important;
 }
 
-.cards {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 50px;
 
-    
-}
-.cards h2{
-	font-size: 18px;
-	font-weight: bold;
-	font-family: Helvetica,Arial,sans-serif;
-	display: inline;
-}
-.cards li {
-    background-color: transparent;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    
-}
-.margin-left{
-    padding-left: 20px;
-    max-width: 180px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.margin-left:hover{
-    overflow: visible;
-    white-space: normal;
-}
-.bold{
-   	font-weight: bold;
-}
 hr {
     display: block;
     height: 1px;
@@ -293,63 +257,7 @@ hr {
     margin: 1em 0;
     padding: 0; 
 }
-td {
-	padding-bottom: 20px;
-	font-size: 15px;
 
-}
-.btn-file {
-    position: relative;
-    overflow: hidden;
-}
-.btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;   
-    cursor: inherit;
-    display: block;
-}
-.edit {
-	display: inline;
-	float: right;
-}
-
-@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css");
-.overview-container {
-
-    box-shadow: 0 0 10px black;
-    padding:0 15px 0 15px;
-    height: 500px;
-    width: 1200px;
-    margin-bottom: 80px;
-}
-.leave-container {
-
-	margin-bottom: 200px;
-    box-shadow: 0 0 10px black;
-    padding:0 15px 0 15px;
-    height: 500px;
-    width: 1200px;
-    margin-bottom: 80px;
-    padding-left: 50px;
-    
-}
-
-.approved {
-	color: green;
-	text-align: center;
-}
-.Denied {
-	color: red;
-	text-align: center;
-}
 footer {
     position: fixed;
     left: 0;
@@ -358,4 +266,17 @@ footer {
     background-color: white;
     color: black;
     text-align: center;
+}
+.card {
+    float: left;
+    display: inline;
+}
+.card:hover {
+    
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+#dtBasicExample {
+    float: left; 
 }
