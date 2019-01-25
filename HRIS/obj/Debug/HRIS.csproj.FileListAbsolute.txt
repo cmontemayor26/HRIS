@@ -68,3 +68,4 @@ C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csproj.CoreCompileInputs.ca
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csproj.CopyComplete
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.pdb
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csprojAssemblyReference.cache
