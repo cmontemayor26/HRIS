@@ -13,5 +13,9 @@ namespace HRIS.Controllers
         {
             return View();
         }
+        public ActionResult AddApplicant()
+        {
+            return View();
+        }
     }
 }
