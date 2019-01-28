@@ -111,9 +111,60 @@
             <table class="table table-xl-responsive"><!-- ... --></table>
 
         </div>
-        </div>
     </div>
 
 
 
+    <script>
+        google.charts.load('current', { packages: ['corechart', 'bar'] });
+        google.charts.setOnLoadCallback(drawStacked);
+
+        function drawStacked() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Departments');
+            data.addColumn('number', 'Departments');
+
+            data.addRows([
+                ['Admin', 12],
+                ['IT', 11],
+                ['Legal', 3],
+                ['Business Services', 103],
+                ['Financial', 89],
+                ['Accouting', 124]
+            ]);
+
+            var options = {
+                title: 'Number of Employees by Deparment',
+                isStacked: true,
+                height: 600,
+                chartArea: {
+                    height: 300,
+                    top: 100,
+                },
+                hAxis: {
+                    title: 'Name of Department',
+                    titleTextStyle: {
+                        color: '#111',
+                    },
+
+                    slantedText: true,
+                    slantedTextAngle: 45,
+
+                },
+                vAxis: {
+                    title: 'Employees'
+                }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <div class="card" style="height: 650px;width: 600px;left: 0;margin-top: 10px;">
+        <div class="card-body">
+            <h4 class="card-title">Number of Employees by Deparment</h4>
+            <div id="chart_div" style="left: 0;width: 570px; height: 400px"></div>
+        </div>
+    </div>
+</div>
     @RenderPage("Footer.cshtml")
