@@ -1,0 +1,34 @@
+﻿.container-fluid {
+    font-family: 'Segoe UI',sans-serif;
+    font-size: 10px;
+}
+.container-fluid .box{
+    width: 25%;
+    float: left;
+}
+
+.card-body .chart {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+    line-height: 110px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.container-fluid .card-body canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-deck h3 {
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.text-right .btn {
+    font-family: 'Source Sans Pro', sans-serif;
+}
