@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace HRIS.Controllers
 {
-    public class DashboardController : Controller
+    public class AdminController : Controller
     {
-        // GET: Dashboard
+        // GET: Admin
         public ActionResult Dashboard()
         {
             return View();

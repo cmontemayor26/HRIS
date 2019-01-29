@@ -1,0 +1,147 @@
+﻿
+@{
+    Layout = null;
+}
+
+@RenderPage("Navigation.cshtml")
+
+<style>
+    td {
+        padding-right: 50px;
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+
+    table {
+    }
+</style>
+<div class="container">
+    <form>
+
+        <div class='row'>
+            <div class='md-col-4'>
+                <h1>Applicant Information</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <!-- Full Name -->
+            <div class='row'>
+                <div class='md-col-4'>
+                    <br>
+                    <h2>Basic Information</h2>
+                    <br>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">First Name</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Middle Name</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Last Name</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Birth Date</label>
+                        <input type="date" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Marital Status</label>
+                        <select class="form-control" id="state_id">
+                            <option value="AL">Single</option>
+                            <option value="AK">Married</option>
+                            <option value="AZ">Widow</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Position Applied for</label>
+                        <select name="position" class="form-control" id="state_id" required>
+                            <option value=""></option>
+                            <option value="Associate Accountant">Associate Accountant</option>
+                            <option value="Associate Financial Planner">Associate Financial Planner</option>
+                            <option value="Associate Legal Process Specialist">Associate Legal Process Specialist</option>
+                            <option value="Associate SMSF Accountant">Associate SMSF Accountant</option>
+                            <option value="Senior SMSF Admin">Senior SMSF Admin</option>
+                            <option value="Senior SMSF Auditor">Senior SMSF Auditor</option>
+                            <option value="Senior Accountant">Senior Accountant</option>
+                            <option value="Senior Financial Planner">Senior Financial Planner</option>
+                            <option value="Associate IT Specialist">Associate IT Specialist</option>
+                            <option value="Senior IT Administrator">Senior IT Administrator</option>
+                            <option value="Associate Web Developer">Associate Web Developer</option>
+                            <option value="Associate Video Editor">Associate Video Editor</option>
+                            <option value="Associate Java Developer">Associate Java Developer</option>
+                            <option value="Sales Support Secialist-GBS">Sales Support Secialist-GBS</option>
+                            <option value="Support Specialist-GBS">Support Specialist-GBS</option>
+                            <option value="Team Leader-GBS">Team Leader-GBS</option>
+                            <option value="Supervisor-GBS">Supervisor-GBS</option>
+                            <option value="Lead Generator Specialist-GBS">Lead Generator Specialist-GBS</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class='row'>
+                <div class='md-col-4'>
+                    <br>
+                    <h2>Contact Information</h2>
+                    <br>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Street Address 1</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Street Address 2</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">City</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Province</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Zip Code</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Phone Number</label>
+                        <input type="text" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Email</label>
+                        <input type="email" class="form-control" id="full_name_id" name="full_name">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" style="height: 50px;width: 100px;font-size: 18px;" class="btn btn-primary">Save!</button>
+
+
+    </form>
+</div>
+
+@RenderPage("Footer.cshtml")
