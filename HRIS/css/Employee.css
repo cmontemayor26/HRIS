@@ -1,4 +1,7 @@
-﻿.container-fluid {
+﻿.navbar-nav > li > a {
+    display: inline;
+}
+.container-fluid {
     font-family: 'Segoe UI',sans-serif;
     font-size: 10px;
 }
@@ -31,4 +34,9 @@
 
 .text-right .btn {
     font-family: 'Source Sans Pro', sans-serif;
+}
+i.fa {
+    padding: 0;
+    width: auto;
+
 }
