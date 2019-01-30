@@ -1,0 +1,58 @@
+﻿@model System.Data.DataTable
+@{
+    Layout = null;
+
+}
+@RenderPage("Navigation.cshtml")
+<style>
+    .input-group {
+        display: flex;
+    }
+    h1 {
+        display: inherit;
+        text-align: left;
+    }
+</style>
+<div class="container">
+    <br>
+    <div class='row'>
+        <div class='md-col-4'>
+            <h1>Search User</h1>
+        </div>
+    </div>
+    <div class="form-group">
+        <form>
+            <div class="input-group mb-1">
+                <input type="text" class="form-control" style="height: 50px;" placeholder="Search Email" aria-label="Search Email" aria-describedby="basic-addon2">
+
+                <button class="btn btn-primary" style="height: 50px;" type="button">Search</button>
+            </div>
+        </form>
+        <br />
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("AddUser","Admin")'">Add User</button>
+        <br />
+        <br />
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Row</th>
+                    <th>Email</th>
+                    <th>User Level</th>
+                </tr>
+            </thead>
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+                <tbody>
+                    <tr>
+                        <td>@i</td>
+                        <td>@Model.Rows[i][1]</td>
+                        <td>@Model.Rows[i][2]</td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+
+    </div>
+</div>
+
+    @RenderPage("Footer.cshtml")
