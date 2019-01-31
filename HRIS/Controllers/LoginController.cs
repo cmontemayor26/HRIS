@@ -67,7 +67,7 @@ namespace HRIS.Controllers
         [HttpPost]
         public ActionResult Index(Login lg)
         {
-            string mainconn = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
+            string mainconn = @"Data Source = DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
             SqlConnection sqlconn = new SqlConnection(mainconn);
             string sqlquery = " select * from [dbo].[User] where Email = @email and Password = @password";
             sqlconn.Open();

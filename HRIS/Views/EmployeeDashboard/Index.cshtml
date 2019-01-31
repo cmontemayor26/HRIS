@@ -1,4 +1,4 @@
-﻿
+﻿@model HRIS.Models.Biometric
 @{
     Layout = null;
 }
@@ -14,208 +14,21 @@
 
 <div class="container-fluid">
     <br />
+        <div class="row">
+            <div class="col-sm-3 col-md-6 col-lg-4">
+               
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    @using (Html.BeginForm())
+                    {
+                        <h3>Employee ID Number: </h3>
+                        @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
 
-    <div class="row">
-        <div class="col-sm-3 col-md-6 col-lg-4">
-            <div class="shadow p-3 mb-5 bg-white rounded">
-                <h3>Start Date: </h3><input id="startDate" />
-                <h3>End Date: </h3><input id="endDate" /> <br>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>In/Out</th>
+                        <h3>Start Date: </h3><input id="startDate" />
+                        <h3>End Date: </h3><input id="endDate" /> <br>
+                        <div class="text-right">
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>6:40 AM</td>
-                            <td>I</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>4:01 PM</td>
-                            <td>O</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <div class="text-right">
-                    <button type="button" class="btn btn-success btn-lg">Export</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-9 col-md-6 col-lg-8">
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Monthly Lates</h3>
-                        <div class="chart" data-percent="10">2 </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Monthly Absences</h3>
-                        <div class="chart" data-percent="25">5 </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Available Leave</h3>
-                        <div class="chart" data-percent="84">2 </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h3>Available GP</h3>
-                        <div class="chart" data-percent="90">1 </div>
-                    </div>
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="card" style="width:100%; height:625px">
-                        <div class="card-body">
-                            <h3>Online Application Forms</h3>
-                            <div class="row" style="font-family: 'Source Sans Pro', sans-serif;">
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                   
-                                </div>
-                                <div class="col-sm-6 col-md-6 col-lg-6">
-                                   
-                                </div>
-                            </div>
-                            
+                            <button type="submit" class="btn btn-info" style="width:100px;">FILTER</button>
                         </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</div>
-
-
-<script>
-    //OUT will turn RED
-    $(document).ready(function () {
-        $('table tbody tr').each(function () {
-            if ($(this).find('td').eq(1).text() == 'O') {
-                $(this).css('background', 'LightPink ');
-            }
-        });
-    });
-
-    //IN will turn GREEN
-    $(document).ready(function () {
-        $('table tbody tr').each(function () {
-            if ($(this).find('td').eq(1).text() == 'I') {
-                $(this).css('background', 'LightGreen');
-            }
-        });
-    });
-
-    var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-    $('#startDate').datepicker({
-        uiLibrary: 'bootstrap4',
-        iconsLibrary: 'fontawesome',
-
-        maxDate: function () {
-            return $('#endDate').val();
-        }
-    });
-    $('#endDate').datepicker({
-        uiLibrary: 'bootstrap4',
-        iconsLibrary: 'fontawesome',
-        minDate: function () {
-            return $('#startDate').val();
-        }
-    });
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="~/Scripts/jquery.easypiechart.js"></script>
-
-<script>
-    $(function () {
-        $('.chart').easyPieChart({
-            barColor: function (percent) {
-                return (percent < 25 ? '#00a300' : percent < 50 ? '#ffc40d' : percent < 85 ? '#da532c' : '#ee1111');
-            },
-
-            onStep: function (from, to, percent) {
-                $(this.el).find('.percent').text(Math.round(percent));
-            }
-        });
-    });
-</script>
-
+                    }
+                    <br>
+                    @RenderPage("Biolist.cshtml")

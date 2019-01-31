@@ -15,7 +15,7 @@ namespace HRIS.Controllers
 {
     public class AdminController : Controller
     {
-        string connectionString = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
+        string connectionString = @"Data Source =DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
         // Encryption
         private string Encrypt(string clearText)
         {
