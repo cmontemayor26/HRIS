@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIOMETRICModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BIOMETRIC.dbo.qryCheckInOut' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="qryCheckInOut">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="CHECKTIME" />
+    </Key>
+    <Property Name="Expr1" Type="int" Nullable="false" />
+    <Property Name="Badgenumber" Type="nvarchar" MaxLength="24" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="CHECKTIME" Type="datetime" Nullable="false" />
+    <Property Name="CHECKTYPE" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityContainer Name="BIOMETRICModelStoreContainer">
+    <EntitySet Name="qryCheckInOut" EntityType="Self.qryCheckInOut" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [qryCheckInOut].[Expr1] AS [Expr1], 
+    [qryCheckInOut].[Badgenumber] AS [Badgenumber], 
+    [qryCheckInOut].[Name] AS [Name], 
+    [qryCheckInOut].[CHECKTIME] AS [CHECKTIME], 
+    [qryCheckInOut].[CHECKTYPE] AS [CHECKTYPE]
+    FROM [dbo].[qryCheckInOut] AS [qryCheckInOut]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

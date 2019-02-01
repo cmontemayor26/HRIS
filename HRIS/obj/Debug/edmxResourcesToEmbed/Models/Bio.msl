@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BIOMETRICModelStoreContainer" CdmEntityContainer="BIOMETRICEntities">
+    <EntitySetMapping Name="qryCheckInOuts">
+      <EntityTypeMapping TypeName="BIOMETRICModel.qryCheckInOut">
+        <MappingFragment StoreEntitySet="qryCheckInOut">
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+          <ScalarProperty Name="Badgenumber" ColumnName="Badgenumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CHECKTIME" ColumnName="CHECKTIME" />
+          <ScalarProperty Name="CHECKTYPE" ColumnName="CHECKTYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
