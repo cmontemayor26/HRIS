@@ -1,9 +1,7 @@
-﻿
-@model IEnumerable<HRIS.Models.qryCheckInOut>
-
-
+﻿@model IEnumerable<HRIS.Models.qry>
 @{
     Layout = null;
+
 
 }
 @RenderPage("Navigation_top.cshtml")
@@ -22,24 +20,23 @@
                 @using (Html.BeginForm("Index", "EmployeeDashboard", FormMethod.Post))
                 {
                     <h3>Employee ID Number: </h3>
-                    @Html.TextBox("empNum")
+                    @Html.TextBox("empNum", "", new { @id = "formGroupExampleInput", @class = "form-control" })
                     <h3>Start Date: </h3>
-                    @Html.TextBox("dateFrom", String.Format("{0:yyyy/MM/dd}", ""), new { @id = "startDate"}) 
+                    @Html.TextBox("dateFrom", String.Format("{0:MM/dd/yyyy}", ""), new { @id = "startDate" })
                     <h3>End Date: </h3>
-                    @Html.TextBox("dateTo", String.Format("{0:yyyy/MM/dd}", ""), new { @id = "endDate" })
+                    @Html.TextBox("dateTo", String.Format("{0:MM/dd/yyyy}", ""), new { @id = "endDate" })
                     <br>
                     <div class="text-right">
-                        <input type="submit" value="Search" class="btn btn-info" style="width:100px;">
+                        <input type="submit" value="Search" class="btn btn-info" style="width:100px; height:40px; font-size:medium">
                     </div>
                 }
-                <br>
-
-                <div style="height: 540px; overflow: auto;">
-                    <table class="table table-hover">
+           
+                <div style="height: 465px; overflow: auto;">
+                    <table class="table table-hover" style="text-align:left">
                         <thead class="thead-dark">
                             <tr>
                                 <th>Date</th>
-                                <th>Time</th>   
+                                <th>Time</th>
                                 <th>In/Out</th>
                             </tr>
                         </thead>
@@ -57,8 +54,9 @@
                                 foreach (var item in Model)
                                 {
                                     <tr>
-                                        <th scope="row">@item.checkdate</th>
-                                        <td>@item.checktime</td>
+                                        <th scope="row">@item.CHECKTIME.ToString("MM/dd/yyyy")</th>
+
+                                        <td>@item.CHECKTIME.ToString("HH:mm tt")</td>
                                         <td>@item.CHECKTYPE</td>
                                     </tr>
                                 }
@@ -66,7 +64,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                <br>
                 <div class="text-right">
                     <button type="button" class="btn btn-success btn-lg">Export</button>
                 </div>

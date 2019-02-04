@@ -25,6 +25,6 @@ namespace HRIS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<qryCheckInOut> qryCheckInOuts { get; set; }
+        public virtual DbSet<qry> qries { get; set; }
     }
 }
