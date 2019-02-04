@@ -12,13 +12,11 @@ namespace HRIS.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class qryCheckInOut
+    public partial class qry
     {
-        public int Expr1 { get; set; }
         public string Badgenumber { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> checkdate { get; set; }
-        public Nullable<System.TimeSpan> checktime { get; set; }
+        public System.DateTime CHECKTIME { get; set; }
         public string CHECKTYPE { get; set; }
     }
 }
