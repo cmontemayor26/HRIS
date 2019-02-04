@@ -15,7 +15,7 @@ namespace HRIS.Controllers
 {
     public class AdminController : Controller
     {
-        string connectionString = @"Data Source =DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
+        string connectionString = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
         // Encryption
         private string Encrypt(string clearText)
         {
@@ -65,13 +65,8 @@ namespace HRIS.Controllers
         [HttpGet]
         public ActionResult UserList()
         {
-            DataTable listuser = new DataTable();
-            using (SqlConnection SqlCon = new SqlConnection(connectionString)) {
-                SqlCon.Open();
-                SqlDataAdapter sqlDa = new SqlDataAdapter("SELECT * FROM [User]", SqlCon);
-                sqlDa.Fill(listuser);
-            }
-                return View(listuser);
+            UserModelEntities db = new UserModelEntities();
+            return View(db.Users.ToList());
         }
         public ActionResult Dashboard()
         {
@@ -84,21 +79,87 @@ namespace HRIS.Controllers
         [HttpGet]
         public ActionResult AddUser()
         {
-            return View(new UserModel());
+            UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
+            var getuserlist = userDropdownEntities.Dropdowns.ToList();
+            SelectList list = new SelectList(getuserlist.Where(o => o.DropdownType == "Userlevel"), "DropdownName", "DropdownName");
+            ViewBag.userlist = list;
+            return View();
         }
         [HttpPost]
         public ActionResult AddUser(UserModel userModel)
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString)) {
                 sqlCon.Open();
-                string query = "INSERT INTO [User] VALUES(@Email,@UserLevel,@Password)";
+                string query = " select * from [dbo].[User] where Email = @email";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@Email", userModel.Email);
-                sqlCmd.Parameters.AddWithValue("@UserLevel", userModel.Userlevel);
-                sqlCmd.Parameters.AddWithValue("@Password", Encrypt(userModel.Password));
-                sqlCmd.ExecuteNonQuery();
+                SqlDataReader sdr = sqlCmd.ExecuteReader();
+                if (sdr.Read())
+                {
+                    TempData["error"] = "Email already taken!";
+                }
+                else {
+                    sdr.Close();
+                    string querys = "INSERT INTO [User] VALUES(@Email,@UserLevel,@Password,@EmployeeNumber)";
+                    SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
+                    sqlCmds.Parameters.AddWithValue("@Email", userModel.Email);
+                    sqlCmds.Parameters.AddWithValue("@UserLevel", userModel.Userlevel);
+                    sqlCmds.Parameters.AddWithValue("@Password", Encrypt(userModel.Password));
+                    sqlCmds.Parameters.AddWithValue("@EmployeeNumber", userModel.EmployeeNumber);
+                    SqlDataReader sdrs = sqlCmds.ExecuteReader();
+                    TempData["success"] = "New userlevel: " + userModel.Userlevel + " Added!";
+                }
+                
             }
                 return RedirectToAction("AddUser");
         }
+        [HttpGet]
+        public ActionResult EditUser(int Userid)
+        {
+            UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
+            var getuserlist = userDropdownEntities.Dropdowns.ToList();
+            SelectList list = new SelectList(getuserlist.Where(o => o.DropdownType == "Userlevel"), "DropdownName", "DropdownName");
+            ViewBag.userlist = list;
+            
+            UserModel userModel = new UserModel();
+            DataTable dtblUser = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString)) {
+                sqlCon.Open();
+                string query = "SELECT * from [User] Where Userid = @UserID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@UserID", Userid);
+                sqlDa.Fill(dtblUser);
+            }
+            if (dtblUser.Rows.Count == 1)
+            {
+                userModel.Userid = Convert.ToInt32(dtblUser.Rows[0][0].ToString());
+                userModel.Email = dtblUser.Rows[0][1].ToString();
+                userModel.Userlevel = dtblUser.Rows[0][2].ToString();
+                userModel.EmployeeNumber = Convert.ToInt32(dtblUser.Rows[0][4].ToString());
+                return View(userModel);
+            }
+            else {
+            return RedirectToAction("Userlist");
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult EditUser(UserModel userModel)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                    string querys = "UPDATE [User] SET EmployeeNumber = @EmployeeNumber, Email = @Email, Userlevel = @UserLevel Where Userid = @Userid";
+                    SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
+                    sqlCmds.Parameters.AddWithValue("@Userid", userModel.Userid);
+                    sqlCmds.Parameters.AddWithValue("@EmployeeNumber", userModel.EmployeeNumber);
+                    sqlCmds.Parameters.AddWithValue("@Email", userModel.Email);
+                    sqlCmds.Parameters.AddWithValue("@UserLevel", userModel.Userlevel);
+                    sqlCmds.ExecuteNonQuery();
+                    TempData["success"] = "User Updated";
+            }
+            return RedirectToAction("Userlist");
+        }
+
     }
 }
