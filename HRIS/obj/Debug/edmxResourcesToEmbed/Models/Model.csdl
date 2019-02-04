@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BIOMETRICModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="qryCheckInOut">
+  <EntityContainer Name="BIOMETRICEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="qries" EntityType="BIOMETRICModel.qry" />
+  </EntityContainer>
+  <EntityType Name="qry">
     <Key>
-      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="CHECKTIME" />
     </Key>
-    <Property Name="Expr1" Type="Int32" Nullable="false" />
     <Property Name="Badgenumber" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
     <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="checkdate" Type="DateTime" Precision="0" />
-    <Property Name="checktime" Type="Time" Precision="7" />
+    <Property Name="CHECKTIME" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CHECKTYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="BIOMETRICEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="qryCheckInOuts" EntityType="Self.qryCheckInOut" />
-  </EntityContainer>
 </Schema>
