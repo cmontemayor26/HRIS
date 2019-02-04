@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UserDropdownModelStoreContainer" CdmEntityContainer="UserDropdownEntities">
+    <EntitySetMapping Name="Dropdowns">
+      <EntityTypeMapping TypeName="UserDropdownModel.Dropdown">
+        <MappingFragment StoreEntitySet="Dropdown">
+          <ScalarProperty Name="DropdownId" ColumnName="DropdownId" />
+          <ScalarProperty Name="DropdownName" ColumnName="DropdownName" />
+          <ScalarProperty Name="DropdownType" ColumnName="DropdownType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
