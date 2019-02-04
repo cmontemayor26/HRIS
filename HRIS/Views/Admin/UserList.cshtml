@@ -1,4 +1,4 @@
-﻿@model System.Data.DataTable
+﻿@model IEnumerable<HRIS.Models.User>
 @{
     Layout = null;
 
@@ -23,7 +23,7 @@
     <div class="form-group">
         <form>
             <div class="input-group mb-1">
-                <input type="text" class="form-control" style="height: 50px;" placeholder="Search Email" aria-label="Search Email" aria-describedby="basic-addon2">
+                <input type="text" id="search" class="form-control" style="height: 50px;" placeholder="Search Email" aria-label="Search Email" aria-describedby="basic-addon2">
 
                 <button class="btn btn-primary" style="height: 50px;" type="button">Search</button>
             </div>
@@ -38,20 +38,44 @@
                     <th>Row</th>
                     <th>Email</th>
                     <th>User Level</th>
+                    <th>Edit</th>
                 </tr>
             </thead>
-            @for (int i = 0; i < Model.Rows.Count; i++)
+            @{int RowNo = 0;}
+            @foreach (var Item in Model)
             {
                 <tbody>
-                    <tr>
-                        <td>@i</td>
-                        <td>@Model.Rows[i][1]</td>
-                        <td>@Model.Rows[i][2]</td>
+                    <tr class="Search">
+                        <td>@{RowNo++;} @RowNo</td>
+                        <td>@Item.Email</td>
+                        <td>@Item.Userlevel</td>
+                        <td><a href="@Url.Action("EditUser", "Admin", new {Userid=Item.Userid})">Edit</a></td>
                     </tr>
                 </tbody>
+
             }
         </table>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) !=-1)
+                return true;
+        }
+        $("#search").keyup(function () {
+            var searchText = $("#search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+                    $(this).hide();
+                }
+                else {
+                    $(this).show();
+                }
+            });
+        });
 
+    });
+</script>
     </div>
 </div>
 
