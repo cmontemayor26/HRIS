@@ -1,5 +1,20 @@
 ﻿.navbar-nav > li > a {
-    display: inline;
+    padding-top: 20px;
+}
+nav .container-fluid {
+    position: fixed;
+    background-color: #111;
+    width: 100%;
+}
+.row {
+    margin-top: 100px;
+}
+.navbar {
+    padding: 0;
+    z-index: 999;
+}
+.navbar-nav .dropdown-menu {
+    position: inherit;
 }
 .container-fluid {
     font-family: 'Segoe UI',sans-serif;
