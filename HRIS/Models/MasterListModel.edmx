@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MasterListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Masterlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" />
+          <Property Name="Department" Type="varchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="25" />
+          <Property Name="Gender" Type="varchar" MaxLength="6" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="15" />
+          <Property Name="Street_Address1" Type="varchar" MaxLength="50" />
+          <Property Name="Street_Address2" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Province" Type="varchar" MaxLength="50" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+          <Property Name="PersonalEmail" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyEmail" Type="varchar" MaxLength="50" />
+          <Property Name="GrossPay" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Allowance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvailableLeave" Type="int" />
+          <Property Name="UsedLeave" Type="int" />
+          <Property Name="SSS" Type="varchar" MaxLength="50" />
+          <Property Name="Pagibig" Type="varchar" MaxLength="50" />
+          <Property Name="PhilHealth" Type="varchar" MaxLength="50" />
+          <Property Name="TinNumber" Type="varchar" MaxLength="50" />
+          <Property Name="SSS_loan" Type="int" />
+          <Property Name="Pagibig_loan" Type="int" />
+          <Property Name="DateHired" Type="datetime" />
+          <Property Name="DatePromoted" Type="datetime" />
+          <Property Name="DateResigned" Type="datetime" />
+          <Property Name="EmploymentStatus" Type="varchar" MaxLength="20" />
+          <Property Name="Applicant_AppliedDate" Type="datetime" />
+          <Property Name="Applicant_ExamDate" Type="datetime" />
+          <Property Name="Applicant_InitialInterviewDate" Type="nchar" MaxLength="10" />
+          <Property Name="Applicant_FinalInterviewDate" Type="datetime" />
+          <Property Name="Applicant_Resume" Type="varchar" MaxLength="50" />
+          <Property Name="Applicant_InitialInterview" Type="int" />
+          <Property Name="Applicant_FinalInterview" Type="int" />
+          <Property Name="Applicant_InitialInterviewer" Type="varchar" MaxLength="50" />
+          <Property Name="Applicant_FinalInterviewer" Type="varchar" MaxLength="50" />
+          <Property Name="ProfilePicture" Type="varchar" MaxLength="50" />
+          <Property Name="Applicant_ExamNo" Type="int" />
+          <Property Name="Applicant_TookExam" Type="int" />
+          <Property Name="School_Primary" Type="varchar" MaxLength="50" />
+          <Property Name="School_Secondary" Type="varchar" MaxLength="50" />
+          <Property Name="School_Tertiary" Type="varchar" MaxLength="50" />
+          <Property Name="School_TertiaryYearGraduated" Type="int" />
+          <Property Name="School_Degree" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="MasterListModelStoreContainer">
+          <EntitySet Name="Masterlist" EntityType="Self.Masterlist" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MasterListModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Masterlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeNumber" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="String" FixedLength="false" MaxLength="Max" Unicode="false" />
+          <Property Name="Street_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Street_Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PersonalEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GrossPay" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Allowance" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvailableLeave" Type="Int32" />
+          <Property Name="UsedLeave" Type="Int32" />
+          <Property Name="SSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pagibig" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhilHealth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TinNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SSS_loan" Type="Int32" />
+          <Property Name="Pagibig_loan" Type="Int32" />
+          <Property Name="DateHired" Type="DateTime" Precision="3" />
+          <Property Name="DatePromoted" Type="DateTime" Precision="3" />
+          <Property Name="DateResigned" Type="DateTime" Precision="3" />
+          <Property Name="EmploymentStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Applicant_AppliedDate" Type="DateTime" Precision="3" />
+          <Property Name="Applicant_ExamDate" Type="DateTime" Precision="3" />
+          <Property Name="Applicant_InitialInterviewDate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Applicant_FinalInterviewDate" Type="DateTime" Precision="3" />
+          <Property Name="Applicant_Resume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Applicant_InitialInterview" Type="Int32" />
+          <Property Name="Applicant_FinalInterview" Type="Int32" />
+          <Property Name="Applicant_InitialInterviewer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Applicant_FinalInterviewer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfilePicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Applicant_ExamNo" Type="Int32" />
+          <Property Name="Applicant_TookExam" Type="Int32" />
+          <Property Name="School_Primary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="School_Secondary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="School_Tertiary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="School_TertiaryYearGraduated" Type="Int32" />
+          <Property Name="School_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MasterListEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Masterlists" EntityType="Self.Masterlist" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MasterListModelStoreContainer" CdmEntityContainer="MasterListEntities">
+          <EntitySetMapping Name="Masterlists">
+            <EntityTypeMapping TypeName="MasterListModel.Masterlist">
+              <MappingFragment StoreEntitySet="Masterlist">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Street_Address1" ColumnName="Street_Address1" />
+                <ScalarProperty Name="Street_Address2" ColumnName="Street_Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+                <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+                <ScalarProperty Name="GrossPay" ColumnName="GrossPay" />
+                <ScalarProperty Name="Allowance" ColumnName="Allowance" />
+                <ScalarProperty Name="AvailableLeave" ColumnName="AvailableLeave" />
+                <ScalarProperty Name="UsedLeave" ColumnName="UsedLeave" />
+                <ScalarProperty Name="SSS" ColumnName="SSS" />
+                <ScalarProperty Name="Pagibig" ColumnName="Pagibig" />
+                <ScalarProperty Name="PhilHealth" ColumnName="PhilHealth" />
+                <ScalarProperty Name="TinNumber" ColumnName="TinNumber" />
+                <ScalarProperty Name="SSS_loan" ColumnName="SSS_loan" />
+                <ScalarProperty Name="Pagibig_loan" ColumnName="Pagibig_loan" />
+                <ScalarProperty Name="DateHired" ColumnName="DateHired" />
+                <ScalarProperty Name="DatePromoted" ColumnName="DatePromoted" />
+                <ScalarProperty Name="DateResigned" ColumnName="DateResigned" />
+                <ScalarProperty Name="EmploymentStatus" ColumnName="EmploymentStatus" />
+                <ScalarProperty Name="Applicant_AppliedDate" ColumnName="Applicant_AppliedDate" />
+                <ScalarProperty Name="Applicant_ExamDate" ColumnName="Applicant_ExamDate" />
+                <ScalarProperty Name="Applicant_InitialInterviewDate" ColumnName="Applicant_InitialInterviewDate" />
+                <ScalarProperty Name="Applicant_FinalInterviewDate" ColumnName="Applicant_FinalInterviewDate" />
+                <ScalarProperty Name="Applicant_Resume" ColumnName="Applicant_Resume" />
+                <ScalarProperty Name="Applicant_InitialInterview" ColumnName="Applicant_InitialInterview" />
+                <ScalarProperty Name="Applicant_FinalInterview" ColumnName="Applicant_FinalInterview" />
+                <ScalarProperty Name="Applicant_InitialInterviewer" ColumnName="Applicant_InitialInterviewer" />
+                <ScalarProperty Name="Applicant_FinalInterviewer" ColumnName="Applicant_FinalInterviewer" />
+                <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+                <ScalarProperty Name="Applicant_ExamNo" ColumnName="Applicant_ExamNo" />
+                <ScalarProperty Name="Applicant_TookExam" ColumnName="Applicant_TookExam" />
+                <ScalarProperty Name="School_Primary" ColumnName="School_Primary" />
+                <ScalarProperty Name="School_Secondary" ColumnName="School_Secondary" />
+                <ScalarProperty Name="School_Tertiary" ColumnName="School_Tertiary" />
+                <ScalarProperty Name="School_TertiaryYearGraduated" ColumnName="School_TertiaryYearGraduated" />
+                <ScalarProperty Name="School_Degree" ColumnName="School_Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

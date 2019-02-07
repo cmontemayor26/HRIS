@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f82bde43dc004e34b4624a0b0625803f" Name="Diagram1">
-        <EntityTypeShape EntityType="BIOMETRICModel.qry" Width="1.5" PointX="0.75" PointY="0.75" />
+      <Diagram DiagramId="a520f19267e94ad99fabed35b3ff1e94" Name="Diagram1" ZoomLevel="127">
+        <EntityTypeShape EntityType="MasterListModel.Masterlist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
