@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MasterListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Masterlist">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="25" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="25" />
+    <Property Name="Gender" Type="varchar" MaxLength="6" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="15" />
+    <Property Name="Street_Address1" Type="varchar" MaxLength="50" />
+    <Property Name="Street_Address2" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Province" Type="varchar" MaxLength="50" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="10" />
+    <Property Name="PersonalEmail" Type="varchar" MaxLength="50" />
+    <Property Name="CompanyEmail" Type="varchar" MaxLength="50" />
+    <Property Name="GrossPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Allowance" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvailableLeave" Type="int" />
+    <Property Name="UsedLeave" Type="int" />
+    <Property Name="SSS" Type="varchar" MaxLength="50" />
+    <Property Name="Pagibig" Type="varchar" MaxLength="50" />
+    <Property Name="PhilHealth" Type="varchar" MaxLength="50" />
+    <Property Name="TinNumber" Type="varchar" MaxLength="50" />
+    <Property Name="SSS_loan" Type="int" />
+    <Property Name="Pagibig_loan" Type="int" />
+    <Property Name="DateHired" Type="datetime" />
+    <Property Name="DatePromoted" Type="datetime" />
+    <Property Name="DateResigned" Type="datetime" />
+    <Property Name="EmploymentStatus" Type="varchar" MaxLength="20" />
+    <Property Name="Applicant_AppliedDate" Type="datetime" />
+    <Property Name="Applicant_ExamDate" Type="datetime" />
+    <Property Name="Applicant_InitialInterviewDate" Type="nchar" MaxLength="10" />
+    <Property Name="Applicant_FinalInterviewDate" Type="datetime" />
+    <Property Name="Applicant_Resume" Type="varchar" MaxLength="50" />
+    <Property Name="Applicant_InitialInterview" Type="int" />
+    <Property Name="Applicant_FinalInterview" Type="int" />
+    <Property Name="Applicant_InitialInterviewer" Type="varchar" MaxLength="50" />
+    <Property Name="Applicant_FinalInterviewer" Type="varchar" MaxLength="50" />
+    <Property Name="ProfilePicture" Type="varchar" MaxLength="50" />
+    <Property Name="Applicant_ExamNo" Type="int" />
+    <Property Name="Applicant_TookExam" Type="int" />
+    <Property Name="School_Primary" Type="varchar" MaxLength="50" />
+    <Property Name="School_Secondary" Type="varchar" MaxLength="50" />
+    <Property Name="School_Tertiary" Type="varchar" MaxLength="50" />
+    <Property Name="School_TertiaryYearGraduated" Type="int" />
+    <Property Name="School_Degree" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="MasterListModelStoreContainer">
+    <EntitySet Name="Masterlist" EntityType="Self.Masterlist" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

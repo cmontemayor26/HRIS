@@ -74,8 +74,19 @@ D:\0. Codes\HRIS\HRIS\obj\Debug\HRIS.csproj.CopyComplete
 D:\0. Codes\HRIS\HRIS\obj\Debug\HRIS.dll
 D:\0. Codes\HRIS\HRIS\obj\Debug\HRIS.pdb
 D:\0. Codes\HRIS\HRIS\obj\Debug\HRIS.csprojAssemblyReference.cache
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csprojAssemblyReference.cache
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csproj.CoreCompileInputs.cache
+D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.Common.dll
+D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x64\msvcr120.dll
+D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x86\msvcr120.dll
+D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
+D:\0. Codes\HRIS\HRIS\bin\Microsoft.SqlServer.Types.dll
+D:\0. Codes\HRIS\HRIS\bin\Rotativa.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\HRIS.dll.config
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\HRIS.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\HRIS.pdb
@@ -131,31 +142,33 @@ C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\EntityFramework.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\EntityFramework.SqlServer.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.SqlServer.Types.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\PagedList.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\PagedList.Mvc.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Rotativa.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Helpers.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Mvc.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Razor.dll
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.Deployment.dll
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.dll
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.Razor.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.dll
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.Razor.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\EntityFramework.xml
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\EntityFramework.SqlServer.xml
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Razor.xml
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.xml
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.Deployment.xml
-C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Webpages.Razor.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\PagedList.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\PagedList.Mvc.xml
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Helpers.xml
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Mvc.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.Razor.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\bin\System.Web.WebPages.Razor.xml
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csprojAssemblyReference.cache
+C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csproj.CoreCompileInputs.cache
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.csproj.CopyComplete
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.dll
 C:\Users\Carlo\Desktop\HRIS\HRIS\HRIS\obj\Debug\HRIS.pdb
-D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.Common.dll
-D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
-D:\0. Codes\HRIS\HRIS\bin\Microsoft.ReportViewer.WebForms.DLL
-D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x64\msvcr120.dll
-D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
-D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x86\msvcr120.dll
-D:\0. Codes\HRIS\HRIS\bin\SqlServerTypes\x86\SqlServerSpatial140.dll
-D:\0. Codes\HRIS\HRIS\bin\Microsoft.SqlServer.Types.dll
-D:\0. Codes\HRIS\HRIS\bin\Rotativa.dll
