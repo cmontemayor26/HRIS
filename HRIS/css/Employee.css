@@ -6,20 +6,21 @@ nav .container-fluid {
     background-color: #111;
     width: 100%;
 }
-.row {
-    margin-top: 100px;
-}
+
 .navbar {
     padding: 0;
     z-index: 999;
 }
+
 .navbar-nav .dropdown-menu {
     position: inherit;
 }
+
 .container-fluid {
     font-family: 'Segoe UI',sans-serif;
-    font-size: 10px;
+    font-size: 5px;
 }
+
 .container-fluid .box{
     width: 25%;
     float: left;
@@ -40,11 +41,6 @@ nav .container-fluid {
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.card-deck h3 {
-    text-align: center;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 .text-right .btn {
