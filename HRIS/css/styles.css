@@ -8,6 +8,9 @@ body{
     font-family: Helvetica !important;
     font-size: 15px !important;
 }
+.container {
+    margin-top: 100px;
+}
 .navbar-nav > li > a {
     padding-top: 20px;
 }
@@ -18,19 +21,15 @@ nav .container-fluid {
 }
 .navbar {
     padding: 0;
+    z-index: 999;
 }
 .form-control, input[type=text], button {
     font-size: 18px;
     font-family: Helvetica;
     height: 40px;
 }
-.dropdown-menu {
-    z-index: 999;
-    position: absolute;
-    font-size: 12px;
-}
 .navbar-nav .dropdown-menu {
-    position: absolute;
+    position: inherit;
 }
 .dropdown-toggle::after {
     display: none;
@@ -55,7 +54,7 @@ i.fa {
 	text-shadow:1px 1px 1px #000;
 }
 .leftMenu{
-	z-index: 999;
+	z-index: 1;
 	height: 100%;
 	background-color: #262626;
 	position: fixed;
