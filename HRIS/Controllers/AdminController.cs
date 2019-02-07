@@ -10,6 +10,8 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using PagedList.Mvc;
+using PagedList;
 
 namespace HRIS.Controllers
 {
@@ -63,10 +65,10 @@ namespace HRIS.Controllers
 
         // GET: Admin
         [HttpGet]
-        public ActionResult UserList()
+        public ActionResult UserList(int? i)
         {
             UserModelEntities db = new UserModelEntities();
-            return View(db.Users.ToList());
+            return View(db.Users.ToList().ToPagedList(i ?? 1,3));
         }
         public ActionResult Dashboard()
         {
