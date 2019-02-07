@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using PagedList.Mvc;
 using PagedList;
+using Microsoft.Reporting.WebForms;
 
 namespace HRIS.Controllers
 {
@@ -62,7 +63,8 @@ namespace HRIS.Controllers
             return cipherText;
         }
 
-
+        UserModelEntities db = new UserModelEntities();
+    
         // GET: Admin
         [HttpGet]
         public ActionResult UserList(int? i)
@@ -70,13 +72,103 @@ namespace HRIS.Controllers
             UserModelEntities db = new UserModelEntities();
             return View(db.Users.ToList().ToPagedList(i ?? 1,3));
         }
+        public ActionResult ApplicantList(int? i)
+        {
+            MasterListEntities master = new MasterListEntities();
+            return View(master.Masterlists.ToList().ToPagedList(i ?? 1, 3));
+        }
+        public ActionResult Reports(string Reportype)
+        {
+            LocalReport localreport = new LocalReport();
+            localreport.ReportPath = Server.MapPath("~/Reports/UserReport.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "UserDataSet";
+
+            reportDataSource.Value = db.Users.ToList();
+
+            localreport.DataSources.Add(reportDataSource);
+            string reportType = Reportype;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+            if (reportType == "Excel") {
+                fileNameExtension = "xlsx";
+            }
+            else if (reportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localreport.Render(reportType, null, out mimeType, out encoding, out fileNameExtension, out streams, out warnings);
+            
+            Response.AddHeader("Content-Disposition","attachment;filename= user_report." + fileNameExtension);
+            
+            return File(renderedByte, fileNameExtension);
+        }
         public ActionResult Dashboard()
         {
             return View();
         }
         public ActionResult AddApplicant()
         {
+            UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
+            var getuserlist = userDropdownEntities.Dropdowns.ToList();
+            SelectList MaritalStatusList = new SelectList(getuserlist.Where(o => o.DropdownType == "MaritalStatus"), "DropdownName", "DropdownName");
+            SelectList JobTitleList = new SelectList(getuserlist.Where(o => o.DropdownType == "JobTitle"), "DropdownName", "DropdownName");
+            ViewBag.MaritalStatusList = MaritalStatusList;
+            ViewBag.JobTitleList = JobTitleList;
             return View();
+        }
+        [HttpPost]
+        public ActionResult AddApplicant(Masterlist masterlist)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = " select * from Masterlist where Applicant_AppliedDate = @Applicant_AppliedDate AND LastName = @LastName AND FirstName = @FirstName";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@Applicant_AppliedDate", masterlist.Applicant_AppliedDate);
+                sqlCmd.Parameters.AddWithValue("@LastName", masterlist.LastName);
+                sqlCmd.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
+                SqlDataReader sdr = sqlCmd.ExecuteReader();
+                if (sdr.Read())
+                {
+                    TempData["error"] = "Applicant Already Applied!";
+                }
+                else
+                {
+                    sdr.Close();
+                    string querys = "INSERT INTO Masterlist(FirstName,MiddleName,LastName,Birthday,MaritalStatus,JobTitle,Street_Address1,Street_Address2,City,Province,ZipCode,ContactNumber,PersonalEmail,Applicant_AppliedDate)" +
+                        "VALUES(@FirstName,@MiddleName,@LastName,@Birthday,@MaritalStatus,@JobTitle,@Street_Address1,@Street_Address2,@City,@Province,@ZipCode,@ContactNumber,@PersonalEmail,@Applicant_AppliedDate)";
+                    SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
+                    if (masterlist.Street_Address2 == null)
+                    {
+                        masterlist.Street_Address2 = "";
+                    }
+                    sqlCmds.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
+                    sqlCmds.Parameters.AddWithValue("@MiddleName", masterlist.MiddleName);
+                    sqlCmds.Parameters.AddWithValue("@LastName", masterlist.LastName);
+                    sqlCmds.Parameters.AddWithValue("@Birthday", masterlist.Birthday);
+                    sqlCmds.Parameters.AddWithValue("@MaritalStatus", masterlist.MaritalStatus);
+                    sqlCmds.Parameters.AddWithValue("@JobTitle", masterlist.JobTitle);
+                    sqlCmds.Parameters.AddWithValue("@Street_Address1", masterlist.Street_Address1);
+                    sqlCmds.Parameters.AddWithValue("@Street_Address2", masterlist.Street_Address2);
+                    sqlCmds.Parameters.AddWithValue("@City", masterlist.City);
+                    sqlCmds.Parameters.AddWithValue("@Province", masterlist.Province);
+                    sqlCmds.Parameters.AddWithValue("@ZipCode", masterlist.ZipCode);
+                    sqlCmds.Parameters.AddWithValue("@ContactNumber", masterlist.ContactNumber);
+                    sqlCmds.Parameters.AddWithValue("@PersonalEmail", masterlist.PersonalEmail);
+                    sqlCmds.Parameters.AddWithValue("@Applicant_AppliedDate", masterlist.Applicant_AppliedDate);
+                    SqlDataReader sdrs = sqlCmds.ExecuteReader();
+                    TempData["success"] = "New Applicant: " + masterlist.FirstName + " " + masterlist.LastName + " Added!";
+                }
+
+            }
+            return RedirectToAction("AddApplicant");
         }
         [HttpGet]
         public ActionResult AddUser()
