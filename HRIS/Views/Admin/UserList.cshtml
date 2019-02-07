@@ -1,18 +1,23 @@
-﻿@model IEnumerable<HRIS.Models.User>
+﻿@model IPagedList<HRIS.Models.User>
 @{
     Layout = null;
 
 }
 @RenderPage("Navigation.cshtml")
+
+@using PagedList.Mvc;
+@using PagedList;
 <style>
     .input-group {
         display: flex;
     }
+
     h1 {
         display: inherit;
         text-align: left;
     }
 </style>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="container">
     <br>
     <div class='row'>
@@ -35,18 +40,17 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Row</th>
+                    <th>Employee Number</th>
                     <th>Email</th>
                     <th>User Level</th>
                     <th>Edit</th>
                 </tr>
             </thead>
-            @{int RowNo = 0;}
             @foreach (var Item in Model)
             {
                 <tbody>
                     <tr class="Search">
-                        <td>@{RowNo++;} @RowNo</td>
+                        <td>@Item.EmployeeNumber</td>
                         <td>@Item.Email</td>
                         <td>@Item.Userlevel</td>
                         <td><a href="@Url.Action("EditUser", "Admin", new {Userid=Item.Userid})">Edit</a></td>
@@ -55,28 +59,33 @@
 
             }
         </table>
+        <div class="col-sm-10">
+            <div class="center">
+                @Html.PagedListPager(Model, i => Url.Action("UserList", "Admin", new { i, search = Request.QueryString["search"] }))
+            </div>
+        </div>
         <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script>
-    $(document).ready(function () {
-        function Contains(text_one, text_two) {
-            if (text_one.indexOf(text_two) !=-1)
-                return true;
-        }
-        $("#search").keyup(function () {
-            var searchText = $("#search").val().toLowerCase();
-            $(".Search").each(function () {
-                if (!Contains($(this).text().toLowerCase(), searchText)) {
-                    $(this).hide();
+        <script>
+            $(document).ready(function () {
+                function Contains(text_one, text_two) {
+                    if (text_one.indexOf(text_two) != -1)
+                        return true;
                 }
-                else {
-                    $(this).show();
-                }
-            });
-        });
+                $("#search").keyup(function () {
+                    var searchText = $("#search").val().toLowerCase();
+                    $(".Search").each(function () {
+                        if (!Contains($(this).text().toLowerCase(), searchText)) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    });
+                });
 
-    });
-</script>
+            });
+        </script>
     </div>
 </div>
 
-    @RenderPage("Footer.cshtml")
+@RenderPage("Footer.cshtml")

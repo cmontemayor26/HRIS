@@ -18,6 +18,6 @@ namespace HRIS.Models
         public string Email { get; set; }
         public string Userlevel { get; set; }
         public string Password { get; set; }
-        public string EmployeeNumber { get; set; }
+        public Nullable<int> EmployeeNumber { get; set; }
     }
 }
