@@ -84,6 +84,7 @@ namespace HRIS.Controllers
             {
                 for (int i = 0; i < Logins.Rows.Count; i ++) {
                     Session["userlevel"] = Logins.Rows[i][2];
+                    Session["employeenumber"] = Logins.Rows[i][4];
                 }
                 Session["email"] = lg.Email.ToString();
                 string userlevel = Session["userlevel"] as String;

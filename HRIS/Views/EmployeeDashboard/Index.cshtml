@@ -10,16 +10,11 @@
 <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <link href="~/css/Employee.css" rel="stylesheet" />
 
-<<<<<<< HEAD
-<div class="container-fluid" ">
-    <div class="row" style="margin-top:100px;">
-=======
 <div class="container-fluid">
     <div class="row" style="margin-top: 100px">
->>>>>>> 874bc8c826b0eb0b0d8debbd16de0ce04875db20
         <div class="col-sm-3 col-md-6 col-lg-4">
             <div class="shadow p-3 mb-5 bg-white rounded">
-                @using (Html.BeginForm("Index", "EmployeeDashboard", FormMethod.Post))
+                @using (Html.BeginForm("FilterAttendance", "EmployeeDashboard", FormMethod.Post))
                 {
                     <h6>Employee ID Number: </h6>
                     @Html.TextBox("empNum", "", new { @id = "formGroupExampleInput", @class = "form-control", required = "required" })
@@ -43,24 +38,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (Model.Count() == 0)
+                            @using (Html.BeginForm("Index", "EmployeeDashboard", FormMethod.Post))
                             {
-                                <tr>
-                                    <td colspan="3" style="color:red">
-                                        ID Number not found
-                                    </td>
-                                </tr>
-                            }
-                            else
-                            {
-                                foreach (var item in Model)
+                                if (Model.Count() == 0)
                                 {
                                     <tr>
-                                        <td scope="row"><b>@item.CHECKTIME.ToString("MM/dd/yyyy")</b></td>
-
-                                        <td>@item.CHECKTIME.ToString("HH:mm tt")</td>
-                                        <td>@item.CHECKTYPE</td>
+                                        <td colspan="3" style="color:red">
+                                            ID Number not found
+                                        </td>
                                     </tr>
+                                }
+                                else
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td scope="row"><b>@item.CHECKTIME.ToString("MM/dd/yyyy")</b></td>
+
+                                            <td>@item.CHECKTIME.ToString("HH:mm tt")</td>
+                                            <td>@item.CHECKTYPE</td>
+                                        </tr>
+                                    }
                                 }
                             }
                         </tbody>
@@ -79,7 +77,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5>Monthly Lates</h5>
-                        <div class="chart" data-percent="10">2 </div>
+                        <div class="chart" data-percent="@ViewBag.latePercentage">@ViewBag.lateCount </div>
                     </div>
                 </div>
 
@@ -203,7 +201,7 @@
     $(function () {
         $('.chart').easyPieChart({
             barColor: function (percent) {
-                return (percent < 25 ? '#00a300' : percent < 50 ? '#ffc40d' : percent < 85 ? '#da532c' : '#ee1111');
+                return (percent < 15 ? '#00a300' : percent < 50 ? '#ffc40d' : percent < 85 ? '#da532c' : '#ee1111');
             },
 
             onStep: function (from, to, percent) {

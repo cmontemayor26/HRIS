@@ -18,5 +18,6 @@ namespace HRIS.Models
         public string Password { get; set; }
 
         public string UserLevel { get; set; }
+        public int EmployeeNumber { get; set; }
     }
 }
