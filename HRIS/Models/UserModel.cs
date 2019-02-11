@@ -20,5 +20,11 @@ namespace HRIS.Models
         [Required(ErrorMessage = "This field is required.")]
         [StringLength(30, MinimumLength = 8, ErrorMessage = "Password length must be minimum of 8 characters")]
         public string Password { get; set; }
+        [DataType(DataType.Password)]
+        [StringLength(30, MinimumLength = 8, ErrorMessage = "Password length must be minimum of 8 characters")]
+        [CompareAttribute("Password", ErrorMessage = "Password mismatch")]
+        public string ConfirmPassword { get; set; }
+        [DataType(DataType.Password)]
+        public string OldPassword { get; set; }
     }
 }
