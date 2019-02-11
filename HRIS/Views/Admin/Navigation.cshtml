@@ -1,7 +1,11 @@
 ﻿
 @{
     Layout = null;
-    
+
+}
+@if (Session["userlevel"] == null)
+{
+    Response.Redirect("~/Login/Logout");
 }
 <link href="//netdna.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
@@ -24,24 +28,24 @@
         <div class="container-fluid" style="top: 0;">
             <div class="navbar-header">
                 <img src="~/images/DBA-white.png" width="120px" height="60px" />
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="margin-top: 12px">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="nav navbar-nav ml-auto">
                     <li>
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF"><i class="fa fa-user-circle"></i> Admin <i class="fa fa-sort-desc"></i></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF"><i class="fa fa-user-circle"></i> @Session["email"] <i class="fa fa-sort-desc"></i></a>
                         <div class="dropdown-menu dropdown-menu-right" style="margin-top: 0;">
                             <a class="dropdown-item" href="#">My Profile</a>
-                            <a class="dropdown-item" href="#">Change Password</a>
+                            <a class="dropdown-item" href="@Url.Action("ChangePassword","Admin")">Change Password</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="@Url.Action("LogOut","Login")">Log Out</a>
                         </div>
                     </li>
                 </ul>
             </div>
-         </div>
+        </div>
     </nav>
     <script src="~/Scripts/menu.js"></script>
 
@@ -52,10 +56,10 @@
                 <a href="@Url.Action("Dashboard","Admin")"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a>
             </li>
             <li>
-                <a href="#" class="dropdown" id="payroll"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Applicant</span></a>
+                <a href="#" class="dropdown" id="Applicant"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Applicant</span></a>
                 <ul class="dropdownlist">
                     <li><a href="@Url.Action("AddApplicant","Admin")"><span>Add Applicant</span></a></li>
-                    <li><a href="#"><span>List of Applicant</span></a></li>
+                    <li><a href="@Url.Action("ApplicantList","Admin")"><span>List of Applicant</span></a></li>
                 </ul>
             </li>
             <li>
@@ -68,14 +72,15 @@
                 <a href="#" id="payroll"><i class="fa fa-file-pdf-o" aria-hidden="true"></i><span>Reports</span></a>
             </li>
 
-        <hr>
+            <hr>
 
-        <li>
-            <a href="#" class="dropdown" id="payroll"><i class="fa fa-gear" aria-hidden="true"></i><span>Admin</span></a>
-            <ul class="dropdownlist">
-                <li><a href="@Url.Action("UserList","Admin")"><span>Manage Users</span></a></li>
-            </ul>
-        </li>
+            <li>
+                <a href="#" class="dropdown" id="Admin"><i class="fa fa-gear" aria-hidden="true"></i><span>Admin</span></a>
+                <ul class="dropdownlist">
+                    <li><a href="@Url.Action("UserList","Admin")"><span>Manage Users</span></a></li>
+                    <li><a href="@Url.Action("ChangePassword","Admin")"><span>Change Password</span></a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 
