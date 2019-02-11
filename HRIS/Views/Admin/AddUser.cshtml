@@ -17,6 +17,11 @@
     }
 </style>
 <script type="text/javascript">
+    $(document).ready(function () {
+        $('#Admin').css({ 'background-color': '#37474F' });
+    });
+</script>
+<script type="text/javascript">
 function password() {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%^&*()[]{}:.,/?";
@@ -82,7 +87,7 @@ $(document).ready(function(){
                     <tr>
                         <td>
                             <label for="full_name_id" class="control-label">Employee Number</label>
-                            @Html.EditorFor(model => model.EmployeeNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.EmployeeNumber, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus" } })
                             @Html.ValidationMessageFor(model => model.EmployeeNumber, "", new { @class = "text-danger" })
                         </td>
                     </tr>
