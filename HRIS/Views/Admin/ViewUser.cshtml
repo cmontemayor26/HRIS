@@ -1,0 +1,104 @@
+﻿@model HRIS.Models.UserModel
+
+
+@{
+    Layout = null;
+}
+
+@RenderPage("Navigation.cshtml")
+<style>
+    td {
+        padding-right: 50px;
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+
+    table {
+    }
+
+    h1 {
+        margin: 0;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Admin').css({ 'background-color': '#37474F' });
+    });
+</script>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="one">Applicant Information</h1>
+        </div>
+        <div class="col-auto">
+            <button onclick="location.href='@Url.Action("EditUser", "Admin", new {Userid=ViewBag.Userid})'" class="btn btn-primary pull-right">Edit</button>
+        </div>
+    </div>
+    <hr>
+    <div class="form-group">
+        <!-- Full Name -->
+        <div class='row'>
+            <div class='md-col-4'>
+                <br>
+
+                <br>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(moddel => Model.Userid)
+            </div>
+        </div>
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-success">
+                <strong>@TempData["success"]</strong>
+            </div>
+        }
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-danger">
+                <strong>@TempData["error"]</strong>
+            </div>
+        }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Employee Number</label>
+                        @Html.EditorFor(model => model.EmployeeNumber, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                        @Html.ValidationMessageFor(model => model.EmployeeNumber, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">Email</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email", @disabled = true } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">User Level</label>
+                        @Html.DropDownList("Userlevel", ViewBag.userlist as SelectList, "Select one", new { @class = "form-control", @disabled = true })
+                        @Html.ValidationMessageFor(model => model.Userlevel, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+            </table>
+
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+@RenderPage("Footer.cshtml")
