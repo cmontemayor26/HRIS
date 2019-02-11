@@ -4,7 +4,7 @@
 
 
 }
-@RenderPage("Navigation.cshtml")
+@RenderPage("Navigation_top.cshtml")
 
 <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script> 
 <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -16,19 +16,19 @@
             <div class="shadow p-3 mb-5 bg-white rounded">
                 @using (Html.BeginForm("FilterAttendance", "EmployeeDashboard", FormMethod.Post))
                 {
-                    @*<h6>Employee ID Number: </h6>
-                    @Html.TextBox("empNum", "", new { @id = "formGroupExampleInput", @class = "form-control", required = "required" })*@
+                    <h6>Employee ID Number: </h6>
+                    @Html.TextBox("empNum", "", new { @id = "formGroupExampleInput", @class = "form-control", required = "required" })
                     <h6>Start Date: </h6>
-                    @Html.TextBox("dateFrom", String.Format("{0:MM/dd/yyyy}", ""), new { @id = "startDate", required = "required" })<br>
+                    @Html.TextBox("dateFrom", String.Format("{0:MM/dd/yyyy}", ""), new { @id = "startDate", required = "required" })
                     <h6>End Date: </h6>
                     @Html.TextBox("dateTo", String.Format("{0:MM/dd/yyyy}", ""), new { @id = "endDate", required = "required" })
                     <br>
                     <div class="text-right">
-                        <input type="submit" value="Search" class="btn btn-primary" style="width:100px; height:40px; font-size:medium">
+                        <input type="submit" value="Search" class="btn btn-info" style="width:100px; height:40px; font-size:medium">
                     </div>
                 }
 
-                <div style="height: 545px; overflow: auto;">
+                <div style="height: 465px; overflow: auto;">
                     <table class="table table-hover" style="text-align:left">
                         <thead class="thead-dark">
                             <tr>
@@ -55,7 +55,7 @@
                                         <tr>
                                             <td scope="row"><b>@item.CHECKTIME.ToString("MM/dd/yyyy")</b></td>
 
-                                            <td>@item.CHECKTIME.ToString("hh:mm tt")</td>
+                                            <td>@item.CHECKTIME.ToString("HH:mm tt")</td>
                                             <td>@item.CHECKTYPE</td>
                                         </tr>
                                     }
@@ -66,7 +66,7 @@
                 </div>
                 <br>
                 <div class="text-right">
-                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exportModal" style="width:100px; height:40px; font-size:medium">Export</button>
+                    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exportModal">Export</button>
                 </div>
             </div>
 

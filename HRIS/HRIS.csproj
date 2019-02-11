@@ -443,6 +443,7 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\EmployeeDashboard\Navigation_top.cshtml" />
     <Content Include="Views\EmployeeDashboard\Index.cshtml" />
     <Content Include="Views\Admin\AddApplicant.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
@@ -462,7 +463,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Admin\ApplicantList.cshtml" />
-    <Content Include="Views\EmployeeDashboard\Navigation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
