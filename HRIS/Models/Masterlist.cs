@@ -6,28 +6,44 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace HRIS.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class Masterlist
     {
         public int ID { get; set; }
         public Nullable<int> EmployeeNumber { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string MiddleName { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string LastName { get; set; }
         public string Department { get; set; }
         public string JobTitle { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Birthday { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string MaritalStatus { get; set; }
         public string Gender { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string ContactNumber { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string Street_Address1 { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Street_Address2 { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string City { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
         public string Province { get; set; }
         public string ZipCode { get; set; }
         public string PersonalEmail { get; set; }
