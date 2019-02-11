@@ -1,0 +1,159 @@
+﻿@model HRIS.Models.Masterlist
+@{
+    Layout = null;
+}
+
+@RenderPage("Navigation.cshtml")
+
+<style>
+    td {
+        padding-right: 50px;
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+
+    table {
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Applicant').css({ 'background-color': '#37474F' });
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+
+        <div class='row'>
+            <div class='md-col-4'>
+                <h1>Applicant Information</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <!-- Full Name -->
+            <div class='row'>
+                <div class='md-col-4'>
+                    <br>
+                    <h2>Basic Information</h2>
+                    <br>
+                </div>
+            </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <table>
+                    <tr>
+                        <td>
+                            @Html.HiddenFor(model => model.ID)
+                            <label for="full_name_id" class="control-label">First Name</label>
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus", @required = true } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Middle Name</label>
+                            @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.MiddleName, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Last Name</label>
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">Birth Date</label>
+                            @Html.EditorFor(model => model.Birthday, new { htmlAttributes = new { @class = "form-control", @type = "date", @required = true } })
+                            @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Marital Status</label>
+                            @Html.DropDownListFor(model => model.MaritalStatus, ViewBag.MaritalStatusList as SelectList, "Select one", new { @class = "form-control", @required = true })
+                            @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">Position Applied for</label>
+                            @Html.DropDownListFor(model => model.JobTitle, ViewBag.JobTitleList as SelectList, "Select one", new { @class = "form-control", @required = true })
+                            @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+                <div class='row'>
+                    <div class='md-col-4'>
+                        <br>
+                        <h2>Contact Information</h2>
+                        <br>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">Street Address 1</label>
+                            @Html.EditorFor(model => model.Street_Address1, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.Street_Address1, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Street Address 2</label>
+                            @Html.EditorFor(model => model.Street_Address2, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Street_Address2, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">City</label>
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Province</label>
+                            @Html.EditorFor(model => model.Province, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Zip Code</label>
+                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">Phone Number</label>
+                            @Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Email</label>
+                            @Html.EditorFor(model => model.PersonalEmail, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                            @Html.ValidationMessageFor(model => model.PersonalEmail, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" style="height: 50px;width: 100px;font-size: 18px;" class="btn btn-primary">Save!</button>
+
+
+    </div>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#startDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+
+            maxDate: function () {
+                return $('#endDate').val();
+            }
+        });
+    </script>
+}
+@RenderPage("Footer.cshtml")
