@@ -18,7 +18,6 @@ nav .container-fluid {
 
 .container-fluid {
     font-family: 'Segoe UI',sans-serif;
-    font-size: 5px;
 }
 
 .container-fluid .box{
@@ -46,12 +45,14 @@ nav .container-fluid {
 .text-right .btn {
     font-family: 'Source Sans Pro', sans-serif;
 }
-i.fa {
-    padding: 0;
-    width: auto;
 
-}
 .card:hover {
     display: Inherit;
+}
 
+button i.fa {
+font-size:15px;
+padding: 0;
+text-shadow: none;
+width: 15px;
 }
