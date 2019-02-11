@@ -16,7 +16,23 @@
         display: inherit;
         text-align: left;
     }
+    a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        font-size: inherit;
+        cursor: pointer;
+    }
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
 </style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Applicant').css({ 'background-color': '#37474F' });
+    });
+</script>
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="container">
     <br>
@@ -25,10 +41,22 @@
             <h1>Search Applicant</h1>
         </div>
     </div>
+    @if (TempData["success"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>@TempData["success"]</strong>
+        </div>
+    }
+    @if (TempData["error"] != null)
+    {
+        <div class="alert alert-danger">
+            <strong>@TempData["error"]</strong>
+        </div>
+    }
     <div class="form-group">
         <form>
             <div class="input-group mb-1">
-                <input type="text" id="search" class="form-control" style="height: 50px;" placeholder="Search Email" aria-label="Search Email" aria-describedby="basic-addon2">
+                <input type="text" id="search" class="form-control" style="height: 50px;" placeholder="Search Email" aria-label="Search Email" aria-describedby="basic-addon2" autofocus>
 
                 <button class="btn btn-primary" style="height: 50px;" type="button">Search</button>
             </div>
@@ -53,17 +81,15 @@
             {
                 <tbody>
                     <tr class="Search">
-                        <td>@Item.Applicant_AppliedDate</td>
-                        <td>@Item.FirstName</td>
-                        <td>@Item.MiddleName</td>
-                        <td>@Item.LastName</td>
-                        <td>@Item.JobTitle</td>
-                        <td>@Item.ContactNumber</td>
-                        <td>@Item.PersonalEmail</td>
-
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.Applicant_AppliedDate </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.FirstName </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.MiddleName </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.LastName </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.JobTitle </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.ContactNumber </a></td>
+                        <td><a href="@Url.Action("ViewApplicant", "Admin", new { Applicantid = Item.ID })"> @Item.PersonalEmail </a></td>
                     </tr>
                 </tbody>
-
             }
         </table>
         <div class="col-sm-10">
