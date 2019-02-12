@@ -1,7 +1,7 @@
 ﻿.navbar-nav > li > a {
     padding-top: 20px;
 }
-nav .container-fluid {
+nav .container {
     position: fixed;
     background-color: #111;
     width: 100%;
@@ -16,11 +16,11 @@ nav .container-fluid {
     position: inherit;
 }
 
-.container-fluid {
+.container {
     font-family: 'Segoe UI',sans-serif;
 }
 
-.container-fluid .box{
+.container .box{
     width: 25%;
     float: left;
 }
@@ -36,7 +36,7 @@ nav .container-fluid {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.container-fluid .card-body canvas {
+.card-body canvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -51,8 +51,104 @@ nav .container-fluid {
 }
 
 button i.fa {
-font-size:15px;
-padding: 0;
-text-shadow: none;
-width: 15px;
+    font-size:15px;
+    padding: 0;
+    text-shadow: none;
+    width: 15px;
+}
+
+.empWrapper {
+    background-color: #f1f1f1;
+    padding: 0.01em 16px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+
+.row img{
+    margin-top:20px;
+}
+
+body {
+    background: rgba(#345F90, 0.07);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.66667;
+}
+
+.container {
+    width: 75%;
+    margin: 3rem auto;
+}
+
+h2 {
+    color: #345F90;
+    font-size: 24px;
+    line-height: 1.25;
+    font-family: "Roboto Slab", serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.tab-slider--nav {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+.tab-slider--tabs {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    border-radius: 35px;
+    overflow: hidden;
+    background: #fff;
+    height: 35px;
+    user-select: none;
+}
+.tab-slider--tabs::after
+{
+    content: "";
+    width: 50%;
+    background: black;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 250ms ease-in-out;
+    border-radius: 35px;
+}
+
+.tab-slider--tabs.slide::after {
+        left: 50%;
+    }
+
+
+.tab-slider--trigger {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 11px 20px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    display: inline-block;
+    transition: color 250ms ease-in-out;
+    user-select: none;
+}
+    .tab-slider--trigger.active {
+        color: #fff;
+    }
+
+}
+
+.tab-slider--body {
+    margin-bottom: 20px;
 }
