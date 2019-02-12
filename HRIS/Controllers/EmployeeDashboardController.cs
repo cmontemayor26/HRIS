@@ -138,5 +138,11 @@ namespace HRIS.Controllers
             Response.AddHeader("content-disposition", "attachment;filename= attendance." + fileNameExtension);
             return File(renderedByte, fileNameExtension);
         }
+
+        public ActionResult EmployeesProfile()
+        {
+
+            return View();
+        }
     }
 }
