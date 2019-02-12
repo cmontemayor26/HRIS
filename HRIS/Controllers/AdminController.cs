@@ -129,9 +129,9 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = " select * from Masterlist where Applicant_AppliedDate = @Applicant_AppliedDate AND LastName = @LastName AND FirstName = @FirstName";
+                string query = " select * from Masterlist where Birthday = @Birthday AND LastName = @LastName AND FirstName = @FirstName";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.Parameters.AddWithValue("@Applicant_AppliedDate", masterlist.Applicant_AppliedDate);
+                sqlCmd.Parameters.AddWithValue("@Birthday", masterlist.Birthday);
                 sqlCmd.Parameters.AddWithValue("@LastName", masterlist.LastName);
                 sqlCmd.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
                 SqlDataReader sdr = sqlCmd.ExecuteReader();
@@ -310,12 +310,21 @@ namespace HRIS.Controllers
                 }
                 else {
                     sdr.Close();
-                    string querys = "INSERT INTO [User] VALUES(@Email,@UserLevel,@Password,@EmployeeNumber)";
+                    string fileName = Path.GetFileNameWithoutExtension(userModel.ImageFile.FileName);
+                    string extension = Path.GetExtension(userModel.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    userModel.ProfilePic = "~/images/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/images/"), fileName);
+                    userModel.ImageFile.SaveAs(fileName);
+                    string querys = "INSERT INTO [User] VALUES(@Email,@UserLevel,@Password,@EmployeeNumber,@FirstName,@LastName,@ProfilePic)";
                     SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
                     sqlCmds.Parameters.AddWithValue("@Email", userModel.Email);
                     sqlCmds.Parameters.AddWithValue("@UserLevel", userModel.Userlevel);
                     sqlCmds.Parameters.AddWithValue("@Password", Encrypt(userModel.Password));
                     sqlCmds.Parameters.AddWithValue("@EmployeeNumber", userModel.EmployeeNumber);
+                    sqlCmds.Parameters.AddWithValue("@FirstName", userModel.FirstName);
+                    sqlCmds.Parameters.AddWithValue("@LastName", userModel.LastName);
+                    sqlCmds.Parameters.AddWithValue("@ProfilePic", userModel.ProfilePic);
                     SqlDataReader sdrs = sqlCmds.ExecuteReader();
                     TempData["success"] = "New userlevel: " + userModel.Userlevel + " Added!";
                 }
@@ -347,6 +356,9 @@ namespace HRIS.Controllers
                 userModel.Email = dtblUser.Rows[0][1].ToString();
                 userModel.Userlevel = dtblUser.Rows[0][2].ToString();
                 userModel.EmployeeNumber = Convert.ToInt32(dtblUser.Rows[0][4].ToString());
+                userModel.FirstName = dtblUser.Rows[0][5].ToString();
+                userModel.LastName = dtblUser.Rows[0][6].ToString();
+                userModel.ProfilePic = dtblUser.Rows[0][7].ToString();
                 ViewBag.Userid = Userid;
                 return View(userModel);
             }
@@ -379,6 +391,9 @@ namespace HRIS.Controllers
                 userModel.Email = dtblUser.Rows[0][1].ToString();
                 userModel.Userlevel = dtblUser.Rows[0][2].ToString();
                 userModel.EmployeeNumber = Convert.ToInt32(dtblUser.Rows[0][4].ToString());
+                userModel.FirstName = dtblUser.Rows[0][5].ToString();
+                userModel.LastName = dtblUser.Rows[0][6].ToString();
+                userModel.ProfilePic = dtblUser.Rows[0][7].ToString();
                 return View(userModel);
             }
             else {
@@ -392,12 +407,21 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string querys = "UPDATE [User] SET EmployeeNumber = @EmployeeNumber, Email = @Email, Userlevel = @UserLevel Where Userid = @Userid";
+                string fileName = Path.GetFileNameWithoutExtension(userModel.ImageFile.FileName);
+                string extension = Path.GetExtension(userModel.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                userModel.ProfilePic = "~/images/" + fileName;
+                fileName = Path.Combine(Server.MapPath("~/images/"), fileName);
+                userModel.ImageFile.SaveAs(fileName);
+                string querys = "UPDATE [User] SET EmployeeNumber = @EmployeeNumber, Email = @Email, Userlevel = @UserLevel, FirstName=@FirstName, LastName = @LastName, ProfilePic = @ProfilePic Where Userid = @Userid";
                 SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@Userid", userModel.Userid);
                 sqlCmds.Parameters.AddWithValue("@EmployeeNumber", userModel.EmployeeNumber);
                 sqlCmds.Parameters.AddWithValue("@Email", userModel.Email);
                 sqlCmds.Parameters.AddWithValue("@UserLevel", userModel.Userlevel);
+                sqlCmds.Parameters.AddWithValue("@FirstName", userModel.FirstName);
+                sqlCmds.Parameters.AddWithValue("@LastName", userModel.LastName);
+                sqlCmds.Parameters.AddWithValue("@ProfilePic", userModel.ProfilePic);
                 sqlCmds.ExecuteNonQuery();
                 TempData["success"] = "User Updated";
             }

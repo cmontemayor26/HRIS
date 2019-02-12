@@ -26,5 +26,15 @@ namespace HRIS.Models
         public string ConfirmPassword { get; set; }
         [DataType(DataType.Password)]
         public string OldPassword { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "This field is required.")]
+        public string LastName { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string ProfilePic { get; set; }
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

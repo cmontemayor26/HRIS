@@ -1,4 +1,7 @@
-﻿.navbar-nav > li > a {
+﻿body {
+    font-family: Helvetica !important;
+    font-size: 15px !important;
+}.navbar-nav > li > a {
     padding-top: 20px;
 }
 nav .container {
