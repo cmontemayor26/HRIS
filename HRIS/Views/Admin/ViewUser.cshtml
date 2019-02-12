@@ -59,15 +59,30 @@
                 <strong>@TempData["error"]</strong>
             </div>
         }
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
+
             <table>
+                <tr>
+                    <td>
+                        <img src="@Url.Content(Model.ProfilePic)" width="80" height="80">
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <label for="full_name_id" class="control-label">Employee Number</label>
                         @Html.EditorFor(model => model.EmployeeNumber, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
                         @Html.ValidationMessageFor(model => model.EmployeeNumber, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="full_name_id" class="control-label">First Name</label>
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        <label for="full_name_id" class="control-label">Last Name</label>
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                     </td>
                 </tr>
                 <tr>
@@ -85,8 +100,6 @@
                     </td>
                 </tr>
             </table>
-
-        }
     </div>
 </div>
 
