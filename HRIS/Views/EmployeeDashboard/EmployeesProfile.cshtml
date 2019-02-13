@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HRIS.Models.qry>
+﻿@model HRIS.Models.Masterlist
 @{
     Layout = null;
 
@@ -20,13 +20,18 @@
                 <div class="row">
                     <div class="col-sm-3 col-md-3 col-lg-2">
                         <img class="img-thumbnail" src="~/images/DSC_0883a.jpg" alt="Thumbnail image"><br>
-                        Employee Name><br>
-                        Job Title<br>
-                        Contact Number<br>
-                        Email Address
+                        <p style="text-align:center;">
+                            <b>
+                                <b> @ViewBag.lastName, @ViewBag.firstName</b><br />
+                                @ViewBag.empID<br />
+                                @ViewBag.eMail<br />
+                                @ViewBag.contactNum
+                            </b>
+                        </p>
                     </div>
 
                     <div class="col-sm-9 col-md-9 col-lg-10">
+                       
                         <div class="empWrapper">
                             <br />
                             <div class="tab-slider--nav">
@@ -35,18 +40,194 @@
                                     <li class="tab-slider--trigger" rel="tab2">Work Information</li>
                                 </ul>
                             </div>
+
+                            <br /><br />
                             <div class="tab-slider--container">
                                 <div id="tab1" class="tab-slider--body">
-                                    <h2>Basic Info</h2>
-                                    <p>Toggle switch style tab navigation. Currently only works with two tabs.</p>
-                                    
-                                    <h2>Personal Details</h2>
-                                    <p>Toggle switch style tab navigation. Currently only works with two tabs.</p>
-                                    
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#BasicInfo">
+                                            <i class="fa fa-fw fa-chevron-down"></i>
+                                            <i class="fa fa-fw fa-chevron-right"></i> <h2>Basic Info</h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="collapse show" id="BasicInfo">
+                                                <table class="table table-borderless">
+                                                    <tbody style="font-size:small">
+                                                        <tr>
+                                                            <td>First Name:</td>
+                                                            <td>@ViewBag.firstName</td>
+                                                            <td>Last Name:</td>
+                                                            <td>@ViewBag.lastName</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Employee ID:</td>
+                                                            <td>@ViewBag.empID</td>
+                                                            <td>Email:</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#PersonalInformation">
+                                            <i class="fa fa-fw fa-chevron-down"></i>
+                                            <i class="fa fa-fw fa-chevron-right"></i> <h2>Personal Information</h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="collapse show" id="PersonalInformation">
+                                                <table class="table table-borderless">
+                                                    <tbody style="font-size:small">
+                                                        <tr>
+                                                            <td>Street Address 1:</td>
+                                                            <td>@ViewBag.street1</td>
+                                                            <td>Street Address 2:</td>
+                                                            <td>@ViewBag.street2</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>City:</td>
+                                                            <td>@ViewBag.city</td>
+                                                            <td>Province:</td>
+                                                            <td>@ViewBag.province</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Country:</td>
+                                                            <td>Philippines</td>
+                                                            <td>Zip Code:</td>
+                                                            <td>@ViewBag.zipcode</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Mobile Number:</td>
+                                                            <td>@ViewBag.contactNum</td>
+                                                            <td>Other Number:</td>
+                                                            <td>@ViewBag.contactNum</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Birthday:</td>
+                                                            <td>@ViewBag.bday</td>
+                                                            <td>Gender:</td>
+                                                            <td>@ViewBag.gender</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Nationality:</td>
+                                                            <td>Filipino</td>
+                                                            <td>Marital Status:</td>
+                                                            <td>@ViewBag.maritalStatus</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#WorkExperience">
+                                            <i class="fa fa-fw fa-chevron-down"></i>
+                                            <i class="fa fa-fw fa-chevron-right"></i> <h2>Work Experience</h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="collapse show" id="WorkExperience">
+                                                <table class="table" style="font-size:small">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Work Experience</th>
+                                                            <th>Job Title</th>
+                                                            <th>From</th>
+                                                            <th>To</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Sanyo Denki Philippines</td>
+                                                            <td>Programmer</td>
+                                                            <td>June 2016</td>
+                                                            <td>June 2018</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Temeneco INC, Philippines</td>
+                                                            <td>Data Researcher</td>
+                                                            <td>August 2018</td>
+                                                            <td>December 2018</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#Education">
+                                            <i class="fa fa-fw fa-chevron-down"></i>
+                                            <i class="fa fa-fw fa-chevron-right"></i> <h2>Education</h2>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="collapse show" id="Education">
+                                                <table class="table" style="font-size:small">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>School Name</th>
+                                                            <th>Degree</th>
+                                                            <th>Field(s) of Study</th>
+                                                            <th>Year of Completion</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Magsaysay Memorial College</td>
+                                                            <td>Primary</td>
+                                                            <td>NA</td>
+                                                            <td>2007</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Magsaysay Memorial College</td>
+                                                            <td>Secondary</td>
+                                                            <td>NA</td>
+                                                            <td>2011</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ramon Magsaysay Technological University</td>
+                                                            <td>Tertiary</td>
+                                                            <td>BS Information Technology</td>
+                                                            <td>2016</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                @*xxxxxxxxxxxxxxxxxxxxxxxxxxxx panel 2 xxxxxxxxxxxxxxxxxxxxxxxxxxxx*@
                                 <div id="tab2" class="tab-slider--body">
-                                    <h2>Second Tab</h2>
-                                    
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading collapsed" data-toggle="collapse" data-target="#EmploymentStatus">
+                                            <i class="fa fa-fw fa-chevron-down"></i>
+                                            <i class="fa fa-fw fa-chevron-right"></i> <h2>Employment Status</h2>
+                                        </div>
+
+                                        <div class="panel-body">
+                                            <div class="collapse show" id="EmploymentStatus">
+                                                <table class="table table-borderless">
+                                                    <tbody style="font-size:small">
+                                                        <tr>
+                                                            <td>Department:</td>
+                                                            <td>@ViewBag.dept</td>
+                                                            <td>Title:</td>
+                                                            <td>@ViewBag.jobTitle</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Reporting To:</td>
+                                                            <td>Rodel Caras/Rufino Quimen</td>
+                                                            <td>Date Hired:</td>
+                                                            <td>@ViewBag.dateHired</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
