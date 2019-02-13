@@ -1,0 +1,191 @@
+﻿@model HRIS.Models.LeaveForm
+@{
+    Layout = null;
+
+}
+@RenderPage("Navigation.cshtml")
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Applicant').css({ 'background-color': '#37474F' });
+    });
+    $(document).ready(function () {
+        document.getElementById("from").onchange = function () {
+            var input = document.getElementById("to");
+            input.setAttribute("min", this.value);
+        };
+        document.getElementById("from").onchange();
+
+        document.getElementById("to").onchange = function () {
+            var input = document.getElementById("from");
+            input.setAttribute("max", this.value);
+        };
+        document.getElementById("to").onchange();
+    });
+</script>
+<style>
+    [type="date"] {
+        background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+        cursor: pointer;
+    }
+
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
+</style>
+<div class="container">
+    <br>
+    @using (Html.BeginForm("LeaveForm", "EmployeeDashboard", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col">
+                <h2 class="one">Available Leave Balances</h2>
+            </div>
+            <div class="col-auto">
+
+                <button data-toggle="modal" data-target="#myModal" class="btn btn-primary pull-right">New Leave Request</button>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">New Leave Request</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Type of Request</label>
+                                        @Html.DropDownListFor(model => model.TypeOfRequest, ViewBag.LeaveRequest as SelectList, "Select one", new { @class = "form-control", @required = true })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Description</label>
+                                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @required = true } })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Approver</label>
+                                        @Html.DropDownListFor(model => model.Approver, ViewBag.Approver as SelectList, "Select one", new { @class = "form-control", @required = true })
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <label for="message-text" class="col-form-label">Start Date</label>
+                                        @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @id = "from", @class = "form-control", @type = "date", @required = true } })
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <label for="message-text" class="col-form-label">End Date</label>
+                                        @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @id = "to",@class = "form-control", @type = "date", @required = true } })
+                                    </div>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <input type="submit" class="btn btn-primary" value="Request"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+        <hr>
+        <div class="form-group">
+            @if (TempData["success"] != null)
+            {
+                <div class="alert alert-success">
+                    <strong>@TempData["success"]</strong>
+                </div>
+            }
+            @if (TempData["error"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>@TempData["error"]</strong>
+                </div>
+            }
+            <br>
+            <br />
+            <table>
+                <tr>
+                    <td style="border-right: solid 1px black">
+                        <label class="control-label">Annual Sick Leave</label>
+                        <label style="margin-left: 50px" class="control-label"></label>
+                    </td>
+                    <td>
+                        <label style="margin-left: 50px" class="control-label"></label>
+                        <label class="control-label">Annual Vacation Leave</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-right: solid 1px black">
+                        <h3 style="display:inline;">13</h3><p style="display:inline;">.5 days</p>
+                     </td>
+                    <td>
+                        <label style="margin-left: 50px" class="control-label"></label>
+                        <h3 style="display:inline;">1</h3><p style="display:inline;">.5 days</p>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            <br />
+            <div class='row'>
+                <div class='col'>
+                    <h2 class="one">Leave Requests</h2>
+                </div>
+            </div>
+            <br />
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Leave Period</th>
+                        <th>Leave Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="Search">
+                        <td><a href="#"> </a></td>
+                        <td><a href="#"> </a></td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div class="col-sm-10">
+                <div class="center">
+
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    function Contains(text_one, text_two) {
+                        if (text_one.indexOf(text_two) != -1)
+                            return true;
+                    }
+                    $("#search").keyup(function () {
+                        var searchText = $("#search").val().toLowerCase();
+                        $(".Search").each(function () {
+                            if (!Contains($(this).text().toLowerCase(), searchText)) {
+                                $(this).hide();
+                            }
+                            else {
+                                $(this).show();
+                            }
+                        });
+                    });
+
+                });
+            </script>
+        </div>
+    </div>
+
+@RenderPage("Footer.cshtml")
