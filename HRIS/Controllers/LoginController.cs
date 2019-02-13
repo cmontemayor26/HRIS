@@ -67,7 +67,7 @@ namespace HRIS.Controllers
         [HttpPost]
         public ActionResult Index(Login lg)
         {
-            string mainconn = @"Data Source = DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
+            string mainconn = @"Data Source = TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
             SqlConnection sqlconn = new SqlConnection(mainconn);
             string sqlquery = " select * from [dbo].[User] where Email = @email and Password = @password";
             sqlconn.Open();
@@ -85,6 +85,9 @@ namespace HRIS.Controllers
                 for (int i = 0; i < Logins.Rows.Count; i ++) {
                     Session["userlevel"] = Logins.Rows[i][2];
                     Session["employeenumber"] = Logins.Rows[i][4];
+                    Session["FirstName"] = Logins.Rows[i][5];
+                    Session["LastName"] = Logins.Rows[i][6];
+                    Session["picture"] = Logins.Rows[i][7];
                 }
                 Session["email"] = lg.Email.ToString();
                 string userlevel = Session["userlevel"] as String;
@@ -98,7 +101,7 @@ namespace HRIS.Controllers
                 
             }
             else {
-                ViewData["Message"] = "Credentials are Invalid!";
+                TempData["Message"] = "Credentials are Invalid!";
             }
             sqlconn.Close();
             return View();
