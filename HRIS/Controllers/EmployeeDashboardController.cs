@@ -16,7 +16,7 @@ namespace HRIS.Controllers
     public class EmployeeDashboardController : Controller
     {
         BIOMETRICEntities db = new BIOMETRICEntities();
-        string connectionString = @"Data Source =DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
+        string connectionString = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
 
         public ActionResult Index()
         {
@@ -177,6 +177,51 @@ namespace HRIS.Controllers
                 return View(masterlist);
             }
             return View();
+        }
+        public ActionResult LeaveForm()
+        {
+            UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
+            UserModelEntities userModel = new UserModelEntities();
+            var getuserlist = userDropdownEntities.Dropdowns.ToList();
+            var getuser = userModel.Users.ToList();
+            SelectList LeaveRequest = new SelectList(getuserlist.Where(o => o.DropdownType == "LeaveRequest"), "DropdownName", "DropdownName");
+            SelectList Approver = new SelectList(getuser.Where(o => o.Userlevel == "Admin"), "Userid", "Email");
+            ViewBag.LeaveRequest = LeaveRequest;
+            ViewBag.Approver = Approver;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult LeaveForm(LeaveForm leaveForm)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = " select * from LeaveForm where StartDate = @StartDate AND EndDate = @EndDate";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@StartDate", leaveForm.StartDate);
+                sqlCmd.Parameters.AddWithValue("@EndDate", leaveForm.EndDate);
+                SqlDataReader sdr = sqlCmd.ExecuteReader();
+                if (sdr.Read())
+                {
+                    TempData["error"] = "You've already applied leave on this date!";
+                }
+                else
+                {
+                    sdr.Close();
+                    string querys = "INSERT INTO LeaveForm(EmployeeNumber,TypeOfRequest,Description,Approver,StartDate,EndDate) VALUES(@EmployeeNumber,@TypeOfRequest,@Description,@Approver,@StartDate,@EndDate)";
+                    SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
+                    sqlCmds.Parameters.AddWithValue("@EmployeeNumber", Session["employeenumber"]);
+                    sqlCmds.Parameters.AddWithValue("@TypeOfRequest", leaveForm.TypeOfRequest);
+                    sqlCmds.Parameters.AddWithValue("@Description", leaveForm.Description);
+                    sqlCmds.Parameters.AddWithValue("@Approver", leaveForm.Approver);
+                    sqlCmds.Parameters.AddWithValue("@StartDate", leaveForm.StartDate);
+                    sqlCmds.Parameters.AddWithValue("@EndDate", leaveForm.EndDate);
+                    SqlDataReader sdrs = sqlCmds.ExecuteReader();
+                    TempData["success"] = "New " + leaveForm.TypeOfRequest + " Request";
+                }
+
+            }
+            return RedirectToAction("LeaveForm");
         }
     }
 }
