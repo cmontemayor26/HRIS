@@ -2,8 +2,10 @@
 using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.SqlServer;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
@@ -14,7 +16,7 @@ namespace HRIS.Controllers
     public class EmployeeDashboardController : Controller
     {
         BIOMETRICEntities db = new BIOMETRICEntities();
-       
+        string connectionString = @"Data Source =DBASUBICIT08; Initial Catalog = HRIS; Integrated Security=True;";
 
         public ActionResult Index()
         {
@@ -141,7 +143,39 @@ namespace HRIS.Controllers
 
         public ActionResult EmployeesProfile()
         {
+            string employeenumber = Session["employeenumber"].ToString();
+            Masterlist masterlist = new Masterlist();
+            DataTable dtblEmployeeInfo = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT EmployeeNumber,FirstName,LastName,PersonalEmail,Department,JobTitle,DateHired,ContactNumber,Street_Address1,Street_Address2,City," +
+                    "Province,ZipCode,Birthday,Gender,MaritalStatus from Masterlist Where EmployeeNumber = @ID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@ID", employeenumber);
+                sqlDa.Fill(dtblEmployeeInfo);
+            }
+            if (dtblEmployeeInfo.Rows.Count == 1)
+            {
+                ViewBag.empID = employeenumber;
+                ViewBag.firstName = dtblEmployeeInfo.Rows[0][1].ToString();
+                ViewBag.lastName = dtblEmployeeInfo.Rows[0][2].ToString();
+                ViewBag.eMail = dtblEmployeeInfo.Rows[0][3].ToString();
+                ViewBag.dept = dtblEmployeeInfo.Rows[0][4].ToString();
+                ViewBag.jobTitle = dtblEmployeeInfo.Rows[0][5].ToString();
+                ViewBag.dateHired = dtblEmployeeInfo.Rows[0][6].ToString();
+                ViewBag.contactNum = dtblEmployeeInfo.Rows[0][7].ToString();
+                ViewBag.street1 = dtblEmployeeInfo.Rows[0][8].ToString();
+                ViewBag.street2 = dtblEmployeeInfo.Rows[0][9].ToString();
+                ViewBag.city = dtblEmployeeInfo.Rows[0][10].ToString();
+                ViewBag.province = dtblEmployeeInfo.Rows[0][11].ToString();
+                ViewBag.zipcode = dtblEmployeeInfo.Rows[0][12].ToString();
+                ViewBag.bday = dtblEmployeeInfo.Rows[0][13].ToString();
+                ViewBag.gender = dtblEmployeeInfo.Rows[0][14].ToString();
+                ViewBag.maritalStatus = dtblEmployeeInfo.Rows[0][15].ToString();
 
+                return View(masterlist);
+            }
             return View();
         }
     }
