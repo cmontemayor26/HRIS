@@ -4,7 +4,9 @@
     <EntitySetMapping Name="Masterlists">
       <EntityTypeMapping TypeName="MasterListModel.Masterlist">
         <MappingFragment StoreEntitySet="Masterlist">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="MasterlistID" ColumnName="MasterlistID" />
           <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />

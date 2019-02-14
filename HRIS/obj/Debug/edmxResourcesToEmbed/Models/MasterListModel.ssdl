@@ -2,9 +2,9 @@
 <Schema Namespace="MasterListModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Masterlist">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MasterlistID" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MasterlistID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="EmployeeNumber" Type="int" />
     <Property Name="FirstName" Type="varchar" MaxLength="25" />
     <Property Name="MiddleName" Type="varchar" MaxLength="25" />
@@ -53,6 +53,8 @@
     <Property Name="School_Tertiary" Type="varchar" MaxLength="50" />
     <Property Name="School_TertiaryYearGraduated" Type="int" />
     <Property Name="School_Degree" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="25" />
+    <Property Name="Nationality" Type="varchar" MaxLength="25" />
   </EntityType>
   <EntityContainer Name="MasterListModelStoreContainer">
     <EntitySet Name="Masterlist" EntityType="Self.Masterlist" Schema="dbo" store:Type="Tables" />

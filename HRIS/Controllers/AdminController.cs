@@ -171,7 +171,7 @@ namespace HRIS.Controllers
             return RedirectToAction("AddApplicant");
         }
         [HttpGet]
-        public ActionResult EditApplicant(int? Applicantid)
+        public ActionResult EditApplicant(int? MasterlistID)
         {
             UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
             var getuserlist = userDropdownEntities.Dropdowns.ToList();
@@ -185,14 +185,14 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "SELECT * from Masterlist Where ID = @ID";
+                string query = "SELECT * from Masterlist Where MasterlistID = @MasterlistID";
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
-                sqlDa.SelectCommand.Parameters.AddWithValue("@ID", Applicantid);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
                 sqlDa.Fill(dtblApplicant);
             }
             if (dtblApplicant.Rows.Count == 1)
             {
-                masterlist.ID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
+                masterlist.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
                 masterlist.FirstName = dtblApplicant.Rows[0][2].ToString();
                 masterlist.MiddleName = dtblApplicant.Rows[0][3].ToString();
                 masterlist.LastName = dtblApplicant.Rows[0][4].ToString();
@@ -220,7 +220,7 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string querys = "UPDATE Masterlist SET FirstName= @FirstName,MiddleName=@MiddleName,LastName=@LastName,Birthday=@Birthday,MaritalStatus=@MaritalStatus,JobTitle=@JobTitle,Street_Address1=@Street_Address1,Street_Address2=@Street_Address2,City=@City,Province=@Province,ZipCode=@ZipCode,ContactNumber=@ContactNumber,PersonalEmail=@PersonalEmail WHERE ID = @ID";
+                string querys = "UPDATE Masterlist SET FirstName= @FirstName,MiddleName=@MiddleName,LastName=@LastName,Birthday=@Birthday,MaritalStatus=@MaritalStatus,JobTitle=@JobTitle,Street_Address1=@Street_Address1,Street_Address2=@Street_Address2,City=@City,Province=@Province,ZipCode=@ZipCode,ContactNumber=@ContactNumber,PersonalEmail=@PersonalEmail WHERE MasterlistID = @MasterlistID";
                 SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
                 sqlCmds.Parameters.AddWithValue("@MiddleName", masterlist.MiddleName);
@@ -235,14 +235,14 @@ namespace HRIS.Controllers
                 sqlCmds.Parameters.AddWithValue("@ZipCode", masterlist.ZipCode);
                 sqlCmds.Parameters.AddWithValue("@ContactNumber", masterlist.ContactNumber);
                 sqlCmds.Parameters.AddWithValue("@PersonalEmail", masterlist.PersonalEmail);
-                sqlCmds.Parameters.AddWithValue("@ID", masterlist.ID);
+                sqlCmds.Parameters.AddWithValue("@MasterlistID", masterlist.MasterlistID);
                 sqlCmds.ExecuteNonQuery();
                 TempData["success"] = "User: " + masterlist.FirstName + " " + masterlist.LastName + " Updated!";
             }
             return RedirectToAction("ApplicantList");
         }
         [HttpGet]
-        public ActionResult ViewApplicant(int? Applicantid)
+        public ActionResult ViewApplicant(int? MasterlistID)
         {
             UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
             var getuserlist = userDropdownEntities.Dropdowns.ToList();
@@ -256,14 +256,14 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "SELECT * from Masterlist Where ID = @ID";
+                string query = "SELECT * from Masterlist Where MasterlistID = @MasterlistID";
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
-                sqlDa.SelectCommand.Parameters.AddWithValue("@ID", Applicantid);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
                 sqlDa.Fill(dtblApplicant);
             }
             if (dtblApplicant.Rows.Count == 1)
             {
-                masterlist.ID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
+                masterlist.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
                 masterlist.FirstName = dtblApplicant.Rows[0][2].ToString();
                 masterlist.MiddleName = dtblApplicant.Rows[0][3].ToString();
                 masterlist.LastName = dtblApplicant.Rows[0][4].ToString();
@@ -277,7 +277,7 @@ namespace HRIS.Controllers
                 masterlist.ZipCode = dtblApplicant.Rows[0][15].ToString();
                 masterlist.ContactNumber = dtblApplicant.Rows[0][10].ToString();
                 masterlist.PersonalEmail = dtblApplicant.Rows[0][4].ToString();
-                ViewBag.applicantid = Applicantid;
+                ViewBag.MasterlistID = MasterlistID;
                 return View(masterlist);
             }
             else

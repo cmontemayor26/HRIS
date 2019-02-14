@@ -45,8 +45,15 @@
             <table>
                 <tr>
                     <td>
-                        <img src="@Url.Content(Model.ProfilePic)" width="80" height="80">
-                        <input id="ImageFile" type="file" name="ImageFile" >
+                        @if (@Model.ProfilePic == "")
+                        {
+                            <img src="~/images/default.jpg" width="80" height="80">
+                        }
+                        else
+                        {
+                            <img src="@Url.Content(Model.ProfilePic)" width="80" height="80">
+                        }
+                        <input id="ImageFile" type="file" name="ImageFile">
                     </td>
                 </tr>
                 <tr>

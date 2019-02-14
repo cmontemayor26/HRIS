@@ -44,7 +44,7 @@
                 <table>
                     <tr>
                         <td>
-                            @Html.HiddenFor(model => model.ID)
+                            @Html.HiddenFor(model => model.MasterlistID)
                             <label for="full_name_id" class="control-label">First Name</label>
                             @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @autofocus = "autofocus", @required = true } })
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })

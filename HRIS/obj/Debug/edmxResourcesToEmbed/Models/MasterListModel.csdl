@@ -2,9 +2,8 @@
 <Schema Namespace="MasterListModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Masterlist">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="MasterlistID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EmployeeNumber" Type="Int32" />
     <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
@@ -14,7 +13,7 @@
     <Property Name="Birthday" Type="DateTime" Precision="3" />
     <Property Name="MaritalStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="Gender" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-    <Property Name="ContactNumber" Type="String" FixedLength="false" MaxLength="Max" Unicode="false" />
+    <Property Name="ContactNumber" Type="String" FixedLength="false" MaxLength="15" Unicode="false" />
     <Property Name="Street_Address1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Street_Address2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -53,6 +52,9 @@
     <Property Name="School_Tertiary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="School_TertiaryYearGraduated" Type="Int32" />
     <Property Name="School_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MasterlistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Nationality" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="MasterListEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Masterlists" EntityType="Self.Masterlist" />

@@ -6,19 +6,19 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace HRIS.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
 
     public partial class Masterlist
     {
-        public int ID { get; set; }
         public Nullable<int> EmployeeNumber { get; set; }
         [Required(ErrorMessage = "This field is required.")]
         public string FirstName { get; set; }
@@ -80,5 +80,9 @@ namespace HRIS.Models
         public string School_Tertiary { get; set; }
         public Nullable<int> School_TertiaryYearGraduated { get; set; }
         public string School_Degree { get; set; }
+
+        public int MasterlistID { get; set; }
+        public string Country { get; set; }
+        public string Nationality { get; set; }
     }
 }
