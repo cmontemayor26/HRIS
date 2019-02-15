@@ -44,26 +44,20 @@
 
                 <br>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(moddel => Model.Userid)
+                @Html.HiddenFor(model => model.Userid)
             </div>
         </div>
-        @if (TempData["success"] != null)
-        {
-            <div class="alert alert-success">
-                <strong>@TempData["success"]</strong>
-            </div>
-        }
-        @if (TempData["error"] != null)
-        {
-            <div class="alert alert-danger">
-                <strong>@TempData["error"]</strong>
-            </div>
-        }
-
             <table>
                 <tr>
                     <td>
-                        <img src="@Url.Content(Model.ProfilePic)" width="80" height="80">
+                        @if (@Model.ProfilePic == "")
+                        {
+                            <img src="~/images/default.jpg" width="80" height="80">
+                        }
+                        else
+                        {
+                            <img src="@Url.Content(Model.ProfilePic)" width="80" height="80">
+                        }
                     </td>
                 </tr>
                 <tr>
