@@ -35,7 +35,17 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="nav navbar-nav ml-auto">
                     <li>
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF"><i class="fa fa-user-circle"></i> @Session["email"] <i class="fa fa-sort-desc"></i></a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF">
+                            @if (Session["picture"].ToString() == "")
+                            {
+                                <img src="~/images/default.jpg" style="border-radius: 50%;" width="50" height="50" />
+                            }
+                            else
+                            {
+                                <img src="@Url.Content(Session["picture"].ToString())" style="border-radius: 50%;" width="50" height="50">
+                            }
+                            @Session["FirstName"]  @Session["LastName"]<i class="fa fa-sort-desc"></i>
+                        </a>
                         <div class="dropdown-menu dropdown-menu-right" style="margin-top: 0;">
                             <a class="dropdown-item" href="@Url.Action("EmployeesProfile","EmployeeDashboard")">My Profile</a>
                             <a class="dropdown-item" href="@Url.Action("ChangePassword","Admin")">Change Password</a>
@@ -53,8 +63,19 @@
         <div class="hamburger close"><span></span><span></span><span></span></div>
         <ul class="leftMenuList">
             <li class="dashboard">
-                <a href="@Url.Action("Index","EmployeeDashboard")"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a>
+                <a href="#">
+                    @if (Session["picture"].ToString() == "")
+                    {
+                        <img src="~/images/default.jpg" style="border-radius: 50%;margin-left: 10px;" width="30" height="30" />
+                    }
+                    else
+                    {
+                        <img src="@Url.Content(Session["picture"].ToString())" style="border-radius: 50%;margin-left: 10px;" width="30" height="30">
+                    }
+                    <span>@Session["FirstName"]  @Session["LastName"]</span>
+                </a>
             </li>
+            <hr>
             <li>
                 <a href="@Url.Action("EmployeesProfile","EmployeeDashboard")" id="empProile"><i class="fa fa-user-circle" aria-hidden="true"></i><span>My Profile</span></a>
             </li>
