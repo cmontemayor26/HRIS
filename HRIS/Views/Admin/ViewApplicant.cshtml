@@ -1,4 +1,4 @@
-﻿@model HRIS.Models.Masterlist
+﻿@model HRIS.Models.ViewApplicantModel
 @{
     Layout = null;
 }
@@ -31,7 +31,7 @@
                 <h1 class="one">Applicant Information</h1>
             </div>
             <div class="col-auto">
-                <button onclick="location.href='@Url.Action("EditApplicant", "Admin", new {MasterlistID=ViewBag.MasterlistID})'" class="btn btn-primary pull-right">Edit</button>
+                <button onclick="location.href='@Url.Action("EditApplicant", "Admin", new { MasterlistID=ViewBag.MasterlistID })'" class="btn btn-primary pull-right">Edit</button>
             </div>
         </div>
         <hr>
@@ -135,6 +135,40 @@
                             <label for="full_name_id" class="control-label">Email</label>
                             @Html.EditorFor(model => model.PersonalEmail, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
                             @Html.ValidationMessageFor(model => model.PersonalEmail, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
+                <div class='row'>
+                    <div class='md-col-4'>
+                        <br>
+                        <h2>Work Experience</h2>
+                        <br>
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">CompanyName</label>
+                            @Html.EditorFor(model => model.CompanyName, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">Position</label>
+                            @Html.EditorFor(model => model.WorkExperienceJobTitle, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.WorkExperienceJobTitle, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="full_name_id" class="control-label">DateFrom</label>
+                            @Html.EditorFor(model => model.DateFrom, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger" })
+                        </td>
+                        <td>
+                            <label for="full_name_id" class="control-label">DateTo</label>
+                            @Html.EditorFor(model => model.DateTo, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+                            @Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger" })
                         </td>
                     </tr>
                 </table>
