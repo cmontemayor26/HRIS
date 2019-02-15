@@ -26,5 +26,6 @@ namespace HRIS.Models
         }
     
         public virtual DbSet<Masterlist> Masterlists { get; set; }
+        public virtual DbSet<WorkExperience> WorkExperiences { get; set; }
     }
 }

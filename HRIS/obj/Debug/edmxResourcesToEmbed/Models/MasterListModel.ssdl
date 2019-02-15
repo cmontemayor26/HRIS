@@ -56,7 +56,19 @@
     <Property Name="Country" Type="varchar" MaxLength="25" />
     <Property Name="Nationality" Type="varchar" MaxLength="25" />
   </EntityType>
+  <EntityType Name="WorkExperience">
+    <Key>
+      <PropertyRef Name="WorkExperienceID" />
+    </Key>
+    <Property Name="WorkExperienceID" Type="int" Nullable="false" />
+    <Property Name="MasterlistID" Type="int" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+    <Property Name="DateFrom" Type="datetime" />
+    <Property Name="DateTo" Type="datetime" />
+  </EntityType>
   <EntityContainer Name="MasterListModelStoreContainer">
     <EntitySet Name="Masterlist" EntityType="Self.Masterlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

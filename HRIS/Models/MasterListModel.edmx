@@ -61,8 +61,20 @@
           <Property Name="Country" Type="varchar" MaxLength="25" />
           <Property Name="Nationality" Type="varchar" MaxLength="25" />
         </EntityType>
+        <EntityType Name="WorkExperience">
+          <Key>
+            <PropertyRef Name="WorkExperienceID" />
+          </Key>
+          <Property Name="WorkExperienceID" Type="int" Nullable="false" />
+          <Property Name="MasterlistID" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+          <Property Name="DateFrom" Type="datetime" />
+          <Property Name="DateTo" Type="datetime" />
+        </EntityType>
         <EntityContainer Name="MasterListModelStoreContainer">
           <EntitySet Name="Masterlist" EntityType="Self.Masterlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkExperience" EntityType="Self.WorkExperience" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -126,7 +138,19 @@
         </EntityType>
         <EntityContainer Name="MasterListEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Masterlists" EntityType="Self.Masterlist" />
+          <EntitySet Name="WorkExperiences" EntityType="MasterListModel.WorkExperience" />
         </EntityContainer>
+        <EntityType Name="WorkExperience">
+          <Key>
+            <PropertyRef Name="WorkExperienceID" />
+          </Key>
+          <Property Name="WorkExperienceID" Type="Int32" Nullable="false" />
+          <Property Name="MasterlistID" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DateFrom" Type="DateTime" Precision="3" />
+          <Property Name="DateTo" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -187,6 +211,18 @@
                 <ScalarProperty Name="School_Tertiary" ColumnName="School_Tertiary" />
                 <ScalarProperty Name="School_TertiaryYearGraduated" ColumnName="School_TertiaryYearGraduated" />
                 <ScalarProperty Name="School_Degree" ColumnName="School_Degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkExperiences">
+            <EntityTypeMapping TypeName="MasterListModel.WorkExperience">
+              <MappingFragment StoreEntitySet="WorkExperience">
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="MasterlistID" ColumnName="MasterlistID" />
+                <ScalarProperty Name="WorkExperienceID" ColumnName="WorkExperienceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

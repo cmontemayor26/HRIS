@@ -58,5 +58,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WorkExperiences">
+      <EntityTypeMapping TypeName="MasterListModel.WorkExperience">
+        <MappingFragment StoreEntitySet="WorkExperience">
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="MasterlistID" ColumnName="MasterlistID" />
+          <ScalarProperty Name="WorkExperienceID" ColumnName="WorkExperienceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
