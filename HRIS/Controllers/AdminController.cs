@@ -18,7 +18,7 @@ namespace HRIS.Controllers
 {
     public class AdminController : Controller
     {
-        string connectionString = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
+        string connectionString = @"Data Source =192.168.102.18; Initial Catalog = HRIS; Integrated Security=True;";
         // Encryption
         private string Encrypt(string clearText)
         {
@@ -75,7 +75,7 @@ namespace HRIS.Controllers
         public ActionResult ApplicantList(int? i)
         {
             MasterListEntities master = new MasterListEntities();
-            return View(master.Masterlists.ToList().ToPagedList(i ?? 1, 3));
+            return View(master.Masterlists.ToList().ToPagedList(i ?? 1, 10));
         }
         public ActionResult Reports(string Reportype)
         {
@@ -121,11 +121,13 @@ namespace HRIS.Controllers
             SelectList JobTitleList = new SelectList(getuserlist.Where(o => o.DropdownType == "JobTitle"), "DropdownName", "DropdownName");
             ViewBag.MaritalStatusList = MaritalStatusList;
             ViewBag.JobTitleList = JobTitleList;
-            return View();
+            var tuple = new Tuple<Masterlist, WorkExperience>(new Masterlist(), new WorkExperience());
+            return View(tuple);
         }
         [HttpPost]
-        public ActionResult AddApplicant(Masterlist masterlist)
+        public ActionResult AddApplicant(Masterlist masterlist, WorkExperience workExperience)
         {
+            MasterListEntities Master = new MasterListEntities();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
@@ -145,10 +147,6 @@ namespace HRIS.Controllers
                     string querys = "INSERT INTO Masterlist(FirstName,MiddleName,LastName,Birthday,MaritalStatus,JobTitle,Street_Address1,Street_Address2,City,Province,ZipCode,ContactNumber,PersonalEmail,Applicant_AppliedDate)" +
                         "VALUES(@FirstName,@MiddleName,@LastName,@Birthday,@MaritalStatus,@JobTitle,@Street_Address1,@Street_Address2,@City,@Province,@ZipCode,@ContactNumber,@PersonalEmail,@Applicant_AppliedDate)";
                     SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
-                    if (masterlist.Street_Address2 == null)
-                    {
-                        masterlist.Street_Address2 = "";
-                    }
                     sqlCmds.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
                     sqlCmds.Parameters.AddWithValue("@MiddleName", masterlist.MiddleName);
                     sqlCmds.Parameters.AddWithValue("@LastName", masterlist.LastName);
@@ -164,7 +162,19 @@ namespace HRIS.Controllers
                     sqlCmds.Parameters.AddWithValue("@PersonalEmail", masterlist.PersonalEmail);
                     sqlCmds.Parameters.AddWithValue("@Applicant_AppliedDate", masterlist.Applicant_AppliedDate);
                     SqlDataReader sdrs = sqlCmds.ExecuteReader();
+                    int masterlistID = Master.Masterlists.Max(item => item.MasterlistID);
+                    sdrs.Close();
+                    string queries = "INSERT INTO WorkExperience(MasterlistID,CompanyName,JobTitle,DateFrom,DateTo)" +
+                        "VALUES(@MasterlistID,@CompanyName,@JobTitles,@DateFrom,@DateTo)";
+                    SqlCommand sqlcommands = new SqlCommand(queries, sqlCon);
+                    sqlcommands.Parameters.AddWithValue("@MasterlistID", masterlistID);
+                    sqlcommands.Parameters.AddWithValue("@CompanyName", workExperience.CompanyName);
+                    sqlcommands.Parameters.AddWithValue("@JobTitles", workExperience.JobTitle);
+                    sqlcommands.Parameters.AddWithValue("@DateFrom", workExperience.DateFrom);
+                    sqlcommands.Parameters.AddWithValue("@DateTo", workExperience.DateTo);
+                    SqlDataReader sqldrs = sqlcommands.ExecuteReader();
                     TempData["success"] = "New Applicant: " + masterlist.FirstName + " " + masterlist.LastName + " Added!";
+                    sqldrs.Close();
                 }
 
             }
@@ -173,6 +183,10 @@ namespace HRIS.Controllers
         [HttpGet]
         public ActionResult EditApplicant(int? MasterlistID)
         {
+            if (MasterlistID == null)
+            {
+                return RedirectToAction("ApplicantList");
+            }
             UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
             var getuserlist = userDropdownEntities.Dropdowns.ToList();
             SelectList MaritalStatusList = new SelectList(getuserlist.Where(o => o.DropdownType == "MaritalStatus"), "DropdownName", "DropdownName");
@@ -180,8 +194,9 @@ namespace HRIS.Controllers
             ViewBag.MaritalStatusList = MaritalStatusList;
             ViewBag.JobTitleList = JobTitleList;
 
-            Masterlist masterlist = new Masterlist();
+            ViewApplicantModel model = new ViewApplicantModel();
             DataTable dtblApplicant = new DataTable();
+            DataTable dtblWorkExperience = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
@@ -189,61 +204,86 @@ namespace HRIS.Controllers
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
                 sqlDa.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
                 sqlDa.Fill(dtblApplicant);
+
+                string querys = "SELECT * from WorkExperience Where MasterlistID = @MasterlistID";
+                SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
+                sqlDas.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
+                sqlDas.Fill(dtblWorkExperience);
             }
             if (dtblApplicant.Rows.Count == 1)
             {
-                masterlist.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
-                masterlist.FirstName = dtblApplicant.Rows[0][2].ToString();
-                masterlist.MiddleName = dtblApplicant.Rows[0][3].ToString();
-                masterlist.LastName = dtblApplicant.Rows[0][4].ToString();
-                masterlist.Birthday = DateTime.Parse(dtblApplicant.Rows[0][7].ToString());
-                masterlist.MaritalStatus = dtblApplicant.Rows[0][8].ToString();
-                masterlist.JobTitle = dtblApplicant.Rows[0][6].ToString();
-                masterlist.Street_Address1 = dtblApplicant.Rows[0][11].ToString();
-                masterlist.Street_Address2 = dtblApplicant.Rows[0][12].ToString();
-                masterlist.City = dtblApplicant.Rows[0][13].ToString();
-                masterlist.Province = dtblApplicant.Rows[0][14].ToString();
-                masterlist.ZipCode = dtblApplicant.Rows[0][15].ToString();
-                masterlist.ContactNumber = dtblApplicant.Rows[0][10].ToString();
-                masterlist.PersonalEmail = dtblApplicant.Rows[0][4].ToString();
-                return View(masterlist);
+                model.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
+                model.FirstName = dtblApplicant.Rows[0][2].ToString();
+                model.MiddleName = dtblApplicant.Rows[0][3].ToString();
+                model.LastName = dtblApplicant.Rows[0][4].ToString();
+                model.Birthday = DateTime.Parse(dtblApplicant.Rows[0][7].ToString());
+                model.MaritalStatus = dtblApplicant.Rows[0][8].ToString();
+                model.JobTitle = dtblApplicant.Rows[0][6].ToString();
+                model.Street_Address1 = dtblApplicant.Rows[0][11].ToString();
+                model.Street_Address2 = dtblApplicant.Rows[0][12].ToString();
+                model.City = dtblApplicant.Rows[0][13].ToString();
+                model.Province = dtblApplicant.Rows[0][14].ToString();
+                model.ZipCode = dtblApplicant.Rows[0][15].ToString();
+                model.ContactNumber = dtblApplicant.Rows[0][10].ToString();
+                model.PersonalEmail = dtblApplicant.Rows[0][4].ToString();
+                ViewBag.MasterlistID = MasterlistID;
+
+                model.CompanyName = dtblWorkExperience.Rows[0][2].ToString();
+                model.WorkExperienceJobTitle = dtblWorkExperience.Rows[0][3].ToString();
+                model.DateFrom = DateTime.Parse(dtblWorkExperience.Rows[0][4].ToString());
+                model.DateTo = DateTime.Parse(dtblWorkExperience.Rows[0][5].ToString());
+                return View(model);
+
             }
             else
             {
                 return RedirectToAction("ApplicantList");
             }
-            return View();
         }
         [HttpPost]
-        public ActionResult EditApplicant(Masterlist masterlist)
+        public ActionResult EditApplicant(ViewApplicantModel ViewApplicantModel)
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string querys = "UPDATE Masterlist SET FirstName= @FirstName,MiddleName=@MiddleName,LastName=@LastName,Birthday=@Birthday,MaritalStatus=@MaritalStatus,JobTitle=@JobTitle,Street_Address1=@Street_Address1,Street_Address2=@Street_Address2,City=@City,Province=@Province,ZipCode=@ZipCode,ContactNumber=@ContactNumber,PersonalEmail=@PersonalEmail WHERE MasterlistID = @MasterlistID";
-                SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
-                sqlCmds.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
-                sqlCmds.Parameters.AddWithValue("@MiddleName", masterlist.MiddleName);
-                sqlCmds.Parameters.AddWithValue("@LastName", masterlist.LastName);
-                sqlCmds.Parameters.AddWithValue("@Birthday", masterlist.Birthday);
-                sqlCmds.Parameters.AddWithValue("@MaritalStatus", masterlist.MaritalStatus);
-                sqlCmds.Parameters.AddWithValue("@JobTitle", masterlist.JobTitle);
-                sqlCmds.Parameters.AddWithValue("@Street_Address1", masterlist.Street_Address1);
-                sqlCmds.Parameters.AddWithValue("@Street_Address2", masterlist.Street_Address2);
-                sqlCmds.Parameters.AddWithValue("@City", masterlist.City);
-                sqlCmds.Parameters.AddWithValue("@Province", masterlist.Province);
-                sqlCmds.Parameters.AddWithValue("@ZipCode", masterlist.ZipCode);
-                sqlCmds.Parameters.AddWithValue("@ContactNumber", masterlist.ContactNumber);
-                sqlCmds.Parameters.AddWithValue("@PersonalEmail", masterlist.PersonalEmail);
-                sqlCmds.Parameters.AddWithValue("@MasterlistID", masterlist.MasterlistID);
+                string query = "UPDATE Masterlist SET FirstName= @FirstName,MiddleName=@MiddleName,LastName=@LastName,Birthday=@Birthday,MaritalStatus=@MaritalStatus,JobTitle=@JobTitle,Street_Address1=@Street_Address1,Street_Address2=@Street_Address2,City=@City,Province=@Province,ZipCode=@ZipCode,ContactNumber=@ContactNumber,PersonalEmail=@PersonalEmail WHERE MasterlistID = @MasterlistID";
+                SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
+                sqlCmds.Parameters.AddWithValue("@FirstName", ViewApplicantModel.FirstName);
+                sqlCmds.Parameters.AddWithValue("@MiddleName", ViewApplicantModel.MiddleName);
+                sqlCmds.Parameters.AddWithValue("@LastName", ViewApplicantModel.LastName);
+                sqlCmds.Parameters.AddWithValue("@Birthday", ViewApplicantModel.Birthday);
+                sqlCmds.Parameters.AddWithValue("@MaritalStatus", ViewApplicantModel.MaritalStatus);
+                sqlCmds.Parameters.AddWithValue("@JobTitle", ViewApplicantModel.JobTitle);
+                sqlCmds.Parameters.AddWithValue("@Street_Address1", ViewApplicantModel.Street_Address1);
+                sqlCmds.Parameters.AddWithValue("@Street_Address2", ViewApplicantModel.Street_Address2);
+                sqlCmds.Parameters.AddWithValue("@City", ViewApplicantModel.City);
+                sqlCmds.Parameters.AddWithValue("@Province", ViewApplicantModel.Province);
+                sqlCmds.Parameters.AddWithValue("@ZipCode", ViewApplicantModel.ZipCode);
+                sqlCmds.Parameters.AddWithValue("@ContactNumber", ViewApplicantModel.ContactNumber);
+                sqlCmds.Parameters.AddWithValue("@PersonalEmail", ViewApplicantModel.PersonalEmail);
+                sqlCmds.Parameters.AddWithValue("@MasterlistID", ViewApplicantModel.MasterlistID);
                 sqlCmds.ExecuteNonQuery();
-                TempData["success"] = "User: " + masterlist.FirstName + " " + masterlist.LastName + " Updated!";
+
+                string querys = "UPDATE WorkExperience SET CompanyName=@CompanyName,JobTitle=@JobTitle,DateFrom=@DateFrom,DateTo=@DateTo WHERE MasterlistID = @MasterlistID";
+                SqlCommand cmd = new SqlCommand(querys, sqlCon);
+                cmd.Parameters.AddWithValue("@CompanyName", ViewApplicantModel.CompanyName);
+                cmd.Parameters.AddWithValue("@JobTitle", ViewApplicantModel.WorkExperienceJobTitle);
+                cmd.Parameters.AddWithValue("@DateFrom", ViewApplicantModel.DateFrom);
+                cmd.Parameters.AddWithValue("@DateTo", ViewApplicantModel.DateTo);
+                cmd.Parameters.AddWithValue("@MasterlistID", ViewApplicantModel.MasterlistID);
+                cmd.ExecuteNonQuery();
+
+                TempData["success"] = "User: " + ViewApplicantModel.FirstName + " " + ViewApplicantModel.LastName + " Updated!";
             }
             return RedirectToAction("ApplicantList");
         }
         [HttpGet]
         public ActionResult ViewApplicant(int? MasterlistID)
         {
+            if (MasterlistID == null)
+            {
+                return RedirectToAction("ApplicantList");
+            }
             UserDropdownEntities userDropdownEntities = new UserDropdownEntities();
             var getuserlist = userDropdownEntities.Dropdowns.ToList();
             SelectList MaritalStatusList = new SelectList(getuserlist.Where(o => o.DropdownType == "MaritalStatus"), "DropdownName", "DropdownName");
@@ -251,8 +291,9 @@ namespace HRIS.Controllers
             ViewBag.MaritalStatusList = MaritalStatusList;
             ViewBag.JobTitleList = JobTitleList;
 
-            Masterlist masterlist = new Masterlist();
+            ViewApplicantModel model = new ViewApplicantModel();
             DataTable dtblApplicant = new DataTable();
+            DataTable dtblWorkExperience = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
@@ -260,31 +301,41 @@ namespace HRIS.Controllers
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
                 sqlDa.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
                 sqlDa.Fill(dtblApplicant);
+
+                string querys = "SELECT * from WorkExperience Where MasterlistID = @MasterlistID";
+                SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
+                sqlDas.SelectCommand.Parameters.AddWithValue("@MasterlistID", MasterlistID);
+                sqlDas.Fill(dtblWorkExperience);
             }
             if (dtblApplicant.Rows.Count == 1)
             {
-                masterlist.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
-                masterlist.FirstName = dtblApplicant.Rows[0][2].ToString();
-                masterlist.MiddleName = dtblApplicant.Rows[0][3].ToString();
-                masterlist.LastName = dtblApplicant.Rows[0][4].ToString();
-                masterlist.Birthday = DateTime.Parse(dtblApplicant.Rows[0][7].ToString());
-                masterlist.MaritalStatus = dtblApplicant.Rows[0][8].ToString();
-                masterlist.JobTitle = dtblApplicant.Rows[0][6].ToString();
-                masterlist.Street_Address1 = dtblApplicant.Rows[0][11].ToString();
-                masterlist.Street_Address2 = dtblApplicant.Rows[0][12].ToString();
-                masterlist.City = dtblApplicant.Rows[0][13].ToString();
-                masterlist.Province = dtblApplicant.Rows[0][14].ToString();
-                masterlist.ZipCode = dtblApplicant.Rows[0][15].ToString();
-                masterlist.ContactNumber = dtblApplicant.Rows[0][10].ToString();
-                masterlist.PersonalEmail = dtblApplicant.Rows[0][4].ToString();
+                model.MasterlistID = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
+                model.FirstName = dtblApplicant.Rows[0][2].ToString();
+                model.MiddleName = dtblApplicant.Rows[0][3].ToString();
+                model.LastName = dtblApplicant.Rows[0][4].ToString();
+                model.Birthday = DateTime.Parse(dtblApplicant.Rows[0][7].ToString());
+                model.MaritalStatus = dtblApplicant.Rows[0][8].ToString();
+                model.JobTitle = dtblApplicant.Rows[0][6].ToString();
+                model.Street_Address1 = dtblApplicant.Rows[0][11].ToString();
+                model.Street_Address2 = dtblApplicant.Rows[0][12].ToString();
+                model.City = dtblApplicant.Rows[0][13].ToString();
+                model.Province = dtblApplicant.Rows[0][14].ToString();
+                model.ZipCode = dtblApplicant.Rows[0][15].ToString();
+                model.ContactNumber = dtblApplicant.Rows[0][10].ToString();
+                model.PersonalEmail = dtblApplicant.Rows[0][4].ToString();
                 ViewBag.MasterlistID = MasterlistID;
-                return View(masterlist);
+
+                model.CompanyName = dtblWorkExperience.Rows[0][2].ToString();
+                model.WorkExperienceJobTitle = dtblWorkExperience.Rows[0][3].ToString();
+                model.DateFrom = DateTime.Parse(dtblWorkExperience.Rows[0][4].ToString());
+                model.DateTo = DateTime.Parse(dtblWorkExperience.Rows[0][5].ToString());
+                return View(model);
+
             }
             else
             {
                 return RedirectToAction("ApplicantList");
             }
-            return View();
         }
         [HttpGet]
         public ActionResult AddUser()
