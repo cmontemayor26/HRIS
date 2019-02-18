@@ -16,7 +16,8 @@ namespace HRIS.Controllers
     public class EmployeeDashboardController : Controller
     {
         BIOMETRICEntities db = new BIOMETRICEntities();
-        string connectionString = @"Data Source =TIM-PC; Initial Catalog = HRIS; Integrated Security=True;";
+        HRISEntities hrisDB = new HRISEntities();
+        string connectionString = @"Data Source=192.168.102.18;Initial Catalog=HRIS;Persist Security Info=True;User ID=panoramic;Password=GoLegal100;";
 
         public ActionResult Index()
         {
@@ -25,21 +26,21 @@ namespace HRIS.Controllers
 
             var item = db.qries
                 .Where(x => x.Badgenumber == employeenumber
-                && x.CHECKTIME.Year == DateTime.Now.Year && x.CHECKTIME.Month == 1//DateTime.Now.Month
+                && x.CHECKTIME.Year == DateTime.Now.Year && x.CHECKTIME.Month == DateTime.Now.Month
                 )
                 //&& x.CHECKTIME <= dateTo)
-                .OrderBy(x => x.CHECKTIME)
+                .OrderByDescending(x => x.CHECKTIME)
                 .ToList();
             
             var lateQuery = db.qries
                 .Where(x => x.Badgenumber == ((string)employeenumber)
                 && x.CHECKTYPE == "I"
                 && x.CHECKTIME.Year == DateTime.Now.Year
-                && x.CHECKTIME.Month == 1
+                && x.CHECKTIME.Month == DateTime.Now.Month
                 && x.CHECKTIME.Hour == 7
                 && x.CHECKTIME.Minute >= 1
                 )
-                .OrderBy(x => x.CHECKTIME)
+                .OrderByDescending(x => x.CHECKTIME)
                 .Count();
             ViewBag.lateCount = lateQuery;
 
@@ -81,7 +82,7 @@ namespace HRIS.Controllers
                .Where(x => x.Badgenumber == ((string)employeenumber)
                && x.CHECKTYPE == "I"
                && x.CHECKTIME.Year == DateTime.Now.Year
-               && x.CHECKTIME.Month == 1
+               && x.CHECKTIME.Month == DateTime.Now.Month
                && x.CHECKTIME.Hour == 7
                && x.CHECKTIME.Minute >= 1
                )
@@ -107,7 +108,7 @@ namespace HRIS.Controllers
 
             var item = db.qries
                .Where(x => x.Badgenumber == employeenumber
-               && x.CHECKTIME.Year <= DateTime.Now.Year && x.CHECKTIME.Month <= 1//DateTime.Now.Month
+               && x.CHECKTIME.Year <= DateTime.Now.Year && x.CHECKTIME.Month <= DateTime.Now.Month
                )
                //&& x.CHECKTIME <= dateTo)
                .OrderBy(x => x.CHECKTIME)
@@ -144,6 +145,7 @@ namespace HRIS.Controllers
         public ActionResult EmployeesProfile()
         {
             string employeenumber = Session["employeenumber"].ToString();
+            ViewBag.empPicture = Session["picture"].ToString();
             Masterlist masterlist = new Masterlist();
             DataTable dtblEmployeeInfo = new DataTable();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
@@ -158,6 +160,38 @@ namespace HRIS.Controllers
             if (dtblEmployeeInfo.Rows.Count == 1)
             {
                 ViewBag.empID = employeenumber;
+                ViewBag.firstName = dtblEmployeeInfo.Rows[0][1].ToString();
+                ViewBag.lastName = dtblEmployeeInfo.Rows[0][2].ToString();
+                ViewBag.eMail = dtblEmployeeInfo.Rows[0][3].ToString();
+                ViewBag.dept = dtblEmployeeInfo.Rows[0][4].ToString();
+                ViewBag.jobTitle = dtblEmployeeInfo.Rows[0][5].ToString();
+                ViewBag.dateHired = dtblEmployeeInfo.Rows[0][6].ToString();
+                ViewBag.contactNum = dtblEmployeeInfo.Rows[0][7].ToString();
+                ViewBag.street1 = dtblEmployeeInfo.Rows[0][8].ToString();
+                ViewBag.street2 = dtblEmployeeInfo.Rows[0][9].ToString();
+                ViewBag.city = dtblEmployeeInfo.Rows[0][10].ToString();
+                ViewBag.province = dtblEmployeeInfo.Rows[0][11].ToString();
+                ViewBag.zipcode = dtblEmployeeInfo.Rows[0][12].ToString();
+                ViewBag.bday = dtblEmployeeInfo.Rows[0][13].ToString();
+                ViewBag.gender = dtblEmployeeInfo.Rows[0][14].ToString();
+                ViewBag.maritalStatus = dtblEmployeeInfo.Rows[0][15].ToString();
+
+                return View(masterlist);
+            }
+
+            EmpHistory empHistory = new EmpHistory();
+            DataTable dtblEmpHistory = new DataTable();
+            using (SqlConnection sqlConn = new SqlConnection(connectionString))
+            {
+                sqlConn.Open();
+                string qryEmpHistory = "SELECT DatePromoted,GrossPay,Allowance,EmploymentStatus from EmpHistory Where EmployeeNumber = @ID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(qryEmpHistory, sqlConn);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@ID", employeenumber);
+                sqlDa.Fill(dtblEmpHistory);
+            }
+
+            if (dtblEmployeeInfo.Rows.Count == 1)
+            {
                 ViewBag.firstName = dtblEmployeeInfo.Rows[0][1].ToString();
                 ViewBag.lastName = dtblEmployeeInfo.Rows[0][2].ToString();
                 ViewBag.eMail = dtblEmployeeInfo.Rows[0][3].ToString();
