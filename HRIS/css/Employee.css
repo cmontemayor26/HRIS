@@ -1,8 +1,8 @@
-﻿body {
-    font-family: Helvetica !important;
+﻿
+body {
+    font-family: "Open Sans",Helvetica,Arial,sans-serif !important;
     font-size: 15px !important;
-    background: rgba(#345F90, 0.07);
-    font-family: 'Roboto', sans-serif;
+    background: #f1f1f1 !important;
     font-weight: 300;
     line-height: 1.66667;
 }
@@ -26,15 +26,10 @@ nav .container {
     position: inherit;
 }
 
-.container {
-    font-family: 'Segoe UI',sans-serif;
-    margin-left:1000px;
-}
-
-.container .box{
-    width: 25%;
-    float: left;
-}
+    .own_container .box {
+        width: 25%;
+        float: left;
+    }
 
 .card-body .chart {
     position: relative;
@@ -53,10 +48,6 @@ nav .container {
     left: 0;
 }
 
-.text-right .btn {
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
 .card:hover {
     display: Inherit;
 }
@@ -69,28 +60,19 @@ button i.fa {
 }
 
 .empWrapper {
-    background-color: #f1f1f1;
-    padding: 0.01em 16px;
-    margin: 20px 0;
+    background-color: #fff;
+   
+    padding: 15px 15px 10px 15px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
 }
 
-.row img{
-    margin-top:20px;
-}
-
-.container {
-    width: 75%;
-    margin: 3rem auto;
-}
-
 h2 {
-    color: #345F90;
-    font-size: 24px;
+    color: white;
+    font-size: 30px;
     line-height: 1.25;
-    font-family: "Roboto Slab", serif;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-family: "Montez", cursive;
+    background: #1c4e80;
+    border-radius: 10px 10px 0 0;
 }
 
 
@@ -113,17 +95,17 @@ h2 {
     height: 35px;
     user-select: none;
 }
-.tab-slider--tabs::after {
-    content: "";
-    width: 50%;
-    background: #345F90;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all 250ms ease-in-out;
-    border-radius: 35px;
-}
+    .tab-slider--tabs::after {
+        content: "";
+        width: 50%;
+        background: #1c4e80;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 250ms ease-in-out;
+        border-radius: 35px;
+    }
 
 .tab-slider--tabs.slide::after {
         left: 50%;
@@ -134,7 +116,7 @@ h2 {
     font-size: 12px;
     line-height: 1;
     font-weight: bold;
-    color: #345F90;
+    color: #1c4e80;
     text-transform: uppercase;
     text-align: center;
     padding: 11px 20px;
@@ -156,13 +138,13 @@ h2 {
 .panel-heading.collapsed .fa-chevron-down,
 .panel-heading .fa-chevron-right {
     display: none;
-    color: #345F90;
+    color: white;
 }
 
 .panel-heading.collapsed .fa-chevron-right,
 .panel-heading .fa-chevron-down {
     display: inline-block;
-    color: #345F90;
+    color: white;
 }
 
 .panel-heading i.fa {
@@ -178,6 +160,7 @@ h2 {
 
 table {
     table-layout: fixed;
+    border-radius: 15px;
 }
 
 .panel {
@@ -187,14 +170,56 @@ table {
     margin: 4px;
 }
 
-.panel-heading h2 {
-    margin: 8px;
+.panel-heading h2{
+    padding-left: 5px;
 }
 
-#leftBar{
-    text-align:center;
+#leftBar {
+    text-align: center;
 }
 
 b i {
     text-shadow:0;
+}
+
+.empWrapper .shadow table {
+    font-size: 14px;
+}
+
+text-right .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+text-right .btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.text-right .btn-primary {
+    color: #fff;
+    background-color: #1c4e80;
+    border-color: #1c4e80;
+}
+
+.text-right  .btn-success {
+    color: #fff;
+    background-color: #ea6a47;
+    border-color: #ea6a47;
+}
+
+.own_container {
+    margin-top: 80px;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+   
 }
