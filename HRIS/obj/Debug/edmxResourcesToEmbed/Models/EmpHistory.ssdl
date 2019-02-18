@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EmpHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeNumber" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="25" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+    <Property Name="LastName" Type="varchar" MaxLength="25" />
+    <Property Name="DatePromoted" Type="datetime" />
+    <Property Name="EmploymentStatus" Type="varchar" MaxLength="20" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+    <Property Name="OfficeLocation" Type="varchar" MaxLength="20" />
+    <Property Name="GrossPay" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Allowance" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="HRISModelStoreContainer">
+    <EntitySet Name="EmpHistory" EntityType="Self.EmpHistory" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
