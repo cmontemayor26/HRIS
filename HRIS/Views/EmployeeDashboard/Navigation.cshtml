@@ -63,16 +63,17 @@
         <div class="hamburger close"><span></span><span></span><span></span></div>
         <ul class="leftMenuList">
             <li class="dashboard">
-                <a href="#">
-                    @if (Session["picture"].ToString() == "")
-                    {
-                        <img src="~/images/default.jpg" style="border-radius: 50%;margin-left: 10px;" width="30" height="30" />
-                    }
-                    else
-                    {
-                        <img src="@Url.Content(Session["picture"].ToString())" style="border-radius: 50%;margin-left: 10px;" width="30" height="30">
-                    }
-                    <span>@Session["FirstName"]  @Session["LastName"]</span>
+
+                <a href="@Url.Action("Index","EmployeeDashboard")">
+                @if (Session["picture"].ToString() == "")
+                {
+                    <img src="~/images/default.jpg" style="border-radius: 50%;margin-left: 10px;" width="30" height="30" />
+                }
+                else
+                {
+                    <img src="@Url.Content(Session["picture"].ToString())" style="border-radius: 50%;margin-left: 10px;" width="30" height="30">
+                }
+                <span>@Session["FirstName"]  @Session["LastName"]</span>
                 </a>
             </li>
             <hr>

@@ -11,7 +11,6 @@ namespace HRIS.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
     
     public partial class User
     {
@@ -23,6 +22,5 @@ namespace HRIS.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ProfilePic { get; set; }
-        public HttpPostedFileBase ImageFile { get; set; }
     }
 }

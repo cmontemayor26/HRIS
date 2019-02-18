@@ -11,39 +11,22 @@ namespace HRIS.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
-
+    
     public partial class Masterlist
     {
         public Nullable<int> EmployeeNumber { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string MiddleName { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string LastName { get; set; }
         public string Department { get; set; }
         public string JobTitle { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Birthday { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string MaritalStatus { get; set; }
         public string Gender { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string ContactNumber { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string Street_Address1 { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Street_Address2 { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string City { get; set; }
-        [Required(ErrorMessage = "This field is required.")]
         public string Province { get; set; }
         public string ZipCode { get; set; }
         public string PersonalEmail { get; set; }
@@ -62,8 +45,7 @@ namespace HRIS.Models
         public Nullable<System.DateTime> DatePromoted { get; set; }
         public Nullable<System.DateTime> DateResigned { get; set; }
         public string EmploymentStatus { get; set; }
-        private DateTime? _date = DateTime.Now;
-        public Nullable<System.DateTime> Applicant_AppliedDate { get { return _date; } set { _date = value; } }
+        public Nullable<System.DateTime> Applicant_AppliedDate { get; set; }
         public Nullable<System.DateTime> Applicant_ExamDate { get; set; }
         public string Applicant_InitialInterviewDate { get; set; }
         public Nullable<System.DateTime> Applicant_FinalInterviewDate { get; set; }
@@ -80,7 +62,6 @@ namespace HRIS.Models
         public string School_Tertiary { get; set; }
         public Nullable<int> School_TertiaryYearGraduated { get; set; }
         public string School_Degree { get; set; }
-
         public int MasterlistID { get; set; }
         public string Country { get; set; }
         public string Nationality { get; set; }
