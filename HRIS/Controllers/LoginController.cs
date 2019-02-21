@@ -83,6 +83,7 @@ namespace HRIS.Controllers
             if (sdr.Read())
             {
                 for (int i = 0; i < Logins.Rows.Count; i ++) {
+                    Session["userid"] = Logins.Rows[i][0];
                     Session["userlevel"] = Logins.Rows[i][2];
                     Session["employeenumber"] = Logins.Rows[i][4];
                     Session["FirstName"] = Logins.Rows[i][5];
