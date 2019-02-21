@@ -9,6 +9,9 @@
     <Property Name="Userlevel" Type="varchar" MaxLength="50" />
     <Property Name="Password" Type="varchar" MaxLength="100" />
     <Property Name="EmployeeNumber" Type="int" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="ProfilePic" Type="varchar(max)" />
   </EntityType>
   <EntityContainer Name="UserModelStoreContainer">
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
