@@ -223,3 +223,9 @@ text-right .btn:not(:disabled):not(.disabled) {
     margin-bottom: 100px;
    
 }
+
+.table thead th {
+    color: #fff;
+    background-color: #7e909a;
+    border-color: #7e909a;
+}
