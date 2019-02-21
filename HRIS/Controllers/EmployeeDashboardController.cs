@@ -16,7 +16,6 @@ namespace HRIS.Controllers
     public class EmployeeDashboardController : Controller
     {
         BIOMETRICEntities db = new BIOMETRICEntities();
-        HRISEntities hrisDB = new HRISEntities();
         string connectionString = @"Data Source=192.168.102.18;Initial Catalog=HRIS;Persist Security Info=True;User ID=panoramic;Password=GoLegal100;";
 
         public ActionResult Index()
@@ -246,6 +245,7 @@ namespace HRIS.Controllers
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
+                DateTime today = DateTime.Now;
                 sqlCon.Open();
                 string query = " select * from LeaveForm where StartDate = @StartDate AND EndDate = @EndDate";
                 SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
@@ -259,7 +259,7 @@ namespace HRIS.Controllers
                 else
                 {
                     sdr.Close();
-                    string querys = "INSERT INTO LeaveForm(EmployeeNumber,TypeOfRequest,Description,Approver,StartDate,EndDate) VALUES(@EmployeeNumber,@TypeOfRequest,@Description,@Approver,@StartDate,@EndDate)";
+                    string querys = "INSERT INTO LeaveForm(EmployeeNumber,TypeOfRequest,Description,Approver,StartDate,EndDate, DateRequest) VALUES(@EmployeeNumber,@TypeOfRequest,@Description,@Approver,@StartDate,@EndDate, @DateRequest)";
                     SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
                     sqlCmds.Parameters.AddWithValue("@EmployeeNumber", Session["employeenumber"]);
                     sqlCmds.Parameters.AddWithValue("@TypeOfRequest", leaveForm.TypeOfRequest);
@@ -267,6 +267,7 @@ namespace HRIS.Controllers
                     sqlCmds.Parameters.AddWithValue("@Approver", leaveForm.Approver);
                     sqlCmds.Parameters.AddWithValue("@StartDate", leaveForm.StartDate);
                     sqlCmds.Parameters.AddWithValue("@EndDate", leaveForm.EndDate);
+                    sqlCmds.Parameters.AddWithValue("@DateRequest", today);
                     SqlDataReader sdrs = sqlCmds.ExecuteReader();
                     TempData["success"] = "New " + leaveForm.TypeOfRequest + " Request";
                 }
