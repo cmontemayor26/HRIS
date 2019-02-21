@@ -6,6 +6,12 @@ body {
     font-family: Helvetica, sans-serif !important;
     font-size: 15px !important;
 }
+.own_container {
+    margin-top: 80px;
+    margin-left: 100px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+}
 .container {
     margin-top: 100px;
 }
@@ -276,4 +282,7 @@ footer {
 }
 #dtBasicExample {
     float: left; 
+}
+.badge-warning {
+    background-color: #EA6A47;
 }
