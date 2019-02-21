@@ -37,14 +37,16 @@ namespace HRIS.Controllers
                 && x.CHECKTYPE == "I"
                 && x.CHECKTIME.Year == DateTime.Now.Year
                 && x.CHECKTIME.Month == DateTime.Now.Month
-                && x.CHECKTIME.Hour == 7
+                && x.CHECKTIME.Hour >= 7
+                && x.CHECKTIME.Hour <= 16
                 && x.CHECKTIME.Minute >= 1
                 )
                 .OrderByDescending(x => x.CHECKTIME)
+                .ToList()
+                .Select(x => x.CHECKTIME.Date)
+                .Distinct()
                 .Count();
             ViewBag.lateCount = lateQuery;
-
-            
 
             var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             int lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1).Day;
@@ -53,12 +55,11 @@ namespace HRIS.Controllers
             double daysCount = Convert.ToInt32(lastDayOfMonth);
 
             double latePercentage = ((lateCount / daysCount) * 100);
-            ViewBag.latePercentage = latePercentage;
+            ViewBag.latePercentage = Math.Round(latePercentage,0);
 
-          
             return View(item);
         }
-
+       
         public ActionResult FilterAttendance(string empNum, DateTime? dateFrom, DateTime? dateTo)
         {
             string employeenumber = Session["employeenumber"].ToString();
@@ -79,15 +80,19 @@ namespace HRIS.Controllers
                 .ToList();
 
             var lateQuery = db.qries
-               .Where(x => x.Badgenumber == ((string)employeenumber)
-               && x.CHECKTYPE == "I"
-               && x.CHECKTIME.Year == DateTime.Now.Year
-               && x.CHECKTIME.Month == DateTime.Now.Month
-               && x.CHECKTIME.Hour == 7
-               && x.CHECKTIME.Minute >= 1
-               )
-               .OrderBy(x => x.CHECKTIME)
-               .Count();
+                           .Where(x => x.Badgenumber == ((string)employeenumber)
+                           && x.CHECKTYPE == "I"
+                           && x.CHECKTIME.Year == DateTime.Now.Year
+                           && x.CHECKTIME.Month == DateTime.Now.Month
+                           && x.CHECKTIME.Hour >= 7
+                           && x.CHECKTIME.Hour <= 16
+                           && x.CHECKTIME.Minute >= 1
+                           )
+                           .OrderByDescending(x => x.CHECKTIME)
+                           .ToList()
+                           .Select(x => x.CHECKTIME.Date)
+                           .Distinct()
+                           .Count();
             ViewBag.lateCount = lateQuery;
 
             var firstDayOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
@@ -97,7 +102,7 @@ namespace HRIS.Controllers
             double daysCount = Convert.ToInt32(lastDayOfMonth);
 
             double latePercentage = ((lateCount / daysCount) * 100);
-            ViewBag.latePercentage = latePercentage;
+            ViewBag.latePercentage = Math.Round(latePercentage, 0);
 
             return View("Index",item);
         }
