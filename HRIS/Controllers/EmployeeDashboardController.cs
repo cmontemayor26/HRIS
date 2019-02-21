@@ -57,6 +57,12 @@ namespace HRIS.Controllers
             double latePercentage = ((lateCount / daysCount) * 100);
             ViewBag.latePercentage = Math.Round(latePercentage,0);
 
+            double availableGP = (5 - lateQuery);
+            ViewBag.availableGP = availableGP;
+
+            double availableGPPercentage = ((availableGP / 5) * 100);
+            ViewBag.availableGPPercentage = Math.Round(availableGPPercentage, 0);
+
             return View(item);
         }
        
@@ -103,6 +109,12 @@ namespace HRIS.Controllers
 
             double latePercentage = ((lateCount / daysCount) * 100);
             ViewBag.latePercentage = Math.Round(latePercentage, 0);
+
+            double availableGP = (5 - lateQuery);
+            ViewBag.availableGP = availableGP;
+
+            double availableGPPercentage = ((availableGP / 5) * 100);
+            ViewBag.availableGPPercentage = Math.Round(availableGPPercentage, 0);
 
             return View("Index",item);
         }
@@ -261,6 +273,11 @@ namespace HRIS.Controllers
 
             }
             return RedirectToAction("LeaveForm");
+        }
+
+        public ActionResult OTForm()
+        {
+            return View();
         }
     }
 }
