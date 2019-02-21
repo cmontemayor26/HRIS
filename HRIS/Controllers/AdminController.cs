@@ -417,7 +417,6 @@ namespace HRIS.Controllers
             {
                 return RedirectToAction("Userlist");
             }
-            return View();
         }
         [HttpGet]
         public ActionResult EditUser(int Userid)
@@ -450,7 +449,6 @@ namespace HRIS.Controllers
             else {
                 return RedirectToAction("Userlist");
             }
-            return View();
         }
         [HttpPost]
         public ActionResult EditUser(UserModel userModel)
@@ -514,6 +512,79 @@ namespace HRIS.Controllers
                     return View();
                 }
                 
+            }
+        }
+        [HttpGet]
+        public ActionResult Inbox(int? i, int? LeaveID)
+        {
+            string userid = Session["userid"].ToString();
+            LeaveFormEntities db = new LeaveFormEntities();
+            var item = db.LeaveForms
+                .Where(x => x.Approver == userid
+                )
+                .OrderByDescending(x => x.DateRequest)
+                .ToList();
+
+            LeaveForm model = new LeaveForm();
+            DataTable dtblLeave = new DataTable();
+            if (LeaveID == null)
+            {
+                return View(db.LeaveForms.ToList().ToPagedList(i ?? 1, 10));
+            }
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT TypeOfRequest, Description, StartDate, EndDate, EmployeeNumber, LeaveStatus from LeaveForm Where LeaveID = @LeaveID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@LeaveID", LeaveID);
+                sqlDa.Fill(dtblLeave);
+            }
+            if (dtblLeave.Rows.Count == 1)
+            {
+                model.TypeOfRequest = dtblLeave.Rows[0][0].ToString();
+                model.Description = dtblLeave.Rows[0][1].ToString();
+                model.StartDate = DateTime.Parse(dtblLeave.Rows[0][2].ToString());
+                model.EndDate = DateTime.Parse(dtblLeave.Rows[0][3].ToString());
+                model.EmployeeNumber = Convert.ToInt32(dtblLeave.Rows[0][4].ToString());
+                model.LeaveStatus = dtblLeave.Rows[0][5].ToString();
+                ViewBag.LeaveID = LeaveID;
+                TempData["success"] = "1";
+                return View(db.LeaveForms.ToList().ToPagedList(i ?? 1, 10));
+                
+
+            }
+            else
+            {
+                return RedirectToAction("Inbox", db.LeaveForms.ToList().ToPagedList(i ?? 1, 10));
+            }
+        }
+        [HttpPost]
+        public ActionResult Inbox(LeaveForm leaveForm)
+        {
+            LeaveForm model = new LeaveForm();
+            DataTable dtblLeave = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT TypeOfRequest, Description, StartDate, EndDate, EmployeeNumber, LeaveStatus from LeaveForm Where LeaveID = @LeaveID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@LeaveID", leaveForm.LeaveID);
+                sqlDa.Fill(dtblLeave);
+            }
+            if (dtblLeave.Rows.Count == 1)
+            {
+                model.TypeOfRequest = dtblLeave.Rows[0][0].ToString();
+                model.Description = dtblLeave.Rows[0][1].ToString();
+                model.StartDate = DateTime.Parse(dtblLeave.Rows[0][2].ToString());
+                model.EndDate = DateTime.Parse(dtblLeave.Rows[0][3].ToString());
+                model.EmployeeNumber = Convert.ToInt32(dtblLeave.Rows[0][7].ToString());
+                model.LeaveStatus = dtblLeave.Rows[0][8].ToString();
+                return View(model);
+
+            }
+            else
+            {
+                return RedirectToAction("ApplicantList");
             }
         }
 
