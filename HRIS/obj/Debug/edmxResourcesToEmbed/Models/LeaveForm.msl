@@ -4,6 +4,8 @@
     <EntitySetMapping Name="LeaveForms">
       <EntityTypeMapping TypeName="LeaveForm.LeaveForm">
         <MappingFragment StoreEntitySet="LeaveForm">
+          <ScalarProperty Name="DateRequest" ColumnName="DateRequest" />
+          <ScalarProperty Name="LeaveStatus" ColumnName="LeaveStatus" />
           <ScalarProperty Name="LeaveID" ColumnName="LeaveID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="TypeOfRequest" ColumnName="TypeOfRequest" />

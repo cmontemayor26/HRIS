@@ -11,6 +11,8 @@
     <Property Name="StartDate" Type="DateTime" Precision="3" />
     <Property Name="EndDate" Type="DateTime" Precision="3" />
     <Property Name="EmployeeNumber" Type="Int32" />
+    <Property Name="LeaveStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateRequest" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityContainer Name="LeaveFormEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="LeaveForms" EntityType="Self.LeaveForm" />
