@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using PagedList.Mvc;
 using PagedList;
 using Microsoft.Reporting.WebForms;
+using System.Globalization;
 
 namespace HRIS.Controllers
 {
@@ -515,7 +516,7 @@ namespace HRIS.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Inbox(int? i, int? LeaveID)
+        public ActionResult Inbox(int? i, int? LeaveID, int? LeaveApproved)
         {
             string userid = Session["userid"].ToString();
             LeaveFormEntities db = new LeaveFormEntities();
@@ -524,6 +525,37 @@ namespace HRIS.Controllers
                 )
                 .OrderByDescending(x => x.DateRequest)
                 .ToList();
+
+            if (LeaveApproved == 1)
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "UPDATE LeaveForm SET LeaveStatus= 'Approved' WHERE LeaveID = @LeaveID";
+                    SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
+                    sqlCmds.Parameters.AddWithValue("@LeaveID", LeaveID);
+                    sqlCmds.ExecuteNonQuery();
+                    TempData["leaves"] = "0";
+                    TempData["LeaveSuccess"] = "Leave Approved";
+                }
+                return RedirectToAction("Inbox");
+
+            }
+            if (LeaveApproved == 0)
+            {
+                using (SqlConnection sqlCon = new SqlConnection(connectionString))
+                {
+                    sqlCon.Open();
+                    string query = "UPDATE LeaveForm SET LeaveStatus= 'Declined' WHERE LeaveID = @LeaveID";
+                    SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
+                    sqlCmds.Parameters.AddWithValue("@LeaveID", LeaveID);
+                    sqlCmds.ExecuteNonQuery();
+                    TempData["leaves"] = "0";
+                    TempData["LeaveSuccess"] = "Leave Declined";
+                }
+                return RedirectToAction("Inbox");
+
+            }
 
             LeaveForm model = new LeaveForm();
             DataTable dtblLeave = new DataTable();
@@ -534,9 +566,10 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "SELECT TypeOfRequest, Description, StartDate, EndDate, EmployeeNumber, LeaveStatus from LeaveForm Where LeaveID = @LeaveID";
+                string query = "SELECT TypeOfRequest, Description, StartDate, EndDate, EmployeeNumber, LeaveStatus from LeaveForm Where LeaveID = @LeaveID AND Approver = @user";
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
                 sqlDa.SelectCommand.Parameters.AddWithValue("@LeaveID", LeaveID);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@user", userid);
                 sqlDa.Fill(dtblLeave);
             }
             if (dtblLeave.Rows.Count == 1)
@@ -548,7 +581,7 @@ namespace HRIS.Controllers
                 model.EmployeeNumber = Convert.ToInt32(dtblLeave.Rows[0][4].ToString());
                 model.LeaveStatus = dtblLeave.Rows[0][5].ToString();
                 ViewBag.LeaveID = LeaveID;
-                TempData["success"] = "1";
+                TempData["leaves"] = "1";
                 return View(db.LeaveForms.ToList().ToPagedList(i ?? 1, 10));
                 
 
@@ -559,33 +592,11 @@ namespace HRIS.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Inbox(LeaveForm leaveForm)
+        public ActionResult Inbox()
         {
-            LeaveForm model = new LeaveForm();
-            DataTable dtblLeave = new DataTable();
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-                string query = "SELECT TypeOfRequest, Description, StartDate, EndDate, EmployeeNumber, LeaveStatus from LeaveForm Where LeaveID = @LeaveID";
-                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
-                sqlDa.SelectCommand.Parameters.AddWithValue("@LeaveID", leaveForm.LeaveID);
-                sqlDa.Fill(dtblLeave);
-            }
-            if (dtblLeave.Rows.Count == 1)
-            {
-                model.TypeOfRequest = dtblLeave.Rows[0][0].ToString();
-                model.Description = dtblLeave.Rows[0][1].ToString();
-                model.StartDate = DateTime.Parse(dtblLeave.Rows[0][2].ToString());
-                model.EndDate = DateTime.Parse(dtblLeave.Rows[0][3].ToString());
-                model.EmployeeNumber = Convert.ToInt32(dtblLeave.Rows[0][7].ToString());
-                model.LeaveStatus = dtblLeave.Rows[0][8].ToString();
-                return View(model);
+            
 
-            }
-            else
-            {
-                return RedirectToAction("ApplicantList");
-            }
+            return View();
         }
 
     }
