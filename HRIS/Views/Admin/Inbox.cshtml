@@ -1,0 +1,213 @@
+﻿@model IPagedList<HRIS.Models.LeaveForm>
+@{
+    Layout = null;
+
+}
+@RenderPage("Navigation.cshtml")
+@using PagedList.Mvc;
+@using PagedList;
+
+<style>
+    .input-group {
+        display: flex;
+    }
+
+    h1 {
+        display: inherit;
+        text-align: left;
+    }
+
+    table tbody tr td a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        font-size: inherit;
+        cursor: pointer;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+    .link_button {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: solid 1px #007bff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: #007bff;
+        color: #FFF;
+        padding: 8px 12px;
+        text-decoration: none;
+    }
+    .link_button:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="container">
+    <br>
+    <div class='row'>
+        <div class='md-col-4'>
+            <h1>Leave Request</h1>
+        </div>
+    </div>
+    @if (TempData["LeaveSuccess"] != null)
+    {
+        <div class="alert alert-success">
+            <strong>@TempData["LeaveSuccess"]</strong>
+        </div>
+    }
+    <hr />
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Date Requested</th>
+                <th>Leave Type</th>
+                <th>Employee</th>
+                <th>Description</th>
+                <th>Leave Start Date</th>
+                <th>Leave End Date</th>
+                <th>Leave Status</th>
+            </tr>
+        </thead>
+        @foreach (var Item in Model)
+        {
+            if (Item.Approver == Session["userid"].ToString()) {
+            
+            if (Item.LeaveStatus == "Declined")
+            {
+                <tbody>
+                    <tr class="Search">
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.DateRequest.Value.ToString("MMM dd, yyyy")</a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.TypeOfRequest </a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.EmployeeNumber </a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.Description </a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.StartDate.Value.ToString("MMM dd, yyyy") </a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.EndDate.Value.ToString("MMM dd, yyyy") </a></td>
+                        <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })" style="color: red"> @Item.LeaveStatus </a></td>
+                    </tr>
+                </tbody>
+
+            }
+            else { 
+            <tbody>
+                <tr class="Search">
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.DateRequest.Value.ToString("MMM dd, yyyy")</a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.TypeOfRequest </a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.EmployeeNumber </a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.Description </a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.StartDate.Value.ToString("MMM dd, yyyy") </a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.EndDate.Value.ToString("MMM dd, yyyy") </a></td>
+                    <td><a href="@Url.Action("Inbox", "Admin", new { LeaveID = Item.LeaveID })"> @Item.LeaveStatus </a></td>
+                </tr>
+            </tbody>
+                }
+            }
+        }
+    </table>
+
+    @foreach (var Item in Model)
+    {
+        if (Item.LeaveID == ViewBag.LeaveID && TempData["leaves"].ToString() == "1")
+        {
+            <script type="text/javascript">
+                $(window).on('load', function () {
+                    $('#myModal').modal('show');
+                });
+            </script>
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Leave Request</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Date Requested</label>
+                                <input type="text" name="@Item.DateRequest" value="@Item.DateRequest.Value.ToString("MMM dd, yyyy")" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Type of Request</label>
+                                <input type="text" name="@Item.TypeOfRequest" value="@Item.TypeOfRequest" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">EmployeeNumber</label>
+                                <input type="text" name="@Item.EmployeeNumber" value="@Item.EmployeeNumber" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Description</label>
+                                <input type="text" name="@Item.Description" value="@Item.Description" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">StartDate</label>
+                                <input type="text" name="@Item.StartDate" value="@Item.StartDate.Value.ToString("MMM dd, yyyy")" class="form-control" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">EndDate</label>
+                                <input type="text" name="@Item.EndDate" value="@Item.EndDate.Value.ToString("MMM dd, yyyy")" class="form-control" disabled>
+                            </div>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            @if (Item.StartDate <= DateTime.Now)
+                            {
+                                <a href="#" class="link_button" style="pointer-events: none;cursor: default;text-decoration: none;color: white;"> Approved </a>
+                                <a href="#" class="link_button" style="pointer-events: none;cursor: default;text-decoration: none;color: white;"> Declined </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("Inbox", "Admin", new { LeaveApproved = 1, LeaveID = Item.LeaveID })" class="link_button"> Approved </a>
+                                <a href="@Url.Action("Inbox", "Admin", new { LeaveApproved = 0, LeaveID = Item.LeaveID })" class="link_button"> Declined </a>
+                            }
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    @{
+        TempData["leaves"] = "0";
+    }
+    <div class="col-sm-10">
+        <div class="center">
+            @Html.PagedListPager(Model, i => Url.Action("Inbox", "Admin", new { i, search = Request.QueryString["search"] }))
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#search").keyup(function () {
+                var searchText = $("#search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                });
+            });
+
+        });
+    </script>
+</div>
+
+@RenderPage("Footer.cshtml")
