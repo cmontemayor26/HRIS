@@ -124,7 +124,7 @@ namespace HRIS.Controllers
 
             var item = db.qries
                .Where(x => x.Badgenumber == employeenumber
-               && x.CHECKTIME.Year <= DateTime.Now.Year && x.CHECKTIME.Month <= DateTime.Now.Month
+               && x.CHECKTIME.Year == DateTime.Now.Year && x.CHECKTIME.Month == DateTime.Now.Month
                )
                //&& x.CHECKTIME <= dateTo)
                .OrderBy(x => x.CHECKTIME)
