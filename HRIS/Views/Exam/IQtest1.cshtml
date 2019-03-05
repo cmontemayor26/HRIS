@@ -1,14 +1,16 @@
-﻿
+﻿@model HRIS.Models.IQtest
 @{
     if (Session["timer"] == null)
     {
-        Session["timer"] = DateTime.UtcNow.AddSeconds(60);
+        Session["timer"] = DateTime.UtcNow.AddSeconds(1800);
     }
     Layout = null;
+
+}
+@{
     var endTime = ((DateTime)Session["timer"]);
     var timeRemaining = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds.ToString("#");
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -21,6 +23,7 @@
 
 </head>
 <body>
+
     <style>
         .container {
             margin-top: 100px;
@@ -57,7 +60,7 @@
                         Directions:<br>
 
                         This test aims to assess your capabilities to process complex problems in a time pressured environment.  This test consists of understanding your abilities to follow instructions, English comprehension, mathematical skills, attention to details and logic processing.  Please read each question carefully, encircle the letter which you feel is the best answer. For some questions, fill in the blank with the correct answer.
-                        <br>Time remaining: <span id="minRemaining"></span>:<span id="secRemaining"></span>
+                        <br>Time remaining: <span id="minRemaining"></span>:<span id="secRemaining"></span><input type="hidden" name="minRemaining" id="minRemaining"><input type="hidden" name="secRemaining" id="secRemaining">
                     </label>
                 </div>
                 <div class="card-body">
@@ -85,7 +88,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest2">
                         </div>
                     </div>
 
@@ -94,7 +97,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest3">
                         </div>
                     </div>
 
@@ -123,7 +126,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest5">
                         </div>
                     </div>
 
@@ -152,7 +155,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest7">
                         </div>
                     </div>
 
@@ -241,7 +244,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest12">
                         </div>
                     </div>
 
@@ -250,7 +253,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest13">
                         </div>
                     </div>
 
@@ -281,7 +284,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest15">
                         </div>
                     </div>
 
@@ -430,7 +433,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest23">
                         </div>
                     </div>
 
@@ -499,7 +502,7 @@
                     <br><br>
                     <div class="form-group row">
                         <div class="col-3">
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="IQtest27">
                         </div>
                     </div>
 
@@ -570,15 +573,29 @@
             </div>
         </div>
     }
+    <script type="text/javascript">
+        if (location.search.indexOf('r') < 0) {
+            var hash = window.location.hash;
+            var loc = window.location.href.replace(hash, '');
+            loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+            setTimeout(function () { window.location.href = loc + hash; }, 0900);
+        }
+    </script>
     <script>
-        
+
+
      var remSeconds = @timeRemaining;
         var secondsCounter = remSeconds % 60;
 
      function formatNumber(number) {
          if (number < 10) return '0' + number;
          else return '' + number;
-     }
+            }
+            if (performance.navigation.type == 1) {
+                var test = 5;
+            } else {
+                var test = 1;
+            }
 
      function startTick()
      {
@@ -589,6 +606,7 @@
          {
              if (remSeconds > 0)
              {
+
                  remSeconds = remSeconds-1;
                  secondsCounter =secondsCounter-1;
                  document.getElementById('secRemaining').innerText = formatNumber(secondsCounter);
@@ -603,7 +621,7 @@
             }
          }, 1000);
      }
-        window.onload = startTick();
+        startTick();
     </script>
 </body>
 </html>
