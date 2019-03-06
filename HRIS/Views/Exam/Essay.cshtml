@@ -1,8 +1,15 @@
-﻿
+﻿@model HRIS.Models.Essay
 @{
+    if (Session["timer"] == null)
+    {
+        Session["timer"] = DateTime.UtcNow.AddSeconds(1800);
+    }
     Layout = null;
 }
-
+@{
+    var endTime = ((DateTime)Session["timer"]);
+    var timeRemaining = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds.ToString("#");
+}
 <!DOCTYPE html>
 
 <html>
@@ -26,7 +33,7 @@
         }
 
         body {
-            background-image: url('../images/test7.png');
+            background-image: url('../images/test9.png');
             background-repeat: no-repeat;
             background-size: 100% 100%;
             font-family: Helvetica, sans-serif;
@@ -41,113 +48,176 @@
             text-align: justify;
         }
     </style>
-    <form>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
         <div class="container">
             <div class="card shadow-lg">
-                <div class="card-header sticky-top text-white" style="background-color: #00AA9E;">
+                <div class="card-header sticky-top text-white" style="background-color: #C59566;">
                     <label class="control-label font-weight-bold text-justify">
-                        SELF ANALYSIS</label>
+                        SELF ANALYSIS
+                    </label>
                     <label class="control-label text-justify">
                         This set of qualitative questions intends to provide DBA an opportunity to get to know the applicant a little bit more in terms of personality and perception. There is no right or wrong answers to these questions. Thus, we ask you to relax and simply write your answers on the spaces provided for each question. You have 30 minutes to answer all the questions. Thank you.
+                        <br>Time remaining: <span id="minRemaining"></span>:<span id="secRemaining"></span><input type="hidden" name="minRemaining" id="minRemaining"><input type="hidden" name="secRemaining" id="secRemaining">
                     </label>
                 </div>
                 <div class="card-body">
                     <label class="control-label font-weight-bold text-justify">
-                        ACHIEVEMENTS:</label>
-                    <label class="control-label text-justify">
-                    What factors and/or events have greatly contributed to your personal and social development – including career advancement (as applicable) - for the past three years?</label>
-                    <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
-
-                    <br><br>
-                    <label class="control-label font-weight-bold text-justify">
-                    REACTION TO FRUSTRATIONS:
+                        ACHIEVEMENTS:
                     </label>
                     <label class="control-label text-justify">
-                    How do you deal with the challenges of life, especially in times of seeming failure, abandonment, and other things that make you feel frustrated?</label>
+                        What factors and/or events have greatly contributed to your personal and social development – including career advancement (as applicable) - for the past three years?
+                    </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay1"></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
-                    IMPERFECTIONS and WEAKNESSES:
+                        REACTION TO FRUSTRATIONS:
+                    </label>
+                    <label class="control-label text-justify">
+                        How do you deal with the challenges of life, especially in times of seeming failure, abandonment, and other things that make you feel frustrated?
+                    </label>
+                    <br><br>
+                    <textarea rows="5" class="form-control" name="Essay2"></textarea>
+
+                    <br><br>
+                    <label class="control-label font-weight-bold text-justify">
+                        IMPERFECTIONS and WEAKNESSES:
                     </label><br>
                     <label class="control-label text-justify">
-                    It is true that nobody is perfect.  So how do you manage your weaknesses and deal with imperfections?</label>
+                        It is true that nobody is perfect.  So how do you manage your weaknesses and deal with imperfections?
+                    </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay3"></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
-                    STRENGTHS and POTENTIALS:
+                        STRENGTHS and POTENTIALS:
                     </label>
                     <label class="control-label text-justify">
-                    What do you believe are your real strengths? List down five of your perceived strengths and give short elaboration on each one.</label>
+                        What do you believe are your real strengths? List down five of your perceived strengths and give short elaboration on each one.
+                    </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay4"></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">How and where will you use your strengths so that you can exhibit excellent job performance at DBA? </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay5"></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">What else can you contribute to your personal growth and that of the company? </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay6"></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
                         ENABLING FACTORS:
-                        </label>
+                    </label>
                     <label class="control-label text-justify">
                         What three things are you looking for in a company that will contribute to your job satisfaction? Give a short explanation of each factor.
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay7"></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
                         FAMILY RESPONSIBILITY:
-                        </label><br>
+                    </label><br>
                     <label class="control-label text-justify">
                         How do you feel about being the breadwinner or provider for your parents and/or siblings?
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay8"></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">What do you think will you do if you have to take care of sick family members given that you have to perform well at your work in DBA?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay9"></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">Is there anyone in your family who is sick and whom you are taking care of? Who else is available to look after them during work hours?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay10"></textarea>
 
                     <br><br>
-                        <label class="control-label font-weight-bold text-justify">
-                            SIGNIFICANT RELATIONSHIP:
-                            </label><br>
+                    <label class="control-label font-weight-bold text-justify">
+                        SIGNIFICANT RELATIONSHIP:
+                    </label><br>
                     <label class="control-label text-justify">
-                            As a person, are you 1.) sharp and firm or 2.) sensitive and emotional? Elaborate a little more about yourself.
-                        </label>
+                        As a person, are you 1.) sharp and firm or 2.) sensitive and emotional? Elaborate a little more about yourself.
+                    </label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay11"></textarea>
 
                     <br><br>
-                        <label class="control-label text-justify">When and How will you use your heart over your head, and vice-versa?</label>
+                    <label class="control-label text-justify">When and How will you use your heart over your head, and vice-versa?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay12"></textarea>
 
                     <br><br>
-                        <label class="control-label text-justify">Whether single or married, how do you describe yourself in terms of handling or managing a family?</label>
+                    <label class="control-label text-justify">Whether single or married, how do you describe yourself in terms of handling or managing a family?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay13"></textarea>
+                    <br><br>
+                    <input type="submit" class="btn btn-primary btn-lg">
+                    <br>
                 </div>
             </div>
         </div>
-    </form>
+    }
+
+    <script type="text/javascript">
+        if (location.search.indexOf('r') < 0) {
+            var hash = window.location.hash;
+            var loc = window.location.href.replace(hash, '');
+            loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+            setTimeout(function () { window.location.href = loc + hash; }, 0900);
+        }
+    </script>
+    <script>
+
+
+     var remSeconds = @timeRemaining;
+        var secondsCounter = remSeconds % 60;
+
+     function formatNumber(number) {
+         if (number < 10) return '0' + number;
+         else return '' + number;
+            }
+            if (performance.navigation.type == 1) {
+                var test = 5;
+            } else {
+                var test = 1;
+            }
+
+     function startTick()
+     {
+         document.getElementById('secRemaining').innerText = formatNumber(secondsCounter);
+         document.getElementById('minRemaining').innerText = formatNumber(parseInt(remSeconds/60));
+
+         var _tick = setInterval(function ()
+         {
+             if (remSeconds > 0)
+             {
+
+                 remSeconds = remSeconds-1;
+                 secondsCounter =secondsCounter-1;
+                 document.getElementById('secRemaining').innerText = formatNumber(secondsCounter);
+                 document.getElementById('minRemaining').innerText = formatNumber(parseInt(remSeconds/60));
+
+                 if (secondsCounter == 0)
+                     secondsCounter = 60;
+             }
+             else {
+                 alert("Time Expired!");
+                 clearInterval(_tick);
+            }
+         }, 1000);
+     }
+        startTick();
+    </script>
 </body>
 </html>
