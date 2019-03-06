@@ -1,0 +1,979 @@
+﻿
+@{
+    if (Session["timer"] == null)
+    {
+        Session["timer"] = DateTime.UtcNow.AddSeconds(1800);
+    }
+    Layout = null;
+
+}
+@{
+    var endTime = ((DateTime)Session["timer"]);
+    var timeRemaining = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds.ToString("#");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IQtest1</title>
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <style>
+        .container {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        .custom-control-label {
+            margin-bottom: 10px;
+        }
+
+        body {
+            background-image: url('../images/test9.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            font-family: Helvetica, sans-serif;
+            background-attachment: fixed;
+        }
+
+        html {
+            height: 100%
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        .outline-none {
+            outline: none;
+        }
+
+        input[type="text"]:disabled {
+            background-color: transparent;
+            border: 0;
+        }
+    </style>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="card-header sticky-top text-black" style="background-image: url('../images/bgheader.png');background-repeat: no-repeat;background-attachment: fixed;">
+                <label class="control-label font-weight-bold text-justify">
+                    Directions:<br>
+                    Choose the letter of the correct answer from the drop-down list in the cell before each number (highlighted in yellow). Add an additional worksheet to show your solutions in good form. (1 point for a correct answer and an additional 1 point for the correct solution, if applicable).
+                    <br>Time remaining: <span id="minRemaining"></span>:<span id="secRemaining"></span><input type="hidden" name="minRemaining" id="minRemaining"><input type="hidden" name="secRemaining" id="secRemaining">
+                </label>
+            </div>
+            <div class="card-body">
+                <label class="control-label font-weight-bold">PART I: MULTIPLE CHOICES</label><br><br>
+                <label class="control-label font-weight-bold">1. A brand new company has a Building costing $15,000, with related Accumulated Depreciation of $5,000, Machinery costing $7,500, with related Accumulated Depreciation of $2,500, Cash of $700, and a bank loan of $7,850. What is the owner’s equity?</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample1" name="Accountingtest1" value="$8,850">
+                    <label class="custom-control-label" for="defaultGroupExample1">$8,850</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample2" name="Accountingtest1" value="$15,700">
+                    <label class="custom-control-label" for="defaultGroupExample2">$15,700</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample3" name="Accountingtest1" value="$7,750">
+                    <label class="custom-control-label" for="defaultGroupExample3">$7,750</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample4" name="Accountingtest1" value="$7,850">
+                    <label class="custom-control-label" for="defaultGroupExample4">$7,850</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none1" name="Accountingtest1">
+                    <label class="custom-control-label" for="none1">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution1"></textarea>
+
+                <br><br>
+                <label class="control-label font-weight-bold">2. Providing services on account for $40,000 would:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample5" name="Accountingtest2" value="Increase cash $40,000, decrease accounts receivable $40,000">
+                    <label class="custom-control-label" for="defaultGroupExample5">Increase cash $40,000, decrease accounts receivable $40,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample6" name="Accountingtest2" value="Decrease accounts receivable $40,000, decrease owner’s equity $40,000">
+                    <label class="custom-control-label" for="defaultGroupExample6">Decrease accounts receivable $40,000, decrease owner’s equity $40,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample7" name="Accountingtest2" value="Increase accounts receivable $40,000, increase owner’s equity $40,000">
+                    <label class="custom-control-label" for="defaultGroupExample7">Increase accounts receivable $40,000, increase owner’s equity $40,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample8" name="Accountingtest2" value="Increase accounts receivable $40,000, decrease owner’s equity $40,000">
+                    <label class="custom-control-label" for="defaultGroupExample8">Increase accounts receivable $40,000, decrease owner’s equity $40,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none2" name="Accountingtest2">
+                    <label class="custom-control-label" for="none2">None of the above</label>
+                </div>
+
+                <br><br>
+                <label class="control-label font-weight-bold">Use the following information to answer the next three questions, Joseph Forbes is the owner of his own business. On December 31, Forbes’ assets, liabilities, revenues and expenses were:</label>
+                <table class="table table-borderless m-3" style="width: 40%;">
+                    <tbody>
+                        <tr>
+                            <td>Insurance Expenses</td>
+                            <td>$3,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accounts Payable</td>
+                            <td>$4,000</td>
+                        </tr>
+                        <tr>
+                            <td>Miscellaneous Expenses</td>
+                            <td>$900</td>
+                        </tr>
+                        <tr>
+                            <td>Accounts Receivable</td>
+                            <td>$5,000</td>
+                        </tr>
+                        <tr>
+                            <td>Rent Expenses</td>
+                            <td>$2,500</td>
+                        </tr>
+                        <tr>
+                            <td>Cash</td>
+                            <td>$14,000</td>
+                        </tr>
+                        <tr>
+                            <td>Salaries Expense</td>
+                            <td>$19,000</td>
+                        </tr>
+                        <tr>
+                            <td>Equipment</td>
+                            <td>$11,000</td>
+                        </tr>
+                        <tr>
+                            <td>Supplies Expense</td>
+                            <td>$1,200</td>
+                        </tr>
+                        <tr>
+                            <td>Notes Payable</td>
+                            <td>$4,600</td>
+                        </tr>
+                        <tr>
+                            <td>Services Performed</td>
+                            <td>$45,000</td>
+                        </tr>
+                        <tr>
+                            <td>Supplies on hand</td>
+                            <td>$700</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br><br>
+                <label class="control-label font-weight-bold">3 - 1. On December 31, Total Assets are equal to: </label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample9" name="Accountingtest31" value="$25,700">
+                    <label class="custom-control-label" for="defaultGroupExample9">$25,700</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample10" name="Accountingtest31" value="$19,700">
+                    <label class="custom-control-label" for="defaultGroupExample10">$19,700</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample11" name="Accountingtest31" value="$22,100">
+                    <label class="custom-control-label" for="defaultGroupExample11">$22,100</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample12" name="Accountingtest31" value="$30,700">
+                    <label class="custom-control-label" for="defaultGroupExample12">$30,700</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none3" name="Accountingtest31">
+                    <label class="custom-control-label" for="none3">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution31"></textarea>
+
+                <br><br>
+                <label class="control-label font-weight-bold text-justify">3 - 2. On December 31, Net Income is equal to:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample13" name="Accountingtest32" value="$18,400">
+                    <label class="custom-control-label" for="defaultGroupExample13">$18,400</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample14" name="Accountingtest32" value="$45,000">
+                    <label class="custom-control-label" for="defaultGroupExample14">$45,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample15" name="Accountingtest32" value="$17,400">
+                    <label class="custom-control-label" for="defaultGroupExample15">$17,400</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample16" name="Accountingtest32" value="$42,000">
+                    <label class="custom-control-label" for="defaultGroupExample16">$42,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none4" name="Accountingtest32">
+                    <label class="custom-control-label" for="none4">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution32"></textarea>
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">3 - 3. On December 31, Current Assets equal:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample17" name="Accountingtest33" value="$9,000">
+                    <label class="custom-control-label" for="defaultGroupExample17">$9,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample18" name="Accountingtest33" value="$19,700<">
+                    <label class="custom-control-label" for="defaultGroupExample18">$19,700</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample19" name="Accountingtest33" value="$19,000">
+                    <label class="custom-control-label" for="defaultGroupExample19">$19,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample20" name="Accountingtest33" value="$23,000">
+                    <label class="custom-control-label" for="defaultGroupExample20">$23,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none5" name="Accountingtest33">
+                    <label class="custom-control-label" for="none5">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution33"></textarea>
+
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">4. On December 31, if John Company has net income equals $15,000 and the ending owner’s equity is $20,000,and John (owner) invested an additional $2,600 in his business, while withdrawing $6,000 during the year, the beginning Owner’s Equity for this year was:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample21" name="Accountingtest4" value="$7,100">
+                    <label class="custom-control-label" for="defaultGroupExample21">$7,100</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample22" name="Accountingtest4" value="$7,400">
+                    <label class="custom-control-label" for="defaultGroupExample22">$7,400</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample23" name="Accountingtest4" value="$8,400">
+                    <label class="custom-control-label" for="defaultGroupExample23">$8,400</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample24" name="Accountingtest4" value="$7,430">
+                    <label class="custom-control-label" for="defaultGroupExample24">$7,430</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none6" name="Accountingtest4">
+                    <label class="custom-control-label" for="none6">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution4"></textarea>
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">5. New Font Software provided services for customers of $7,000. What is the entry if it billed customers for the total amount?</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample25" name="Accountingtest5" value="Debit accounts receivable $7,000; credit service revenue $7,000">
+                    <label class="custom-control-label" for="defaultGroupExample25">Debit accounts receivable $7,000; credit service revenue $7,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample26" name="Accountingtest5" value="Debit notes receivable $7,000; credit service revenue $7,000">
+                    <label class="custom-control-label" for="defaultGroupExample26">Debit notes receivable $7,000; credit service revenue $7,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample27" name="Accountingtest5" value="Debit cash $7,000; credit service revenue $7,000">
+                    <label class="custom-control-label" for="defaultGroupExample27">Debit cash $7,000; credit service revenue $7,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample28" name="Accountingtest5" value="Debit service revenue $3,000; credit accounts receivable $7,000">
+                    <label class="custom-control-label" for="defaultGroupExample28">Debit service revenue $3,000; credit accounts receivable $7,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none7" name="Accountingtest5">
+                    <label class="custom-control-label" for="none7">None of the above</label>
+                </div>
+
+                <br><br>
+                <label class="control-label font-weight-bold">6. Which of the following transactions require a compound journal entry?</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample29" name="Accountingtest6" value="An owner invests personal cash on his/her business">
+                    <label class="custom-control-label" for="defaultGroupExample29">An owner invests personal cash on his/her business</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample30" name="Accountingtest6" value="Purchase of $ 100 of supplies; some cash and the rest on account">
+                    <label class="custom-control-label" for="defaultGroupExample30">Purchase of $ 100 of supplies; some cash and the rest on account</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample31" name="Accountingtest6" value="Purchase three kinds of supplies for cash">
+                    <label class="custom-control-label" for="defaultGroupExample31">Purchase three kinds of supplies for cash</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample32" name="Accountingtest6" value="Received cash from customers as payment for services">
+                    <label class="custom-control-label" for="defaultGroupExample32">Received cash from customers as payment for services</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none8" name="Accountingtest6">
+                    <label class="custom-control-label" for="none8">None of the above</label>
+                </div>
+
+                <br><br>
+                <label class="control-label font-weight-bold">7. A company paid in advance $4,800 for two years of prepaid insurance, which started on May 1. The adjusting entry on fiscal year ending December 31 of that year is:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample33" name="Accountingtest7" value="Debit Insurance Expense; Credit Prepaid Insurance, $1,200">
+                    <label class="custom-control-label" for="defaultGroupExample33">Debit Insurance Expense; Credit Prepaid Insurance, $1,200</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample34" name="Accountingtest7" value="Debit Insurance Expense; Credit Prepaid Insurance, $800">
+                    <label class="custom-control-label" for="defaultGroupExample34">Debit Insurance Expense; Credit Prepaid Insurance, $800</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample35" name="Accountingtest7" value="Debit Prepaid Insurance; Credit Insurance Expense, $1,600">
+                    <label class="custom-control-label" for="defaultGroupExample35">Debit Prepaid Insurance; Credit Insurance Expense, $1,600</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample36" name="Accountingtest7" value="Debit Insurance Expense; Credit Prepaid Insurance, $1,600">
+                    <label class="custom-control-label" for="defaultGroupExample36">Debit Insurance Expense; Credit Prepaid Insurance, $1,600</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none9" name="Accountingtest7">
+                    <label class="custom-control-label" for="none9">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution7"></textarea>
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">8. A business leases a Building for one year commencing on 1 Oct 2013. The rent is $24,000 per year and the business paid cash one year in advance on 1 Oct 2013. On 31 Dec 2013, how much of that payment should be recorded as a rental expense and how much should be deferred?</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample37" name="Accountingtest8" value="Expense = $24,000, Deferred = $0">
+                    <label class="custom-control-label" for="defaultGroupExample37">Expense = $24,000, Deferred = $0</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample38" name="Accountingtest8" value="Expense = $12,000, Deferred = $12,000">
+                    <label class="custom-control-label" for="defaultGroupExample38">Expense = $12,000, Deferred = $12,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample39" name="Accountingtest8" value="Expense = $6,000, Deferred = $18,000">
+                    <label class="custom-control-label" for="defaultGroupExample39">Expense = $6,000, Deferred = $18,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample40" name="Accountingtest8" value="Expense = $18,000, Deferred = $6,000">
+                    <label class="custom-control-label" for="defaultGroupExample40">Expense = $18,000, Deferred = $6,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none10" name="Accountingtest8">
+                    <label class="custom-control-label" for="none10">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Solution8"></textarea>
+
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">9. The purchase of an asset on credit will:</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample41" name="Accountingtest9" value="Increase total assets and decrease total liabilities">
+                    <label class="custom-control-label" for="defaultGroupExample41">Increase total assets and decrease total liabilities</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample42" name="Accountingtest9" value="Have no effect on total assets or total liabilities">
+                    <label class="custom-control-label" for="defaultGroupExample42">Have no effect on total assets or total liabilities</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample43" name="Accountingtest9" value="Increase total assets and increase total liabilities">
+                    <label class="custom-control-label" for="defaultGroupExample43">Increase total assets and increase total liabilities</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample44" name="Accountingtest9" value="Increase total assets and increase owner’s equity">
+                    <label class="custom-control-label" for="defaultGroupExample44">Increase total assets and increase owner’s equity</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none11" name="Accountingtest9">
+                    <label class="custom-control-label" for="none11">None of the above</label>
+                </div>
+
+
+                <br><br>
+                <label class="control-label font-weight-bold">10. Assuming a 4-year old Equipment costing $100,000, with Accumulated Depreciation of $38,000, Estimated Useful of 10 years, Salvage Value of $5,000, and market value of $ 65,000 was sold for $40,000. How much is the Gain/Loss on disposal of asset?</label>
+                <br><br>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample45" name="Accountingtest10" value="Gain of $3,000">
+                    <label class="custom-control-label" for="defaultGroupExample45">Gain of $3,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample46" name="Accountingtest10" value="Gain of $25,000">
+                    <label class="custom-control-label" for="defaultGroupExample46">Gain of $25,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample47" name="Accountingtest10" value="Loss of $25,000">
+                    <label class="custom-control-label" for="defaultGroupExample47">Loss of $25,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="defaultGroupExample48" name="Accountingtest10" value="Loss of $17,000">
+                    <label class="custom-control-label" for="defaultGroupExample48">Loss of $17,000</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="none12" name="Accountingtest10">
+                    <label class="custom-control-label" for="none12">None of the above</label>
+                </div>
+                <br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="test10"></textarea>
+                <br><br>
+
+            </div>
+        </div>
+        <br><br>
+        <div class="card shadow-lg" style="margin-top: 50px;">
+            <div class="card-header sticky-top text-white" style="background-color: #C59566;">
+                <label class="control-label font-weight-bold text-justify">
+                    Directions:<br>
+                    Answer the following questions and provide solutions in good form. Add an additional worksheet for the solutions.
+                    <br>Time remaining: <span id="minsRemaining"></span>:<span id="secsRemaining"></span><input type="hidden" name="minRemaining" id="minRemaining"><input type="hidden" name="secRemaining" id="secRemaining">
+                </label>
+            </div>
+            <div class="card-body">
+                <br>
+                <label class="control-label font-weight-bold">PART II: SHORT EXERCISES</label>
+                <br><br>
+                <label class="control-label font-weight-bold">1. Prepare journal entries for the following transactions:</label>
+                <br><br>
+                <label class="control-label">A.	The company purchased a fixed asset for $9,000, paying $3,000 cash as a deposit, with the remainder being due in 30 days</label>
+                <label class="control-label">B.	Inventory costing $2,600 was sold on account for $4,900</label>
+                <label class="control-label">C.	The company paid the remaining $6,000 for the fixed asset in part a). This was paid by cash 30 days after the initial transaction.</label>
+                <label class="control-label">D.	The company repaid by cash, a bank loan of $4,000</label><br>
+                <label class="control-label">E.	The company paid the current month’s rent of $1,600 in cash.</label>
+                <br><br>
+                <CENTER>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;font-size: 20px;">Account Title</th>
+                                <th style="text-align: center;font-size: 20px;">Debit</th>
+                                <th style="text-align: center;font-size: 20px;">Credit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit5"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit7"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle8"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit8"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit8"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle9"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit9"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit9"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle10"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit10"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit10"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle11"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit11"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit11"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle12"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit12"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit12"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Accounttitle13"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debit13"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Credit13"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </CENTER>
+
+                <br><br><br>
+                <label class="control-label font-weight-bold text-justify">2. Goods and Services Tax (GST) is a value added tax on most goods and services sales. GST is levied on most transactions in the production process, but is refunded to all parties in the chain of production other than the final consumer. It is called GST both in Australia and New Zealand. They use the term Value Added Tax (VAT) in the UK and in the Philippines. Assuming a GST rate of 15%, compute the GST amount of an invoice amounting to $ 23 (Invoice amount is GST- inclusive).</label>
+                <br><br>
+                <textarea rows="5" class="form-control" placeholder="Solution here" name="Accountingtestshort2"></textarea>
+
+                <br><br><br>
+                <label class="control-label font-weight-bold text-justify">3. Australian, New Zealand and Philippine Taxation all use a graduated income tax table in computing individual income tax. It is based on the principle that the more you earn, the more taxes you pay. Using the given table, calculate the income tax of an individual with an income of $ 74,000.</label>
+                <CENTER>
+                    <br><br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="p-2">PERFORMANCE RATING DEFINITIONS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2">0 - $ 18,200</td>
+                                <td class="p-2">Nil</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">$18,201 - $ 37,000</td>
+                                <td class="p-2">19c for each $1 over $18,200</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">$37,001 - $80,000</td>
+                                <td class="p-2">$3,572 plus 32.5c for each $1 over $37,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">$80,001 - $180,000</td>
+                                <td class="p-2">$17,547 plus 37c for each $1 over $80,000</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2">$180,001 and over</td>
+                                <td class="p-2">$54,547 plus 45c for each $1 over $180,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br><br>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="p-2 text-center">Tax Bracket</th>
+                                <th class="p-2 text-center">Rate</th>
+                                <th class="p-2 text-center">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Taxbracket1"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Rate1"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Amount1"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Taxbracket2"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Rate2"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Amount2"></td>
+                            </tr>
+                            <tr>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Taxbracket3"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Rate3"></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Amount3"></td>
+                            </tr>
+                            <tr>
+                                <th class="p-2">Total Income Tax:</th>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" disabled></td>
+                                <td class="p-2"><input type="text" class="border-0 outline-none" name="Totalincometax" style="font-weight: bold;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </CENTER>
+
+                <br><br><br><br>
+                <label class="control-label font-weight-bold text-justify">4. The following information is associated with Z Company as at 31 December xxxx</label>
+                <br><br>
+                <center>
+                    <table class="table table-borderless m-3" style="width: 45%;">
+                        <tbody>
+                            <tr>
+                                <td>Accounts Receivable</td>
+                                <td>$400</td>
+                            </tr>
+                            <tr>
+                                <td>Balance per bank</td>
+                                <td class="left">$1,882</td>
+                            </tr>
+                            <tr>
+                                <td>Loans Payable (Bank) </td>
+                                <td class="left">$68</td>
+                            </tr>
+                            <tr>
+                                <td>Balance per books</td>
+                                <td class="left">$932</td>
+                            </tr>
+                            <tr>
+                                <td>Inventory</td>
+                                <td class="left">$350</td>
+                            </tr>
+                            <tr>
+                                <td>Bank Service charge</td>
+                                <td class="left">$62</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Money deposited but not yet credited by the bank:</td>
+                                <td class="left">$53</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="left">$75</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="left">$88</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Cash withdrawn but not yet encashed:</td>
+                                <td class="left">$480</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="left">$350</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td class="left">$398</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center><br>
+                <label>Using the information given above, Prepare a bank reconciliation for the company.</label>
+                <center>
+                    <br><br>
+
+                    <table style="width: 50%;">
+                        <tbody>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Booktitle1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookdebit1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookcredit1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Booktitle2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookdebit2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookcredit2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Booktitle3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookdebit3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookcredit3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Booktitle4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookdebit4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bookcredit4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="Adjusted Balance per Book:" disabled style="font-weight: bold;background-color: transparent;width: 220px;"></td>
+                                <td><input type="text" class="border-0 outline-none" disabled></td>
+                                <td><input type="text" class="border-0 outline-none" name="Balancebook" style="font-weight: bold;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit5"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" name="Banktitle7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankdebit7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Bankcredit7"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="Adjusted Balance per Bank:" disabled style="font-weight: bold;background-color: transparent;width: 220px;"></td>
+                                <td><input type="text" class="border-0 outline-none" disabled></td>
+                                <td><input type="text" class="border-0 outline-none" name="Balancebank" style="font-weight: bold;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+
+
+                <br><br><br><br>
+                <label class="control-label font-weight-bold text-justify">5. Using the following information, Prepare a Balance Sheet for ABC Company for the year ended 31 December xxxx</label>
+                <br><br>
+                <center>
+                    <table class="table table-borderless m-3" style="width: 45%;">
+                        <tr>
+                            <td>Long Term Business Loan</td>
+                            <td class="left">$500,000</td>
+                        </tr>
+                        <tr>
+                            <td>Property and Equipment</td>
+                            <td class="left">$50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accounts Receivable</td>
+                            <td class="left">$15,000</td>
+                        </tr>
+                        <tr>
+                            <td>Owners Equity</td>
+                            <td class="left">$385,000</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Card debt</td>
+                            <td class="left">$5,000</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle</td>
+                            <td class="left">$70,000</td>
+                        </tr>
+                        <tr>
+                            <td>Tax Liability</td>
+                            <td class="left">$30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Land</td>
+                            <td class="left">$650,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accrued Interest Payable</td>
+                            <td class="left">$10,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cash</td>
+                            <td class="left">$20,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accounts Payable</td>
+                            <td class="left">$25,000</td>
+                        </tr>
+                        <tr>
+                            <td>Inventory</td>
+                            <td class="left">$150,000</td>
+                        </tr>
+                    </table>
+                    <br><br>
+
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" class="text-center"><input type="text" value="ASSETS" disabled style="text-align: center;font-weight: bold;height: 50px;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset5"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Asset7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitasset7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditasset7"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" value="TOTAL ASSETS:" disabled style="font-weight: bold;"></td>
+                                <td><input type="text" class="border-0 outline-none" disabled></td>
+                                <td><input type="text" class="border-0 outline-none" style="font-weight: bold;" name="Totalasset"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="text-center"><input type="text" value="LIABILITIES AND OWNER'S EQUITY" disabled style="text-align: center;font-weight: bold;width: 50%;height: 50px;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity1"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity2"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity2"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity3"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity3"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity4"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity4"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity5"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity5"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity6"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity7"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity7"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="border-0 outline-none" style="width: 100%;" name="Equity8"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Debitequity8"></td>
+                                <td><input type="text" class="border-0 outline-none" name="Creditequity8"></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 350px;"><input type="text" value="TOTAL LIABILITIES AND OWNER'S EQUITY:" disabled style="width: 100%;font-weight: bold;"></td>
+                                <td><input type="text" class="border-0 outline-none" disabled></td>
+                                <td><input type="text" class="border-0 outline-none" style="font-weight: bold;" name="Totalequity"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </center>
+                <br><br>
+                <input type="submit" class="btn btn-primary btn-lg form-control" style="height: 50px">
+                <br><br>
+
+            </div>
+        </div>
+    </div>
+
+    }
+    <script type="text/javascript">
+        if (location.search.indexOf('r') < 0) {
+            var hash = window.location.hash;
+            var loc = window.location.href.replace(hash, '');
+            loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+            setTimeout(function () { window.location.href = loc + hash; }, 0900);
+        }
+    </script>
+    <script>
+
+
+     var remSeconds = @timeRemaining;
+        var secondsCounter = remSeconds % 60;
+
+     function formatNumber(number) {
+         if (number < 10) return '0' + number;
+         else return '' + number;
+            }
+            if (performance.navigation.type == 1) {
+                var test = 5;
+            } else {
+                var test = 1;
+            }
+
+     function startTick()
+     {
+         document.getElementById('secRemaining').innerText = formatNumber(secondsCounter);
+         document.getElementById('secsRemaining').innerText = formatNumber(secondsCounter);
+         document.getElementById('minRemaining').innerText = formatNumber(parseInt(remSeconds/60));
+         document.getElementById('minsRemaining').innerText = formatNumber(parseInt(remSeconds / 60));
+         var _tick = setInterval(function ()
+         {
+             if (remSeconds > 0)
+             {
+
+                 remSeconds = remSeconds-1;
+                 secondsCounter =secondsCounter-1;
+                 document.getElementById('secRemaining').innerText = formatNumber(secondsCounter);
+                 document.getElementById('secsRemaining').innerText = formatNumber(secondsCounter);
+                 document.getElementById('minRemaining').innerText = formatNumber(parseInt(remSeconds / 60));
+                 document.getElementById('minsRemaining').innerText = formatNumber(parseInt(remSeconds / 60));
+
+                 if (secondsCounter == 0)
+                     secondsCounter = 60;
+             }
+             else {
+                 alert("Time Expired!");
+                 clearInterval(_tick);
+            }
+         }, 1000);
+     }
+        startTick();
+    </script>
+</body>
+</html>
