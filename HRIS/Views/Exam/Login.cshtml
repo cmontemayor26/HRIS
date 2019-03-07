@@ -1,0 +1,51 @@
+﻿@model HRIS.Models.Masterlist
+@{
+    Layout = null;
+}
+<link href="//netdna.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DBA HRIS</title>
+    <link rel="icon" href="~/images/dba.png">
+    <link href="~/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <style>
+            input[type="submit"] {
+                font-size: 17.5px;
+            }
+        </style>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                <div class="container-fluid" style="top: 0;">
+                    <div class="navbar-header">
+                        <img src="~/images/DBA-white.png" width="120px" height="60px" />
+                        <button class="navbar-toggler hidden-lg-up pull-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="margin-top: 12px">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="nav navbar-nav ml-auto" style="margin-right: 100px;">
+                            <li style="margin-right: 20px;">
+                                @Html.TextBoxFor(model => model.Applicant_ExamNo, new { @placeholder = "Control Number", @class = "form-control", @autofocus = "autofocus", @required = true })
+                            </li>
+                            <li>
+                                <button type="submit" class="btn btn-primary btn">Login</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+        <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    }
