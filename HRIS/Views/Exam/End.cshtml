@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>End</title>
+</head>
+<body>
+    <style>
+        @@font-face {
+            font-family: myFirstFont;
+            src: url('../css/EraserRegular.ttf');
+        }
+        body {
+            background-image: url('../images/board.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+        div {
+            
+        }
+        h1 {
+            margin-top: 200px;
+            font-family: myFirstFont;
+            color: white;
+            font-size: 40px;
+        }
+    </style>
+    <div id="container" class="container">
+        <center>
+            <h1>Thank you!<br>Please wait for the HR staff to accompany you.</h1>
+            <br><br>
+            <h1>This page will close in <span id="time"></span></h1>
+        </center>
+    </div>
+    <script>
+        var myTimer;
+        function clock() {
+            myTimer = setInterval(myClock, 1000);
+            var c = 6;
+
+            function myClock() {
+                document.getElementById("time").innerHTML = --c;
+                if (c == 0) {
+                    clearInterval(myTimer);
+                    window.location.href = '@Url.Action("LogOut", "Exam")';
+                }
+            }
+        }
+        window.onload(clock());
+    </script>
+</body>
+</html>
