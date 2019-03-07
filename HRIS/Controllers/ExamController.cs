@@ -47,11 +47,7 @@ namespace HRIS.Controllers
                 sqlCmds.ExecuteNonQuery();
                 Session["timer"] = null;
             }
-            if (Session["JobTitle"].ToString() == "Accountant")
-            {
-                return RedirectToAction("Accountingtest", "Accountant");
-            }
-            return RedirectToAction("Essay");
+            return RedirectToAction("End");
         }
         public ActionResult IQtest1()
         {
@@ -100,14 +96,24 @@ namespace HRIS.Controllers
                 sqlCmds.ExecuteNonQuery();
                 Session["timer"] = null;
             }
-            if (Session["JobTitle"].ToString() == "Accountant") {
+            if (Session["JobTitle"].ToString() == "Associate Accountant" || Session["JobTitle"].ToString() == "Senior Accountant") {
                 return RedirectToAction("Accountingtest", "Accountant");
             }
             return RedirectToAction("Essay");
         }
         public ActionResult IQtest()
         {
-                
+            Random rand = new Random();
+            int random = rand.Next(1, 6);
+            Session["random"] = random;
+
+            if (Session["Applicant_ExamNo"] == null) {
+                return RedirectToAction("Login");
+            }
+            return View();
+        }
+        public ActionResult End()
+        {
             return View();
         }
         [HttpGet]
@@ -121,8 +127,10 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Essay(ApplicantID,Accountingtest1,Accountingtest2,[Accountingtest3-1],[Accountingtest3-2],[Accountingtest3-3],Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,[Solution3-1],[Solution3-2],[Solution3-3],Solution4,Solution7,Solution8,Solution10)" +
-                        "VALUES(@ApplicantID,@Accountingtest1,@Accountingtest2,@Accountingtest31,@Accountingtest32,@Accountingtest33,@Accountingtest4,@Accountingtest5,@Accountingtest6,@Accountingtest7,@Accountingtest8,@Accountingtest9,@Accountingtest10,@Solution1,@Solution31,@Solution32,@Solution33,@Solution4,@Solution7,@Solution8,@Solution10)";
+                string query = "INSERT INTO Accountingtest(ApplicantID,Accountingtest1,Accountingtest2,[Accountingtest3-1],[Accountingtest3-2],[Accountingtest3-3],Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,[Solution3-1],[Solution3-2],[Solution3-3],Solution4,Solution7,Solution8,Solution10," +
+                    "Accounttitle1,Accounttitle2,Accounttitle3,Accounttitle4,Accounttitle5,Accounttitle6,Accounttitle7,Accounttitle8,Accounttitle9,Accounttitle10,Accounttitle11,Accounttitle12,Accounttitle13,Debit1,Debit2,Debit3,Debit4,Debit5,Debit6,Debit7,Debit8,Debit9,Debit10,Debit11,Debit12,Debit13,Credit1,Credit2,Credit3,Credit4,Credit5,Credit6,Credit7,Credit8,Credit9,Credit10,Credit11,Credit12,Credit13,Accountingtestshort2)" +
+                        "VALUES(@ApplicantID,@Accountingtest1,@Accountingtest2,@Accountingtest31,@Accountingtest32,@Accountingtest33,@Accountingtest4,@Accountingtest5,@Accountingtest6,@Accountingtest7,@Accountingtest8,@Accountingtest9,@Accountingtest10,@Solution1,@Solution31,@Solution32,@Solution33,@Solution4,@Solution7,@Solution8,@Solution10" +
+                        ",@Accounttitle1,@Accounttitle2,@Accounttitle3,@Accounttitle4,@Accounttitle5,@Accounttitle6,@Accounttitle7,@Accounttitle8,@Accounttitle9,@Accounttitle10,@Accounttitle11,@Accounttitle12,@Accounttitle13,@Debit1,@Debit2,@Debit3,@Debit4,@Debit5,@Debit6,@Debit7,@Debit8,@Debit9,@Debit10,@Debit11,@Debit12,@Debit13,@Credit1,@Credit2,@Credit3,@Credit4,@Credit5,@Credit6,@Credit7,@Credit8,@Credit9,@Credit10,@Credit11,@Credit12,@Credit13,@Accountingtestshort2)";
                 SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@ApplicantID", Session["MasterlistID"].ToString());
                 sqlCmds.Parameters.AddWithValue("@Accountingtest1", accountingtest.Accountingtest1);
@@ -145,14 +153,51 @@ namespace HRIS.Controllers
                 sqlCmds.Parameters.AddWithValue("@Solution7", accountingtest.Solution7);
                 sqlCmds.Parameters.AddWithValue("@Solution8", accountingtest.Solution8);
                 sqlCmds.Parameters.AddWithValue("@Solution10", accountingtest.Solution10);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle1", accountingtest.Accounttitle1);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle2", accountingtest.Accounttitle2);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle3", accountingtest.Accounttitle3);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle4", accountingtest.Accounttitle4);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle5", accountingtest.Accounttitle5);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle6", accountingtest.Accounttitle6);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle7", accountingtest.Accounttitle7);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle8", accountingtest.Accounttitle8);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle9", accountingtest.Accounttitle9);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle10", accountingtest.Accounttitle10);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle11", accountingtest.Accounttitle11);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle12", accountingtest.Accounttitle12);
+                sqlCmds.Parameters.AddWithValue("@Accounttitle13", accountingtest.Accounttitle13);
+                sqlCmds.Parameters.AddWithValue("@Debit1", accountingtest.Debit1);
+                sqlCmds.Parameters.AddWithValue("@Debit2", accountingtest.Debit2);
+                sqlCmds.Parameters.AddWithValue("@Debit3", accountingtest.Debit3);
+                sqlCmds.Parameters.AddWithValue("@Debit4", accountingtest.Debit4);
+                sqlCmds.Parameters.AddWithValue("@Debit5", accountingtest.Debit5);
+                sqlCmds.Parameters.AddWithValue("@Debit6", accountingtest.Debit6);
+                sqlCmds.Parameters.AddWithValue("@Debit7", accountingtest.Debit7);
+                sqlCmds.Parameters.AddWithValue("@Debit8", accountingtest.Debit8);
+                sqlCmds.Parameters.AddWithValue("@Debit9", accountingtest.Debit9);
+                sqlCmds.Parameters.AddWithValue("@Debit10", accountingtest.Debit10);
+                sqlCmds.Parameters.AddWithValue("@Debit11", accountingtest.Debit11);
+                sqlCmds.Parameters.AddWithValue("@Debit12", accountingtest.Debit12);
+                sqlCmds.Parameters.AddWithValue("@Debit13", accountingtest.Debit13);
+                sqlCmds.Parameters.AddWithValue("@Credit1", accountingtest.Credit1);
+                sqlCmds.Parameters.AddWithValue("@Credit2", accountingtest.Credit2);
+                sqlCmds.Parameters.AddWithValue("@Credit3", accountingtest.Credit3);
+                sqlCmds.Parameters.AddWithValue("@Credit4", accountingtest.Credit4);
+                sqlCmds.Parameters.AddWithValue("@Credit5", accountingtest.Credit5);
+                sqlCmds.Parameters.AddWithValue("@Credit6", accountingtest.Credit6);
+                sqlCmds.Parameters.AddWithValue("@Credit7", accountingtest.Credit7);
+                sqlCmds.Parameters.AddWithValue("@Credit8", accountingtest.Credit8);
+                sqlCmds.Parameters.AddWithValue("@Credit9", accountingtest.Credit9);
+                sqlCmds.Parameters.AddWithValue("@Credit10", accountingtest.Credit10);
+                sqlCmds.Parameters.AddWithValue("@Credit11", accountingtest.Credit11);
+                sqlCmds.Parameters.AddWithValue("@Credit12", accountingtest.Credit12);
+                sqlCmds.Parameters.AddWithValue("@Credit13", accountingtest.Credit13);
+                sqlCmds.Parameters.AddWithValue("@Accountingtestshort2", accountingtest.Accountingtestshort2);
+
                 sqlCmds.ExecuteNonQuery();
                 Session["timer"] = null;
             }
-            if (Session["JobTitle"].ToString() == "Accountant")
-            {
-                return RedirectToAction("Accountingtest", "Accountant");
-            }
-            return RedirectToAction("Essay");
+            return RedirectToAction("End");
         }
 
 
@@ -194,6 +239,11 @@ namespace HRIS.Controllers
             }
             sqlconn.Close();
             return View();
+        }
+        public ActionResult LogOut()
+        {
+            Session.Abandon();
+            return RedirectToAction("Login");
         }
     }
 }
