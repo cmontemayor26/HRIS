@@ -126,8 +126,26 @@ namespace HRIS.Controllers
             return View(tuple);
         }
         [HttpPost]
-        public ActionResult AddApplicant(Masterlist masterlist, WorkExperience workExperience)
+        public ActionResult AddApplicant(Masterlist masterlist, WorkExperience workExperience, int? examno)
         {
+            DataTable dtblApplicant = new DataTable();
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT Applicant_ExamNo from Masterlist ORDER BY Applicant_ExamNo desc";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.Fill(dtblApplicant);
+            }
+            if (dtblApplicant.Rows.Count > 0)
+            {
+                examno = Convert.ToInt32(dtblApplicant.Rows[0][0].ToString());
+                examno = examno + 1;
+            }
+            else {
+                examno = 100001;
+            }
+
+
             MasterListEntities Master = new MasterListEntities();
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
@@ -145,8 +163,8 @@ namespace HRIS.Controllers
                 else
                 {
                     sdr.Close();
-                    string querys = "INSERT INTO Masterlist(FirstName,MiddleName,LastName,Birthday,MaritalStatus,JobTitle,Street_Address1,Street_Address2,City,Province,ZipCode,ContactNumber,PersonalEmail,Applicant_AppliedDate)" +
-                        "VALUES(@FirstName,@MiddleName,@LastName,@Birthday,@MaritalStatus,@JobTitle,@Street_Address1,@Street_Address2,@City,@Province,@ZipCode,@ContactNumber,@PersonalEmail,@Applicant_AppliedDate)";
+                    string querys = "INSERT INTO Masterlist(FirstName,MiddleName,LastName,Birthday,MaritalStatus,JobTitle,Street_Address1,Street_Address2,City,Province,ZipCode,ContactNumber,PersonalEmail,Applicant_AppliedDate,Applicant_ExamNo)" +
+                        "VALUES(@FirstName,@MiddleName,@LastName,@Birthday,@MaritalStatus,@JobTitle,@Street_Address1,@Street_Address2,@City,@Province,@ZipCode,@ContactNumber,@PersonalEmail,@Applicant_AppliedDate,@Applicant_ExamNo)";
                     SqlCommand sqlCmds = new SqlCommand(querys, sqlCon);
                     sqlCmds.Parameters.AddWithValue("@FirstName", masterlist.FirstName);
                     sqlCmds.Parameters.AddWithValue("@MiddleName", masterlist.MiddleName);
@@ -162,6 +180,7 @@ namespace HRIS.Controllers
                     sqlCmds.Parameters.AddWithValue("@ContactNumber", masterlist.ContactNumber);
                     sqlCmds.Parameters.AddWithValue("@PersonalEmail", masterlist.PersonalEmail);
                     sqlCmds.Parameters.AddWithValue("@Applicant_AppliedDate", masterlist.Applicant_AppliedDate);
+                    sqlCmds.Parameters.AddWithValue("@Applicant_ExamNo", examno);
                     SqlDataReader sdrs = sqlCmds.ExecuteReader();
                     int masterlistID = Master.Masterlists.Max(item => item.MasterlistID);
                     sdrs.Close();
