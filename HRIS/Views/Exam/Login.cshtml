@@ -26,26 +26,38 @@
                 font-size: 17.5px;
             }
         </style>
-            <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-                <div class="container-fluid" style="top: 0;">
-                    <div class="navbar-header">
-                        <img src="~/images/DBA-white.png" width="120px" height="60px" />
-                        <button class="navbar-toggler hidden-lg-up pull-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="margin-top: 12px">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                        <ul class="nav navbar-nav ml-auto" style="margin-right: 100px;">
-                            <li style="margin-right: 20px;">
-                                @Html.TextBoxFor(model => model.Applicant_ExamNo, new { @placeholder = "Control Number", @class = "form-control", @autofocus = "autofocus", @required = true })
-                            </li>
-                            <li>
-                                <button type="submit" class="btn btn-primary btn">Login</button>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+            <div class="container-fluid" style="top: 0;">
+                <div class="navbar-header">
+                    <img src="~/images/DBA-white.png" width="120px" height="60px" />
+                    <button class="navbar-toggler hidden-lg-up pull-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" style="margin-top: 12px">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-            </nav>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="nav navbar-nav ml-auto" style="margin-right: 100px;">
+                        <li style="margin-right: 20px;">
+                            @Html.TextBoxFor(model => model.Applicant_ExamNo, new { @placeholder = "Control Number", @class = "form-control", @autofocus = "autofocus", @required = true })
+                        </li>
+                        <li>
+                            <button type="submit" class="btn btn-primary btn">Login</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-danger">
+                    <strong>@TempData["Message"]</strong>
+                </div>
+
+            }
+        </div>
+
+
         <script src="~/Scripts/jquery-3.2.1.min.js"></script>
         <script src="~/bootstrap/js/bootstrap.min.js"></script>
+ 
     }
