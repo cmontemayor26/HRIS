@@ -19,7 +19,7 @@
     <title>IQtest1</title>
     <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="~/bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="~/Scripts/goBack.js"></script>
 </head>
 <body>
     <style>
@@ -70,7 +70,7 @@
                         What factors and/or events have greatly contributed to your personal and social development – including career advancement (as applicable) - for the past three years?
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay1"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay1" required></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
@@ -80,7 +80,7 @@
                         How do you deal with the challenges of life, especially in times of seeming failure, abandonment, and other things that make you feel frustrated?
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay2"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay2" required></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
@@ -90,7 +90,7 @@
                         It is true that nobody is perfect.  So how do you manage your weaknesses and deal with imperfections?
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay3"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay3" required></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
@@ -100,12 +100,12 @@
                         What do you believe are your real strengths? List down five of your perceived strengths and give short elaboration on each one.
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay4"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay4" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">How and where will you use your strengths so that you can exhibit excellent job performance at DBA? </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay5"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay5" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">What else can you contribute to your personal growth and that of the company? </label>
@@ -120,7 +120,7 @@
                         What three things are you looking for in a company that will contribute to your job satisfaction? Give a short explanation of each factor.
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay7"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay7" required></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
@@ -130,17 +130,17 @@
                         How do you feel about being the breadwinner or provider for your parents and/or siblings?
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay8"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay8" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">What do you think will you do if you have to take care of sick family members given that you have to perform well at your work in DBA?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay9"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay9" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">Is there anyone in your family who is sick and whom you are taking care of? Who else is available to look after them during work hours?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay10"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay10" required></textarea>
 
                     <br><br>
                     <label class="control-label font-weight-bold text-justify">
@@ -150,17 +150,17 @@
                         As a person, are you 1.) sharp and firm or 2.) sensitive and emotional? Elaborate a little more about yourself.
                     </label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay11"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay11" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">When and How will you use your heart over your head, and vice-versa?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay12"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay12" required></textarea>
 
                     <br><br>
                     <label class="control-label text-justify">Whether single or married, how do you describe yourself in terms of handling or managing a family?</label>
                     <br><br>
-                    <textarea rows="5" class="form-control" name="Essay13"></textarea>
+                    <textarea rows="5" class="form-control" name="Essay13" required></textarea>
                     <br><br>
                     <input type="submit" class="btn btn-primary btn-lg">
                     <br>
@@ -168,13 +168,21 @@
             </div>
         </div>
     }
+        <script type="text/javascript">
+            if (location.search.indexOf('r') < 0) {
+                var hash = window.location.hash;
+                var loc = window.location.href.replace(hash, '');
+                loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+                setTimeout(function () { window.location.href = loc + hash; }, 0900);
+            }
+        </script>
 
-    <script type="text/javascript">
-        if (location.search.indexOf('r') < 0) {
-            var hash = window.location.hash;
+        <script type="text/javascript">
+            if (location.search.indexOf('r') < 0) {
+                var hash = window.location.hash;
             var loc = window.location.href.replace(hash, '');
-            loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
-            setTimeout(function () { window.location.href = loc + hash; }, 0900);
+                loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
+                setTimeout(function () {window.location.href = loc + hash; }, 0900);
         }
     </script>
     <script>
