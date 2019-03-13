@@ -618,5 +618,131 @@ namespace HRIS.Controllers
             return View();
         }
 
+        public ActionResult ExamList(int? MasterListID, int? i)
+        {
+            MasterListEntities master = new MasterListEntities();
+            var item = master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10);
+
+            LeaveForm model = new LeaveForm();
+            DataTable dtblIQtest = new DataTable();
+            DataTable dtblQuestions = new DataTable();
+            DataTable dtblAccountant = new DataTable();
+            if (MasterListID == null)
+            {
+                return View(master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
+            }
+            using (SqlConnection sqlCon = new SqlConnection(connectionString))
+            {
+                sqlCon.Open();
+                string query = "SELECT * FROM IQtest Where ApplicantID = @MasterListID";
+                SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
+                sqlDa.SelectCommand.Parameters.AddWithValue("@MasterListID", MasterListID);
+                sqlDa.Fill(dtblIQtest);
+
+                string querys = "SELECT * FROM Questions";
+                SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
+                sqlDas.Fill(dtblQuestions);
+
+                string queryss = "SELECT * FROM Accountingtest";
+                SqlDataAdapter sqlDass = new SqlDataAdapter(queryss, sqlCon);
+                sqlDass.Fill(dtblAccountant);
+            }
+            if (dtblIQtest.Rows.Count >= 1)
+            {
+                ViewBag.IQtest1 = dtblIQtest.Rows[0][2].ToString();
+                ViewBag.IQtest2 = dtblIQtest.Rows[0][3].ToString();
+                ViewBag.IQtest3 = dtblIQtest.Rows[0][4].ToString();
+                ViewBag.IQtest4 = dtblIQtest.Rows[0][5].ToString();
+                ViewBag.IQtest5 = dtblIQtest.Rows[0][6].ToString();
+                ViewBag.IQtest6 = dtblIQtest.Rows[0][7].ToString();
+                ViewBag.IQtest7 = dtblIQtest.Rows[0][8].ToString();
+                ViewBag.IQtest8 = dtblIQtest.Rows[0][9].ToString();
+                ViewBag.IQtest9 = dtblIQtest.Rows[0][10].ToString();
+                ViewBag.IQtest10 = dtblIQtest.Rows[0][11].ToString();
+                ViewBag.IQtest11 = dtblIQtest.Rows[0][12].ToString();
+                ViewBag.IQtest12 = dtblIQtest.Rows[0][13].ToString();
+                ViewBag.IQtest13 = dtblIQtest.Rows[0][14].ToString();
+                ViewBag.IQtest14 = dtblIQtest.Rows[0][15].ToString();
+                ViewBag.IQtest15 = dtblIQtest.Rows[0][16].ToString();
+                ViewBag.IQtest16 = dtblIQtest.Rows[0][17].ToString();
+                ViewBag.IQtest17 = dtblIQtest.Rows[0][18].ToString();
+                ViewBag.IQtest18 = dtblIQtest.Rows[0][19].ToString();
+                ViewBag.IQtest19 = dtblIQtest.Rows[0][20].ToString();
+                ViewBag.IQtest20 = dtblIQtest.Rows[0][21].ToString();
+                ViewBag.IQtest21 = dtblIQtest.Rows[0][22].ToString();
+                ViewBag.IQtest22 = dtblIQtest.Rows[0][23].ToString();
+                ViewBag.IQtest23 = dtblIQtest.Rows[0][24].ToString();
+                ViewBag.IQtest24 = dtblIQtest.Rows[0][25].ToString();
+                ViewBag.IQtest25 = dtblIQtest.Rows[0][26].ToString();
+                ViewBag.IQtest26 = dtblIQtest.Rows[0][27].ToString();
+                ViewBag.IQtest27 = dtblIQtest.Rows[0][28].ToString();
+                ViewBag.IQtest28 = dtblIQtest.Rows[0][29].ToString();
+                ViewBag.IQtest29 = dtblIQtest.Rows[0][30].ToString();
+                ViewBag.IQtest30 = dtblIQtest.Rows[0][31].ToString();
+
+                ViewBag.Q1 = dtblQuestions.Rows[0][1].ToString();
+                ViewBag.Q2 = dtblQuestions.Rows[0][2].ToString();
+                ViewBag.Q3 = dtblQuestions.Rows[0][3].ToString();
+                ViewBag.Q4 = dtblQuestions.Rows[0][4].ToString();
+                ViewBag.Q5 = dtblQuestions.Rows[0][5].ToString();
+                ViewBag.Q6 = dtblQuestions.Rows[0][6].ToString();
+                ViewBag.Q7 = dtblQuestions.Rows[0][7].ToString();
+                ViewBag.Q8 = dtblQuestions.Rows[0][8].ToString();
+                ViewBag.Q9 = dtblQuestions.Rows[0][9].ToString();
+                ViewBag.Q10 = dtblQuestions.Rows[0][10].ToString();
+                ViewBag.Q11 = dtblQuestions.Rows[0][11].ToString();
+                ViewBag.Q12 = dtblQuestions.Rows[0][12].ToString();
+                ViewBag.Q13 = dtblQuestions.Rows[0][13].ToString();
+                ViewBag.Q14 = dtblQuestions.Rows[0][14].ToString();
+                ViewBag.Q15 = dtblQuestions.Rows[0][15].ToString();
+                ViewBag.Q16 = dtblQuestions.Rows[0][16].ToString();
+                ViewBag.Q17 = dtblQuestions.Rows[0][17].ToString();
+                ViewBag.Q18 = dtblQuestions.Rows[0][18].ToString();
+                ViewBag.Q19 = dtblQuestions.Rows[0][19].ToString();
+                ViewBag.Q20 = dtblQuestions.Rows[0][20].ToString();
+                ViewBag.Q21 = dtblQuestions.Rows[0][21].ToString();
+                ViewBag.Q22 = dtblQuestions.Rows[0][22].ToString();
+                ViewBag.Q23 = dtblQuestions.Rows[0][23].ToString();
+                ViewBag.Q24 = dtblQuestions.Rows[0][24].ToString();
+                ViewBag.Q25 = dtblQuestions.Rows[0][25].ToString();
+                ViewBag.Q26 = dtblQuestions.Rows[0][26].ToString();
+                ViewBag.Q27 = dtblQuestions.Rows[0][27].ToString();
+                ViewBag.Q28 = dtblQuestions.Rows[0][28].ToString();
+                ViewBag.Q29 = dtblQuestions.Rows[0][29].ToString();
+                ViewBag.Q30 = dtblQuestions.Rows[0][30].ToString();
+
+                ViewBag.Accountant1 = dtblAccountant.Rows[0][2].ToString();
+                ViewBag.AccountantS1 = dtblAccountant.Rows[0][2].ToString();
+                ViewBag.Accountant2 = dtblAccountant.Rows[0][3].ToString();
+                ViewBag.Accountant31 = dtblAccountant.Rows[0][4].ToString();
+                ViewBag.AccountantS31 = dtblAccountant.Rows[0][5].ToString();
+                ViewBag.Accountant32 = dtblAccountant.Rows[0][5].ToString();
+                ViewBag.AccountantS32 = dtblAccountant.Rows[0][7].ToString();
+                ViewBag.Accountant33 = dtblAccountant.Rows[0][6].ToString();
+                ViewBag.AccountantS33 = dtblAccountant.Rows[0][9].ToString();
+                ViewBag.Accountant4 = dtblAccountant.Rows[0][7].ToString();
+                ViewBag.AccountantS4 = dtblAccountant.Rows[0][11].ToString();
+                ViewBag.Accountant5 = dtblAccountant.Rows[0][8].ToString();
+                ViewBag.Accountant6 = dtblAccountant.Rows[0][9].ToString();
+                ViewBag.Accountant7 = dtblAccountant.Rows[0][10].ToString();
+                ViewBag.AccountantS7 = dtblAccountant.Rows[0][15].ToString();
+                ViewBag.Accountant8 = dtblAccountant.Rows[0][16].ToString();
+                ViewBag.AccountantS8 = dtblAccountant.Rows[0][16].ToString();
+                ViewBag.Accountant9 = dtblAccountant.Rows[0][16].ToString();
+                ViewBag.Accountant10 = dtblAccountant.Rows[0][16].ToString();
+                ViewBag.AccountantS10 = dtblAccountant.Rows[0][16].ToString();
+
+                ViewBag.MasterlistID = MasterListID;
+                TempData["MasterlistID"] = "1";
+                return View(master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
+
+
+            }
+            else
+            {
+                return RedirectToAction("ExamList",master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
+            }
+        }
+
     }
 }
