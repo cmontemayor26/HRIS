@@ -1,0 +1,434 @@
+﻿@model IPagedList<HRIS.Models.Masterlist>
+@{
+    Layout = null;
+
+}
+@RenderPage("Navigation.cshtml")
+@using PagedList.Mvc;
+@using PagedList;
+
+<style>
+    .input-group {
+        display: flex;
+    }
+
+    h1 {
+        display: inherit;
+        text-align: left;
+    }
+
+    table tbody tr td a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        font-size: inherit;
+        cursor: pointer;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    .link_button {
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: solid 1px #007bff;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+        background: #007bff;
+        color: #FFF;
+        padding: 8px 12px;
+        text-decoration: none;
+    }
+
+        .link_button:hover {
+            opacity: 0.8;
+            color: #FFF;
+        }
+    .modal-body {
+        height: 650px;
+        overflow-y: auto;
+    }
+</style>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="container">
+    <br>
+    <div class='row'>
+        <div class='md-col-4'>
+            <h1>Pre-Employment Exam</h1>
+        </div>
+    </div>
+    <hr />
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Position Applied for</th>
+                <th>Applied Date</th>
+            </tr>
+        </thead>
+        @foreach (var Item in Model)
+        {
+            if (Item.Applicant_TookExam == 1)
+            {
+
+                    <tbody>
+                        <tr class="Search">
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.FirstName</a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.LastName </a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.JobTitle </a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.Applicant_AppliedDate.Value.ToString("MMM dd, yyyy") </a></td>
+                        </tr>
+                    </tbody>
+
+                }
+                else
+                {
+                    <tbody>
+                        <tr class="Search">
+                            <td><a href="#" style="color: red"> @Item.FirstName</a></td>
+                            <td><a href="#" style="color: red"> @Item.LastName </a></td>
+                            <td><a href="#" style="color: red"> @Item.JobTitle </a></td>
+                            <td><a href="#" style="color: red"> @Item.Applicant_AppliedDate.Value.ToString("MMM dd, yyyy") </a></td>
+                        </tr>
+                    </tbody>
+                }
+        }
+    </table>
+
+    @foreach (var Item in Model)
+    {
+        if (Item.MasterlistID == ViewBag.MasterlistID && TempData["MasterlistID"].ToString() == "1")
+        {
+            <script type="text/javascript">
+                $(window).on('load', function () {
+                    $('#myModal').modal('show');
+                });
+            </script>
+            <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Pre-Employment Exam</h4>
+                            <br><br><br>
+                            <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs navbar-fixed-top" role="tablist" style="background-color: white;position: absolute;margin-top: 55px;border-bottom: 0px;">
+                                        <li role="presentation" class="active" style="padding-right: 20px;border-right: 1px solid black">
+                                            <a href="#uploadTab" aria-controls="uploadTab" role="tab" data-toggle="tab">IQ test</a>
+
+                                        </li>
+                                        @if (Item.JobTitle == "Associate Accountant" || Item.JobTitle == "Senior Accountant")
+                                        {
+                                            <li role="presentation" style="padding-left: 20px;border-left: 1px solid black">
+                                                <a href="#accountant" aria-controls="accountant" role="tab" data-toggle="tab">Accountant test</a>
+                                            </li>
+
+                                        }
+                                        else
+                                        {
+                                            <li role="presentation" style="padding-left: 20px;border-left: 1px solid black">
+                                                <a href="#browseTab" aria-controls="browseTab" role="tab" data-toggle="tab">Self Analysis</a>
+                                            </li>
+
+                                        }
+
+                                    </ul>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+                        </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+                                <div role="tabpanel">
+
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="uploadTab">
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">1. @ViewBag.Q1</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest1</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">2. @ViewBag.Q2</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">3. @ViewBag.Q3</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest3</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">4. @ViewBag.Q4</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest4</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">5. @ViewBag.Q5</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest5</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">6. @ViewBag.Q6</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest6</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">7. @ViewBag.Q7</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest7</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">8. @ViewBag.Q8</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest8</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">9. @ViewBag.Q9</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest9</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">10. @ViewBag.Q10</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest10</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">11. @ViewBag.Q11</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest11</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">12. @ViewBag.Q12</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest12</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">13. @ViewBag.Q13</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest13</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">14. @ViewBag.Q14</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest14</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">15. @ViewBag.Q15</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest15</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">16. @ViewBag.Q16</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest16</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">17. @ViewBag.Q17</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest17</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">18. @ViewBag.Q18</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest18</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">19. @ViewBag.Q19</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest19</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">20. @ViewBag.Q20</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest20</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">21. @ViewBag.Q21</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest21</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">22. @ViewBag.Q22</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest22</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">23. @ViewBag.Q23</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest23</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">24. @ViewBag.Q24</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest24</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">25. @ViewBag.Q25</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest25</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">26. @ViewBag.Q26</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest26</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">27. @ViewBag.Q27</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest27</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">28. @ViewBag.Q28</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest28</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">29. @ViewBag.Q29</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest29</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">30. @ViewBag.Q30</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest30</label>
+                                            </div>
+
+                                        </div>
+
+                                        @if (Item.JobTitle == "Associate Accountant" || Item.JobTitle == "Senior Accountant")
+                                        {
+                                        <div role="tabpanel" class="tab-pane" id="accountant">
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">1. A brand new company has a Building costing $15,000, with related Accumulated Depreciation of $5,000, Machinery costing $7,500, with related Accumulated Depreciation of $2,500, Cash of $700, and a bank loan of $7,850. What is the owner’s equity?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">2. Providing services on account for $40,000 would:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">3 - 1. On December 31, Total Assets are equal to:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">3 - 2. On December 31, Net Income is equal to:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">3 - 3. On December 31, Current Assets equal:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">4. On December 31, if John Company has net income equals $15,000 and the ending owner’s equity is $20,000,and John (owner) invested an additional $2,600 in his business, while withdrawing $6,000 during the year, the beginning Owner’s Equity for this year was:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">5. New Font Software provided services for customers of $7,000. What is the entry if it billed customers for the total amount?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">6. Which of the following transactions require a compound journal entry?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">7. A company paid in advance $4,800 for two years of prepaid insurance, which started on May 1. The adjusting entry on fiscal year ending December 31 of that year is:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">8. A business leases a Building for one year commencing on 1 Oct 2013. The rent is $24,000 per year and the business paid cash one year in advance on 1 Oct 2013. On 31 Dec 2013, how much of that payment should be recorded as a rental expense and how much should be deferred?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">9. The purchase of an asset on credit will:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">10. Assuming a 4-year old Equipment costing $100,000, with Accumulated Depreciation of $38,000, Estimated Useful of 10 years, Salvage Value of $5,000, and market value of $ 65,000 was sold for $40,000. How much is the Gain/Loss on disposal of asset?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                            </div>
+
+                                        </div>
+                                        }
+                                        else
+                                        {
+                                                <div role="tabpanel" class="tab-pane" id="browseTab">
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="col-form-label text-justify">2. @ViewBag.Q2</label><br />
+                                                        <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                    </div>
+
+                                                </div>
+
+                                         }
+
+
+                                            </div>
+                                        </div>
+
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        }
+    }
+    @{
+        TempData["MasterlistID"] = "0";
+    }
+    <div class="col-sm-10">
+        <div class="center">
+            @Html.PagedListPager(Model, i => Url.Action("ExamList", "Admin", new { i, search = Request.QueryString["search"] }))
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function Contains(text_one, text_two) {
+                if (text_one.indexOf(text_two) != -1)
+                    return true;
+            }
+            $("#search").keyup(function () {
+                var searchText = $("#search").val().toLowerCase();
+                $(".Search").each(function () {
+                    if (!Contains($(this).text().toLowerCase(), searchText)) {
+                        $(this).hide();
+                    }
+                    else {
+                        $(this).show();
+                    }
+                });
+            });
+
+        });
+    </script>
+</div>
+
+@RenderPage("Footer.cshtml")
