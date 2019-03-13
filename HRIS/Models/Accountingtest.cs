@@ -308,46 +308,46 @@ namespace HRIS.Models
         public string Asset7 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset1 { get; set; }
+        public string Debitasset1 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset2 { get; set; }
+        public string Debitasset2 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset3 { get; set; }
+        public string Debitasset3 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset4 { get; set; }
+        public string Debitasset4 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset5 { get; set; }
+        public string Debitasset5 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset6 { get; set; }
+        public string Debitasset6 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string DebitAsset7 { get; set; }
+        public string Debitasset7 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset1 { get; set; }
+        public string Creditasset1 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset2 { get; set; }
+        public string Creditasset2 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset3 { get; set; }
+        public string Creditasset3 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset4 { get; set; }
+        public string Creditasset4 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset5 { get; set; }
+        public string Creditasset5 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset6 { get; set; }
+        public string Creditasset6 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string CreditAsset7 { get; set; }
+        public string Creditasset7 { get; set; }
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Totalasset { get; set; }
