@@ -20,19 +20,25 @@ $(document).ready(function(){
 			    this.classList.toggle('active');
 		}
 	}
+    function close() {
+        var closeAccordion = document.getElementsByClassName('dropdown');
+        var i = 0;
+        for (i = 0; i < closeAccordion.length; i++) {
+            closeAccordion[i].classList.remove('active');
+        }
+    }
+    function opentab() {
+        var element = document.querySelector(".leftMenu");
+        element.classList.toggle("openMenu");
 
-	function open(){
-		var element = document.querySelector(".leftMenu");
-		  element.classList.toggle("openMenu");
-    
-		var hamburger = document.querySelector(".hamburger");
-		  hamburger.classList.toggle("open");
-    
-		var closeAccordion = document.getElementsByClassName('dropdown');
-		  var i = 0;
-		  for (i = 0; i < closeAccordion.length; i++) {
-		  closeAccordion[i].classList.remove('active');
-		}
-	}
-	window.onload = open();
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.classList.toggle("open");
+
+        var closeAccordion = document.getElementsByClassName('dropdown');
+        var i = 0;
+        for (i = 0; i < closeAccordion.length; i++) {
+            closeAccordion[i].classList.remove('active');
+        }
+    }
+    window.onload = opentab();
 });
