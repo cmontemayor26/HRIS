@@ -62,6 +62,8 @@ namespace HRIS.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            Session["timer"] = null;
+            Session["Test"] = null;
             return View();
         }
         [HttpPost]
