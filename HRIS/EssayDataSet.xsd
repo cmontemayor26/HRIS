@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EssayDataSet" targetNamespace="http://tempuri.org/EssayDataSet.xsd" xmlns:mstns="http://tempuri.org/EssayDataSet.xsd" xmlns="http://tempuri.org/EssayDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HRISConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HRISConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HRISConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Essay_ViewTableAdapter" GeneratorDataComponentClassName="Essay_ViewTableAdapter" Name="Essay_View" UserDataComponentName="Essay_ViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HRISConnectionString (Web.config)" DbObjectName="HRIS.dbo.Essay_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT EssayID, ApplicantID, Essay1, Essay2, Essay3, Essay4, Essay5, Essay6, Essay7, Essay8, Essay9, Essay10, Essay11, Essay12, Essay13, FirstName, MiddleName, LastName, JobTitle FROM dbo.Essay_View</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="EssayID" DataSetColumn="EssayID" />
+              <Mapping SourceColumn="ApplicantID" DataSetColumn="ApplicantID" />
+              <Mapping SourceColumn="Essay1" DataSetColumn="Essay1" />
+              <Mapping SourceColumn="Essay2" DataSetColumn="Essay2" />
+              <Mapping SourceColumn="Essay3" DataSetColumn="Essay3" />
+              <Mapping SourceColumn="Essay4" DataSetColumn="Essay4" />
+              <Mapping SourceColumn="Essay5" DataSetColumn="Essay5" />
+              <Mapping SourceColumn="Essay6" DataSetColumn="Essay6" />
+              <Mapping SourceColumn="Essay7" DataSetColumn="Essay7" />
+              <Mapping SourceColumn="Essay8" DataSetColumn="Essay8" />
+              <Mapping SourceColumn="Essay9" DataSetColumn="Essay9" />
+              <Mapping SourceColumn="Essay10" DataSetColumn="Essay10" />
+              <Mapping SourceColumn="Essay11" DataSetColumn="Essay11" />
+              <Mapping SourceColumn="Essay12" DataSetColumn="Essay12" />
+              <Mapping SourceColumn="Essay13" DataSetColumn="Essay13" />
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="MiddleName" DataSetColumn="MiddleName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="JobTitle" DataSetColumn="JobTitle" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EssayDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EssayDataSet" msprop:Generator_UserDSName="EssayDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Essay_View" msprop:Generator_TableClassName="Essay_ViewDataTable" msprop:Generator_TableVarName="tableEssay_View" msprop:Generator_TablePropName="Essay_View" msprop:Generator_RowDeletingName="Essay_ViewRowDeleting" msprop:Generator_RowChangingName="Essay_ViewRowChanging" msprop:Generator_RowEvHandlerName="Essay_ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="Essay_ViewRowDeleted" msprop:Generator_UserTableName="Essay_View" msprop:Generator_RowChangedName="Essay_ViewRowChanged" msprop:Generator_RowEvArgName="Essay_ViewRowChangeEvent" msprop:Generator_RowClassName="Essay_ViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EssayID" msprop:Generator_ColumnVarNameInTable="columnEssayID" msprop:Generator_ColumnPropNameInRow="EssayID" msprop:Generator_ColumnPropNameInTable="EssayIDColumn" msprop:Generator_UserColumnName="EssayID" type="xs:int" />
+              <xs:element name="ApplicantID" msprop:Generator_ColumnVarNameInTable="columnApplicantID" msprop:Generator_ColumnPropNameInRow="ApplicantID" msprop:Generator_ColumnPropNameInTable="ApplicantIDColumn" msprop:Generator_UserColumnName="ApplicantID" type="xs:int" />
+              <xs:element name="Essay1" msprop:Generator_ColumnVarNameInTable="columnEssay1" msprop:Generator_ColumnPropNameInRow="Essay1" msprop:Generator_ColumnPropNameInTable="Essay1Column" msprop:Generator_UserColumnName="Essay1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay2" msprop:Generator_ColumnVarNameInTable="columnEssay2" msprop:Generator_ColumnPropNameInRow="Essay2" msprop:Generator_ColumnPropNameInTable="Essay2Column" msprop:Generator_UserColumnName="Essay2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay3" msprop:Generator_ColumnVarNameInTable="columnEssay3" msprop:Generator_ColumnPropNameInRow="Essay3" msprop:Generator_ColumnPropNameInTable="Essay3Column" msprop:Generator_UserColumnName="Essay3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay4" msprop:Generator_ColumnVarNameInTable="columnEssay4" msprop:Generator_ColumnPropNameInRow="Essay4" msprop:Generator_ColumnPropNameInTable="Essay4Column" msprop:Generator_UserColumnName="Essay4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay5" msprop:Generator_ColumnVarNameInTable="columnEssay5" msprop:Generator_ColumnPropNameInRow="Essay5" msprop:Generator_ColumnPropNameInTable="Essay5Column" msprop:Generator_UserColumnName="Essay5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay6" msprop:Generator_ColumnVarNameInTable="columnEssay6" msprop:Generator_ColumnPropNameInRow="Essay6" msprop:Generator_ColumnPropNameInTable="Essay6Column" msprop:Generator_UserColumnName="Essay6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay7" msprop:Generator_ColumnVarNameInTable="columnEssay7" msprop:Generator_ColumnPropNameInRow="Essay7" msprop:Generator_ColumnPropNameInTable="Essay7Column" msprop:Generator_UserColumnName="Essay7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay8" msprop:Generator_ColumnVarNameInTable="columnEssay8" msprop:Generator_ColumnPropNameInRow="Essay8" msprop:Generator_ColumnPropNameInTable="Essay8Column" msprop:Generator_UserColumnName="Essay8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay9" msprop:Generator_ColumnVarNameInTable="columnEssay9" msprop:Generator_ColumnPropNameInRow="Essay9" msprop:Generator_ColumnPropNameInTable="Essay9Column" msprop:Generator_UserColumnName="Essay9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay10" msprop:Generator_ColumnVarNameInTable="columnEssay10" msprop:Generator_ColumnPropNameInRow="Essay10" msprop:Generator_ColumnPropNameInTable="Essay10Column" msprop:Generator_UserColumnName="Essay10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay11" msprop:Generator_ColumnVarNameInTable="columnEssay11" msprop:Generator_ColumnPropNameInRow="Essay11" msprop:Generator_ColumnPropNameInTable="Essay11Column" msprop:Generator_UserColumnName="Essay11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay12" msprop:Generator_ColumnVarNameInTable="columnEssay12" msprop:Generator_ColumnPropNameInRow="Essay12" msprop:Generator_ColumnPropNameInTable="Essay12Column" msprop:Generator_UserColumnName="Essay12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Essay13" msprop:Generator_ColumnVarNameInTable="columnEssay13" msprop:Generator_ColumnPropNameInRow="Essay13" msprop:Generator_ColumnPropNameInTable="Essay13Column" msprop:Generator_UserColumnName="Essay13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MiddleName" msprop:Generator_ColumnVarNameInTable="columnMiddleName" msprop:Generator_ColumnPropNameInRow="MiddleName" msprop:Generator_ColumnPropNameInTable="MiddleNameColumn" msprop:Generator_UserColumnName="MiddleName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JobTitle" msprop:Generator_ColumnVarNameInTable="columnJobTitle" msprop:Generator_ColumnPropNameInRow="JobTitle" msprop:Generator_ColumnPropNameInTable="JobTitleColumn" msprop:Generator_UserColumnName="JobTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Essay_View" />
+      <xs:field xpath="mstns:EssayID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
