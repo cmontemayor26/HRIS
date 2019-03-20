@@ -1,0 +1,1298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AccountantTestDataSet" targetNamespace="http://tempuri.org/AccountantTestDataSet.xsd" xmlns:mstns="http://tempuri.org/AccountantTestDataSet.xsd" xmlns="http://tempuri.org/AccountantTestDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HRISConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HRISConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HRISConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Accountant_ViewTableAdapter" GeneratorDataComponentClassName="Accountant_ViewTableAdapter" Name="Accountant_View" UserDataComponentName="Accountant_ViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HRISConnectionString (Web.config)" DbObjectName="HRIS.dbo.Accountant_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT FirstName, MiddleName, LastName, JobTitle, AccountingtestID, ApplicantID, Accountingtest1, Accountingtest2, Accountingtest3_1, Accountingtest3_2, Accountingtest3_3, Accountingtest4, Accountingtest5, Accountingtest6, Accountingtest7, Accountingtest8, Accountingtest9, Accountingtest10, Solution1, Solution3_1, Solution3_2, Solution3_3, Solution4, Solution7, Solution8, Solution10, Accounttitle1, Accounttitle2, Accounttitle3, Accounttitle4, Accounttitle5, Accounttitle6, Accounttitle7, Accounttitle8, Accounttitle9, Accounttitle10, Accounttitle11, Accounttitle12, Accounttitle13, Debit1, Debit2, Debit3, Debit4, Debit5, Debit6, Debit7, Debit8, Debit9, Debit10, Debit11, Debit12, Debit13, Credit1, Credit2, Credit3, Credit4, Credit5, Credit6, Credit7, Credit8, Credit9, Credit10, Credit11, Credit12, Credit13, Accountingtestshort2, Taxbracket1, Taxbracket2, Taxbracket3, Rate1, Rate2, Rate3, Amount1, Amount2, Amount3, Totalincometax, Booktitle1, Booktitle2, Booktitle3, Booktitle4, Bookdebit1, Bookdebit2, Bookdebit3, Bookdebit4, Bookcredit1, Bookcredit2, Bookcredit3, Bookcredit4, Balancebook, Banktitle1, Banktitle2, Banktitle3, Banktitle4, Banktitle5, Banktitle6, Banktitle7, Bankdebit1, Bankdebit2, Bankdebit3, Bankdebit4, Bankdebit5, Bankdebit6, Bankdebit7, Bankcredit1, Bankcredit2, Bankcredit3, Bankcredit4, Bankcredit5, Bankcredit6, Bankcredit7, Balancebank, Asset1, Asset2, Asset3, Asset4, Asset5, Asset6, Asset7, Debitasset1, Debitasset2, Debitasset3, Debitasset4, Debitasset5, Debitasset6, Debitasset7, Creditasset1, Creditasset2, Creditasset3, Creditasset4, Creditasset5, Creditasset6, Creditasset7, Totalasset, Equity1, Equity2, Equity3, Equity4, Equity5, Equity6, Equity7, Equity8, Debitequity1, Debitequity2, Debitequity3, Debitequity4, Debitequity5, Debitequity6, Debitequity7, Debitequity8, Creditequity1, Creditequity2, Creditequity3, Creditequity4, Creditequity5, Creditequity6, Creditequity7, Creditequity8, Totalequity FROM dbo.Accountant_View</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="FirstName" DataSetColumn="FirstName" />
+              <Mapping SourceColumn="MiddleName" DataSetColumn="MiddleName" />
+              <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
+              <Mapping SourceColumn="JobTitle" DataSetColumn="JobTitle" />
+              <Mapping SourceColumn="AccountingtestID" DataSetColumn="AccountingtestID" />
+              <Mapping SourceColumn="ApplicantID" DataSetColumn="ApplicantID" />
+              <Mapping SourceColumn="Accountingtest1" DataSetColumn="Accountingtest1" />
+              <Mapping SourceColumn="Accountingtest2" DataSetColumn="Accountingtest2" />
+              <Mapping SourceColumn="Accountingtest3_1" DataSetColumn="Accountingtest3_1" />
+              <Mapping SourceColumn="Accountingtest3_2" DataSetColumn="Accountingtest3_2" />
+              <Mapping SourceColumn="Accountingtest3_3" DataSetColumn="Accountingtest3_3" />
+              <Mapping SourceColumn="Accountingtest4" DataSetColumn="Accountingtest4" />
+              <Mapping SourceColumn="Accountingtest5" DataSetColumn="Accountingtest5" />
+              <Mapping SourceColumn="Accountingtest6" DataSetColumn="Accountingtest6" />
+              <Mapping SourceColumn="Accountingtest7" DataSetColumn="Accountingtest7" />
+              <Mapping SourceColumn="Accountingtest8" DataSetColumn="Accountingtest8" />
+              <Mapping SourceColumn="Accountingtest9" DataSetColumn="Accountingtest9" />
+              <Mapping SourceColumn="Accountingtest10" DataSetColumn="Accountingtest10" />
+              <Mapping SourceColumn="Solution1" DataSetColumn="Solution1" />
+              <Mapping SourceColumn="Solution3_1" DataSetColumn="Solution3_1" />
+              <Mapping SourceColumn="Solution3_2" DataSetColumn="Solution3_2" />
+              <Mapping SourceColumn="Solution3_3" DataSetColumn="Solution3_3" />
+              <Mapping SourceColumn="Solution4" DataSetColumn="Solution4" />
+              <Mapping SourceColumn="Solution7" DataSetColumn="Solution7" />
+              <Mapping SourceColumn="Solution8" DataSetColumn="Solution8" />
+              <Mapping SourceColumn="Solution10" DataSetColumn="Solution10" />
+              <Mapping SourceColumn="Accounttitle1" DataSetColumn="Accounttitle1" />
+              <Mapping SourceColumn="Accounttitle2" DataSetColumn="Accounttitle2" />
+              <Mapping SourceColumn="Accounttitle3" DataSetColumn="Accounttitle3" />
+              <Mapping SourceColumn="Accounttitle4" DataSetColumn="Accounttitle4" />
+              <Mapping SourceColumn="Accounttitle5" DataSetColumn="Accounttitle5" />
+              <Mapping SourceColumn="Accounttitle6" DataSetColumn="Accounttitle6" />
+              <Mapping SourceColumn="Accounttitle7" DataSetColumn="Accounttitle7" />
+              <Mapping SourceColumn="Accounttitle8" DataSetColumn="Accounttitle8" />
+              <Mapping SourceColumn="Accounttitle9" DataSetColumn="Accounttitle9" />
+              <Mapping SourceColumn="Accounttitle10" DataSetColumn="Accounttitle10" />
+              <Mapping SourceColumn="Accounttitle11" DataSetColumn="Accounttitle11" />
+              <Mapping SourceColumn="Accounttitle12" DataSetColumn="Accounttitle12" />
+              <Mapping SourceColumn="Accounttitle13" DataSetColumn="Accounttitle13" />
+              <Mapping SourceColumn="Debit1" DataSetColumn="Debit1" />
+              <Mapping SourceColumn="Debit2" DataSetColumn="Debit2" />
+              <Mapping SourceColumn="Debit3" DataSetColumn="Debit3" />
+              <Mapping SourceColumn="Debit4" DataSetColumn="Debit4" />
+              <Mapping SourceColumn="Debit5" DataSetColumn="Debit5" />
+              <Mapping SourceColumn="Debit6" DataSetColumn="Debit6" />
+              <Mapping SourceColumn="Debit7" DataSetColumn="Debit7" />
+              <Mapping SourceColumn="Debit8" DataSetColumn="Debit8" />
+              <Mapping SourceColumn="Debit9" DataSetColumn="Debit9" />
+              <Mapping SourceColumn="Debit10" DataSetColumn="Debit10" />
+              <Mapping SourceColumn="Debit11" DataSetColumn="Debit11" />
+              <Mapping SourceColumn="Debit12" DataSetColumn="Debit12" />
+              <Mapping SourceColumn="Debit13" DataSetColumn="Debit13" />
+              <Mapping SourceColumn="Credit1" DataSetColumn="Credit1" />
+              <Mapping SourceColumn="Credit2" DataSetColumn="Credit2" />
+              <Mapping SourceColumn="Credit3" DataSetColumn="Credit3" />
+              <Mapping SourceColumn="Credit4" DataSetColumn="Credit4" />
+              <Mapping SourceColumn="Credit5" DataSetColumn="Credit5" />
+              <Mapping SourceColumn="Credit6" DataSetColumn="Credit6" />
+              <Mapping SourceColumn="Credit7" DataSetColumn="Credit7" />
+              <Mapping SourceColumn="Credit8" DataSetColumn="Credit8" />
+              <Mapping SourceColumn="Credit9" DataSetColumn="Credit9" />
+              <Mapping SourceColumn="Credit10" DataSetColumn="Credit10" />
+              <Mapping SourceColumn="Credit11" DataSetColumn="Credit11" />
+              <Mapping SourceColumn="Credit12" DataSetColumn="Credit12" />
+              <Mapping SourceColumn="Credit13" DataSetColumn="Credit13" />
+              <Mapping SourceColumn="Accountingtestshort2" DataSetColumn="Accountingtestshort2" />
+              <Mapping SourceColumn="Taxbracket1" DataSetColumn="Taxbracket1" />
+              <Mapping SourceColumn="Taxbracket2" DataSetColumn="Taxbracket2" />
+              <Mapping SourceColumn="Taxbracket3" DataSetColumn="Taxbracket3" />
+              <Mapping SourceColumn="Rate1" DataSetColumn="Rate1" />
+              <Mapping SourceColumn="Rate2" DataSetColumn="Rate2" />
+              <Mapping SourceColumn="Rate3" DataSetColumn="Rate3" />
+              <Mapping SourceColumn="Amount1" DataSetColumn="Amount1" />
+              <Mapping SourceColumn="Amount2" DataSetColumn="Amount2" />
+              <Mapping SourceColumn="Amount3" DataSetColumn="Amount3" />
+              <Mapping SourceColumn="Totalincometax" DataSetColumn="Totalincometax" />
+              <Mapping SourceColumn="Booktitle1" DataSetColumn="Booktitle1" />
+              <Mapping SourceColumn="Booktitle2" DataSetColumn="Booktitle2" />
+              <Mapping SourceColumn="Booktitle3" DataSetColumn="Booktitle3" />
+              <Mapping SourceColumn="Booktitle4" DataSetColumn="Booktitle4" />
+              <Mapping SourceColumn="Bookdebit1" DataSetColumn="Bookdebit1" />
+              <Mapping SourceColumn="Bookdebit2" DataSetColumn="Bookdebit2" />
+              <Mapping SourceColumn="Bookdebit3" DataSetColumn="Bookdebit3" />
+              <Mapping SourceColumn="Bookdebit4" DataSetColumn="Bookdebit4" />
+              <Mapping SourceColumn="Bookcredit1" DataSetColumn="Bookcredit1" />
+              <Mapping SourceColumn="Bookcredit2" DataSetColumn="Bookcredit2" />
+              <Mapping SourceColumn="Bookcredit3" DataSetColumn="Bookcredit3" />
+              <Mapping SourceColumn="Bookcredit4" DataSetColumn="Bookcredit4" />
+              <Mapping SourceColumn="Balancebook" DataSetColumn="Balancebook" />
+              <Mapping SourceColumn="Banktitle1" DataSetColumn="Banktitle1" />
+              <Mapping SourceColumn="Banktitle2" DataSetColumn="Banktitle2" />
+              <Mapping SourceColumn="Banktitle3" DataSetColumn="Banktitle3" />
+              <Mapping SourceColumn="Banktitle4" DataSetColumn="Banktitle4" />
+              <Mapping SourceColumn="Banktitle5" DataSetColumn="Banktitle5" />
+              <Mapping SourceColumn="Banktitle6" DataSetColumn="Banktitle6" />
+              <Mapping SourceColumn="Banktitle7" DataSetColumn="Banktitle7" />
+              <Mapping SourceColumn="Bankdebit1" DataSetColumn="Bankdebit1" />
+              <Mapping SourceColumn="Bankdebit2" DataSetColumn="Bankdebit2" />
+              <Mapping SourceColumn="Bankdebit3" DataSetColumn="Bankdebit3" />
+              <Mapping SourceColumn="Bankdebit4" DataSetColumn="Bankdebit4" />
+              <Mapping SourceColumn="Bankdebit5" DataSetColumn="Bankdebit5" />
+              <Mapping SourceColumn="Bankdebit6" DataSetColumn="Bankdebit6" />
+              <Mapping SourceColumn="Bankdebit7" DataSetColumn="Bankdebit7" />
+              <Mapping SourceColumn="Bankcredit1" DataSetColumn="Bankcredit1" />
+              <Mapping SourceColumn="Bankcredit2" DataSetColumn="Bankcredit2" />
+              <Mapping SourceColumn="Bankcredit3" DataSetColumn="Bankcredit3" />
+              <Mapping SourceColumn="Bankcredit4" DataSetColumn="Bankcredit4" />
+              <Mapping SourceColumn="Bankcredit5" DataSetColumn="Bankcredit5" />
+              <Mapping SourceColumn="Bankcredit6" DataSetColumn="Bankcredit6" />
+              <Mapping SourceColumn="Bankcredit7" DataSetColumn="Bankcredit7" />
+              <Mapping SourceColumn="Balancebank" DataSetColumn="Balancebank" />
+              <Mapping SourceColumn="Asset1" DataSetColumn="Asset1" />
+              <Mapping SourceColumn="Asset2" DataSetColumn="Asset2" />
+              <Mapping SourceColumn="Asset3" DataSetColumn="Asset3" />
+              <Mapping SourceColumn="Asset4" DataSetColumn="Asset4" />
+              <Mapping SourceColumn="Asset5" DataSetColumn="Asset5" />
+              <Mapping SourceColumn="Asset6" DataSetColumn="Asset6" />
+              <Mapping SourceColumn="Asset7" DataSetColumn="Asset7" />
+              <Mapping SourceColumn="Debitasset1" DataSetColumn="Debitasset1" />
+              <Mapping SourceColumn="Debitasset2" DataSetColumn="Debitasset2" />
+              <Mapping SourceColumn="Debitasset3" DataSetColumn="Debitasset3" />
+              <Mapping SourceColumn="Debitasset4" DataSetColumn="Debitasset4" />
+              <Mapping SourceColumn="Debitasset5" DataSetColumn="Debitasset5" />
+              <Mapping SourceColumn="Debitasset6" DataSetColumn="Debitasset6" />
+              <Mapping SourceColumn="Debitasset7" DataSetColumn="Debitasset7" />
+              <Mapping SourceColumn="Creditasset1" DataSetColumn="Creditasset1" />
+              <Mapping SourceColumn="Creditasset2" DataSetColumn="Creditasset2" />
+              <Mapping SourceColumn="Creditasset3" DataSetColumn="Creditasset3" />
+              <Mapping SourceColumn="Creditasset4" DataSetColumn="Creditasset4" />
+              <Mapping SourceColumn="Creditasset5" DataSetColumn="Creditasset5" />
+              <Mapping SourceColumn="Creditasset6" DataSetColumn="Creditasset6" />
+              <Mapping SourceColumn="Creditasset7" DataSetColumn="Creditasset7" />
+              <Mapping SourceColumn="Totalasset" DataSetColumn="Totalasset" />
+              <Mapping SourceColumn="Equity1" DataSetColumn="Equity1" />
+              <Mapping SourceColumn="Equity2" DataSetColumn="Equity2" />
+              <Mapping SourceColumn="Equity3" DataSetColumn="Equity3" />
+              <Mapping SourceColumn="Equity4" DataSetColumn="Equity4" />
+              <Mapping SourceColumn="Equity5" DataSetColumn="Equity5" />
+              <Mapping SourceColumn="Equity6" DataSetColumn="Equity6" />
+              <Mapping SourceColumn="Equity7" DataSetColumn="Equity7" />
+              <Mapping SourceColumn="Equity8" DataSetColumn="Equity8" />
+              <Mapping SourceColumn="Debitequity1" DataSetColumn="Debitequity1" />
+              <Mapping SourceColumn="Debitequity2" DataSetColumn="Debitequity2" />
+              <Mapping SourceColumn="Debitequity3" DataSetColumn="Debitequity3" />
+              <Mapping SourceColumn="Debitequity4" DataSetColumn="Debitequity4" />
+              <Mapping SourceColumn="Debitequity5" DataSetColumn="Debitequity5" />
+              <Mapping SourceColumn="Debitequity6" DataSetColumn="Debitequity6" />
+              <Mapping SourceColumn="Debitequity7" DataSetColumn="Debitequity7" />
+              <Mapping SourceColumn="Debitequity8" DataSetColumn="Debitequity8" />
+              <Mapping SourceColumn="Creditequity1" DataSetColumn="Creditequity1" />
+              <Mapping SourceColumn="Creditequity2" DataSetColumn="Creditequity2" />
+              <Mapping SourceColumn="Creditequity3" DataSetColumn="Creditequity3" />
+              <Mapping SourceColumn="Creditequity4" DataSetColumn="Creditequity4" />
+              <Mapping SourceColumn="Creditequity5" DataSetColumn="Creditequity5" />
+              <Mapping SourceColumn="Creditequity6" DataSetColumn="Creditequity6" />
+              <Mapping SourceColumn="Creditequity7" DataSetColumn="Creditequity7" />
+              <Mapping SourceColumn="Creditequity8" DataSetColumn="Creditequity8" />
+              <Mapping SourceColumn="Totalequity" DataSetColumn="Totalequity" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AccountantTestDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="AccountantTestDataSet" msprop:Generator_UserDSName="AccountantTestDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Accountant_View" msprop:Generator_TableClassName="Accountant_ViewDataTable" msprop:Generator_TableVarName="tableAccountant_View" msprop:Generator_TablePropName="Accountant_View" msprop:Generator_RowDeletingName="Accountant_ViewRowDeleting" msprop:Generator_RowChangingName="Accountant_ViewRowChanging" msprop:Generator_RowEvHandlerName="Accountant_ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="Accountant_ViewRowDeleted" msprop:Generator_UserTableName="Accountant_View" msprop:Generator_RowChangedName="Accountant_ViewRowChanged" msprop:Generator_RowEvArgName="Accountant_ViewRowChangeEvent" msprop:Generator_RowClassName="Accountant_ViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FirstName" msprop:Generator_ColumnVarNameInTable="columnFirstName" msprop:Generator_ColumnPropNameInRow="FirstName" msprop:Generator_ColumnPropNameInTable="FirstNameColumn" msprop:Generator_UserColumnName="FirstName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MiddleName" msprop:Generator_ColumnVarNameInTable="columnMiddleName" msprop:Generator_ColumnPropNameInRow="MiddleName" msprop:Generator_ColumnPropNameInTable="MiddleNameColumn" msprop:Generator_UserColumnName="MiddleName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastName" msprop:Generator_ColumnVarNameInTable="columnLastName" msprop:Generator_ColumnPropNameInRow="LastName" msprop:Generator_ColumnPropNameInTable="LastNameColumn" msprop:Generator_UserColumnName="LastName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JobTitle" msprop:Generator_ColumnVarNameInTable="columnJobTitle" msprop:Generator_ColumnPropNameInRow="JobTitle" msprop:Generator_ColumnPropNameInTable="JobTitleColumn" msprop:Generator_UserColumnName="JobTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountingtestID" msprop:Generator_ColumnVarNameInTable="columnAccountingtestID" msprop:Generator_ColumnPropNameInRow="AccountingtestID" msprop:Generator_ColumnPropNameInTable="AccountingtestIDColumn" msprop:Generator_UserColumnName="AccountingtestID" type="xs:int" />
+              <xs:element name="ApplicantID" msprop:Generator_ColumnVarNameInTable="columnApplicantID" msprop:Generator_ColumnPropNameInRow="ApplicantID" msprop:Generator_ColumnPropNameInTable="ApplicantIDColumn" msprop:Generator_UserColumnName="ApplicantID" type="xs:int" />
+              <xs:element name="Accountingtest1" msprop:Generator_ColumnVarNameInTable="columnAccountingtest1" msprop:Generator_ColumnPropNameInRow="Accountingtest1" msprop:Generator_ColumnPropNameInTable="Accountingtest1Column" msprop:Generator_UserColumnName="Accountingtest1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest2" msprop:Generator_ColumnVarNameInTable="columnAccountingtest2" msprop:Generator_ColumnPropNameInRow="Accountingtest2" msprop:Generator_ColumnPropNameInTable="Accountingtest2Column" msprop:Generator_UserColumnName="Accountingtest2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest3_1" msprop:Generator_ColumnVarNameInTable="columnAccountingtest3_1" msprop:Generator_ColumnPropNameInRow="Accountingtest3_1" msprop:Generator_ColumnPropNameInTable="Accountingtest3_1Column" msprop:Generator_UserColumnName="Accountingtest3_1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest3_2" msprop:Generator_ColumnVarNameInTable="columnAccountingtest3_2" msprop:Generator_ColumnPropNameInRow="Accountingtest3_2" msprop:Generator_ColumnPropNameInTable="Accountingtest3_2Column" msprop:Generator_UserColumnName="Accountingtest3_2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest3_3" msprop:Generator_ColumnVarNameInTable="columnAccountingtest3_3" msprop:Generator_ColumnPropNameInRow="Accountingtest3_3" msprop:Generator_ColumnPropNameInTable="Accountingtest3_3Column" msprop:Generator_UserColumnName="Accountingtest3_3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest4" msprop:Generator_ColumnVarNameInTable="columnAccountingtest4" msprop:Generator_ColumnPropNameInRow="Accountingtest4" msprop:Generator_ColumnPropNameInTable="Accountingtest4Column" msprop:Generator_UserColumnName="Accountingtest4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest5" msprop:Generator_ColumnVarNameInTable="columnAccountingtest5" msprop:Generator_ColumnPropNameInRow="Accountingtest5" msprop:Generator_ColumnPropNameInTable="Accountingtest5Column" msprop:Generator_UserColumnName="Accountingtest5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest6" msprop:Generator_ColumnVarNameInTable="columnAccountingtest6" msprop:Generator_ColumnPropNameInRow="Accountingtest6" msprop:Generator_ColumnPropNameInTable="Accountingtest6Column" msprop:Generator_UserColumnName="Accountingtest6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest7" msprop:Generator_ColumnVarNameInTable="columnAccountingtest7" msprop:Generator_ColumnPropNameInRow="Accountingtest7" msprop:Generator_ColumnPropNameInTable="Accountingtest7Column" msprop:Generator_UserColumnName="Accountingtest7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest8" msprop:Generator_ColumnVarNameInTable="columnAccountingtest8" msprop:Generator_ColumnPropNameInRow="Accountingtest8" msprop:Generator_ColumnPropNameInTable="Accountingtest8Column" msprop:Generator_UserColumnName="Accountingtest8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest9" msprop:Generator_ColumnVarNameInTable="columnAccountingtest9" msprop:Generator_ColumnPropNameInRow="Accountingtest9" msprop:Generator_ColumnPropNameInTable="Accountingtest9Column" msprop:Generator_UserColumnName="Accountingtest9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtest10" msprop:Generator_ColumnVarNameInTable="columnAccountingtest10" msprop:Generator_ColumnPropNameInRow="Accountingtest10" msprop:Generator_ColumnPropNameInTable="Accountingtest10Column" msprop:Generator_UserColumnName="Accountingtest10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution1" msprop:Generator_ColumnVarNameInTable="columnSolution1" msprop:Generator_ColumnPropNameInRow="Solution1" msprop:Generator_ColumnPropNameInTable="Solution1Column" msprop:Generator_UserColumnName="Solution1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution3_1" msprop:Generator_ColumnVarNameInTable="columnSolution3_1" msprop:Generator_ColumnPropNameInRow="Solution3_1" msprop:Generator_ColumnPropNameInTable="Solution3_1Column" msprop:Generator_UserColumnName="Solution3_1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution3_2" msprop:Generator_ColumnVarNameInTable="columnSolution3_2" msprop:Generator_ColumnPropNameInRow="Solution3_2" msprop:Generator_ColumnPropNameInTable="Solution3_2Column" msprop:Generator_UserColumnName="Solution3_2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution3_3" msprop:Generator_ColumnVarNameInTable="columnSolution3_3" msprop:Generator_ColumnPropNameInRow="Solution3_3" msprop:Generator_ColumnPropNameInTable="Solution3_3Column" msprop:Generator_UserColumnName="Solution3_3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution4" msprop:Generator_ColumnVarNameInTable="columnSolution4" msprop:Generator_ColumnPropNameInRow="Solution4" msprop:Generator_ColumnPropNameInTable="Solution4Column" msprop:Generator_UserColumnName="Solution4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution7" msprop:Generator_ColumnVarNameInTable="columnSolution7" msprop:Generator_ColumnPropNameInRow="Solution7" msprop:Generator_ColumnPropNameInTable="Solution7Column" msprop:Generator_UserColumnName="Solution7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution8" msprop:Generator_ColumnVarNameInTable="columnSolution8" msprop:Generator_ColumnPropNameInRow="Solution8" msprop:Generator_ColumnPropNameInTable="Solution8Column" msprop:Generator_UserColumnName="Solution8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Solution10" msprop:Generator_ColumnVarNameInTable="columnSolution10" msprop:Generator_ColumnPropNameInRow="Solution10" msprop:Generator_ColumnPropNameInTable="Solution10Column" msprop:Generator_UserColumnName="Solution10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle1" msprop:Generator_ColumnVarNameInTable="columnAccounttitle1" msprop:Generator_ColumnPropNameInRow="Accounttitle1" msprop:Generator_ColumnPropNameInTable="Accounttitle1Column" msprop:Generator_UserColumnName="Accounttitle1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle2" msprop:Generator_ColumnVarNameInTable="columnAccounttitle2" msprop:Generator_ColumnPropNameInRow="Accounttitle2" msprop:Generator_ColumnPropNameInTable="Accounttitle2Column" msprop:Generator_UserColumnName="Accounttitle2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle3" msprop:Generator_ColumnVarNameInTable="columnAccounttitle3" msprop:Generator_ColumnPropNameInRow="Accounttitle3" msprop:Generator_ColumnPropNameInTable="Accounttitle3Column" msprop:Generator_UserColumnName="Accounttitle3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle4" msprop:Generator_ColumnVarNameInTable="columnAccounttitle4" msprop:Generator_ColumnPropNameInRow="Accounttitle4" msprop:Generator_ColumnPropNameInTable="Accounttitle4Column" msprop:Generator_UserColumnName="Accounttitle4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle5" msprop:Generator_ColumnVarNameInTable="columnAccounttitle5" msprop:Generator_ColumnPropNameInRow="Accounttitle5" msprop:Generator_ColumnPropNameInTable="Accounttitle5Column" msprop:Generator_UserColumnName="Accounttitle5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle6" msprop:Generator_ColumnVarNameInTable="columnAccounttitle6" msprop:Generator_ColumnPropNameInRow="Accounttitle6" msprop:Generator_ColumnPropNameInTable="Accounttitle6Column" msprop:Generator_UserColumnName="Accounttitle6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle7" msprop:Generator_ColumnVarNameInTable="columnAccounttitle7" msprop:Generator_ColumnPropNameInRow="Accounttitle7" msprop:Generator_ColumnPropNameInTable="Accounttitle7Column" msprop:Generator_UserColumnName="Accounttitle7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle8" msprop:Generator_ColumnVarNameInTable="columnAccounttitle8" msprop:Generator_ColumnPropNameInRow="Accounttitle8" msprop:Generator_ColumnPropNameInTable="Accounttitle8Column" msprop:Generator_UserColumnName="Accounttitle8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle9" msprop:Generator_ColumnVarNameInTable="columnAccounttitle9" msprop:Generator_ColumnPropNameInRow="Accounttitle9" msprop:Generator_ColumnPropNameInTable="Accounttitle9Column" msprop:Generator_UserColumnName="Accounttitle9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle10" msprop:Generator_ColumnVarNameInTable="columnAccounttitle10" msprop:Generator_ColumnPropNameInRow="Accounttitle10" msprop:Generator_ColumnPropNameInTable="Accounttitle10Column" msprop:Generator_UserColumnName="Accounttitle10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle11" msprop:Generator_ColumnVarNameInTable="columnAccounttitle11" msprop:Generator_ColumnPropNameInRow="Accounttitle11" msprop:Generator_ColumnPropNameInTable="Accounttitle11Column" msprop:Generator_UserColumnName="Accounttitle11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle12" msprop:Generator_ColumnVarNameInTable="columnAccounttitle12" msprop:Generator_ColumnPropNameInRow="Accounttitle12" msprop:Generator_ColumnPropNameInTable="Accounttitle12Column" msprop:Generator_UserColumnName="Accounttitle12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accounttitle13" msprop:Generator_ColumnVarNameInTable="columnAccounttitle13" msprop:Generator_ColumnPropNameInRow="Accounttitle13" msprop:Generator_ColumnPropNameInTable="Accounttitle13Column" msprop:Generator_UserColumnName="Accounttitle13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit1" msprop:Generator_ColumnVarNameInTable="columnDebit1" msprop:Generator_ColumnPropNameInRow="Debit1" msprop:Generator_ColumnPropNameInTable="Debit1Column" msprop:Generator_UserColumnName="Debit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit2" msprop:Generator_ColumnVarNameInTable="columnDebit2" msprop:Generator_ColumnPropNameInRow="Debit2" msprop:Generator_ColumnPropNameInTable="Debit2Column" msprop:Generator_UserColumnName="Debit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit3" msprop:Generator_ColumnVarNameInTable="columnDebit3" msprop:Generator_ColumnPropNameInRow="Debit3" msprop:Generator_ColumnPropNameInTable="Debit3Column" msprop:Generator_UserColumnName="Debit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit4" msprop:Generator_ColumnVarNameInTable="columnDebit4" msprop:Generator_ColumnPropNameInRow="Debit4" msprop:Generator_ColumnPropNameInTable="Debit4Column" msprop:Generator_UserColumnName="Debit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit5" msprop:Generator_ColumnVarNameInTable="columnDebit5" msprop:Generator_ColumnPropNameInRow="Debit5" msprop:Generator_ColumnPropNameInTable="Debit5Column" msprop:Generator_UserColumnName="Debit5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit6" msprop:Generator_ColumnVarNameInTable="columnDebit6" msprop:Generator_ColumnPropNameInRow="Debit6" msprop:Generator_ColumnPropNameInTable="Debit6Column" msprop:Generator_UserColumnName="Debit6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit7" msprop:Generator_ColumnVarNameInTable="columnDebit7" msprop:Generator_ColumnPropNameInRow="Debit7" msprop:Generator_ColumnPropNameInTable="Debit7Column" msprop:Generator_UserColumnName="Debit7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit8" msprop:Generator_ColumnVarNameInTable="columnDebit8" msprop:Generator_ColumnPropNameInRow="Debit8" msprop:Generator_ColumnPropNameInTable="Debit8Column" msprop:Generator_UserColumnName="Debit8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit9" msprop:Generator_ColumnVarNameInTable="columnDebit9" msprop:Generator_ColumnPropNameInRow="Debit9" msprop:Generator_ColumnPropNameInTable="Debit9Column" msprop:Generator_UserColumnName="Debit9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit10" msprop:Generator_ColumnVarNameInTable="columnDebit10" msprop:Generator_ColumnPropNameInRow="Debit10" msprop:Generator_ColumnPropNameInTable="Debit10Column" msprop:Generator_UserColumnName="Debit10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit11" msprop:Generator_ColumnVarNameInTable="columnDebit11" msprop:Generator_ColumnPropNameInRow="Debit11" msprop:Generator_ColumnPropNameInTable="Debit11Column" msprop:Generator_UserColumnName="Debit11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit12" msprop:Generator_ColumnVarNameInTable="columnDebit12" msprop:Generator_ColumnPropNameInRow="Debit12" msprop:Generator_ColumnPropNameInTable="Debit12Column" msprop:Generator_UserColumnName="Debit12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debit13" msprop:Generator_ColumnVarNameInTable="columnDebit13" msprop:Generator_ColumnPropNameInRow="Debit13" msprop:Generator_ColumnPropNameInTable="Debit13Column" msprop:Generator_UserColumnName="Debit13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit1" msprop:Generator_ColumnVarNameInTable="columnCredit1" msprop:Generator_ColumnPropNameInRow="Credit1" msprop:Generator_ColumnPropNameInTable="Credit1Column" msprop:Generator_UserColumnName="Credit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit2" msprop:Generator_ColumnVarNameInTable="columnCredit2" msprop:Generator_ColumnPropNameInRow="Credit2" msprop:Generator_ColumnPropNameInTable="Credit2Column" msprop:Generator_UserColumnName="Credit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit3" msprop:Generator_ColumnVarNameInTable="columnCredit3" msprop:Generator_ColumnPropNameInRow="Credit3" msprop:Generator_ColumnPropNameInTable="Credit3Column" msprop:Generator_UserColumnName="Credit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit4" msprop:Generator_ColumnVarNameInTable="columnCredit4" msprop:Generator_ColumnPropNameInRow="Credit4" msprop:Generator_ColumnPropNameInTable="Credit4Column" msprop:Generator_UserColumnName="Credit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit5" msprop:Generator_ColumnVarNameInTable="columnCredit5" msprop:Generator_ColumnPropNameInRow="Credit5" msprop:Generator_ColumnPropNameInTable="Credit5Column" msprop:Generator_UserColumnName="Credit5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit6" msprop:Generator_ColumnVarNameInTable="columnCredit6" msprop:Generator_ColumnPropNameInRow="Credit6" msprop:Generator_ColumnPropNameInTable="Credit6Column" msprop:Generator_UserColumnName="Credit6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit7" msprop:Generator_ColumnVarNameInTable="columnCredit7" msprop:Generator_ColumnPropNameInRow="Credit7" msprop:Generator_ColumnPropNameInTable="Credit7Column" msprop:Generator_UserColumnName="Credit7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit8" msprop:Generator_ColumnVarNameInTable="columnCredit8" msprop:Generator_ColumnPropNameInRow="Credit8" msprop:Generator_ColumnPropNameInTable="Credit8Column" msprop:Generator_UserColumnName="Credit8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit9" msprop:Generator_ColumnVarNameInTable="columnCredit9" msprop:Generator_ColumnPropNameInRow="Credit9" msprop:Generator_ColumnPropNameInTable="Credit9Column" msprop:Generator_UserColumnName="Credit9" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit10" msprop:Generator_ColumnVarNameInTable="columnCredit10" msprop:Generator_ColumnPropNameInRow="Credit10" msprop:Generator_ColumnPropNameInTable="Credit10Column" msprop:Generator_UserColumnName="Credit10" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit11" msprop:Generator_ColumnVarNameInTable="columnCredit11" msprop:Generator_ColumnPropNameInRow="Credit11" msprop:Generator_ColumnPropNameInTable="Credit11Column" msprop:Generator_UserColumnName="Credit11" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit12" msprop:Generator_ColumnVarNameInTable="columnCredit12" msprop:Generator_ColumnPropNameInRow="Credit12" msprop:Generator_ColumnPropNameInTable="Credit12Column" msprop:Generator_UserColumnName="Credit12" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Credit13" msprop:Generator_ColumnVarNameInTable="columnCredit13" msprop:Generator_ColumnPropNameInRow="Credit13" msprop:Generator_ColumnPropNameInTable="Credit13Column" msprop:Generator_UserColumnName="Credit13" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Accountingtestshort2" msprop:Generator_ColumnVarNameInTable="columnAccountingtestshort2" msprop:Generator_ColumnPropNameInRow="Accountingtestshort2" msprop:Generator_ColumnPropNameInTable="Accountingtestshort2Column" msprop:Generator_UserColumnName="Accountingtestshort2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Taxbracket1" msprop:Generator_ColumnVarNameInTable="columnTaxbracket1" msprop:Generator_ColumnPropNameInRow="Taxbracket1" msprop:Generator_ColumnPropNameInTable="Taxbracket1Column" msprop:Generator_UserColumnName="Taxbracket1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Taxbracket2" msprop:Generator_ColumnVarNameInTable="columnTaxbracket2" msprop:Generator_ColumnPropNameInRow="Taxbracket2" msprop:Generator_ColumnPropNameInTable="Taxbracket2Column" msprop:Generator_UserColumnName="Taxbracket2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Taxbracket3" msprop:Generator_ColumnVarNameInTable="columnTaxbracket3" msprop:Generator_ColumnPropNameInRow="Taxbracket3" msprop:Generator_ColumnPropNameInTable="Taxbracket3Column" msprop:Generator_UserColumnName="Taxbracket3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rate1" msprop:Generator_ColumnVarNameInTable="columnRate1" msprop:Generator_ColumnPropNameInRow="Rate1" msprop:Generator_ColumnPropNameInTable="Rate1Column" msprop:Generator_UserColumnName="Rate1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rate2" msprop:Generator_ColumnVarNameInTable="columnRate2" msprop:Generator_ColumnPropNameInRow="Rate2" msprop:Generator_ColumnPropNameInTable="Rate2Column" msprop:Generator_UserColumnName="Rate2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rate3" msprop:Generator_ColumnVarNameInTable="columnRate3" msprop:Generator_ColumnPropNameInRow="Rate3" msprop:Generator_ColumnPropNameInTable="Rate3Column" msprop:Generator_UserColumnName="Rate3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount1" msprop:Generator_ColumnVarNameInTable="columnAmount1" msprop:Generator_ColumnPropNameInRow="Amount1" msprop:Generator_ColumnPropNameInTable="Amount1Column" msprop:Generator_UserColumnName="Amount1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount2" msprop:Generator_ColumnVarNameInTable="columnAmount2" msprop:Generator_ColumnPropNameInRow="Amount2" msprop:Generator_ColumnPropNameInTable="Amount2Column" msprop:Generator_UserColumnName="Amount2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount3" msprop:Generator_ColumnVarNameInTable="columnAmount3" msprop:Generator_ColumnPropNameInRow="Amount3" msprop:Generator_ColumnPropNameInTable="Amount3Column" msprop:Generator_UserColumnName="Amount3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Totalincometax" msprop:Generator_ColumnVarNameInTable="columnTotalincometax" msprop:Generator_ColumnPropNameInRow="Totalincometax" msprop:Generator_ColumnPropNameInTable="TotalincometaxColumn" msprop:Generator_UserColumnName="Totalincometax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Booktitle1" msprop:Generator_ColumnVarNameInTable="columnBooktitle1" msprop:Generator_ColumnPropNameInRow="Booktitle1" msprop:Generator_ColumnPropNameInTable="Booktitle1Column" msprop:Generator_UserColumnName="Booktitle1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Booktitle2" msprop:Generator_ColumnVarNameInTable="columnBooktitle2" msprop:Generator_ColumnPropNameInRow="Booktitle2" msprop:Generator_ColumnPropNameInTable="Booktitle2Column" msprop:Generator_UserColumnName="Booktitle2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Booktitle3" msprop:Generator_ColumnVarNameInTable="columnBooktitle3" msprop:Generator_ColumnPropNameInRow="Booktitle3" msprop:Generator_ColumnPropNameInTable="Booktitle3Column" msprop:Generator_UserColumnName="Booktitle3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Booktitle4" msprop:Generator_ColumnVarNameInTable="columnBooktitle4" msprop:Generator_ColumnPropNameInRow="Booktitle4" msprop:Generator_ColumnPropNameInTable="Booktitle4Column" msprop:Generator_UserColumnName="Booktitle4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookdebit1" msprop:Generator_ColumnVarNameInTable="columnBookdebit1" msprop:Generator_ColumnPropNameInRow="Bookdebit1" msprop:Generator_ColumnPropNameInTable="Bookdebit1Column" msprop:Generator_UserColumnName="Bookdebit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookdebit2" msprop:Generator_ColumnVarNameInTable="columnBookdebit2" msprop:Generator_ColumnPropNameInRow="Bookdebit2" msprop:Generator_ColumnPropNameInTable="Bookdebit2Column" msprop:Generator_UserColumnName="Bookdebit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookdebit3" msprop:Generator_ColumnVarNameInTable="columnBookdebit3" msprop:Generator_ColumnPropNameInRow="Bookdebit3" msprop:Generator_ColumnPropNameInTable="Bookdebit3Column" msprop:Generator_UserColumnName="Bookdebit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookdebit4" msprop:Generator_ColumnVarNameInTable="columnBookdebit4" msprop:Generator_ColumnPropNameInRow="Bookdebit4" msprop:Generator_ColumnPropNameInTable="Bookdebit4Column" msprop:Generator_UserColumnName="Bookdebit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookcredit1" msprop:Generator_ColumnVarNameInTable="columnBookcredit1" msprop:Generator_ColumnPropNameInRow="Bookcredit1" msprop:Generator_ColumnPropNameInTable="Bookcredit1Column" msprop:Generator_UserColumnName="Bookcredit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookcredit2" msprop:Generator_ColumnVarNameInTable="columnBookcredit2" msprop:Generator_ColumnPropNameInRow="Bookcredit2" msprop:Generator_ColumnPropNameInTable="Bookcredit2Column" msprop:Generator_UserColumnName="Bookcredit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookcredit3" msprop:Generator_ColumnVarNameInTable="columnBookcredit3" msprop:Generator_ColumnPropNameInRow="Bookcredit3" msprop:Generator_ColumnPropNameInTable="Bookcredit3Column" msprop:Generator_UserColumnName="Bookcredit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bookcredit4" msprop:Generator_ColumnVarNameInTable="columnBookcredit4" msprop:Generator_ColumnPropNameInRow="Bookcredit4" msprop:Generator_ColumnPropNameInTable="Bookcredit4Column" msprop:Generator_UserColumnName="Bookcredit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balancebook" msprop:Generator_ColumnVarNameInTable="columnBalancebook" msprop:Generator_ColumnPropNameInRow="Balancebook" msprop:Generator_ColumnPropNameInTable="BalancebookColumn" msprop:Generator_UserColumnName="Balancebook" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle1" msprop:Generator_ColumnVarNameInTable="columnBanktitle1" msprop:Generator_ColumnPropNameInRow="Banktitle1" msprop:Generator_ColumnPropNameInTable="Banktitle1Column" msprop:Generator_UserColumnName="Banktitle1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle2" msprop:Generator_ColumnVarNameInTable="columnBanktitle2" msprop:Generator_ColumnPropNameInRow="Banktitle2" msprop:Generator_ColumnPropNameInTable="Banktitle2Column" msprop:Generator_UserColumnName="Banktitle2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle3" msprop:Generator_ColumnVarNameInTable="columnBanktitle3" msprop:Generator_ColumnPropNameInRow="Banktitle3" msprop:Generator_ColumnPropNameInTable="Banktitle3Column" msprop:Generator_UserColumnName="Banktitle3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle4" msprop:Generator_ColumnVarNameInTable="columnBanktitle4" msprop:Generator_ColumnPropNameInRow="Banktitle4" msprop:Generator_ColumnPropNameInTable="Banktitle4Column" msprop:Generator_UserColumnName="Banktitle4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle5" msprop:Generator_ColumnVarNameInTable="columnBanktitle5" msprop:Generator_ColumnPropNameInRow="Banktitle5" msprop:Generator_ColumnPropNameInTable="Banktitle5Column" msprop:Generator_UserColumnName="Banktitle5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle6" msprop:Generator_ColumnVarNameInTable="columnBanktitle6" msprop:Generator_ColumnPropNameInRow="Banktitle6" msprop:Generator_ColumnPropNameInTable="Banktitle6Column" msprop:Generator_UserColumnName="Banktitle6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Banktitle7" msprop:Generator_ColumnVarNameInTable="columnBanktitle7" msprop:Generator_ColumnPropNameInRow="Banktitle7" msprop:Generator_ColumnPropNameInTable="Banktitle7Column" msprop:Generator_UserColumnName="Banktitle7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit1" msprop:Generator_ColumnVarNameInTable="columnBankdebit1" msprop:Generator_ColumnPropNameInRow="Bankdebit1" msprop:Generator_ColumnPropNameInTable="Bankdebit1Column" msprop:Generator_UserColumnName="Bankdebit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit2" msprop:Generator_ColumnVarNameInTable="columnBankdebit2" msprop:Generator_ColumnPropNameInRow="Bankdebit2" msprop:Generator_ColumnPropNameInTable="Bankdebit2Column" msprop:Generator_UserColumnName="Bankdebit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit3" msprop:Generator_ColumnVarNameInTable="columnBankdebit3" msprop:Generator_ColumnPropNameInRow="Bankdebit3" msprop:Generator_ColumnPropNameInTable="Bankdebit3Column" msprop:Generator_UserColumnName="Bankdebit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit4" msprop:Generator_ColumnVarNameInTable="columnBankdebit4" msprop:Generator_ColumnPropNameInRow="Bankdebit4" msprop:Generator_ColumnPropNameInTable="Bankdebit4Column" msprop:Generator_UserColumnName="Bankdebit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit5" msprop:Generator_ColumnVarNameInTable="columnBankdebit5" msprop:Generator_ColumnPropNameInRow="Bankdebit5" msprop:Generator_ColumnPropNameInTable="Bankdebit5Column" msprop:Generator_UserColumnName="Bankdebit5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit6" msprop:Generator_ColumnVarNameInTable="columnBankdebit6" msprop:Generator_ColumnPropNameInRow="Bankdebit6" msprop:Generator_ColumnPropNameInTable="Bankdebit6Column" msprop:Generator_UserColumnName="Bankdebit6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankdebit7" msprop:Generator_ColumnVarNameInTable="columnBankdebit7" msprop:Generator_ColumnPropNameInRow="Bankdebit7" msprop:Generator_ColumnPropNameInTable="Bankdebit7Column" msprop:Generator_UserColumnName="Bankdebit7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit1" msprop:Generator_ColumnVarNameInTable="columnBankcredit1" msprop:Generator_ColumnPropNameInRow="Bankcredit1" msprop:Generator_ColumnPropNameInTable="Bankcredit1Column" msprop:Generator_UserColumnName="Bankcredit1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit2" msprop:Generator_ColumnVarNameInTable="columnBankcredit2" msprop:Generator_ColumnPropNameInRow="Bankcredit2" msprop:Generator_ColumnPropNameInTable="Bankcredit2Column" msprop:Generator_UserColumnName="Bankcredit2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit3" msprop:Generator_ColumnVarNameInTable="columnBankcredit3" msprop:Generator_ColumnPropNameInRow="Bankcredit3" msprop:Generator_ColumnPropNameInTable="Bankcredit3Column" msprop:Generator_UserColumnName="Bankcredit3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit4" msprop:Generator_ColumnVarNameInTable="columnBankcredit4" msprop:Generator_ColumnPropNameInRow="Bankcredit4" msprop:Generator_ColumnPropNameInTable="Bankcredit4Column" msprop:Generator_UserColumnName="Bankcredit4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit5" msprop:Generator_ColumnVarNameInTable="columnBankcredit5" msprop:Generator_ColumnPropNameInRow="Bankcredit5" msprop:Generator_ColumnPropNameInTable="Bankcredit5Column" msprop:Generator_UserColumnName="Bankcredit5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit6" msprop:Generator_ColumnVarNameInTable="columnBankcredit6" msprop:Generator_ColumnPropNameInRow="Bankcredit6" msprop:Generator_ColumnPropNameInTable="Bankcredit6Column" msprop:Generator_UserColumnName="Bankcredit6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bankcredit7" msprop:Generator_ColumnVarNameInTable="columnBankcredit7" msprop:Generator_ColumnPropNameInRow="Bankcredit7" msprop:Generator_ColumnPropNameInTable="Bankcredit7Column" msprop:Generator_UserColumnName="Bankcredit7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balancebank" msprop:Generator_ColumnVarNameInTable="columnBalancebank" msprop:Generator_ColumnPropNameInRow="Balancebank" msprop:Generator_ColumnPropNameInTable="BalancebankColumn" msprop:Generator_UserColumnName="Balancebank" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset1" msprop:Generator_ColumnVarNameInTable="columnAsset1" msprop:Generator_ColumnPropNameInRow="Asset1" msprop:Generator_ColumnPropNameInTable="Asset1Column" msprop:Generator_UserColumnName="Asset1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset2" msprop:Generator_ColumnVarNameInTable="columnAsset2" msprop:Generator_ColumnPropNameInRow="Asset2" msprop:Generator_ColumnPropNameInTable="Asset2Column" msprop:Generator_UserColumnName="Asset2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset3" msprop:Generator_ColumnVarNameInTable="columnAsset3" msprop:Generator_ColumnPropNameInRow="Asset3" msprop:Generator_ColumnPropNameInTable="Asset3Column" msprop:Generator_UserColumnName="Asset3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset4" msprop:Generator_ColumnVarNameInTable="columnAsset4" msprop:Generator_ColumnPropNameInRow="Asset4" msprop:Generator_ColumnPropNameInTable="Asset4Column" msprop:Generator_UserColumnName="Asset4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset5" msprop:Generator_ColumnVarNameInTable="columnAsset5" msprop:Generator_ColumnPropNameInRow="Asset5" msprop:Generator_ColumnPropNameInTable="Asset5Column" msprop:Generator_UserColumnName="Asset5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset6" msprop:Generator_ColumnVarNameInTable="columnAsset6" msprop:Generator_ColumnPropNameInRow="Asset6" msprop:Generator_ColumnPropNameInTable="Asset6Column" msprop:Generator_UserColumnName="Asset6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Asset7" msprop:Generator_ColumnVarNameInTable="columnAsset7" msprop:Generator_ColumnPropNameInRow="Asset7" msprop:Generator_ColumnPropNameInTable="Asset7Column" msprop:Generator_UserColumnName="Asset7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset1" msprop:Generator_ColumnVarNameInTable="columnDebitasset1" msprop:Generator_ColumnPropNameInRow="Debitasset1" msprop:Generator_ColumnPropNameInTable="Debitasset1Column" msprop:Generator_UserColumnName="Debitasset1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset2" msprop:Generator_ColumnVarNameInTable="columnDebitasset2" msprop:Generator_ColumnPropNameInRow="Debitasset2" msprop:Generator_ColumnPropNameInTable="Debitasset2Column" msprop:Generator_UserColumnName="Debitasset2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset3" msprop:Generator_ColumnVarNameInTable="columnDebitasset3" msprop:Generator_ColumnPropNameInRow="Debitasset3" msprop:Generator_ColumnPropNameInTable="Debitasset3Column" msprop:Generator_UserColumnName="Debitasset3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset4" msprop:Generator_ColumnVarNameInTable="columnDebitasset4" msprop:Generator_ColumnPropNameInRow="Debitasset4" msprop:Generator_ColumnPropNameInTable="Debitasset4Column" msprop:Generator_UserColumnName="Debitasset4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset5" msprop:Generator_ColumnVarNameInTable="columnDebitasset5" msprop:Generator_ColumnPropNameInRow="Debitasset5" msprop:Generator_ColumnPropNameInTable="Debitasset5Column" msprop:Generator_UserColumnName="Debitasset5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset6" msprop:Generator_ColumnVarNameInTable="columnDebitasset6" msprop:Generator_ColumnPropNameInRow="Debitasset6" msprop:Generator_ColumnPropNameInTable="Debitasset6Column" msprop:Generator_UserColumnName="Debitasset6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitasset7" msprop:Generator_ColumnVarNameInTable="columnDebitasset7" msprop:Generator_ColumnPropNameInRow="Debitasset7" msprop:Generator_ColumnPropNameInTable="Debitasset7Column" msprop:Generator_UserColumnName="Debitasset7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset1" msprop:Generator_ColumnVarNameInTable="columnCreditasset1" msprop:Generator_ColumnPropNameInRow="Creditasset1" msprop:Generator_ColumnPropNameInTable="Creditasset1Column" msprop:Generator_UserColumnName="Creditasset1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset2" msprop:Generator_ColumnVarNameInTable="columnCreditasset2" msprop:Generator_ColumnPropNameInRow="Creditasset2" msprop:Generator_ColumnPropNameInTable="Creditasset2Column" msprop:Generator_UserColumnName="Creditasset2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset3" msprop:Generator_ColumnVarNameInTable="columnCreditasset3" msprop:Generator_ColumnPropNameInRow="Creditasset3" msprop:Generator_ColumnPropNameInTable="Creditasset3Column" msprop:Generator_UserColumnName="Creditasset3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset4" msprop:Generator_ColumnVarNameInTable="columnCreditasset4" msprop:Generator_ColumnPropNameInRow="Creditasset4" msprop:Generator_ColumnPropNameInTable="Creditasset4Column" msprop:Generator_UserColumnName="Creditasset4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset5" msprop:Generator_ColumnVarNameInTable="columnCreditasset5" msprop:Generator_ColumnPropNameInRow="Creditasset5" msprop:Generator_ColumnPropNameInTable="Creditasset5Column" msprop:Generator_UserColumnName="Creditasset5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset6" msprop:Generator_ColumnVarNameInTable="columnCreditasset6" msprop:Generator_ColumnPropNameInRow="Creditasset6" msprop:Generator_ColumnPropNameInTable="Creditasset6Column" msprop:Generator_UserColumnName="Creditasset6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditasset7" msprop:Generator_ColumnVarNameInTable="columnCreditasset7" msprop:Generator_ColumnPropNameInRow="Creditasset7" msprop:Generator_ColumnPropNameInTable="Creditasset7Column" msprop:Generator_UserColumnName="Creditasset7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Totalasset" msprop:Generator_ColumnVarNameInTable="columnTotalasset" msprop:Generator_ColumnPropNameInRow="Totalasset" msprop:Generator_ColumnPropNameInTable="TotalassetColumn" msprop:Generator_UserColumnName="Totalasset" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity1" msprop:Generator_ColumnVarNameInTable="columnEquity1" msprop:Generator_ColumnPropNameInRow="Equity1" msprop:Generator_ColumnPropNameInTable="Equity1Column" msprop:Generator_UserColumnName="Equity1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity2" msprop:Generator_ColumnVarNameInTable="columnEquity2" msprop:Generator_ColumnPropNameInRow="Equity2" msprop:Generator_ColumnPropNameInTable="Equity2Column" msprop:Generator_UserColumnName="Equity2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity3" msprop:Generator_ColumnVarNameInTable="columnEquity3" msprop:Generator_ColumnPropNameInRow="Equity3" msprop:Generator_ColumnPropNameInTable="Equity3Column" msprop:Generator_UserColumnName="Equity3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity4" msprop:Generator_ColumnVarNameInTable="columnEquity4" msprop:Generator_ColumnPropNameInRow="Equity4" msprop:Generator_ColumnPropNameInTable="Equity4Column" msprop:Generator_UserColumnName="Equity4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity5" msprop:Generator_ColumnVarNameInTable="columnEquity5" msprop:Generator_ColumnPropNameInRow="Equity5" msprop:Generator_ColumnPropNameInTable="Equity5Column" msprop:Generator_UserColumnName="Equity5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity6" msprop:Generator_ColumnVarNameInTable="columnEquity6" msprop:Generator_ColumnPropNameInRow="Equity6" msprop:Generator_ColumnPropNameInTable="Equity6Column" msprop:Generator_UserColumnName="Equity6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity7" msprop:Generator_ColumnVarNameInTable="columnEquity7" msprop:Generator_ColumnPropNameInRow="Equity7" msprop:Generator_ColumnPropNameInTable="Equity7Column" msprop:Generator_UserColumnName="Equity7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Equity8" msprop:Generator_ColumnVarNameInTable="columnEquity8" msprop:Generator_ColumnPropNameInRow="Equity8" msprop:Generator_ColumnPropNameInTable="Equity8Column" msprop:Generator_UserColumnName="Equity8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity1" msprop:Generator_ColumnVarNameInTable="columnDebitequity1" msprop:Generator_ColumnPropNameInRow="Debitequity1" msprop:Generator_ColumnPropNameInTable="Debitequity1Column" msprop:Generator_UserColumnName="Debitequity1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity2" msprop:Generator_ColumnVarNameInTable="columnDebitequity2" msprop:Generator_ColumnPropNameInRow="Debitequity2" msprop:Generator_ColumnPropNameInTable="Debitequity2Column" msprop:Generator_UserColumnName="Debitequity2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity3" msprop:Generator_ColumnVarNameInTable="columnDebitequity3" msprop:Generator_ColumnPropNameInRow="Debitequity3" msprop:Generator_ColumnPropNameInTable="Debitequity3Column" msprop:Generator_UserColumnName="Debitequity3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity4" msprop:Generator_ColumnVarNameInTable="columnDebitequity4" msprop:Generator_ColumnPropNameInRow="Debitequity4" msprop:Generator_ColumnPropNameInTable="Debitequity4Column" msprop:Generator_UserColumnName="Debitequity4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity5" msprop:Generator_ColumnVarNameInTable="columnDebitequity5" msprop:Generator_ColumnPropNameInRow="Debitequity5" msprop:Generator_ColumnPropNameInTable="Debitequity5Column" msprop:Generator_UserColumnName="Debitequity5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity6" msprop:Generator_ColumnVarNameInTable="columnDebitequity6" msprop:Generator_ColumnPropNameInRow="Debitequity6" msprop:Generator_ColumnPropNameInTable="Debitequity6Column" msprop:Generator_UserColumnName="Debitequity6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity7" msprop:Generator_ColumnVarNameInTable="columnDebitequity7" msprop:Generator_ColumnPropNameInRow="Debitequity7" msprop:Generator_ColumnPropNameInTable="Debitequity7Column" msprop:Generator_UserColumnName="Debitequity7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Debitequity8" msprop:Generator_ColumnVarNameInTable="columnDebitequity8" msprop:Generator_ColumnPropNameInRow="Debitequity8" msprop:Generator_ColumnPropNameInTable="Debitequity8Column" msprop:Generator_UserColumnName="Debitequity8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity1" msprop:Generator_ColumnVarNameInTable="columnCreditequity1" msprop:Generator_ColumnPropNameInRow="Creditequity1" msprop:Generator_ColumnPropNameInTable="Creditequity1Column" msprop:Generator_UserColumnName="Creditequity1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity2" msprop:Generator_ColumnVarNameInTable="columnCreditequity2" msprop:Generator_ColumnPropNameInRow="Creditequity2" msprop:Generator_ColumnPropNameInTable="Creditequity2Column" msprop:Generator_UserColumnName="Creditequity2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity3" msprop:Generator_ColumnVarNameInTable="columnCreditequity3" msprop:Generator_ColumnPropNameInRow="Creditequity3" msprop:Generator_ColumnPropNameInTable="Creditequity3Column" msprop:Generator_UserColumnName="Creditequity3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity4" msprop:Generator_ColumnVarNameInTable="columnCreditequity4" msprop:Generator_ColumnPropNameInRow="Creditequity4" msprop:Generator_ColumnPropNameInTable="Creditequity4Column" msprop:Generator_UserColumnName="Creditequity4" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity5" msprop:Generator_ColumnVarNameInTable="columnCreditequity5" msprop:Generator_ColumnPropNameInRow="Creditequity5" msprop:Generator_ColumnPropNameInTable="Creditequity5Column" msprop:Generator_UserColumnName="Creditequity5" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity6" msprop:Generator_ColumnVarNameInTable="columnCreditequity6" msprop:Generator_ColumnPropNameInRow="Creditequity6" msprop:Generator_ColumnPropNameInTable="Creditequity6Column" msprop:Generator_UserColumnName="Creditequity6" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity7" msprop:Generator_ColumnVarNameInTable="columnCreditequity7" msprop:Generator_ColumnPropNameInRow="Creditequity7" msprop:Generator_ColumnPropNameInTable="Creditequity7Column" msprop:Generator_UserColumnName="Creditequity7" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Creditequity8" msprop:Generator_ColumnVarNameInTable="columnCreditequity8" msprop:Generator_ColumnPropNameInRow="Creditequity8" msprop:Generator_ColumnPropNameInTable="Creditequity8Column" msprop:Generator_UserColumnName="Creditequity8" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Totalequity" msprop:Generator_ColumnVarNameInTable="columnTotalequity" msprop:Generator_ColumnPropNameInRow="Totalequity" msprop:Generator_ColumnPropNameInTable="TotalequityColumn" msprop:Generator_UserColumnName="Totalequity" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Accountant_View" />
+      <xs:field xpath="mstns:AccountingtestID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
