@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AccoutanttestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HRIS.dbo.Accountant_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Accountant_View">
+          <Key>
+            <PropertyRef Name="AccountingtestID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="FirstName" Type="varchar" MaxLength="25" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+          <Property Name="AccountingtestID" Type="int" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="Accountingtest1" Type="varchar" MaxLength="50" />
+          <Property Name="Accountingtest2" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest3_1" Type="varchar" MaxLength="50" />
+          <Property Name="Accountingtest3_2" Type="varchar" MaxLength="50" />
+          <Property Name="Accountingtest3_3" Type="varchar" MaxLength="50" />
+          <Property Name="Accountingtest4" Type="varchar" MaxLength="50" />
+          <Property Name="Accountingtest5" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest6" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest7" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest8" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest9" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtest10" Type="varchar" MaxLength="50" />
+          <Property Name="Solution1" Type="varchar" MaxLength="100" />
+          <Property Name="Solution3_1" Type="varchar" MaxLength="100" />
+          <Property Name="Solution3_2" Type="varchar" MaxLength="100" />
+          <Property Name="Solution3_3" Type="varchar" MaxLength="100" />
+          <Property Name="Solution4" Type="varchar" MaxLength="100" />
+          <Property Name="Solution7" Type="varchar" MaxLength="100" />
+          <Property Name="Solution8" Type="varchar" MaxLength="100" />
+          <Property Name="Solution10" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle1" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle2" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle3" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle4" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle5" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle6" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle7" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle8" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle9" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle10" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle11" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle12" Type="varchar" MaxLength="100" />
+          <Property Name="Accounttitle13" Type="varchar" MaxLength="100" />
+          <Property Name="Debit1" Type="varchar" MaxLength="100" />
+          <Property Name="Debit2" Type="varchar" MaxLength="100" />
+          <Property Name="Debit3" Type="varchar" MaxLength="100" />
+          <Property Name="Debit4" Type="varchar" MaxLength="100" />
+          <Property Name="Debit5" Type="varchar" MaxLength="100" />
+          <Property Name="Debit6" Type="varchar" MaxLength="100" />
+          <Property Name="Debit7" Type="varchar" MaxLength="100" />
+          <Property Name="Debit8" Type="varchar" MaxLength="100" />
+          <Property Name="Debit9" Type="varchar" MaxLength="100" />
+          <Property Name="Debit10" Type="varchar" MaxLength="100" />
+          <Property Name="Debit11" Type="varchar" MaxLength="100" />
+          <Property Name="Debit12" Type="varchar" MaxLength="100" />
+          <Property Name="Debit13" Type="varchar" MaxLength="100" />
+          <Property Name="Credit1" Type="varchar" MaxLength="100" />
+          <Property Name="Credit2" Type="varchar" MaxLength="100" />
+          <Property Name="Credit3" Type="varchar" MaxLength="100" />
+          <Property Name="Credit4" Type="varchar" MaxLength="100" />
+          <Property Name="Credit5" Type="varchar" MaxLength="100" />
+          <Property Name="Credit6" Type="varchar" MaxLength="100" />
+          <Property Name="Credit7" Type="varchar" MaxLength="100" />
+          <Property Name="Credit8" Type="varchar" MaxLength="100" />
+          <Property Name="Credit9" Type="varchar" MaxLength="100" />
+          <Property Name="Credit10" Type="varchar" MaxLength="100" />
+          <Property Name="Credit11" Type="varchar" MaxLength="100" />
+          <Property Name="Credit12" Type="varchar" MaxLength="100" />
+          <Property Name="Credit13" Type="varchar" MaxLength="100" />
+          <Property Name="Accountingtestshort2" Type="varchar" MaxLength="100" />
+          <Property Name="Taxbracket1" Type="varchar" MaxLength="100" />
+          <Property Name="Taxbracket2" Type="varchar" MaxLength="100" />
+          <Property Name="Taxbracket3" Type="varchar" MaxLength="100" />
+          <Property Name="Rate1" Type="varchar" MaxLength="100" />
+          <Property Name="Rate2" Type="varchar" MaxLength="100" />
+          <Property Name="Rate3" Type="varchar" MaxLength="100" />
+          <Property Name="Amount1" Type="varchar" MaxLength="100" />
+          <Property Name="Amount2" Type="varchar" MaxLength="100" />
+          <Property Name="Amount3" Type="varchar" MaxLength="100" />
+          <Property Name="Totalincometax" Type="varchar" MaxLength="100" />
+          <Property Name="Booktitle1" Type="varchar" MaxLength="100" />
+          <Property Name="Booktitle2" Type="varchar" MaxLength="100" />
+          <Property Name="Booktitle3" Type="varchar" MaxLength="100" />
+          <Property Name="Booktitle4" Type="varchar" MaxLength="100" />
+          <Property Name="Bookdebit1" Type="varchar" MaxLength="100" />
+          <Property Name="Bookdebit2" Type="varchar" MaxLength="100" />
+          <Property Name="Bookdebit3" Type="varchar" MaxLength="100" />
+          <Property Name="Bookdebit4" Type="varchar" MaxLength="100" />
+          <Property Name="Bookcredit1" Type="varchar" MaxLength="100" />
+          <Property Name="Bookcredit2" Type="varchar" MaxLength="100" />
+          <Property Name="Bookcredit3" Type="varchar" MaxLength="100" />
+          <Property Name="Bookcredit4" Type="varchar" MaxLength="100" />
+          <Property Name="Balancebook" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle1" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle2" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle3" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle4" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle5" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle6" Type="varchar" MaxLength="100" />
+          <Property Name="Banktitle7" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit1" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit2" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit3" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit4" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit5" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit6" Type="varchar" MaxLength="100" />
+          <Property Name="Bankdebit7" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit1" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit2" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit3" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit4" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit5" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit6" Type="varchar" MaxLength="100" />
+          <Property Name="Bankcredit7" Type="varchar" MaxLength="100" />
+          <Property Name="Balancebank" Type="varchar" MaxLength="100" />
+          <Property Name="Asset1" Type="varchar" MaxLength="100" />
+          <Property Name="Asset2" Type="varchar" MaxLength="100" />
+          <Property Name="Asset3" Type="varchar" MaxLength="100" />
+          <Property Name="Asset4" Type="varchar" MaxLength="100" />
+          <Property Name="Asset5" Type="varchar" MaxLength="100" />
+          <Property Name="Asset6" Type="varchar" MaxLength="100" />
+          <Property Name="Asset7" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset1" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset2" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset3" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset4" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset5" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset6" Type="varchar" MaxLength="100" />
+          <Property Name="Debitasset7" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset1" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset2" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset3" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset4" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset5" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset6" Type="varchar" MaxLength="100" />
+          <Property Name="Creditasset7" Type="varchar" MaxLength="100" />
+          <Property Name="Totalasset" Type="varchar" MaxLength="100" />
+          <Property Name="Equity1" Type="varchar" MaxLength="100" />
+          <Property Name="Equity2" Type="varchar" MaxLength="100" />
+          <Property Name="Equity3" Type="varchar" MaxLength="100" />
+          <Property Name="Equity4" Type="varchar" MaxLength="100" />
+          <Property Name="Equity5" Type="varchar" MaxLength="100" />
+          <Property Name="Equity6" Type="varchar" MaxLength="100" />
+          <Property Name="Equity7" Type="varchar" MaxLength="100" />
+          <Property Name="Equity8" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity1" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity2" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity3" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity4" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity5" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity6" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity7" Type="varchar" MaxLength="100" />
+          <Property Name="Debitequity8" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity1" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity2" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity3" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity4" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity5" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity6" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity7" Type="varchar" MaxLength="100" />
+          <Property Name="Creditequity8" Type="varchar" MaxLength="100" />
+          <Property Name="Totalequity" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="AccoutanttestModelStoreContainer">
+          <EntitySet Name="Accountant_View" EntityType="Self.Accountant_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Accountant_View].[FirstName] AS [FirstName], 
+    [Accountant_View].[MiddleName] AS [MiddleName], 
+    [Accountant_View].[LastName] AS [LastName], 
+    [Accountant_View].[JobTitle] AS [JobTitle], 
+    [Accountant_View].[AccountingtestID] AS [AccountingtestID], 
+    [Accountant_View].[ApplicantID] AS [ApplicantID], 
+    [Accountant_View].[Accountingtest1] AS [Accountingtest1], 
+    [Accountant_View].[Accountingtest2] AS [Accountingtest2], 
+    [Accountant_View].[Accountingtest3_1] AS [Accountingtest3_1], 
+    [Accountant_View].[Accountingtest3_2] AS [Accountingtest3_2], 
+    [Accountant_View].[Accountingtest3_3] AS [Accountingtest3_3], 
+    [Accountant_View].[Accountingtest4] AS [Accountingtest4], 
+    [Accountant_View].[Accountingtest5] AS [Accountingtest5], 
+    [Accountant_View].[Accountingtest6] AS [Accountingtest6], 
+    [Accountant_View].[Accountingtest7] AS [Accountingtest7], 
+    [Accountant_View].[Accountingtest8] AS [Accountingtest8], 
+    [Accountant_View].[Accountingtest9] AS [Accountingtest9], 
+    [Accountant_View].[Accountingtest10] AS [Accountingtest10], 
+    [Accountant_View].[Solution1] AS [Solution1], 
+    [Accountant_View].[Solution3_1] AS [Solution3_1], 
+    [Accountant_View].[Solution3_2] AS [Solution3_2], 
+    [Accountant_View].[Solution3_3] AS [Solution3_3], 
+    [Accountant_View].[Solution4] AS [Solution4], 
+    [Accountant_View].[Solution7] AS [Solution7], 
+    [Accountant_View].[Solution8] AS [Solution8], 
+    [Accountant_View].[Solution10] AS [Solution10], 
+    [Accountant_View].[Accounttitle1] AS [Accounttitle1], 
+    [Accountant_View].[Accounttitle2] AS [Accounttitle2], 
+    [Accountant_View].[Accounttitle3] AS [Accounttitle3], 
+    [Accountant_View].[Accounttitle4] AS [Accounttitle4], 
+    [Accountant_View].[Accounttitle5] AS [Accounttitle5], 
+    [Accountant_View].[Accounttitle6] AS [Accounttitle6], 
+    [Accountant_View].[Accounttitle7] AS [Accounttitle7], 
+    [Accountant_View].[Accounttitle8] AS [Accounttitle8], 
+    [Accountant_View].[Accounttitle9] AS [Accounttitle9], 
+    [Accountant_View].[Accounttitle10] AS [Accounttitle10], 
+    [Accountant_View].[Accounttitle11] AS [Accounttitle11], 
+    [Accountant_View].[Accounttitle12] AS [Accounttitle12], 
+    [Accountant_View].[Accounttitle13] AS [Accounttitle13], 
+    [Accountant_View].[Debit1] AS [Debit1], 
+    [Accountant_View].[Debit2] AS [Debit2], 
+    [Accountant_View].[Debit3] AS [Debit3], 
+    [Accountant_View].[Debit4] AS [Debit4], 
+    [Accountant_View].[Debit5] AS [Debit5], 
+    [Accountant_View].[Debit6] AS [Debit6], 
+    [Accountant_View].[Debit7] AS [Debit7], 
+    [Accountant_View].[Debit8] AS [Debit8], 
+    [Accountant_View].[Debit9] AS [Debit9], 
+    [Accountant_View].[Debit10] AS [Debit10], 
+    [Accountant_View].[Debit11] AS [Debit11], 
+    [Accountant_View].[Debit12] AS [Debit12], 
+    [Accountant_View].[Debit13] AS [Debit13], 
+    [Accountant_View].[Credit1] AS [Credit1], 
+    [Accountant_View].[Credit2] AS [Credit2], 
+    [Accountant_View].[Credit3] AS [Credit3], 
+    [Accountant_View].[Credit4] AS [Credit4], 
+    [Accountant_View].[Credit5] AS [Credit5], 
+    [Accountant_View].[Credit6] AS [Credit6], 
+    [Accountant_View].[Credit7] AS [Credit7], 
+    [Accountant_View].[Credit8] AS [Credit8], 
+    [Accountant_View].[Credit9] AS [Credit9], 
+    [Accountant_View].[Credit10] AS [Credit10], 
+    [Accountant_View].[Credit11] AS [Credit11], 
+    [Accountant_View].[Credit12] AS [Credit12], 
+    [Accountant_View].[Credit13] AS [Credit13], 
+    [Accountant_View].[Accountingtestshort2] AS [Accountingtestshort2], 
+    [Accountant_View].[Taxbracket1] AS [Taxbracket1], 
+    [Accountant_View].[Taxbracket2] AS [Taxbracket2], 
+    [Accountant_View].[Taxbracket3] AS [Taxbracket3], 
+    [Accountant_View].[Rate1] AS [Rate1], 
+    [Accountant_View].[Rate2] AS [Rate2], 
+    [Accountant_View].[Rate3] AS [Rate3], 
+    [Accountant_View].[Amount1] AS [Amount1], 
+    [Accountant_View].[Amount2] AS [Amount2], 
+    [Accountant_View].[Amount3] AS [Amount3], 
+    [Accountant_View].[Totalincometax] AS [Totalincometax], 
+    [Accountant_View].[Booktitle1] AS [Booktitle1], 
+    [Accountant_View].[Booktitle2] AS [Booktitle2], 
+    [Accountant_View].[Booktitle3] AS [Booktitle3], 
+    [Accountant_View].[Booktitle4] AS [Booktitle4], 
+    [Accountant_View].[Bookdebit1] AS [Bookdebit1], 
+    [Accountant_View].[Bookdebit2] AS [Bookdebit2], 
+    [Accountant_View].[Bookdebit3] AS [Bookdebit3], 
+    [Accountant_View].[Bookdebit4] AS [Bookdebit4], 
+    [Accountant_View].[Bookcredit1] AS [Bookcredit1], 
+    [Accountant_View].[Bookcredit2] AS [Bookcredit2], 
+    [Accountant_View].[Bookcredit3] AS [Bookcredit3], 
+    [Accountant_View].[Bookcredit4] AS [Bookcredit4], 
+    [Accountant_View].[Balancebook] AS [Balancebook], 
+    [Accountant_View].[Banktitle1] AS [Banktitle1], 
+    [Accountant_View].[Banktitle2] AS [Banktitle2], 
+    [Accountant_View].[Banktitle3] AS [Banktitle3], 
+    [Accountant_View].[Banktitle4] AS [Banktitle4], 
+    [Accountant_View].[Banktitle5] AS [Banktitle5], 
+    [Accountant_View].[Banktitle6] AS [Banktitle6], 
+    [Accountant_View].[Banktitle7] AS [Banktitle7], 
+    [Accountant_View].[Bankdebit1] AS [Bankdebit1], 
+    [Accountant_View].[Bankdebit2] AS [Bankdebit2], 
+    [Accountant_View].[Bankdebit3] AS [Bankdebit3], 
+    [Accountant_View].[Bankdebit4] AS [Bankdebit4], 
+    [Accountant_View].[Bankdebit5] AS [Bankdebit5], 
+    [Accountant_View].[Bankdebit6] AS [Bankdebit6], 
+    [Accountant_View].[Bankdebit7] AS [Bankdebit7], 
+    [Accountant_View].[Bankcredit1] AS [Bankcredit1], 
+    [Accountant_View].[Bankcredit2] AS [Bankcredit2], 
+    [Accountant_View].[Bankcredit3] AS [Bankcredit3], 
+    [Accountant_View].[Bankcredit4] AS [Bankcredit4], 
+    [Accountant_View].[Bankcredit5] AS [Bankcredit5], 
+    [Accountant_View].[Bankcredit6] AS [Bankcredit6], 
+    [Accountant_View].[Bankcredit7] AS [Bankcredit7], 
+    [Accountant_View].[Balancebank] AS [Balancebank], 
+    [Accountant_View].[Asset1] AS [Asset1], 
+    [Accountant_View].[Asset2] AS [Asset2], 
+    [Accountant_View].[Asset3] AS [Asset3], 
+    [Accountant_View].[Asset4] AS [Asset4], 
+    [Accountant_View].[Asset5] AS [Asset5], 
+    [Accountant_View].[Asset6] AS [Asset6], 
+    [Accountant_View].[Asset7] AS [Asset7], 
+    [Accountant_View].[Debitasset1] AS [Debitasset1], 
+    [Accountant_View].[Debitasset2] AS [Debitasset2], 
+    [Accountant_View].[Debitasset3] AS [Debitasset3], 
+    [Accountant_View].[Debitasset4] AS [Debitasset4], 
+    [Accountant_View].[Debitasset5] AS [Debitasset5], 
+    [Accountant_View].[Debitasset6] AS [Debitasset6], 
+    [Accountant_View].[Debitasset7] AS [Debitasset7], 
+    [Accountant_View].[Creditasset1] AS [Creditasset1], 
+    [Accountant_View].[Creditasset2] AS [Creditasset2], 
+    [Accountant_View].[Creditasset3] AS [Creditasset3], 
+    [Accountant_View].[Creditasset4] AS [Creditasset4], 
+    [Accountant_View].[Creditasset5] AS [Creditasset5], 
+    [Accountant_View].[Creditasset6] AS [Creditasset6], 
+    [Accountant_View].[Creditasset7] AS [Creditasset7], 
+    [Accountant_View].[Totalasset] AS [Totalasset], 
+    [Accountant_View].[Equity1] AS [Equity1], 
+    [Accountant_View].[Equity2] AS [Equity2], 
+    [Accountant_View].[Equity3] AS [Equity3], 
+    [Accountant_View].[Equity4] AS [Equity4], 
+    [Accountant_View].[Equity5] AS [Equity5], 
+    [Accountant_View].[Equity6] AS [Equity6], 
+    [Accountant_View].[Equity7] AS [Equity7], 
+    [Accountant_View].[Equity8] AS [Equity8], 
+    [Accountant_View].[Debitequity1] AS [Debitequity1], 
+    [Accountant_View].[Debitequity2] AS [Debitequity2], 
+    [Accountant_View].[Debitequity3] AS [Debitequity3], 
+    [Accountant_View].[Debitequity4] AS [Debitequity4], 
+    [Accountant_View].[Debitequity5] AS [Debitequity5], 
+    [Accountant_View].[Debitequity6] AS [Debitequity6], 
+    [Accountant_View].[Debitequity7] AS [Debitequity7], 
+    [Accountant_View].[Debitequity8] AS [Debitequity8], 
+    [Accountant_View].[Creditequity1] AS [Creditequity1], 
+    [Accountant_View].[Creditequity2] AS [Creditequity2], 
+    [Accountant_View].[Creditequity3] AS [Creditequity3], 
+    [Accountant_View].[Creditequity4] AS [Creditequity4], 
+    [Accountant_View].[Creditequity5] AS [Creditequity5], 
+    [Accountant_View].[Creditequity6] AS [Creditequity6], 
+    [Accountant_View].[Creditequity7] AS [Creditequity7], 
+    [Accountant_View].[Creditequity8] AS [Creditequity8], 
+    [Accountant_View].[Totalequity] AS [Totalequity]
+    FROM [dbo].[Accountant_View] AS [Accountant_View]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AccoutanttestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accountant_View">
+          <Key>
+            <PropertyRef Name="AccountingtestID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="AccountingtestID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+          <Property Name="Accountingtest1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest3_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest3_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest3_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtest10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Solution1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution3_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution3_2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution3_3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Solution10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle11" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle12" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accounttitle13" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit11" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit12" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debit13" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit11" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit12" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Credit13" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Accountingtestshort2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Taxbracket1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Taxbracket2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Taxbracket3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rate1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rate2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Rate3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Totalincometax" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Booktitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Booktitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Booktitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Booktitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookdebit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookdebit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookdebit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookdebit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookcredit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookcredit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookcredit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bookcredit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Balancebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Banktitle7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankdebit7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bankcredit7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Balancebank" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Asset7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitasset7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditasset7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Totalasset" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Equity8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Debitequity8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Creditequity8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Totalequity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AccoutanttestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accountant_View" EntityType="Self.Accountant_View" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AccoutanttestModelStoreContainer" CdmEntityContainer="AccoutanttestEntities">
+          <EntitySetMapping Name="Accountant_View">
+            <EntityTypeMapping TypeName="AccoutanttestModel.Accountant_View">
+              <MappingFragment StoreEntitySet="Accountant_View">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="AccountingtestID" ColumnName="AccountingtestID" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="Accountingtest1" ColumnName="Accountingtest1" />
+                <ScalarProperty Name="Accountingtest2" ColumnName="Accountingtest2" />
+                <ScalarProperty Name="Accountingtest3_1" ColumnName="Accountingtest3_1" />
+                <ScalarProperty Name="Accountingtest3_2" ColumnName="Accountingtest3_2" />
+                <ScalarProperty Name="Accountingtest3_3" ColumnName="Accountingtest3_3" />
+                <ScalarProperty Name="Accountingtest4" ColumnName="Accountingtest4" />
+                <ScalarProperty Name="Accountingtest5" ColumnName="Accountingtest5" />
+                <ScalarProperty Name="Accountingtest6" ColumnName="Accountingtest6" />
+                <ScalarProperty Name="Accountingtest7" ColumnName="Accountingtest7" />
+                <ScalarProperty Name="Accountingtest8" ColumnName="Accountingtest8" />
+                <ScalarProperty Name="Accountingtest9" ColumnName="Accountingtest9" />
+                <ScalarProperty Name="Accountingtest10" ColumnName="Accountingtest10" />
+                <ScalarProperty Name="Solution1" ColumnName="Solution1" />
+                <ScalarProperty Name="Solution3_1" ColumnName="Solution3_1" />
+                <ScalarProperty Name="Solution3_2" ColumnName="Solution3_2" />
+                <ScalarProperty Name="Solution3_3" ColumnName="Solution3_3" />
+                <ScalarProperty Name="Solution4" ColumnName="Solution4" />
+                <ScalarProperty Name="Solution7" ColumnName="Solution7" />
+                <ScalarProperty Name="Solution8" ColumnName="Solution8" />
+                <ScalarProperty Name="Solution10" ColumnName="Solution10" />
+                <ScalarProperty Name="Accounttitle1" ColumnName="Accounttitle1" />
+                <ScalarProperty Name="Accounttitle2" ColumnName="Accounttitle2" />
+                <ScalarProperty Name="Accounttitle3" ColumnName="Accounttitle3" />
+                <ScalarProperty Name="Accounttitle4" ColumnName="Accounttitle4" />
+                <ScalarProperty Name="Accounttitle5" ColumnName="Accounttitle5" />
+                <ScalarProperty Name="Accounttitle6" ColumnName="Accounttitle6" />
+                <ScalarProperty Name="Accounttitle7" ColumnName="Accounttitle7" />
+                <ScalarProperty Name="Accounttitle8" ColumnName="Accounttitle8" />
+                <ScalarProperty Name="Accounttitle9" ColumnName="Accounttitle9" />
+                <ScalarProperty Name="Accounttitle10" ColumnName="Accounttitle10" />
+                <ScalarProperty Name="Accounttitle11" ColumnName="Accounttitle11" />
+                <ScalarProperty Name="Accounttitle12" ColumnName="Accounttitle12" />
+                <ScalarProperty Name="Accounttitle13" ColumnName="Accounttitle13" />
+                <ScalarProperty Name="Debit1" ColumnName="Debit1" />
+                <ScalarProperty Name="Debit2" ColumnName="Debit2" />
+                <ScalarProperty Name="Debit3" ColumnName="Debit3" />
+                <ScalarProperty Name="Debit4" ColumnName="Debit4" />
+                <ScalarProperty Name="Debit5" ColumnName="Debit5" />
+                <ScalarProperty Name="Debit6" ColumnName="Debit6" />
+                <ScalarProperty Name="Debit7" ColumnName="Debit7" />
+                <ScalarProperty Name="Debit8" ColumnName="Debit8" />
+                <ScalarProperty Name="Debit9" ColumnName="Debit9" />
+                <ScalarProperty Name="Debit10" ColumnName="Debit10" />
+                <ScalarProperty Name="Debit11" ColumnName="Debit11" />
+                <ScalarProperty Name="Debit12" ColumnName="Debit12" />
+                <ScalarProperty Name="Debit13" ColumnName="Debit13" />
+                <ScalarProperty Name="Credit1" ColumnName="Credit1" />
+                <ScalarProperty Name="Credit2" ColumnName="Credit2" />
+                <ScalarProperty Name="Credit3" ColumnName="Credit3" />
+                <ScalarProperty Name="Credit4" ColumnName="Credit4" />
+                <ScalarProperty Name="Credit5" ColumnName="Credit5" />
+                <ScalarProperty Name="Credit6" ColumnName="Credit6" />
+                <ScalarProperty Name="Credit7" ColumnName="Credit7" />
+                <ScalarProperty Name="Credit8" ColumnName="Credit8" />
+                <ScalarProperty Name="Credit9" ColumnName="Credit9" />
+                <ScalarProperty Name="Credit10" ColumnName="Credit10" />
+                <ScalarProperty Name="Credit11" ColumnName="Credit11" />
+                <ScalarProperty Name="Credit12" ColumnName="Credit12" />
+                <ScalarProperty Name="Credit13" ColumnName="Credit13" />
+                <ScalarProperty Name="Accountingtestshort2" ColumnName="Accountingtestshort2" />
+                <ScalarProperty Name="Taxbracket1" ColumnName="Taxbracket1" />
+                <ScalarProperty Name="Taxbracket2" ColumnName="Taxbracket2" />
+                <ScalarProperty Name="Taxbracket3" ColumnName="Taxbracket3" />
+                <ScalarProperty Name="Rate1" ColumnName="Rate1" />
+                <ScalarProperty Name="Rate2" ColumnName="Rate2" />
+                <ScalarProperty Name="Rate3" ColumnName="Rate3" />
+                <ScalarProperty Name="Amount1" ColumnName="Amount1" />
+                <ScalarProperty Name="Amount2" ColumnName="Amount2" />
+                <ScalarProperty Name="Amount3" ColumnName="Amount3" />
+                <ScalarProperty Name="Totalincometax" ColumnName="Totalincometax" />
+                <ScalarProperty Name="Booktitle1" ColumnName="Booktitle1" />
+                <ScalarProperty Name="Booktitle2" ColumnName="Booktitle2" />
+                <ScalarProperty Name="Booktitle3" ColumnName="Booktitle3" />
+                <ScalarProperty Name="Booktitle4" ColumnName="Booktitle4" />
+                <ScalarProperty Name="Bookdebit1" ColumnName="Bookdebit1" />
+                <ScalarProperty Name="Bookdebit2" ColumnName="Bookdebit2" />
+                <ScalarProperty Name="Bookdebit3" ColumnName="Bookdebit3" />
+                <ScalarProperty Name="Bookdebit4" ColumnName="Bookdebit4" />
+                <ScalarProperty Name="Bookcredit1" ColumnName="Bookcredit1" />
+                <ScalarProperty Name="Bookcredit2" ColumnName="Bookcredit2" />
+                <ScalarProperty Name="Bookcredit3" ColumnName="Bookcredit3" />
+                <ScalarProperty Name="Bookcredit4" ColumnName="Bookcredit4" />
+                <ScalarProperty Name="Balancebook" ColumnName="Balancebook" />
+                <ScalarProperty Name="Banktitle1" ColumnName="Banktitle1" />
+                <ScalarProperty Name="Banktitle2" ColumnName="Banktitle2" />
+                <ScalarProperty Name="Banktitle3" ColumnName="Banktitle3" />
+                <ScalarProperty Name="Banktitle4" ColumnName="Banktitle4" />
+                <ScalarProperty Name="Banktitle5" ColumnName="Banktitle5" />
+                <ScalarProperty Name="Banktitle6" ColumnName="Banktitle6" />
+                <ScalarProperty Name="Banktitle7" ColumnName="Banktitle7" />
+                <ScalarProperty Name="Bankdebit1" ColumnName="Bankdebit1" />
+                <ScalarProperty Name="Bankdebit2" ColumnName="Bankdebit2" />
+                <ScalarProperty Name="Bankdebit3" ColumnName="Bankdebit3" />
+                <ScalarProperty Name="Bankdebit4" ColumnName="Bankdebit4" />
+                <ScalarProperty Name="Bankdebit5" ColumnName="Bankdebit5" />
+                <ScalarProperty Name="Bankdebit6" ColumnName="Bankdebit6" />
+                <ScalarProperty Name="Bankdebit7" ColumnName="Bankdebit7" />
+                <ScalarProperty Name="Bankcredit1" ColumnName="Bankcredit1" />
+                <ScalarProperty Name="Bankcredit2" ColumnName="Bankcredit2" />
+                <ScalarProperty Name="Bankcredit3" ColumnName="Bankcredit3" />
+                <ScalarProperty Name="Bankcredit4" ColumnName="Bankcredit4" />
+                <ScalarProperty Name="Bankcredit5" ColumnName="Bankcredit5" />
+                <ScalarProperty Name="Bankcredit6" ColumnName="Bankcredit6" />
+                <ScalarProperty Name="Bankcredit7" ColumnName="Bankcredit7" />
+                <ScalarProperty Name="Balancebank" ColumnName="Balancebank" />
+                <ScalarProperty Name="Asset1" ColumnName="Asset1" />
+                <ScalarProperty Name="Asset2" ColumnName="Asset2" />
+                <ScalarProperty Name="Asset3" ColumnName="Asset3" />
+                <ScalarProperty Name="Asset4" ColumnName="Asset4" />
+                <ScalarProperty Name="Asset5" ColumnName="Asset5" />
+                <ScalarProperty Name="Asset6" ColumnName="Asset6" />
+                <ScalarProperty Name="Asset7" ColumnName="Asset7" />
+                <ScalarProperty Name="Debitasset1" ColumnName="Debitasset1" />
+                <ScalarProperty Name="Debitasset2" ColumnName="Debitasset2" />
+                <ScalarProperty Name="Debitasset3" ColumnName="Debitasset3" />
+                <ScalarProperty Name="Debitasset4" ColumnName="Debitasset4" />
+                <ScalarProperty Name="Debitasset5" ColumnName="Debitasset5" />
+                <ScalarProperty Name="Debitasset6" ColumnName="Debitasset6" />
+                <ScalarProperty Name="Debitasset7" ColumnName="Debitasset7" />
+                <ScalarProperty Name="Creditasset1" ColumnName="Creditasset1" />
+                <ScalarProperty Name="Creditasset2" ColumnName="Creditasset2" />
+                <ScalarProperty Name="Creditasset3" ColumnName="Creditasset3" />
+                <ScalarProperty Name="Creditasset4" ColumnName="Creditasset4" />
+                <ScalarProperty Name="Creditasset5" ColumnName="Creditasset5" />
+                <ScalarProperty Name="Creditasset6" ColumnName="Creditasset6" />
+                <ScalarProperty Name="Creditasset7" ColumnName="Creditasset7" />
+                <ScalarProperty Name="Totalasset" ColumnName="Totalasset" />
+                <ScalarProperty Name="Equity1" ColumnName="Equity1" />
+                <ScalarProperty Name="Equity2" ColumnName="Equity2" />
+                <ScalarProperty Name="Equity3" ColumnName="Equity3" />
+                <ScalarProperty Name="Equity4" ColumnName="Equity4" />
+                <ScalarProperty Name="Equity5" ColumnName="Equity5" />
+                <ScalarProperty Name="Equity6" ColumnName="Equity6" />
+                <ScalarProperty Name="Equity7" ColumnName="Equity7" />
+                <ScalarProperty Name="Equity8" ColumnName="Equity8" />
+                <ScalarProperty Name="Debitequity1" ColumnName="Debitequity1" />
+                <ScalarProperty Name="Debitequity2" ColumnName="Debitequity2" />
+                <ScalarProperty Name="Debitequity3" ColumnName="Debitequity3" />
+                <ScalarProperty Name="Debitequity4" ColumnName="Debitequity4" />
+                <ScalarProperty Name="Debitequity5" ColumnName="Debitequity5" />
+                <ScalarProperty Name="Debitequity6" ColumnName="Debitequity6" />
+                <ScalarProperty Name="Debitequity7" ColumnName="Debitequity7" />
+                <ScalarProperty Name="Debitequity8" ColumnName="Debitequity8" />
+                <ScalarProperty Name="Creditequity1" ColumnName="Creditequity1" />
+                <ScalarProperty Name="Creditequity2" ColumnName="Creditequity2" />
+                <ScalarProperty Name="Creditequity3" ColumnName="Creditequity3" />
+                <ScalarProperty Name="Creditequity4" ColumnName="Creditequity4" />
+                <ScalarProperty Name="Creditequity5" ColumnName="Creditequity5" />
+                <ScalarProperty Name="Creditequity6" ColumnName="Creditequity6" />
+                <ScalarProperty Name="Creditequity7" ColumnName="Creditequity7" />
+                <ScalarProperty Name="Creditequity8" ColumnName="Creditequity8" />
+                <ScalarProperty Name="Totalequity" ColumnName="Totalequity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
