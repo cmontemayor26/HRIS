@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HRISModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="IQtest_View">
+          <Key>
+            <PropertyRef Name="IQtestID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="IQtestID" Type="int" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="IQtest1" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest2" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest3" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest4" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest5" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest6" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest7" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest8" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest9" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest10" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest11" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest12" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest13" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest14" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest15" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest16" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest17" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest18" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest19" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest20" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest21" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest22" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest23" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest24" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest25" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest26" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest27" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest28" Type="varchar" MaxLength="100" />
+          <Property Name="IQtest29" Type="varchar" MaxLength="50" />
+          <Property Name="IQtest30" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityContainer Name="HRISModel1StoreContainer">
+          <EntitySet Name="IQtest_View" EntityType="Self.IQtest_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [IQtest_View].[IQtestID] AS [IQtestID], 
+    [IQtest_View].[ApplicantID] AS [ApplicantID], 
+    [IQtest_View].[IQtest1] AS [IQtest1], 
+    [IQtest_View].[IQtest2] AS [IQtest2], 
+    [IQtest_View].[IQtest3] AS [IQtest3], 
+    [IQtest_View].[IQtest4] AS [IQtest4], 
+    [IQtest_View].[IQtest5] AS [IQtest5], 
+    [IQtest_View].[IQtest6] AS [IQtest6], 
+    [IQtest_View].[IQtest7] AS [IQtest7], 
+    [IQtest_View].[IQtest8] AS [IQtest8], 
+    [IQtest_View].[IQtest9] AS [IQtest9], 
+    [IQtest_View].[IQtest10] AS [IQtest10], 
+    [IQtest_View].[IQtest11] AS [IQtest11], 
+    [IQtest_View].[IQtest12] AS [IQtest12], 
+    [IQtest_View].[IQtest13] AS [IQtest13], 
+    [IQtest_View].[IQtest14] AS [IQtest14], 
+    [IQtest_View].[IQtest15] AS [IQtest15], 
+    [IQtest_View].[IQtest16] AS [IQtest16], 
+    [IQtest_View].[IQtest17] AS [IQtest17], 
+    [IQtest_View].[IQtest18] AS [IQtest18], 
+    [IQtest_View].[IQtest19] AS [IQtest19], 
+    [IQtest_View].[IQtest20] AS [IQtest20], 
+    [IQtest_View].[IQtest21] AS [IQtest21], 
+    [IQtest_View].[IQtest22] AS [IQtest22], 
+    [IQtest_View].[IQtest23] AS [IQtest23], 
+    [IQtest_View].[IQtest24] AS [IQtest24], 
+    [IQtest_View].[IQtest25] AS [IQtest25], 
+    [IQtest_View].[IQtest26] AS [IQtest26], 
+    [IQtest_View].[IQtest27] AS [IQtest27], 
+    [IQtest_View].[IQtest28] AS [IQtest28], 
+    [IQtest_View].[IQtest29] AS [IQtest29], 
+    [IQtest_View].[IQtest30] AS [IQtest30], 
+    [IQtest_View].[FirstName] AS [FirstName], 
+    [IQtest_View].[MiddleName] AS [MiddleName], 
+    [IQtest_View].[LastName] AS [LastName], 
+    [IQtest_View].[JobTitle] AS [JobTitle]
+    FROM [dbo].[IQtest_View] AS [IQtest_View]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRISModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IQtest_View">
+          <Key>
+            <PropertyRef Name="IQtestID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="IQtestID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+          <Property Name="IQtest1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest9" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest10" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest11" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest12" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest13" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest14" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest15" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest16" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest17" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest18" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest19" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest20" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest21" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest22" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest23" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest24" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest25" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest26" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest27" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest28" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest29" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IQtest30" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="IQtestExamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IQtest_View" EntityType="Self.IQtest_View" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRISModel1StoreContainer" CdmEntityContainer="IQtestExamEntities">
+          <EntitySetMapping Name="IQtest_View">
+            <EntityTypeMapping TypeName="HRISModel1.IQtest_View">
+              <MappingFragment StoreEntitySet="IQtest_View">
+                <ScalarProperty Name="IQtestID" ColumnName="IQtestID" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="IQtest1" ColumnName="IQtest1" />
+                <ScalarProperty Name="IQtest2" ColumnName="IQtest2" />
+                <ScalarProperty Name="IQtest3" ColumnName="IQtest3" />
+                <ScalarProperty Name="IQtest4" ColumnName="IQtest4" />
+                <ScalarProperty Name="IQtest5" ColumnName="IQtest5" />
+                <ScalarProperty Name="IQtest6" ColumnName="IQtest6" />
+                <ScalarProperty Name="IQtest7" ColumnName="IQtest7" />
+                <ScalarProperty Name="IQtest8" ColumnName="IQtest8" />
+                <ScalarProperty Name="IQtest9" ColumnName="IQtest9" />
+                <ScalarProperty Name="IQtest10" ColumnName="IQtest10" />
+                <ScalarProperty Name="IQtest11" ColumnName="IQtest11" />
+                <ScalarProperty Name="IQtest12" ColumnName="IQtest12" />
+                <ScalarProperty Name="IQtest13" ColumnName="IQtest13" />
+                <ScalarProperty Name="IQtest14" ColumnName="IQtest14" />
+                <ScalarProperty Name="IQtest15" ColumnName="IQtest15" />
+                <ScalarProperty Name="IQtest16" ColumnName="IQtest16" />
+                <ScalarProperty Name="IQtest17" ColumnName="IQtest17" />
+                <ScalarProperty Name="IQtest18" ColumnName="IQtest18" />
+                <ScalarProperty Name="IQtest19" ColumnName="IQtest19" />
+                <ScalarProperty Name="IQtest20" ColumnName="IQtest20" />
+                <ScalarProperty Name="IQtest21" ColumnName="IQtest21" />
+                <ScalarProperty Name="IQtest22" ColumnName="IQtest22" />
+                <ScalarProperty Name="IQtest23" ColumnName="IQtest23" />
+                <ScalarProperty Name="IQtest24" ColumnName="IQtest24" />
+                <ScalarProperty Name="IQtest25" ColumnName="IQtest25" />
+                <ScalarProperty Name="IQtest26" ColumnName="IQtest26" />
+                <ScalarProperty Name="IQtest27" ColumnName="IQtest27" />
+                <ScalarProperty Name="IQtest28" ColumnName="IQtest28" />
+                <ScalarProperty Name="IQtest29" ColumnName="IQtest29" />
+                <ScalarProperty Name="IQtest30" ColumnName="IQtest30" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
