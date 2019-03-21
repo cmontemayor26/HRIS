@@ -11,17 +11,14 @@ namespace HRIS.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class LeaveForm
     {
         public int LeaveID { get; set; }
         public string Description { get; set; }
         public string TypeOfRequest { get; set; }
         public string Approver { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> StartDate { get; set; }
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<int> EmployeeNumber { get; set; }
         public string LeaveStatus { get; set; }
