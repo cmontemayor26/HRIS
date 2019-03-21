@@ -45,6 +45,12 @@ namespace HRIS.Controllers
                 sqlCmds.Parameters.AddWithValue("@Essay12", essay.Essay12);
                 sqlCmds.Parameters.AddWithValue("@Essay13", essay.Essay13);
                 sqlCmds.ExecuteNonQuery();
+
+                string querys = "Update Masterlist set Applicant_TookExam = 1 WHERE MasterlistID = @Masterlistid";
+                SqlCommand sqlCmdss = new SqlCommand(querys, sqlCon);
+                sqlCmdss.Parameters.AddWithValue("@Masterlistid", Convert.ToInt32(Session["MasterlistID"].ToString()));
+                sqlCmdss.ExecuteNonQuery();
+
                 Session["timer"] = null;
             }
             return RedirectToAction("End");
@@ -232,11 +238,6 @@ namespace HRIS.Controllers
                 sqlCmds.Parameters.AddWithValue("@IQtest30", iqtest.IQtest30);
                 sqlCmds.ExecuteNonQuery();
 
-                string querys = "Update Masterlist set Applicant_TookExam = 1 WHERE MasterlistID = @Masterlistid";
-                SqlCommand sqlCmdss = new SqlCommand(querys, sqlCon);
-                sqlCmdss.Parameters.AddWithValue("@ApplicantID", Convert.ToInt32(Session["MasterlistID"].ToString()));
-                sqlCmdss.ExecuteNonQuery();
-
                 Session["timer"] = null;
             }
             if (Session["JobTitle"].ToString() == "Associate Accountant" || Session["JobTitle"].ToString() == "Senior Accountant") {
@@ -270,7 +271,7 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Accountingtest(ApplicantID,Accountingtest1,Accountingtest2,[Accountingtest3-1],[Accountingtest3-2],[Accountingtest3-3],Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,[Solution3-1],[Solution3-2],[Solution3-3],Solution4,Solution7,Solution8,Solution10," +
+                string query = "INSERT INTO Accountingtest(ApplicantID,Accountingtest1,Accountingtest2,Accountingtest3_1,Accountingtest3_2,Accountingtest3_3,Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,Solution3_1,Solution3_2,Solution3_3,Solution4,Solution7,Solution8,Solution10," +
                     "Accounttitle1,Accounttitle2,Accounttitle3,Accounttitle4,Accounttitle5,Accounttitle6,Accounttitle7,Accounttitle8,Accounttitle9,Accounttitle10,Accounttitle11,Accounttitle12,Accounttitle13,Debit1,Debit2,Debit3,Debit4,Debit5,Debit6,Debit7,Debit8,Debit9,Debit10,Debit11,Debit12,Debit13,Credit1,Credit2,Credit3,Credit4,Credit5,Credit6,Credit7,Credit8,Credit9,Credit10,Credit11,Credit12,Credit13,Accountingtestshort2" +
                     ",Taxbracket1,Taxbracket2,Taxbracket3,Rate1,Rate2,Rate3,Amount1,Amount2,Amount3,Totalincometax,Booktitle1,Booktitle2,Booktitle3,Booktitle4,Bookdebit1,Bookdebit2,Bookdebit3,Bookdebit4,Bookcredit1,Bookcredit2,Bookcredit3,Bookcredit4,Balancebook,Banktitle1,Banktitle2,Banktitle3,Banktitle4,Banktitle5,Banktitle6,Banktitle7,Bankdebit1,Bankdebit2,Bankdebit3,Bankdebit4,Bankdebit5,Bankdebit6,Bankdebit7,Bankcredit1,Bankcredit2,Bankcredit3,Bankcredit4,Bankcredit5,Bankcredit6,Bankcredit7,Balancebank" +
                     ",Asset1,Asset2,Asset3,Asset4,Asset5,Asset6,Asset7,Debitasset1,Debitasset2,Debitasset3,Debitasset4,Debitasset5,Debitasset6,Debitasset7,Creditasset1,Creditasset2,Creditasset3,Creditasset4,Creditasset5,Creditasset6,Creditasset7,Totalasset,Equity1,Equity2,Equity3,Equity4,Equity5,Equity6,Equity7,Equity8,Debitequity1,Debitequity2,Debitequity3,Debitequity4,Debitequity5,Debitequity6,Debitequity7,Debitequity8,Creditequity1,Creditequity2,Creditequity3,Creditequity4,Creditequity5,Creditequity6,Creditequity7,Creditequity8,Totalequity)" +
@@ -436,7 +437,7 @@ namespace HRIS.Controllers
                 sqlCmds.ExecuteNonQuery();
                 Session["timer"] = null;
             }
-            return RedirectToAction("End");
+            return RedirectToAction("Essay");
         }
 
 
@@ -450,7 +451,7 @@ namespace HRIS.Controllers
         {
             string mainconn = @"Data Source=192.168.102.18;Initial Catalog=HRIS;Persist Security Info=True;User ID=panoramic;Password=GoLegal100;";
             SqlConnection sqlconn = new SqlConnection(mainconn);
-            string sqlquery = " select Applicant_ExamNo, FirstName, LastName, JobTitle, MasterlistID from Masterlist where Applicant_ExamNo = @Applicant_ExamNo";
+            string sqlquery = " select Applicant_ExamNo, FirstName, LastName, JobTitle, MasterlistID, Applicant_TookExam from Masterlist where Applicant_ExamNo = @Applicant_ExamNo";
             sqlconn.Open();
             SqlCommand sqlcomm = new SqlCommand(sqlquery, sqlconn);
             sqlcomm.Parameters.AddWithValue("@Applicant_ExamNo", lg.Applicant_ExamNo);
@@ -464,11 +465,18 @@ namespace HRIS.Controllers
             {
                 for (int i = 0; i < Logins.Rows.Count; i++)
                 {
+                    if (Logins.Rows[i][5].ToString() == "1")
+                    {
+                        TempData["Message"] = "You already have taken the Exam!";
+                        return View();
+                    }
+                    else { 
                     Session["Applicant_ExamNo"] = Logins.Rows[i][0];
                     Session["FirstName"] = Logins.Rows[i][1];
                     Session["LastName"] = Logins.Rows[i][2];
                     Session["JobTitle"] = Logins.Rows[i][3];
                     Session["MasterlistID"] = Logins.Rows[i][4];
+                    }
                 }
                     return RedirectToAction("IQtest", "Exam");
             }
