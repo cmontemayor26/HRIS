@@ -2,7 +2,7 @@
 @{
     if (Session["timer"] == null)
     {
-        Session["timer"] = DateTime.UtcNow.AddSeconds(1800);
+        Session["timer"] = DateTime.UtcNow.AddSeconds(1200);
     }
     Layout = null;
 
@@ -58,7 +58,7 @@
         @Html.AntiForgeryToken()
         <div class="container">
             <div class="card shadow-lg">
-                <div class="card-header sticky-top text-white" style="background-color: #C59566;">
+                <div class="card-header sticky-top text-black" style="background-image: url('../images/bgheader.png');background-repeat: no-repeat;background-attachment: fixed;">
                     <label class="control-label font-weight-bold text-justify">
                         This test aims to assess your capabilities to process complex problems in a time pressured environment.  This test consists of understanding your abilities to follow instructions, English comprehension, mathematical skills, attention to details and logic processing.  Please read each question carefully, encircle the letter which you feel is the best answer. For some questions, fill in the blank with the correct answer.
                         <br>Time remaining: <span id="minRemaining"></span>:<span id="secRemaining"></span><input type="hidden" name="minRemaining" id="minRemaining"><input type="hidden" name="secRemaining" id="secRemaining">
@@ -580,7 +580,7 @@
             var hash = window.location.hash;
             var loc = window.location.href.replace(hash, '');
             loc += (loc.indexOf('?') < 0 ? '?' : '&') + 'r';
-            setTimeout(function () { window.location.href = loc + hash; }, 0900);
+            setTimeout(function () { window.location.href = loc + hash; }, 0300);
         }
 
     </script>
