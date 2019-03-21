@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EssayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HRIS.dbo.Essay_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Essay_View">
+          <Key>
+            <PropertyRef Name="EssayID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="EssayID" Type="int" Nullable="false" />
+          <Property Name="ApplicantID" Type="int" Nullable="false" />
+          <Property Name="Essay1" Type="varchar(max)" />
+          <Property Name="Essay2" Type="varchar(max)" />
+          <Property Name="Essay3" Type="varchar(max)" />
+          <Property Name="Essay4" Type="varchar(max)" />
+          <Property Name="Essay5" Type="varchar(max)" />
+          <Property Name="Essay6" Type="varchar(max)" />
+          <Property Name="Essay7" Type="varchar(max)" />
+          <Property Name="Essay8" Type="varchar(max)" />
+          <Property Name="Essay9" Type="varchar(max)" />
+          <Property Name="Essay10" Type="varchar(max)" />
+          <Property Name="Essay11" Type="varchar(max)" />
+          <Property Name="Essay12" Type="varchar(max)" />
+          <Property Name="Essay13" Type="varchar(max)" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityContainer Name="EssayModelStoreContainer">
+          <EntitySet Name="Essay_View" EntityType="Self.Essay_View" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Essay_View].[EssayID] AS [EssayID], 
+    [Essay_View].[ApplicantID] AS [ApplicantID], 
+    [Essay_View].[Essay1] AS [Essay1], 
+    [Essay_View].[Essay2] AS [Essay2], 
+    [Essay_View].[Essay3] AS [Essay3], 
+    [Essay_View].[Essay4] AS [Essay4], 
+    [Essay_View].[Essay5] AS [Essay5], 
+    [Essay_View].[Essay6] AS [Essay6], 
+    [Essay_View].[Essay7] AS [Essay7], 
+    [Essay_View].[Essay8] AS [Essay8], 
+    [Essay_View].[Essay9] AS [Essay9], 
+    [Essay_View].[Essay10] AS [Essay10], 
+    [Essay_View].[Essay11] AS [Essay11], 
+    [Essay_View].[Essay12] AS [Essay12], 
+    [Essay_View].[Essay13] AS [Essay13], 
+    [Essay_View].[FirstName] AS [FirstName], 
+    [Essay_View].[MiddleName] AS [MiddleName], 
+    [Essay_View].[LastName] AS [LastName], 
+    [Essay_View].[JobTitle] AS [JobTitle]
+    FROM [dbo].[Essay_View] AS [Essay_View]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EssayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Essay_View">
+          <Key>
+            <PropertyRef Name="EssayID" />
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="EssayID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicantID" Type="Int32" Nullable="false" />
+          <Property Name="Essay1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay4" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay5" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay6" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay7" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay8" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay9" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay10" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay11" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay12" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Essay13" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="HRISEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Essay_View" EntityType="Self.Essay_View" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EssayModelStoreContainer" CdmEntityContainer="HRISEntities1">
+          <EntitySetMapping Name="Essay_View">
+            <EntityTypeMapping TypeName="EssayModel.Essay_View">
+              <MappingFragment StoreEntitySet="Essay_View">
+                <ScalarProperty Name="EssayID" ColumnName="EssayID" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="Essay1" ColumnName="Essay1" />
+                <ScalarProperty Name="Essay2" ColumnName="Essay2" />
+                <ScalarProperty Name="Essay3" ColumnName="Essay3" />
+                <ScalarProperty Name="Essay4" ColumnName="Essay4" />
+                <ScalarProperty Name="Essay5" ColumnName="Essay5" />
+                <ScalarProperty Name="Essay6" ColumnName="Essay6" />
+                <ScalarProperty Name="Essay7" ColumnName="Essay7" />
+                <ScalarProperty Name="Essay8" ColumnName="Essay8" />
+                <ScalarProperty Name="Essay9" ColumnName="Essay9" />
+                <ScalarProperty Name="Essay10" ColumnName="Essay10" />
+                <ScalarProperty Name="Essay11" ColumnName="Essay11" />
+                <ScalarProperty Name="Essay12" ColumnName="Essay12" />
+                <ScalarProperty Name="Essay13" ColumnName="Essay13" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
