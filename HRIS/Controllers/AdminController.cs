@@ -78,6 +78,7 @@ namespace HRIS.Controllers
             MasterListEntities master = new MasterListEntities();
             return View(master.Masterlists.ToList().ToPagedList(i ?? 1, 10));
         }
+
         public ActionResult Reports(string Reportype)
         {
             LocalReport localreport = new LocalReport();
@@ -110,6 +111,7 @@ namespace HRIS.Controllers
 
             return File(renderedByte, fileNameExtension);
         }
+
         public ActionResult Dashboard()
         {
             return View();
@@ -618,7 +620,7 @@ namespace HRIS.Controllers
             return View();
         }
 
-        public ActionResult ExamList(int? MasterListID, int? i)
+        public ActionResult ExamList(int? MasterListID, int? i, string JobPosition, string Firstname, string Lastname)
         {
             MasterListEntities master = new MasterListEntities();
             var item = master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10);
@@ -627,6 +629,7 @@ namespace HRIS.Controllers
             DataTable dtblIQtest = new DataTable();
             DataTable dtblQuestions = new DataTable();
             DataTable dtblAccountant = new DataTable();
+            DataTable dtblEssay = new DataTable();
             if (MasterListID == null)
             {
                 return View(master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
@@ -643,9 +646,15 @@ namespace HRIS.Controllers
                 SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
                 sqlDas.Fill(dtblQuestions);
 
-                string queryss = "SELECT * FROM Accountingtest";
+                string queryss = "SELECT * FROM Accountingtest Where ApplicantID = @MasterListID";
                 SqlDataAdapter sqlDass = new SqlDataAdapter(queryss, sqlCon);
+                sqlDass.SelectCommand.Parameters.AddWithValue("@MasterListID", MasterListID);
                 sqlDass.Fill(dtblAccountant);
+
+                string querysss = "SELECT * FROM Essay Where ApplicantID = @MasterListID";
+                SqlDataAdapter sqlDasss = new SqlDataAdapter(querysss, sqlCon);
+                sqlDasss.SelectCommand.Parameters.AddWithValue("@MasterListID", MasterListID);
+                sqlDasss.Fill(dtblEssay);
             }
             if (dtblIQtest.Rows.Count >= 1)
             {
@@ -711,28 +720,50 @@ namespace HRIS.Controllers
                 ViewBag.Q29 = dtblQuestions.Rows[0][29].ToString();
                 ViewBag.Q30 = dtblQuestions.Rows[0][30].ToString();
 
-                ViewBag.Accountant1 = dtblAccountant.Rows[0][2].ToString();
-                ViewBag.AccountantS1 = dtblAccountant.Rows[0][2].ToString();
-                ViewBag.Accountant2 = dtblAccountant.Rows[0][3].ToString();
-                ViewBag.Accountant31 = dtblAccountant.Rows[0][4].ToString();
-                ViewBag.AccountantS31 = dtblAccountant.Rows[0][5].ToString();
-                ViewBag.Accountant32 = dtblAccountant.Rows[0][5].ToString();
-                ViewBag.AccountantS32 = dtblAccountant.Rows[0][7].ToString();
-                ViewBag.Accountant33 = dtblAccountant.Rows[0][6].ToString();
-                ViewBag.AccountantS33 = dtblAccountant.Rows[0][9].ToString();
-                ViewBag.Accountant4 = dtblAccountant.Rows[0][7].ToString();
-                ViewBag.AccountantS4 = dtblAccountant.Rows[0][11].ToString();
-                ViewBag.Accountant5 = dtblAccountant.Rows[0][8].ToString();
-                ViewBag.Accountant6 = dtblAccountant.Rows[0][9].ToString();
-                ViewBag.Accountant7 = dtblAccountant.Rows[0][10].ToString();
-                ViewBag.AccountantS7 = dtblAccountant.Rows[0][15].ToString();
-                ViewBag.Accountant8 = dtblAccountant.Rows[0][16].ToString();
-                ViewBag.AccountantS8 = dtblAccountant.Rows[0][16].ToString();
-                ViewBag.Accountant9 = dtblAccountant.Rows[0][16].ToString();
-                ViewBag.Accountant10 = dtblAccountant.Rows[0][16].ToString();
-                ViewBag.AccountantS10 = dtblAccountant.Rows[0][16].ToString();
+                if (JobPosition == "Associate Accountant" || JobPosition == "Senior Accountant")
+                {
+                    ViewBag.Accountant1 = dtblAccountant.Rows[0][2].ToString();
+                    ViewBag.AccountantS1 = dtblAccountant.Rows[0][14].ToString();
+                    ViewBag.Accountant2 = dtblAccountant.Rows[0][3].ToString();
+                    ViewBag.Accountant31 = dtblAccountant.Rows[0][4].ToString();
+                    ViewBag.AccountantS31 = dtblAccountant.Rows[0][15].ToString();
+                    ViewBag.Accountant32 = dtblAccountant.Rows[0][5].ToString();
+                    ViewBag.AccountantS32 = dtblAccountant.Rows[0][16].ToString();
+                    ViewBag.Accountant33 = dtblAccountant.Rows[0][6].ToString();
+                    ViewBag.AccountantS33 = dtblAccountant.Rows[0][17].ToString();
+                    ViewBag.Accountant4 = dtblAccountant.Rows[0][7].ToString();
+                    ViewBag.AccountantS4 = dtblAccountant.Rows[0][18].ToString();
+                    ViewBag.Accountant5 = dtblAccountant.Rows[0][8].ToString();
+                    ViewBag.Accountant6 = dtblAccountant.Rows[0][9].ToString();
+                    ViewBag.Accountant7 = dtblAccountant.Rows[0][10].ToString();
+                    ViewBag.AccountantS7 = dtblAccountant.Rows[0][19].ToString();
+                    ViewBag.Accountant8 = dtblAccountant.Rows[0][11].ToString();
+                    ViewBag.AccountantS8 = dtblAccountant.Rows[0][20].ToString();
+                    ViewBag.Accountant9 = dtblAccountant.Rows[0][12].ToString();
+                    ViewBag.Accountant10 = dtblAccountant.Rows[0][13].ToString();
+                    ViewBag.AccountantS10 = dtblAccountant.Rows[0][21].ToString();
+                }
+                else {
+                    ViewBag.Essay1 = dtblEssay.Rows[0][2].ToString();
+                    ViewBag.Essay2 = dtblEssay.Rows[0][3].ToString();
+                    ViewBag.Essay3 = dtblEssay.Rows[0][4].ToString();
+                    ViewBag.Essay4 = dtblEssay.Rows[0][5].ToString();
+                    ViewBag.Essay5 = dtblEssay.Rows[0][6].ToString();
+                    ViewBag.Essay6 = dtblEssay.Rows[0][7].ToString();
+                    ViewBag.Essay7 = dtblEssay.Rows[0][8].ToString();
+                    ViewBag.Essay8 = dtblEssay.Rows[0][9].ToString();
+                    ViewBag.Essay9 = dtblEssay.Rows[0][10].ToString();
+                    ViewBag.Essay10 = dtblEssay.Rows[0][11].ToString();
+                    ViewBag.Essay11 = dtblEssay.Rows[0][12].ToString();
+                    ViewBag.Essay12 = dtblEssay.Rows[0][13].ToString();
+                    ViewBag.Essay13 = dtblEssay.Rows[0][14].ToString();
+
+                }
 
                 ViewBag.MasterlistID = MasterListID;
+                ViewBag.JobPosition = JobPosition;
+                ViewBag.Firstname = Firstname;
+                ViewBag.Lastname = Lastname;
                 TempData["MasterlistID"] = "1";
                 return View(master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
 
@@ -742,6 +773,66 @@ namespace HRIS.Controllers
             {
                 return RedirectToAction("ExamList",master.Masterlists.ToList().Where(x => x.EmploymentStatus == "Applicant").ToPagedList(i ?? 1, 10));
             }
+        }
+
+        public ActionResult ExamReport(string Reportype, int? MasterListID, string JobPosition, string Firstname, string Lastname)
+        {
+            IQtestExamEntities iqtest = new IQtestExamEntities();
+            EssayEntities essay = new EssayEntities();
+            AccoutanttestEntities accountant = new AccoutanttestEntities();
+            LocalReport localreport = new LocalReport();
+            if (JobPosition == "Associate Accountant" || JobPosition == "Senior Accountant")
+            {
+                localreport.ReportPath = Server.MapPath("~/Reports/Accountanttest.rdlc");
+
+                ReportDataSource reportDataSource = new ReportDataSource();
+                ReportDataSource reportDataSource1 = new ReportDataSource();
+                reportDataSource.Name = "IQtestExamDataSet";
+                reportDataSource1.Name = "AccountantTestDataSet";
+
+                reportDataSource.Value = iqtest.IQtest_View.Where(x => x.ApplicantID == MasterListID).ToList();
+                reportDataSource1.Value = accountant.Accountant_View.Where(x => x.ApplicantID == MasterListID).ToList();
+
+                localreport.DataSources.Add(reportDataSource);
+                localreport.DataSources.Add(reportDataSource1);
+
+            }
+            else { 
+            localreport.ReportPath = Server.MapPath("~/Reports/ExamReport.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            ReportDataSource reportDataSource1 = new ReportDataSource();
+            reportDataSource.Name = "IQtestExamDataSet";
+            reportDataSource1.Name = "EssayDataSets";
+
+            reportDataSource.Value = iqtest.IQtest_View.Where(x => x.ApplicantID == MasterListID).ToList();
+            reportDataSource1.Value = essay.Essay_View.Where(x => x.ApplicantID == MasterListID).ToList();
+
+            localreport.DataSources.Add(reportDataSource);
+            localreport.DataSources.Add(reportDataSource1);
+            }
+            string reportType = Reportype;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+            if (reportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+            else if (reportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderedByte;
+            renderedByte = localreport.Render(reportType, null, out mimeType, out encoding, out fileNameExtension, out streams, out warnings);
+            string date = DateTime.Now.Date.ToShortDateString();
+            string name = Firstname + "_" + Lastname + "_" + date;
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + name + "." + fileNameExtension);
+
+            return File(renderedByte, fileNameExtension);
         }
 
     }
