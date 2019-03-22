@@ -383,6 +383,12 @@ namespace HRIS.Controllers
             }
             return View();
         }
+
+        public ActionResult AccountingIntro()
+        {
+            return View();
+        }
+
         public ActionResult End()
         {
             return View();
@@ -567,6 +573,10 @@ namespace HRIS.Controllers
             return RedirectToAction("Essay");
         }
 
+        public ActionResult EssayIntro()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Login()
