@@ -351,6 +351,8 @@ namespace HRIS {
             
             private global::System.Data.DataColumn columnJobTitle;
             
+            private global::System.Data.DataColumn columnscore;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public IQtest_ViewDataTable() {
@@ -674,6 +676,14 @@ namespace HRIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn scoreColumn {
+                get {
+                    return this.columnscore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -745,7 +755,8 @@ namespace HRIS {
                         string FirstName, 
                         string MiddleName, 
                         string LastName, 
-                        string JobTitle) {
+                        string JobTitle, 
+                        string score) {
                 IQtest_ViewRow rowIQtest_ViewRow = ((IQtest_ViewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IQtestID,
@@ -783,7 +794,8 @@ namespace HRIS {
                         FirstName,
                         MiddleName,
                         LastName,
-                        JobTitle};
+                        JobTitle,
+                        score};
                 rowIQtest_ViewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIQtest_ViewRow);
                 return rowIQtest_ViewRow;
@@ -849,6 +861,7 @@ namespace HRIS {
                 this.columnMiddleName = base.Columns["MiddleName"];
                 this.columnLastName = base.Columns["LastName"];
                 this.columnJobTitle = base.Columns["JobTitle"];
+                this.columnscore = base.Columns["score"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -926,6 +939,8 @@ namespace HRIS {
                 base.Columns.Add(this.columnLastName);
                 this.columnJobTitle = new global::System.Data.DataColumn("JobTitle", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnJobTitle);
+                this.columnscore = new global::System.Data.DataColumn("score", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnscore);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIQtestID}, true));
                 this.columnIQtestID.AllowDBNull = false;
@@ -965,6 +980,7 @@ namespace HRIS {
                 this.columnMiddleName.MaxLength = 25;
                 this.columnLastName.MaxLength = 25;
                 this.columnJobTitle.MaxLength = 40;
+                this.columnscore.MaxLength = 5;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1673,6 +1689,22 @@ namespace HRIS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string score {
+                get {
+                    try {
+                        return ((string)(this[this.tableIQtest_View.scoreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'score\' in table \'IQtest_View\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIQtest_View.scoreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsIQtest1Null() {
                 return this.IsNull(this.tableIQtest_View.IQtest1Column);
             }
@@ -2078,6 +2110,18 @@ namespace HRIS {
             public void SetJobTitleNull() {
                 this[this.tableIQtest_View.JobTitleColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsscoreNull() {
+                return this.IsNull(this.tableIQtest_View.scoreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetscoreNull() {
+                this[this.tableIQtest_View.scoreColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2275,6 +2319,7 @@ namespace HRIS.IQtestExamDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("MiddleName", "MiddleName");
             tableMapping.ColumnMappings.Add("LastName", "LastName");
             tableMapping.ColumnMappings.Add("JobTitle", "JobTitle");
+            tableMapping.ColumnMappings.Add("score", "score");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2291,7 +2336,7 @@ namespace HRIS.IQtestExamDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT IQtestID, ApplicantID, IQtest1, IQtest2, IQtest3, IQtest4, IQtest5, IQtest6, IQtest7, IQtest8, IQtest9, IQtest10, IQtest11, IQtest12, IQtest13, IQtest14, IQtest15, IQtest16, IQtest17, IQtest18, IQtest19, IQtest20, IQtest21, IQtest22, IQtest23, IQtest24, IQtest25, IQtest26, IQtest27, IQtest28, IQtest29, IQtest30, FirstName, MiddleName, LastName, JobTitle FROM dbo.IQtest_View";
+            this._commandCollection[0].CommandText = @"SELECT IQtestID, ApplicantID, IQtest1, IQtest2, IQtest3, IQtest4, IQtest5, IQtest6, IQtest7, IQtest8, IQtest9, IQtest10, IQtest11, IQtest12, IQtest13, IQtest14, IQtest15, IQtest16, IQtest17, IQtest18, IQtest19, IQtest20, IQtest21, IQtest22, IQtest23, IQtest24, IQtest25, IQtest26, IQtest27, IQtest28, IQtest29, IQtest30, FirstName, MiddleName, LastName, JobTitle, score FROM dbo.IQtest_View";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

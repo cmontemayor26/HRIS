@@ -11,8 +11,8 @@
             <MainSource>
               <DbSource ConnectionRef="HRISConnectionString (Web.config)" DbObjectName="HRIS.dbo.IQtest_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IQtestID, ApplicantID, IQtest1, IQtest2, IQtest3, IQtest4, IQtest5, IQtest6, IQtest7, IQtest8, IQtest9, IQtest10, IQtest11, IQtest12, IQtest13, IQtest14, IQtest15, IQtest16, IQtest17, IQtest18, IQtest19, IQtest20, IQtest21, IQtest22, IQtest23, IQtest24, IQtest25, IQtest26, IQtest27, IQtest28, IQtest29, IQtest30, FirstName, MiddleName, LastName, JobTitle FROM dbo.IQtest_View</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT IQtestID, ApplicantID, IQtest1, IQtest2, IQtest3, IQtest4, IQtest5, IQtest6, IQtest7, IQtest8, IQtest9, IQtest10, IQtest11, IQtest12, IQtest13, IQtest14, IQtest15, IQtest16, IQtest17, IQtest18, IQtest19, IQtest20, IQtest21, IQtest22, IQtest23, IQtest24, IQtest25, IQtest26, IQtest27, IQtest28, IQtest29, IQtest30, FirstName, MiddleName, LastName, JobTitle, score FROM dbo.IQtest_View</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -55,6 +55,7 @@
               <Mapping SourceColumn="MiddleName" DataSetColumn="MiddleName" />
               <Mapping SourceColumn="LastName" DataSetColumn="LastName" />
               <Mapping SourceColumn="JobTitle" DataSetColumn="JobTitle" />
+              <Mapping SourceColumn="score" DataSetColumn="score" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -66,7 +67,7 @@
   <xs:element name="IQtestExamDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="IQtestExamDataSet" msprop:Generator_UserDSName="IQtestExamDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="IQtest_View" msprop:Generator_TableClassName="IQtest_ViewDataTable" msprop:Generator_TableVarName="tableIQtest_View" msprop:Generator_TablePropName="IQtest_View" msprop:Generator_RowDeletingName="IQtest_ViewRowDeleting" msprop:Generator_RowChangingName="IQtest_ViewRowChanging" msprop:Generator_RowEvHandlerName="IQtest_ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="IQtest_ViewRowDeleted" msprop:Generator_UserTableName="IQtest_View" msprop:Generator_RowChangedName="IQtest_ViewRowChanged" msprop:Generator_RowEvArgName="IQtest_ViewRowChangeEvent" msprop:Generator_RowClassName="IQtest_ViewRow">
+        <xs:element name="IQtest_View" msprop:Generator_TableClassName="IQtest_ViewDataTable" msprop:Generator_TableVarName="tableIQtest_View" msprop:Generator_RowChangedName="IQtest_ViewRowChanged" msprop:Generator_TablePropName="IQtest_View" msprop:Generator_RowDeletingName="IQtest_ViewRowDeleting" msprop:Generator_RowChangingName="IQtest_ViewRowChanging" msprop:Generator_RowEvHandlerName="IQtest_ViewRowChangeEventHandler" msprop:Generator_RowDeletedName="IQtest_ViewRowDeleted" msprop:Generator_RowClassName="IQtest_ViewRow" msprop:Generator_UserTableName="IQtest_View" msprop:Generator_RowEvArgName="IQtest_ViewRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IQtestID" msprop:Generator_ColumnVarNameInTable="columnIQtestID" msprop:Generator_ColumnPropNameInRow="IQtestID" msprop:Generator_ColumnPropNameInTable="IQtestIDColumn" msprop:Generator_UserColumnName="IQtestID" type="xs:int" />
@@ -306,6 +307,13 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="score" msprop:Generator_ColumnVarNameInTable="columnscore" msprop:Generator_ColumnPropNameInRow="score" msprop:Generator_ColumnPropNameInTable="scoreColumn" msprop:Generator_UserColumnName="score" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
