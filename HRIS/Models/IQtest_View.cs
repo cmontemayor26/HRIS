@@ -50,5 +50,6 @@ namespace HRIS.Models
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string JobTitle { get; set; }
+        public string score { get; set; }
     }
 }
