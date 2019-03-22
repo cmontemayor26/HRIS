@@ -27,7 +27,7 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Essay(ApplicantID,Essay1,Essay2,Essay3,Essay4,Essay5,Essay6,Essay7,Essay8,Essay9,Essay10,Essay11,Essay12,Essay13)" +
+                string query = "INSERT INTO Exam_Essay(ApplicantID,Essay1,Essay2,Essay3,Essay4,Essay5,Essay6,Essay7,Essay8,Essay9,Essay10,Essay11,Essay12,Essay13)" +
                         "VALUES(@ApplicantID,@Essay1,@Essay2,@Essay3,@Essay4,@Essay5,@Essay6,@Essay7,@Essay8,@Essay9,@Essay10,@Essay11,@Essay12,@Essay13)";
                 SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@ApplicantID", Session["MasterlistID"].ToString());
@@ -62,11 +62,11 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "SELECT * from Answers";
+                string query = "SELECT * from Exam_IQtest_Answers";
                 SqlDataAdapter sqlDa = new SqlDataAdapter(query, sqlCon);
                 sqlDa.Fill(dtblAnswers);
 
-                string querys = "SELECT * from Questions";
+                string querys = "SELECT * from Exam_IQtest_Questions";
                 SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
                 sqlDas.Fill(dtblQuestions);
             }
@@ -197,14 +197,14 @@ namespace HRIS.Controllers
             }
         }
         [HttpPost]
-        public ActionResult IQtest1(IQtest iqtest)
+        public ActionResult IQtest1(Exam_IQtest iqtest)
         {
             DataTable dtblAnswers = new DataTable();
 
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string querys = "SELECT * from Answers";
+                string querys = "SELECT * from Exam_IQtest_Answers";
                 SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
                 sqlDas.Fill(dtblAnswers);
 
@@ -328,7 +328,7 @@ namespace HRIS.Controllers
                 if (iqtest.IQtest30 == ViewBag.Answer_Q30_1) { scores = scores + 1; }
 
 
-                string query = "INSERT INTO IQtest(ApplicantID,IQtest1,IQtest2,IQtest3,IQtest4,IQtest5,IQtest6,IQtest7,IQtest8,IQtest9,IQtest10,IQtest11,IQtest12,IQtest13,IQtest14,IQtest15,IQtest16,IQtest17,IQtest18,IQtest19,IQtest20,IQtest21,IQtest22,IQtest23,IQtest24,IQtest25,IQtest26,IQtest27,IQtest28,IQtest29,IQtest30,score)" +
+                string query = "INSERT INTO Exam_IQtest(ApplicantID,IQtest1,IQtest2,IQtest3,IQtest4,IQtest5,IQtest6,IQtest7,IQtest8,IQtest9,IQtest10,IQtest11,IQtest12,IQtest13,IQtest14,IQtest15,IQtest16,IQtest17,IQtest18,IQtest19,IQtest20,IQtest21,IQtest22,IQtest23,IQtest24,IQtest25,IQtest26,IQtest27,IQtest28,IQtest29,IQtest30,score)" +
                         "VALUES(@ApplicantID,@IQtest1,@IQtest2,@IQtest3,@IQtest4,@IQtest5,@IQtest6,@IQtest7,@IQtest8,@IQtest9,@IQtest10,@IQtest11,@IQtest12,@IQtest13,@IQtest14,@IQtest15,@IQtest16,@IQtest17,@IQtest18,@IQtest19,@IQtest20,@IQtest21,@IQtest22,@IQtest23,@IQtest24,@IQtest25,@IQtest26,@IQtest27,@IQtest28,@IQtest29,@IQtest30,@score)";
                 SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@ApplicantID", Convert.ToInt32(Session["MasterlistID"].ToString()));
@@ -404,7 +404,7 @@ namespace HRIS.Controllers
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO Accountingtest(ApplicantID,Accountingtest1,Accountingtest2,Accountingtest3_1,Accountingtest3_2,Accountingtest3_3,Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,Solution3_1,Solution3_2,Solution3_3,Solution4,Solution7,Solution8,Solution10," +
+                string query = "INSERT INTO Exam_Accountingtest(ApplicantID,Accountingtest1,Accountingtest2,Accountingtest3_1,Accountingtest3_2,Accountingtest3_3,Accountingtest4,Accountingtest5,Accountingtest6,Accountingtest7,Accountingtest8,Accountingtest9,Accountingtest10,Solution1,Solution3_1,Solution3_2,Solution3_3,Solution4,Solution7,Solution8,Solution10," +
                     "Accounttitle1,Accounttitle2,Accounttitle3,Accounttitle4,Accounttitle5,Accounttitle6,Accounttitle7,Accounttitle8,Accounttitle9,Accounttitle10,Accounttitle11,Accounttitle12,Accounttitle13,Debit1,Debit2,Debit3,Debit4,Debit5,Debit6,Debit7,Debit8,Debit9,Debit10,Debit11,Debit12,Debit13,Credit1,Credit2,Credit3,Credit4,Credit5,Credit6,Credit7,Credit8,Credit9,Credit10,Credit11,Credit12,Credit13,Accountingtestshort2" +
                     ",Taxbracket1,Taxbracket2,Taxbracket3,Rate1,Rate2,Rate3,Amount1,Amount2,Amount3,Totalincometax,Booktitle1,Booktitle2,Booktitle3,Booktitle4,Bookdebit1,Bookdebit2,Bookdebit3,Bookdebit4,Bookcredit1,Bookcredit2,Bookcredit3,Bookcredit4,Balancebook,Banktitle1,Banktitle2,Banktitle3,Banktitle4,Banktitle5,Banktitle6,Banktitle7,Bankdebit1,Bankdebit2,Bankdebit3,Bankdebit4,Bankdebit5,Bankdebit6,Bankdebit7,Bankcredit1,Bankcredit2,Bankcredit3,Bankcredit4,Bankcredit5,Bankcredit6,Bankcredit7,Balancebank" +
                     ",Asset1,Asset2,Asset3,Asset4,Asset5,Asset6,Asset7,Debitasset1,Debitasset2,Debitasset3,Debitasset4,Debitasset5,Debitasset6,Debitasset7,Creditasset1,Creditasset2,Creditasset3,Creditasset4,Creditasset5,Creditasset6,Creditasset7,Totalasset,Equity1,Equity2,Equity3,Equity4,Equity5,Equity6,Equity7,Equity8,Debitequity1,Debitequity2,Debitequity3,Debitequity4,Debitequity5,Debitequity6,Debitequity7,Debitequity8,Creditequity1,Creditequity2,Creditequity3,Creditequity4,Creditequity5,Creditequity6,Creditequity7,Creditequity8,Totalequity)" +
