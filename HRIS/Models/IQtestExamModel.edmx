@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HRISModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HRISModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="IQtest_View">
@@ -44,6 +44,7 @@ warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key 
           <Property Name="IQtest28" Type="varchar" MaxLength="100" />
           <Property Name="IQtest29" Type="varchar" MaxLength="50" />
           <Property Name="IQtest30" Type="varchar" MaxLength="50" />
+          <Property Name="score" Type="varchar" MaxLength="5" />
           <Property Name="FirstName" Type="varchar" MaxLength="25" />
           <Property Name="MiddleName" Type="varchar" MaxLength="25" />
           <Property Name="LastName" Type="varchar" MaxLength="25" />
@@ -84,6 +85,7 @@ warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key 
     [IQtest_View].[IQtest28] AS [IQtest28], 
     [IQtest_View].[IQtest29] AS [IQtest29], 
     [IQtest_View].[IQtest30] AS [IQtest30], 
+    [IQtest_View].[score] AS [score], 
     [IQtest_View].[FirstName] AS [FirstName], 
     [IQtest_View].[MiddleName] AS [MiddleName], 
     [IQtest_View].[LastName] AS [LastName], 
@@ -91,8 +93,7 @@ warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key 
     FROM [dbo].[IQtest_View] AS [IQtest_View]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRISModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -137,6 +138,7 @@ warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key 
           <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="JobTitle" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="score" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="IQtestExamEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="IQtest_View" EntityType="Self.IQtest_View" />
@@ -150,6 +152,7 @@ warning 6002: The table/view 'HRIS.dbo.IQtest_View' does not have a primary key 
           <EntitySetMapping Name="IQtest_View">
             <EntityTypeMapping TypeName="HRISModel1.IQtest_View">
               <MappingFragment StoreEntitySet="IQtest_View">
+                <ScalarProperty Name="score" ColumnName="score" />
                 <ScalarProperty Name="IQtestID" ColumnName="IQtestID" />
                 <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
                 <ScalarProperty Name="IQtest1" ColumnName="IQtest1" />
