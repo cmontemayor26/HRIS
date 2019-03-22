@@ -199,11 +199,137 @@ namespace HRIS.Controllers
         [HttpPost]
         public ActionResult IQtest1(IQtest iqtest)
         {
+            DataTable dtblAnswers = new DataTable();
+
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
                 sqlCon.Open();
-                string query = "INSERT INTO IQtest(ApplicantID,IQtest1,IQtest2,IQtest3,IQtest4,IQtest5,IQtest6,IQtest7,IQtest8,IQtest9,IQtest10,IQtest11,IQtest12,IQtest13,IQtest14,IQtest15,IQtest16,IQtest17,IQtest18,IQtest19,IQtest20,IQtest21,IQtest22,IQtest23,IQtest24,IQtest25,IQtest26,IQtest27,IQtest28,IQtest29,IQtest30)" +
-                        "VALUES(@ApplicantID,@IQtest1,@IQtest2,@IQtest3,@IQtest4,@IQtest5,@IQtest6,@IQtest7,@IQtest8,@IQtest9,@IQtest10,@IQtest11,@IQtest12,@IQtest13,@IQtest14,@IQtest15,@IQtest16,@IQtest17,@IQtest18,@IQtest19,@IQtest20,@IQtest21,@IQtest22,@IQtest23,@IQtest24,@IQtest25,@IQtest26,@IQtest27,@IQtest28,@IQtest29,@IQtest30)";
+                string querys = "SELECT * from Answers";
+                SqlDataAdapter sqlDas = new SqlDataAdapter(querys, sqlCon);
+                sqlDas.Fill(dtblAnswers);
+
+                ViewBag.Answer_Q1_1 = dtblAnswers.Rows[0][1].ToString();
+                ViewBag.Answer_Q1_2 = dtblAnswers.Rows[0][2].ToString();
+                ViewBag.Answer_Q1_3 = dtblAnswers.Rows[0][3].ToString();
+                ViewBag.Answer_Q1_4 = dtblAnswers.Rows[0][4].ToString();
+                ViewBag.Answer_Q4_1 = dtblAnswers.Rows[0][5].ToString();
+                ViewBag.Answer_Q4_2 = dtblAnswers.Rows[0][6].ToString();
+                ViewBag.Answer_Q4_3 = dtblAnswers.Rows[0][7].ToString();
+                ViewBag.Answer_Q4_4 = dtblAnswers.Rows[0][8].ToString();
+                ViewBag.Answer_Q6_1 = dtblAnswers.Rows[0][9].ToString();
+                ViewBag.Answer_Q6_2 = dtblAnswers.Rows[0][10].ToString();
+                ViewBag.Answer_Q6_3 = dtblAnswers.Rows[0][11].ToString();
+                ViewBag.Answer_Q6_4 = dtblAnswers.Rows[0][12].ToString();
+                ViewBag.Answer_Q8_1 = dtblAnswers.Rows[0][13].ToString();
+                ViewBag.Answer_Q8_2 = dtblAnswers.Rows[0][14].ToString();
+                ViewBag.Answer_Q8_3 = dtblAnswers.Rows[0][15].ToString();
+                ViewBag.Answer_Q8_4 = dtblAnswers.Rows[0][16].ToString();
+                ViewBag.Answer_Q9_1 = dtblAnswers.Rows[0][17].ToString();
+                ViewBag.Answer_Q9_2 = dtblAnswers.Rows[0][18].ToString();
+                ViewBag.Answer_Q9_3 = dtblAnswers.Rows[0][19].ToString();
+                ViewBag.Answer_Q9_4 = dtblAnswers.Rows[0][20].ToString();
+                ViewBag.Answer_Q10_1 = dtblAnswers.Rows[0][21].ToString();
+                ViewBag.Answer_Q10_2 = dtblAnswers.Rows[0][22].ToString();
+                ViewBag.Answer_Q10_3 = dtblAnswers.Rows[0][23].ToString();
+                ViewBag.Answer_Q10_4 = dtblAnswers.Rows[0][24].ToString();
+                ViewBag.Answer_Q11_1 = dtblAnswers.Rows[0][25].ToString();
+                ViewBag.Answer_Q11_2 = dtblAnswers.Rows[0][26].ToString();
+                ViewBag.Answer_Q11_3 = dtblAnswers.Rows[0][27].ToString();
+                ViewBag.Answer_Q11_4 = dtblAnswers.Rows[0][28].ToString();
+                ViewBag.Answer_Q14_1 = dtblAnswers.Rows[0][29].ToString();
+                ViewBag.Answer_Q14_2 = dtblAnswers.Rows[0][30].ToString();
+                ViewBag.Answer_Q14_3 = dtblAnswers.Rows[0][31].ToString();
+                ViewBag.Answer_Q14_4 = dtblAnswers.Rows[0][32].ToString();
+                ViewBag.Answer_Q16_1 = dtblAnswers.Rows[0][33].ToString();
+                ViewBag.Answer_Q16_2 = dtblAnswers.Rows[0][34].ToString();
+                ViewBag.Answer_Q16_3 = dtblAnswers.Rows[0][35].ToString();
+                ViewBag.Answer_Q16_4 = dtblAnswers.Rows[0][36].ToString();
+                ViewBag.Answer_Q17_1 = dtblAnswers.Rows[0][37].ToString();
+                ViewBag.Answer_Q17_2 = dtblAnswers.Rows[0][38].ToString();
+                ViewBag.Answer_Q17_3 = dtblAnswers.Rows[0][39].ToString();
+                ViewBag.Answer_Q17_4 = dtblAnswers.Rows[0][40].ToString();
+                ViewBag.Answer_Q18_1 = dtblAnswers.Rows[0][41].ToString();
+                ViewBag.Answer_Q18_2 = dtblAnswers.Rows[0][42].ToString();
+                ViewBag.Answer_Q18_3 = dtblAnswers.Rows[0][43].ToString();
+                ViewBag.Answer_Q18_4 = dtblAnswers.Rows[0][44].ToString();
+                ViewBag.Answer_Q19_1 = dtblAnswers.Rows[0][45].ToString();
+                ViewBag.Answer_Q19_2 = dtblAnswers.Rows[0][46].ToString();
+                ViewBag.Answer_Q19_3 = dtblAnswers.Rows[0][47].ToString();
+                ViewBag.Answer_Q19_4 = dtblAnswers.Rows[0][48].ToString();
+                ViewBag.Answer_Q20_1 = dtblAnswers.Rows[0][49].ToString();
+                ViewBag.Answer_Q20_2 = dtblAnswers.Rows[0][50].ToString();
+                ViewBag.Answer_Q20_3 = dtblAnswers.Rows[0][51].ToString();
+                ViewBag.Answer_Q20_4 = dtblAnswers.Rows[0][52].ToString();
+                ViewBag.Answer_Q21_1 = dtblAnswers.Rows[0][53].ToString();
+                ViewBag.Answer_Q21_2 = dtblAnswers.Rows[0][54].ToString();
+                ViewBag.Answer_Q21_3 = dtblAnswers.Rows[0][55].ToString();
+                ViewBag.Answer_Q21_4 = dtblAnswers.Rows[0][56].ToString();
+                ViewBag.Answer_Q22_1 = dtblAnswers.Rows[0][57].ToString();
+                ViewBag.Answer_Q22_2 = dtblAnswers.Rows[0][58].ToString();
+                ViewBag.Answer_Q22_3 = dtblAnswers.Rows[0][59].ToString();
+                ViewBag.Answer_Q22_4 = dtblAnswers.Rows[0][60].ToString();
+                ViewBag.Answer_Q24_1 = dtblAnswers.Rows[0][61].ToString();
+                ViewBag.Answer_Q24_2 = dtblAnswers.Rows[0][62].ToString();
+                ViewBag.Answer_Q24_3 = dtblAnswers.Rows[0][63].ToString();
+                ViewBag.Answer_Q24_4 = dtblAnswers.Rows[0][64].ToString();
+                ViewBag.Answer_Q25_1 = dtblAnswers.Rows[0][65].ToString();
+                ViewBag.Answer_Q25_2 = dtblAnswers.Rows[0][66].ToString();
+                ViewBag.Answer_Q25_3 = dtblAnswers.Rows[0][67].ToString();
+                ViewBag.Answer_Q25_4 = dtblAnswers.Rows[0][68].ToString();
+                ViewBag.Answer_Q26_1 = dtblAnswers.Rows[0][69].ToString();
+                ViewBag.Answer_Q26_2 = dtblAnswers.Rows[0][70].ToString();
+                ViewBag.Answer_Q26_3 = dtblAnswers.Rows[0][71].ToString();
+                ViewBag.Answer_Q26_4 = dtblAnswers.Rows[0][72].ToString();
+                ViewBag.Answer_Q28_1 = dtblAnswers.Rows[0][73].ToString();
+                ViewBag.Answer_Q28_2 = dtblAnswers.Rows[0][74].ToString();
+                ViewBag.Answer_Q28_3 = dtblAnswers.Rows[0][75].ToString();
+                ViewBag.Answer_Q28_4 = dtblAnswers.Rows[0][76].ToString();
+                ViewBag.Answer_Q29_1 = dtblAnswers.Rows[0][77].ToString();
+                ViewBag.Answer_Q29_2 = dtblAnswers.Rows[0][78].ToString();
+                ViewBag.Answer_Q29_3 = dtblAnswers.Rows[0][79].ToString();
+                ViewBag.Answer_Q29_4 = dtblAnswers.Rows[0][80].ToString();
+                ViewBag.Answer_Q30_1 = dtblAnswers.Rows[0][81].ToString();
+                ViewBag.Answer_Q30_2 = dtblAnswers.Rows[0][82].ToString();
+                ViewBag.Answer_Q30_3 = dtblAnswers.Rows[0][83].ToString();
+                ViewBag.Answer_Q30_4 = dtblAnswers.Rows[0][84].ToString();
+
+
+
+                int scores = 0;
+                if (iqtest.IQtest1 == ViewBag.Answer_Q1_3) { scores = scores + 1; }
+                if (iqtest.IQtest2 == "10") { scores = scores + 1; }
+                if (iqtest.IQtest3 == "Match") { scores = scores + 1; }
+                if (iqtest.IQtest4 == ViewBag.Answer_Q4_3) { scores = scores + 1; }
+                if (iqtest.IQtest5 == "12") { scores = scores + 1; }
+                if (iqtest.IQtest6 == ViewBag.Answer_Q6_2) { scores = scores + 1; }
+                if (iqtest.IQtest7 == "25") { scores = scores + 1; }
+                if (iqtest.IQtest8 == ViewBag.Answer_Q8_4) { scores = scores + 1; }
+                if (iqtest.IQtest9 == ViewBag.Answer_Q9_1) { scores = scores + 1; }
+                if (iqtest.IQtest10 == ViewBag.Answer_Q10_3) { scores = scores + 1; }
+                if (iqtest.IQtest11 == ViewBag.Answer_Q11_3) { scores = scores + 1; }
+                if (iqtest.IQtest12 == "20") { scores = scores + 1; }
+                if (iqtest.IQtest13 == "14") { scores = scores + 1; }
+                if (iqtest.IQtest14 == ViewBag.Answer_Q14_3) { scores = scores + 1; }
+                if (iqtest.IQtest15 == "63") { scores = scores + 1; }
+                if (iqtest.IQtest16 == ViewBag.Answer_Q16_1) { scores = scores + 1; }
+                if (iqtest.IQtest17 == ViewBag.Answer_Q17_3) { scores = scores + 1; }
+                if (iqtest.IQtest18 == ViewBag.Answer_Q18_1) { scores = scores + 1; }
+                if (iqtest.IQtest19 == ViewBag.Answer_Q19_3) { scores = scores + 1; }
+                if (iqtest.IQtest20 == ViewBag.Answer_Q20_2) { scores = scores + 1; }
+                if (iqtest.IQtest21 == ViewBag.Answer_Q21_1) { scores = scores + 1; }
+                if (iqtest.IQtest22 == ViewBag.Answer_Q22_3) { scores = scores + 1; }
+                if (iqtest.IQtest23 == "1 hr" || iqtest.IQtest23 == "1 hour") { scores = scores + 1; }
+                if (iqtest.IQtest24 == ViewBag.Answer_Q24_3) { scores = scores + 1; }
+                if (iqtest.IQtest25 == ViewBag.Answer_Q25_3) { scores = scores + 1; }
+                if (iqtest.IQtest26 == ViewBag.Answer_Q26_2) { scores = scores + 1; }
+                if (iqtest.IQtest27 == "80") { scores = scores + 1; }
+                if (iqtest.IQtest28 == ViewBag.Answer_Q28_1) { scores = scores + 1; }
+                if (iqtest.IQtest29 == ViewBag.Answer_Q29_2) { scores = scores + 1; }
+                if (iqtest.IQtest30 == ViewBag.Answer_Q30_1) { scores = scores + 1; }
+
+
+                string query = "INSERT INTO IQtest(ApplicantID,IQtest1,IQtest2,IQtest3,IQtest4,IQtest5,IQtest6,IQtest7,IQtest8,IQtest9,IQtest10,IQtest11,IQtest12,IQtest13,IQtest14,IQtest15,IQtest16,IQtest17,IQtest18,IQtest19,IQtest20,IQtest21,IQtest22,IQtest23,IQtest24,IQtest25,IQtest26,IQtest27,IQtest28,IQtest29,IQtest30,score)" +
+                        "VALUES(@ApplicantID,@IQtest1,@IQtest2,@IQtest3,@IQtest4,@IQtest5,@IQtest6,@IQtest7,@IQtest8,@IQtest9,@IQtest10,@IQtest11,@IQtest12,@IQtest13,@IQtest14,@IQtest15,@IQtest16,@IQtest17,@IQtest18,@IQtest19,@IQtest20,@IQtest21,@IQtest22,@IQtest23,@IQtest24,@IQtest25,@IQtest26,@IQtest27,@IQtest28,@IQtest29,@IQtest30,@score)";
                 SqlCommand sqlCmds = new SqlCommand(query, sqlCon);
                 sqlCmds.Parameters.AddWithValue("@ApplicantID", Convert.ToInt32(Session["MasterlistID"].ToString()));
                 sqlCmds.Parameters.AddWithValue("@IQtest1", iqtest.IQtest1);
@@ -236,6 +362,7 @@ namespace HRIS.Controllers
                 sqlCmds.Parameters.AddWithValue("@IQtest28", iqtest.IQtest28);
                 sqlCmds.Parameters.AddWithValue("@IQtest29", iqtest.IQtest29);
                 sqlCmds.Parameters.AddWithValue("@IQtest30", iqtest.IQtest30);
+                sqlCmds.Parameters.AddWithValue("@score", scores);
                 sqlCmds.ExecuteNonQuery();
 
                 Session["timer"] = null;
