@@ -80,10 +80,10 @@
 
                     <tbody>
                         <tr class="Search">
-                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.FirstName</a></td>
-                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.LastName </a></td>
-                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.JobTitle </a></td>
-                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID })"> @Item.Applicant_AppliedDate.Value.ToString("MMM dd, yyyy") </a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID, JobPosition = Item.JobTitle, Firstname = Item.FirstName, Lastname = Item.LastName })"> @Item.FirstName</a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID, JobPosition = Item.JobTitle, Firstname = Item.FirstName, Lastname = Item.LastName  })"> @Item.LastName </a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID, JobPosition = Item.JobTitle, Firstname = Item.FirstName, Lastname = Item.LastName  })"> @Item.JobTitle </a></td>
+                            <td><a href="@Url.Action("ExamList", "Admin", new { MasterListID = Item.MasterlistID, JobPosition = Item.JobTitle, Firstname = Item.FirstName, Lastname = Item.LastName  })"> @Item.Applicant_AppliedDate.Value.ToString("MMM dd, yyyy") </a></td>
                         </tr>
                     </tbody>
 
@@ -312,76 +312,152 @@
                                             <br>
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">1. A brand new company has a Building costing $15,000, with related Accumulated Depreciation of $5,000, Machinery costing $7,500, with related Accumulated Depreciation of $2,500, Cash of $700, and a bank loan of $7,850. What is the owner’s equity?</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant1</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS1</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">2. Providing services on account for $40,000 would:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant2</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">3 - 1. On December 31, Total Assets are equal to:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant31</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS31</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">3 - 2. On December 31, Net Income is equal to:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant32</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS32</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">3 - 3. On December 31, Current Assets equal:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant33</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS33</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">4. On December 31, if John Company has net income equals $15,000 and the ending owner’s equity is $20,000,and John (owner) invested an additional $2,600 in his business, while withdrawing $6,000 during the year, the beginning Owner’s Equity for this year was:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant4</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS4</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">5. New Font Software provided services for customers of $7,000. What is the entry if it billed customers for the total amount?</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant5</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">6. Which of the following transactions require a compound journal entry?</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant6</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">7. A company paid in advance $4,800 for two years of prepaid insurance, which started on May 1. The adjusting entry on fiscal year ending December 31 of that year is:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant7</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS7</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">8. A business leases a Building for one year commencing on 1 Oct 2013. The rent is $24,000 per year and the business paid cash one year in advance on 1 Oct 2013. On 31 Dec 2013, how much of that payment should be recorded as a rental expense and how much should be deferred?</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant8</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS8</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">9. The purchase of an asset on credit will:</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant9</label>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="recipient-name" class="col-form-label text-justify">10. Assuming a 4-year old Equipment costing $100,000, with Accumulated Depreciation of $38,000, Estimated Useful of 10 years, Salvage Value of $5,000, and market value of $ 65,000 was sold for $40,000. How much is the Gain/Loss on disposal of asset?</label><br />
-                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
+                                                <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.Accountant10</label><br />
+                                                <label for="recipient-name" class="col-form-label">Solution:</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.AccountantS10</label>
                                             </div>
 
                                         </div>
                                         }
                                         else
                                         {
-                                                <div role="tabpanel" class="tab-pane" id="browseTab">
-                                                    <br>
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="col-form-label text-justify">2. @ViewBag.Q2</label><br />
-                                                        <label for="recipient-name" class="col-form-label font-weight-bold">@ViewBag.IQtest2</label>
-                                                    </div>
+                                        <div role="tabpanel" class="tab-pane" id="browseTab">
+                                            <br>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">ACHIEVEMENTS:</label><label for="recipient-name" class="col-form-label text-justify">  What factors and/or events have greatly contributed to your personal and social development – including career advancement (as applicable) - for the past three years?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay1</label>
+                                            </div>
 
-                                                </div>
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">REACTION TO FRUSTRATIONS:</label><label for="recipient-name" class="col-form-label text-justify"> How do you deal with the challenges of life, especially in times of seeming failure, abandonment, and other things that make you feel frustrated?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay2</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">IMPERFECTIONS and WEAKNESSES:</label><br/><label for="recipient-name" class="col-form-label text-justify"> It is true that nobody is perfect.  So how do you manage your weaknesses and deal with imperfections?</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay3</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">STRENGTHS and POTENTIALS:</label> <br /><label for="recipient-name" class="col-form-label text-justify"> What do you believe are your real strengths? List down five of your perceived strengths and give short elaboration on each one.</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay4</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">How and where will you use your strengths so that you can exhibit excellent job performance at DBA? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay5</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">What else can you contribute to your personal growth and that of the company? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay6</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">ENABLING FACTORS:</label><br /><label for="recipient-name" class="col-form-label text-justify">What three things are you looking for in a company that will contribute to your job satisfaction? Give a short explanation of each factor.</label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay7</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">FAMILY RESPONSIBILITY:</label><br /><label for="recipient-name" class="col-form-label text-justify">How do you feel about being the breadwinner or provider for your parents and/or siblings? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay8</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">What do you think will you do if you have to take care of sick family members given that you have to perform well at your work in DBA? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay9</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">Is there anyone in your family who is sick and whom you are taking care of? Who else is available to look after them during work hours? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay10</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify font-weight-bold">SIGNIFICANT RELATIONSHIP:</label><br /><label for="recipient-name" class="col-form-label text-justify">As a person, are you 1.) sharp and firm or 2.) sensitive and emotional? Elaborate a little more about yourself. </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay11</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">When and How will you use your heart over your head, and vice-versa? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay12</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label text-justify">Whether single or married, how do you describe yourself in terms of handling or managing a family? </label><br />
+                                                <label for="recipient-name" class="col-form-label font-weight-bold" style="white-space: pre-wrap;">@ViewBag.Essay13</label>
+                                            </div>
+
+                                        </div>
 
                                          }
 
@@ -393,6 +469,8 @@
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
+                                @Html.ActionLink("Export To Excel", "ExamReport", new { Reportype = "Excel", MasterlistID = ViewBag.MasterlistID, JobPosition = ViewBag.JobPosition, Firstname = ViewBag.Firstname, Lastname = ViewBag.Lastname }) |
+                                @Html.ActionLink("Export To PDF", "ExamReport", new { Reportype = "PDF", MasterlistID = ViewBag.MasterlistID, JobPosition = ViewBag.JobPosition, Firstname = ViewBag.Firstname, Lastname = ViewBag.Lastname })
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
