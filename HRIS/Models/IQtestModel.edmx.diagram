@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="38c779ac87284977bb3335dd34f62e3d" Name="Diagram1">
-        <EntityTypeShape EntityType="IQtestModel.IQtest" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="38c779ac87284977bb3335dd34f62e3d" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="IQtestModel.Exam_IQtest" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

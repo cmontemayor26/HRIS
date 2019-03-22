@@ -4,8 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IQtestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="IQtest">
+    <Schema Namespace="IQtestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Exam_IQtest">
           <Key>
             <PropertyRef Name="IQtestID" />
           </Key>
@@ -41,16 +41,19 @@
           <Property Name="IQtest28" Type="varchar" MaxLength="100" />
           <Property Name="IQtest29" Type="varchar" MaxLength="50" />
           <Property Name="IQtest30" Type="varchar" MaxLength="50" />
+          <Property Name="score" Type="varchar" MaxLength="5" />
         </EntityType>
         <EntityContainer Name="IQtestModelStoreContainer">
-          <EntitySet Name="IQtest" EntityType="Self.IQtest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam_IQtest" EntityType="Self.Exam_IQtest" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IQtestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="IQtest">
+        <EntityContainer Name="IQtestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Exam_IQtest" EntityType="IQtestModel.Exam_IQtest" />
+        </EntityContainer>
+        <EntityType Name="Exam_IQtest">
           <Key>
             <PropertyRef Name="IQtestID" />
           </Key>
@@ -86,51 +89,50 @@
           <Property Name="IQtest28" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="IQtest29" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IQtest30" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="score" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="IQtestEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="IQtests" EntityType="Self.IQtest" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="IQtestModelStoreContainer" CdmEntityContainer="IQtestEntities">
-          <EntitySetMapping Name="IQtests">
-            <EntityTypeMapping TypeName="IQtestModel.IQtest">
-              <MappingFragment StoreEntitySet="IQtest">
-                <ScalarProperty Name="IQtestID" ColumnName="IQtestID" />
-                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
-                <ScalarProperty Name="IQtest1" ColumnName="IQtest1" />
-                <ScalarProperty Name="IQtest2" ColumnName="IQtest2" />
-                <ScalarProperty Name="IQtest3" ColumnName="IQtest3" />
-                <ScalarProperty Name="IQtest4" ColumnName="IQtest4" />
-                <ScalarProperty Name="IQtest5" ColumnName="IQtest5" />
-                <ScalarProperty Name="IQtest6" ColumnName="IQtest6" />
-                <ScalarProperty Name="IQtest7" ColumnName="IQtest7" />
-                <ScalarProperty Name="IQtest8" ColumnName="IQtest8" />
-                <ScalarProperty Name="IQtest9" ColumnName="IQtest9" />
-                <ScalarProperty Name="IQtest10" ColumnName="IQtest10" />
-                <ScalarProperty Name="IQtest11" ColumnName="IQtest11" />
-                <ScalarProperty Name="IQtest12" ColumnName="IQtest12" />
-                <ScalarProperty Name="IQtest13" ColumnName="IQtest13" />
-                <ScalarProperty Name="IQtest14" ColumnName="IQtest14" />
-                <ScalarProperty Name="IQtest15" ColumnName="IQtest15" />
-                <ScalarProperty Name="IQtest16" ColumnName="IQtest16" />
-                <ScalarProperty Name="IQtest17" ColumnName="IQtest17" />
-                <ScalarProperty Name="IQtest18" ColumnName="IQtest18" />
-                <ScalarProperty Name="IQtest19" ColumnName="IQtest19" />
-                <ScalarProperty Name="IQtest20" ColumnName="IQtest20" />
-                <ScalarProperty Name="IQtest21" ColumnName="IQtest21" />
-                <ScalarProperty Name="IQtest22" ColumnName="IQtest22" />
-                <ScalarProperty Name="IQtest23" ColumnName="IQtest23" />
-                <ScalarProperty Name="IQtest24" ColumnName="IQtest24" />
-                <ScalarProperty Name="IQtest25" ColumnName="IQtest25" />
-                <ScalarProperty Name="IQtest26" ColumnName="IQtest26" />
-                <ScalarProperty Name="IQtest27" ColumnName="IQtest27" />
-                <ScalarProperty Name="IQtest28" ColumnName="IQtest28" />
-                <ScalarProperty Name="IQtest29" ColumnName="IQtest29" />
+        <EntitySetMapping Name="Exam_IQtest">
+            <EntityTypeMapping TypeName="IQtestModel.Exam_IQtest">
+              <MappingFragment StoreEntitySet="Exam_IQtest">
+                <ScalarProperty Name="score" ColumnName="score" />
                 <ScalarProperty Name="IQtest30" ColumnName="IQtest30" />
+                <ScalarProperty Name="IQtest29" ColumnName="IQtest29" />
+                <ScalarProperty Name="IQtest28" ColumnName="IQtest28" />
+                <ScalarProperty Name="IQtest27" ColumnName="IQtest27" />
+                <ScalarProperty Name="IQtest26" ColumnName="IQtest26" />
+                <ScalarProperty Name="IQtest25" ColumnName="IQtest25" />
+                <ScalarProperty Name="IQtest24" ColumnName="IQtest24" />
+                <ScalarProperty Name="IQtest23" ColumnName="IQtest23" />
+                <ScalarProperty Name="IQtest22" ColumnName="IQtest22" />
+                <ScalarProperty Name="IQtest21" ColumnName="IQtest21" />
+                <ScalarProperty Name="IQtest20" ColumnName="IQtest20" />
+                <ScalarProperty Name="IQtest19" ColumnName="IQtest19" />
+                <ScalarProperty Name="IQtest18" ColumnName="IQtest18" />
+                <ScalarProperty Name="IQtest17" ColumnName="IQtest17" />
+                <ScalarProperty Name="IQtest16" ColumnName="IQtest16" />
+                <ScalarProperty Name="IQtest15" ColumnName="IQtest15" />
+                <ScalarProperty Name="IQtest14" ColumnName="IQtest14" />
+                <ScalarProperty Name="IQtest13" ColumnName="IQtest13" />
+                <ScalarProperty Name="IQtest12" ColumnName="IQtest12" />
+                <ScalarProperty Name="IQtest11" ColumnName="IQtest11" />
+                <ScalarProperty Name="IQtest10" ColumnName="IQtest10" />
+                <ScalarProperty Name="IQtest9" ColumnName="IQtest9" />
+                <ScalarProperty Name="IQtest8" ColumnName="IQtest8" />
+                <ScalarProperty Name="IQtest7" ColumnName="IQtest7" />
+                <ScalarProperty Name="IQtest6" ColumnName="IQtest6" />
+                <ScalarProperty Name="IQtest5" ColumnName="IQtest5" />
+                <ScalarProperty Name="IQtest4" ColumnName="IQtest4" />
+                <ScalarProperty Name="IQtest3" ColumnName="IQtest3" />
+                <ScalarProperty Name="IQtest2" ColumnName="IQtest2" />
+                <ScalarProperty Name="IQtest1" ColumnName="IQtest1" />
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="IQtestID" ColumnName="IQtestID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

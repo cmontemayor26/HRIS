@@ -25,6 +25,6 @@ namespace HRIS.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<IQtest> IQtests { get; set; }
+        public virtual DbSet<Exam_IQtest> IQtests { get; set; }
     }
 }
